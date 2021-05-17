@@ -1,0 +1,14 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% block body %}
+    <section class="signup_finish mg_t50">
+        <h4 class="signup_finish_text mg_t50"><span class="blue">t</span>ri<span class="red">an</span>gl<span class="yellow">e</span>へようこそ</h4>
+        <h6 class="signup_finish_text_main mg_t50">ご登録ありがとうございます。</h6>
+        <P class="signup_finish_text_sub mg_t30">続けてログインを行いましょう。</P>
+        <div class="mg_t30">
+            <i class="fas fa-sign-in-alt finish pd_l10"></i>
+            <a class="link_black_finish pd_r10"  href="{% url 'login' %}">ログイン</a>
+        </div>
+    </section>
+{% endblock body %}

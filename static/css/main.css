@@ -1,0 +1,444 @@
+/*app/base.html*/
+@media screen and (max-width:639px) {
+    body {
+        width: 100%;
+        font-size: 16px;
+        font-family: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, Meiryo, sans-serif;
+        background: #f8f7f7;
+        color: #4d5156;
+    }
+    header{
+        height: 80px;
+        background:#ffffff;
+         box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+    }
+    a{
+        text-decoration: none;
+    }
+    a:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .sub_css {
+        display: none;
+    }
+    .app_name{
+        font-weight: bold;
+        font-size: 30px;
+        color: #151414;
+        font-family: 'Cabin', sans-serif;
+        margin-bottom: 0px;
+    }
+    .link_white{
+        color: #fffff3;
+        font-size: 15px;
+    }
+    .link_white:hover{
+        color: #fffff3;
+        font-size: 15px;
+    }
+    .new_user_btn{
+        background: #519a76;
+        height: 30px;
+        line-height: 30px;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+    .fa-user-plus{
+       color:#fffff3;
+    }
+    .link_black{
+        color: #151414;
+        font-size: 15px;
+    }
+    .link_black:hover{
+        color: #151414;
+        font-size: 15px;
+    }
+    .blue{
+        color: #3399FF;
+    }
+    .red{
+        color: #CC0033;
+    }
+    .yellow{
+        color: #FFCC00;
+    }
+
+/*S home.html*/
+    .search{
+        width: 50%;
+        border: none;
+        outline: none;
+        appearance: none;
+        background: #f8f7f7;
+    }
+    .search[type="text"]:focus{
+        border: 1px solid #3399FF;
+    }
+    .search_btn{
+        border: none;
+        outline: none;
+        appearance: none;
+        background: #f8f7f7;
+    }
+    .main_hr{
+        margin: 0 auto;
+        width: 70%;
+    }
+/*E home.html*/
+/*S signup.html*/
+    .signup_text_detail{
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-bottom: 10px;
+    }
+    .registration{
+        text-align: center;
+    }
+    .registration_main{
+        width: 70%;
+        height: 30px;
+        padding: 0;
+    }
+    .table{
+        margin: 0;
+    }
+    .registration_main[type="text"]:focus{
+       background: #e3f1f6;
+    }
+    .signup_registration_btn{
+        font-weight: bolder;
+        font-size: 18px;
+        color: #fffff3;
+        background: #519a76;
+        width: 150px;
+    }
+    .signup_registration_btn:hover{
+        font-weight: bolder;
+        font-size: 18px;
+        color: #fffff3;
+        background:#519a76;
+        width: 150px;
+    }
+    .individual_text{
+        text-align: center;
+        font-weight: bolder;
+    }
+/*E signup.html*/
+/*S signup_text.html*/
+    .signup_text{
+        text-align: center;
+    }
+    .signup_text_main{
+        font-size: 22px;
+        font-weight: bolder;
+
+    }
+    .signup_text_sub{
+        font-weight: bolder;
+        font-size: 15px;
+    }
+    .signup_text_btn{
+        display: inline-flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .btn_individual{
+        width: 300px;
+        background: #3399FF;
+        font-size: 18px;
+        color: #ffffff;
+        padding: 12px;
+        font-weight: bold;
+    }
+    .btn_producer{
+        width: 300px;
+        background: #CC0033;
+        font-size: 18px;
+        color: #ffffff;
+        padding: 12px;
+        font-weight: bold;
+    }
+    .btn_restaurant{
+        width: 300px;
+        background: #FFCC00;
+        font-size: 18px;
+        color: #ffffff;
+        padding: 12px;
+        font-weight: bold;
+    }
+
+/*E signup_text.html*/
+/*S signup_finish.html*/
+    .signup_finish {
+        text-align: center;
+    }
+    .signup_finish_text{
+        font-size: 36px;
+    }
+    .signup_finish_text_main{
+        font-size: 20px;
+    }
+    .signup_finish_text_sub{
+        font-weight: bolder;
+    }
+    .link_black_finish{
+        color: #3399FF;
+        font-size: 20px;
+    }
+    .link_black_finish:hover{
+        color: #3399FF;
+        font-size: 20px;
+    }
+    .finish{
+        color: #3399FF;
+        font-size: 20px;
+    }
+
+
+/*E signup_finish.html*/
+/*S login.html*/
+    .login_link_group{
+        display:flex;
+        flex-flow: column;
+    }
+    .login_link{
+        margin-left: auto;
+        margin-right: 30px;
+        color: #151414;
+        font-size: 14px;
+    }
+    .login_btn{
+        color: #fffff3;
+        width: 150px;
+        background: #454141;
+    }
+    .login_btn:hover{
+        color: #454141;
+        width: 150px;
+        background: #519a76;
+    }
+/*E login.html*/
+/*S my_page*/
+    .my_page_link{
+        color: #151414;
+        font-weight: bolder;
+        font-size: 18px;
+    }
+    .my_page_link:hover{
+        color: #151414;
+        font-weight: bolder;
+        font-size: 18px;
+    }
+    .fas fa-envelope,
+    .fa-map-marker-alt,
+    .fa-lock,
+    .fa-file-contract,
+    .fa-book-open,
+    .fa-user-edit{
+        font-size: 20px;
+    }
+/*E my_page*/
+/*S user_detail & work_detail*/
+    #previewImage{
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+    }
+    .img_preview{
+        text-align: center;
+    }
+    .filelabel{
+      display: inline-block;
+      position: relative;
+      background-color: #3399FF;
+      color: #fff;
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.5s;
+    }
+    .filelabel:hover{
+      background-color: #3399FF;
+    }
+
+    .fileinput{
+      display: none;
+    }
+    .registration_main_big{
+        width: 70%;
+        height: 110px;
+        resize: none;
+    }
+    .registration_main_big[type="text"]:focus{
+       background: #e3f1f6;
+    }
+    .registration_main_radio{
+
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    label[for=id_type_0]{
+        display: none;
+    }
+    .registration_radio{
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-bottom: 5px;
+    }
+    label[for=id_type_1],
+    label[for=id_type_2]{
+        display: inline-block;
+        border-radius: 20px;
+        text-align: center;
+        text-decoration: none;
+        border: solid 1px #ccc;
+        transition: 0.25s;
+        padding: 6px 18px;
+        cursor: pointer;
+        font-size: 18px;
+        margin: 10px 3px 3px;
+    }
+
+/*E user_detail & work_detail*/
+
+
+/*S margin/padding*/
+    .mg_t10{
+        margin-top: 10px;
+    }
+    .mg_t15{
+        margin-top: 15px;
+    }
+    .mg_t30{
+        margin-top: 30px;
+    }
+    .mg_t50{
+        margin-top: 50px;
+    }
+    .mg_b30{
+        margin-top: 30px;
+    }
+    .mg_l10{
+        margin-left: 10px;
+    }
+    .mg_r10{
+        margin-right: 10px;
+    }
+    .pd_t10{
+        padding-top: 10px;
+    }
+    .pd_b10{
+        padding-bottom: 10px;
+    }
+    .pd_l10{
+        padding-left: 10px;
+    }
+    .pd_l20{
+        padding-left: 20px;
+    }
+    .pd_r10{
+        padding-right: 10px;
+    }
+/*E margin/padding*/
+    .dp_flex{
+        display: flex;
+    }
+    .tab-wrap {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    /*タブメニュー*/
+    .tab-label {
+      font-size: 15px;
+      color:#151414;
+      font-weight: bolder;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+      white-space: nowrap;
+      text-align: center;
+      order: -1;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+      flex: 1;
+    }
+    .tab-label:not(:last-of-type) {
+      margin-right: 5px;
+    }
+    .tab-content {
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+    }
+    /* アクティブなタブ */
+    .tab-switch:checked+.switch_black{
+      border-bottom: 2px solid #454141;
+    }
+    .tab-switch:checked+.switch_blue{
+      border-bottom: 2px solid #3399FF;
+    }
+    .tab-switch:checked+.switch_red{
+      border-bottom: 2px solid #CC0033;
+    }
+    .tab-switch:checked+.switch_yellow{
+      border-bottom: 2px solid #FFCC00;
+    }
+    /* ラジオボタン非表示 */
+    .tab-switch {
+      display: none;
+    }
+    .tab-switch:checked+.tab-label+.tab-content {
+      height: auto;
+      overflow: auto;
+      opacity: 1;
+      transition: .5s opacity;
+    }
+    /*ナビメニュー*/
+    .nav {
+        background: #ffffff;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+        justify-content: space-evenly;
+    }
+ {
+        padding: 0;
+        border-style: none;
+    }
+    .fa-search-plus,
+    .fa-user,
+    .fa-home{
+        font-size: 22px;
+        color: #666565;
+    }
+
+    .footer_nav_base {
+        margin: 0;
+        font-size: 14px;
+    }
+    .nav-link{
+
+        text-align: center;
+        border-style: none;
+        color: #151414;
+    }
+    .nav-link:hover{
+        cursor: pointer;
+        border-style: none;
+        color: #151414;
+    }
+    .footer_nav_base{
+        padding-top:5px;
+        font-size: 17px;
+    }
+
+
+
+/*base.html*/
+
+}

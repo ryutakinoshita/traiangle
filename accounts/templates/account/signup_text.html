@@ -1,0 +1,20 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% block body %}
+    <section class="signup_text mg_t50">
+        <h4 class="signup_text_main">まだ、登録は完了していません。</h4>
+        <P class="signup_text_sub mg_t30">以下の登録者の種類を選択してください。</P>
+        <div class="signup_text_btn mg_t30">
+            <a class="next_link" href="{% url 'individual' %}">
+               <button type="submit" class="btn mg_t30 btn_individual">個人購入者として登録</button>
+            </a>
+            <a class="next_link" href="">
+               <button type="submit" class="btn mg_t30 btn_producer">生産者として登録</button>
+            </a>
+            <a class="next_link" href="">
+               <button type="submit" class="btn mg_t30 btn_restaurant">飲食店として登録</button>
+            </a>
+        </div>
+    </section>
+{% endblock body %}

@@ -1,0 +1,41 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block body %}
+    <section class="signup mg_t30">
+        <form class="signup_form" method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <p class="signup_text_detail">性</p>
+            <div class="registration">
+                <table class="table">{% render_field form.first_name class="registration_main"%}</table>
+            </div>
+            <p class="signup_text_detail">名</p>
+            <div class="registration">
+                <table class="table">{% render_field form.last_name class="registration_main"%}</table>
+            </div>
+            <p class="signup_text_detail">メールアドレス</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.email class="registration_main"%}</table>
+            </div>
+            <p class="signup_text_detail">電話番号</p>
+            <div class="registration">
+                <table class="table">{% render_field form.phone class="registration_main"%}</table>
+            </div>
+            <p class="signup_text_detail">パスワード</p>
+            <div class="registration">
+                <table class="table">{% render_field form.password1 class="registration_main" placeholder="半角英数字8文字以上" %}</table>
+            </div>
+            <p class="signup_text_detail">パスワードの再入力</p>
+            <div class="registration">
+                <table class="table">{% render_field form.password2 class="registration_main" placeholder="パスワードの再入力" %}</table>
+            </div>
+            <div class="text-center mg_t50">
+                <button type="submit" class="btn signup_registration_btn">登録</button>
+            </div>
+        </form>
+    </section>
+{% endblock body %}
+
+

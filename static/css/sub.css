@@ -1,0 +1,22 @@
+@media screen and (min-width:1024px) {
+    body {
+        width: 100%;
+        font-size: 20px;
+        font-family: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, Meiryo, sans-serif;
+        background: #f8f7f7;
+        color: #4d5156;
+    }
+    .sub_css {
+        display: none;
+    }
+/*S margin/padding*/
+/*E margin/padding*/
+    .dp_flex_sub{
+        display: flex;
+    }
+
+
+/*base.html*/
+
+}
+

@@ -1,0 +1,39 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block body %}
+    <section class="individual mg_t30">
+        <h5 class="individual_text">住所の登録</h5>
+        <form class="h-adr individual_form" method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <input type="hidden" class="p-country-name" value="Japan">
+             <p class="signup_text_detail">郵便番号</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.zip_code class="p-postal-code registration_main"  placeholder="例 5408570"%}</table>
+            </div>
+            <p class="signup_text_detail">都道府県</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.prefectures class="p-region registration_main" placeholder="例 大阪府"%}</table>
+            </div>
+            <p class="signup_text_detail">市町村</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.city  class="p-locality registration_main" placeholder="例 大阪市"%}</table>
+            </div>
+            <div id="checkOn">
+                <p class="signup_text_detail">住所1</p>
+                <div class="registration">
+                    <table class="table m-0">{% render_field form.address1 class="p-street-address registration_main" placeholder="例 中央区大手町 〇〇番地"%}</table>
+                </div>
+                <p class="signup_text_detail">住所2</p>
+                <div class="registration">
+                    <table class="table m-0">{% render_field form.address2 class="extended-address registration_main" placeholder="例triangleマンション　〇〇号室"%}</table>
+                </div>
+            </div>
+            <div class="text-center mg_t50">
+                <button type="submit" class="btn signup_registration_btn">登録</button>
+            </div>
+        </form>
+    </section>
+{% endblock body %}

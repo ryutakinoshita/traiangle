@@ -1,0 +1,12 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+
+{% block body %}
+       <form class="signup" id="signup_form" method="post" >
+            {% csrf_token %}
+            <table class="table">{{ form.as_table }}</table>
+            <hr class="log_hr">
+            <button type="submit" class="btn btn-outline-primary" id="login_btn">ログアウト</button>
+        </form>
+{% endblock body %}
