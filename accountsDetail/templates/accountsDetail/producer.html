@@ -1,0 +1,43 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block body %}
+    <section class="Producer mg_t30 pd_b30">
+        <h5 class="Producer_text">詳細の登録</h5>
+        <form class="h-adr individual_form" method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <p class="signup_text_detail pd_t30">プロフィール画像</p>
+            <div class="img_preview pd_b10 mg_t15" id="preview"></div>
+            <div class="registration mg_t15">
+                <label for="file" class="filelabel">画像を選択</label>
+                <table class="table m-0">{% render_field form.producer_img class="fileinput" name="fileinput" id="file"　onChange="imgPreView(event)"%}</table>
+            </div>
+            <p class="signup_text_detail">生産者名または会社名</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.producer_name class="registration_main" placeholder=""%}</table>
+            </div>
+            <input type="hidden" class="p-country-name" value="Japan">
+            <p class="signup_text_detail">生産地の登録</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.zip_code class="p-postal-code registration_main"  placeholder="例 5408570"%}</table>
+            </div>
+            <div class="registration mg_t20">
+                <table class="table m-0">{% render_field form.prefectures_city class="p-region p-locality registration_main" placeholder="例 大阪府 大阪市"%}</table>
+            </div>
+            <p class="signup_text_detail_small mg_t15">※郵便番号を記載すると自動的に都道府県市町村が記載されます。(郵便番号はプロフィール欄に表示されません)</p>
+            <p class="signup_text_detail">生産物の種類</p>
+            <div class="registration_check">
+                <table class="table m-0">{% render_field form.producer_type class="registration_main_check" placeholder=""%}</table>
+            </div>
+            <p class="signup_text_detail">自己紹介</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.certification class="registration_main_big" placeholder=""%}</table>
+            </div>
+            <div class="text-center mg_t50">
+                <button type="submit" class="btn signup_registration_btn">登録</button>
+            </div>
+        </form>
+    </section>
+{% endblock body %}

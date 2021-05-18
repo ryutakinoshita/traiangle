@@ -2,7 +2,7 @@
 @media screen and (max-width:639px) {
     body {
         width: 100%;
-        font-size: 16px;
+        font-size: 18px;
         font-family: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, Meiryo, sans-serif;
         background: #f8f7f7;
         color: #4d5156;
@@ -92,6 +92,7 @@
         margin-top: 30px;
         margin-left: 50px;
         margin-bottom: 10px;
+        font-weight: bolder;
     }
     .registration{
         text-align: center;
@@ -121,9 +122,95 @@
         background:#519a76;
         width: 150px;
     }
-    .individual_text{
+    .individual_text,
+    .Producer_text{
+        font-size: 25px;
         text-align: center;
-        font-weight: bolder;
+        font-weight: bold;
+    }
+    .signup_text_detail_small{
+        padding-left: 30px;
+        padding-right: 30px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    #previewImage{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+    }
+    .img_preview{
+        text-align: center;
+    }
+    .filelabel{
+      display: inline-block;
+      position: relative;
+      background-color: #3399FF;
+      color: #fff;
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.5s;
+    }
+    .filelabel:hover{
+      background-color: #3399FF;
+    }
+
+    .fileinput{
+      display: none;
+    }
+     ul {
+        list-style: none;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    label[for=id_producer_type_0]{
+        display: none;
+    }
+    .registration_radio{
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-bottom: 5px;
+    }
+    label[for=id_producer_type_1],
+    label[for=id_producer_type_2],
+    label[for=id_producer_type_3],
+    label[for=id_producer_type_4],
+    label[for=id_producer_type_5],
+    label[for=id_producer_type_6],
+    label[for=id_producer_type_7],
+    label[for=id_producer_type_8],
+    label[for=id_producer_type_9],
+    label[for=id_producer_type_10],
+    label[for=id_producer_type_11] {
+        display: inline-block;
+        border-radius: 20px;
+        text-align: center;
+        text-decoration: none;
+        border: solid 1px #ccc;
+        transition: 0.25s;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 17px;
+        width: 170px;
+        margin: 5px 3px;
+    }
+    .registration_check{
+         display: inline-block;
+    }
+    li{
+       display: inline-block;
+    }
+    .registration_main_big{
+        width: 70%;
+        height: 150px;
+        font-size: 20px;
+        resize: none;
+        overflow:scroll;
+    }
+    .registration_main_big[type="textarea"]:focus{
+       background: #e3f1f6;
     }
 /*E signup.html*/
 /*S signup_text.html*/
@@ -224,12 +311,12 @@
     .my_page_link{
         color: #151414;
         font-weight: bolder;
-        font-size: 18px;
+        font-size: 20px;
     }
     .my_page_link:hover{
         color: #151414;
         font-weight: bolder;
-        font-size: 18px;
+        font-size: 20px;
     }
     .fas fa-envelope,
     .fa-map-marker-alt,
@@ -241,68 +328,7 @@
     }
 /*E my_page*/
 /*S user_detail & work_detail*/
-    #previewImage{
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-    }
-    .img_preview{
-        text-align: center;
-    }
-    .filelabel{
-      display: inline-block;
-      position: relative;
-      background-color: #3399FF;
-      color: #fff;
-      font-size: 16px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      transition: all 0.5s;
-    }
-    .filelabel:hover{
-      background-color: #3399FF;
-    }
 
-    .fileinput{
-      display: none;
-    }
-    .registration_main_big{
-        width: 70%;
-        height: 110px;
-        resize: none;
-    }
-    .registration_main_big[type="text"]:focus{
-       background: #e3f1f6;
-    }
-    .registration_main_radio{
-
-    }
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    label[for=id_type_0]{
-        display: none;
-    }
-    .registration_radio{
-        margin-top: 30px;
-        margin-left: 50px;
-        margin-bottom: 5px;
-    }
-    label[for=id_type_1],
-    label[for=id_type_2]{
-        display: inline-block;
-        border-radius: 20px;
-        text-align: center;
-        text-decoration: none;
-        border: solid 1px #ccc;
-        transition: 0.25s;
-        padding: 6px 18px;
-        cursor: pointer;
-        font-size: 18px;
-        margin: 10px 3px 3px;
-    }
 
 /*E user_detail & work_detail*/
 
@@ -313,6 +339,9 @@
     }
     .mg_t15{
         margin-top: 15px;
+    }
+    .mg_t20{
+        margin-top: 20px;
     }
     .mg_t30{
         margin-top: 30px;
@@ -332,8 +361,14 @@
     .pd_t10{
         padding-top: 10px;
     }
+    .pd_t30{
+        padding-top: 30px;
+    }
     .pd_b10{
         padding-bottom: 10px;
+    }
+    .pd_b30{
+        padding-bottom: 30px;
     }
     .pd_l10{
         padding-left: 10px;
