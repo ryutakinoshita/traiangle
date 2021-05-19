@@ -10,6 +10,9 @@ class Individual(models.Model):
     address1=models.CharField(max_length=40,blank=True)
     address2=models.CharField(max_length=40,blank=True)
 
+    def __str__(self):
+            return self.zip_code
+
 class Type(models.Model):
     Types=(
         ("1", "野菜"),
@@ -33,6 +36,10 @@ class Producer(models.Model):
     producer_name=models.CharField(max_length=40,blank=True)
     producer_type = models.CharField(max_length=100, choices=Type.Types, blank=True, null=False)
     certification = models.TextField(max_length=500, blank=True, null=True)
+
+    def __str__(self):
+            return self.producer_name
+
 
 class TypeSub(models.Model):
     Types=(
@@ -64,3 +71,16 @@ class Restaurant(models.Model):
     restaurant_type = models.CharField(max_length=100, choices=TypeSub.Types, blank=True, null=False)
     restaurant_name=models.CharField(max_length=40,blank=True)
     certification = models.TextField(max_length=500, blank=True, null=True)
+
+    def __str__(self):
+            return self.restaurant_name
+
+class  RestaurantImage(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    restaurant_img = models.ImageField(upload_to='restaurantImg/')
+
+    def __str__(self):
+            return self.restaurant_img.url
+
+
+

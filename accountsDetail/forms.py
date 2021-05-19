@@ -1,6 +1,6 @@
 from django import forms
-from .models import Individual,Producer,Restaurant
-
+from .models import Individual,Producer,Restaurant, RestaurantImage
+from django.core.files.storage import default_storage
 
 class IndividualForm(forms.ModelForm):
 
@@ -26,6 +26,11 @@ class RestaurantForm(forms.ModelForm):
                   "restaurant_name","restaurant_type","certification","restaurant_img")
         widgets = {
             'producer_type': forms.RadioSelect(),
-            "restaurant_img":forms.ClearableFileInput(attrs={'multiple': True})
+            "restaurant_img":forms.ClearableFileInput(attrs={'multiple': True}),
         }
+
+class RestaurantImageForm(forms.ModelForm):
+    class Meta:
+        model =  RestaurantImage
+        fields = ("restaurant_img",)
 
