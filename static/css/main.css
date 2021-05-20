@@ -212,6 +212,13 @@
     .registration_main_big[type="textarea"]:focus{
        background: #e3f1f6;
     }
+    #previewImage-preview1,
+    #previewImage-preview2,
+    #previewImage-preview3{
+        width: 200px;
+        height: 200px;
+    }
+
 /*E signup.html*/
 /*S signup_text.html*/
     .signup_text{

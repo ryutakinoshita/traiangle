@@ -75,12 +75,17 @@ class Restaurant(models.Model):
     def __str__(self):
             return self.restaurant_name
 
-class  RestaurantImage(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    restaurant_img = models.ImageField(upload_to='restaurantImg/')
+class RestaurantImage(models.Model):
+    user = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    image_name1=models.CharField(max_length=40,blank=True)
+    restaurant_img1= models.ImageField(upload_to='restaurantImg/')
+    image_name2=models.CharField(max_length=40,blank=True)
+    restaurant_img2= models.ImageField(upload_to='restaurantImg/')
+    image_name3=models.CharField(max_length=40,blank=True)
+    restaurant_img3= models.ImageField(upload_to='restaurantImg/')
 
     def __str__(self):
-            return self.restaurant_img.url
+            return self.restaurant_img1.url
 
 
 

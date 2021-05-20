@@ -1,3 +1,4 @@
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -6,8 +7,9 @@ from .forms import (
     ProducerForm,
     RestaurantForm,
     RestaurantImageForm
+
 )
-from .models import RestaurantImage
+
 
 
 class MyPageView(generic.TemplateView):
@@ -44,13 +46,14 @@ class RestaurantView(generic.CreateView,LoginRequiredMixin):
         return super().form_valid(form)
 
 
-class RestaurantImageView(generic.CreateView,LoginRequiredMixin):  # 投稿機能
+#
+class RestaurantImageView(generic.CreateView,LoginRequiredMixin):
     template_name = 'accountsDetail/restaurant_image.html'
     form_class = RestaurantImageForm
     success_url = reverse_lazy('signup_finish')
 
     def form_valid(self, form):
-        form.instance.user=self.request.user
+        form.instance.restaurant=self.request.user
         return super().form_valid(form)
 
 

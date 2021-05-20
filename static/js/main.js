@@ -18,6 +18,7 @@ function imgPreView(event) {
 }
 
 
+
 var selecterBox = document.getElementById('checkOn');
 
 function formSwitch() {
@@ -40,14 +41,22 @@ function entryChange2(){
 }
 }
 
-function loadImage(obj)
-{
-	document.getElementById('preview').innerHTML = '<p>プレビュー</p>';
-	for (i = 0; i < obj.files.length; i++) {
-		var fileReader = new FileReader();
-		fileReader.onload = (function (e) {
-			document.getElementById('preview').innerHTML += '<img src="' + e.target.result + '">';
-		});
-		fileReader.readAsDataURL(obj.files[i]);
-	}
+function restImgPreView(event,targetId) {
+  var file = event.target.files[0];
+  var reader = new FileReader();
+  var preview = document.getElementById(targetId);
+  var previewImage = document.getElementById("previewImage-"+targetId);
+
+  if(previewImage != null) {
+    preview.removeChild(previewImage);
+  }
+
+  reader.onload = function(event) {
+     var img = document.createElement("img");
+     img.setAttribute("src", reader.result);
+     img.setAttribute("id", "previewImage-"+targetId);
+     preview.appendChild(img);
+  };
+
+  reader.readAsDataURL(file);
 }

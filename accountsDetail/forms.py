@@ -29,8 +29,10 @@ class RestaurantForm(forms.ModelForm):
             "restaurant_img":forms.ClearableFileInput(attrs={'multiple': True}),
         }
 
+
 class RestaurantImageForm(forms.ModelForm):
+
     class Meta:
-        model =  RestaurantImage
-        fields = ("restaurant_img",)
+        model = RestaurantImage
+        fields = ("image_name1","restaurant_img1","image_name2","restaurant_img2","image_name3","restaurant_img3")
 
