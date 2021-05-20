@@ -1,0 +1,41 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block body %}
+
+<section class="Producer mg_t30 pd_b30">
+    <form class="post-form-to-edit-portfolio" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="img_preview_rest pd_b10 mg_t15" id="preview1"></div>
+        <div class="img_preview_rest pd_b10 mg_t15" id="preview2"></div>
+        <div class="img_preview_rest pd_b10 mg_t15" id="preview3"></div>
+        <div class="registration">
+            <table class="table m-0">{% render_field form.image_name1 class="registration_main"  placeholder="例 店舗の外観"%}</table>
+        </div>
+        <label for="file" class="filelabel">1枚目を選択</label>
+        <div class="registration">
+            <table class="table m-0">{% render_field form.restaurant_img1|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview1')" %}</table>
+        </div>
+        <div class="registration">
+            <table class="table m-0">{% render_field form.image_name2 class="registration_main"  placeholder="例 店舗の内観"%}</table>
+        </div>
+        <label for="file" class="filelabel">2枚目を選択</label>
+        <div class="registration">
+            <table class="table m-0">{% render_field form.restaurant_img2|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview2')" %}</table>
+        </div>
+        <div class="registration">
+            <table class="table m-0">{% render_field form.image_name3 class="registration_main"  placeholder="例 料理"%}</table>
+        </div>
+        <label for="file" class="filelabel">3枚目を選択</label>
+        <div class="registration">
+            <table class="table m-0">{% render_field form.restaurant_img3|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview3')"  %}</table>
+        </div>
+        <div class="text-center mg_t50">
+            <button type="submit" class="btn signup_registration_btn">登録</button>
+        </div>
+    </form>
+</section>
+{% endblock body %}
+
