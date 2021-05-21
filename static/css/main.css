@@ -215,8 +215,22 @@
     #previewImage-preview1,
     #previewImage-preview2,
     #previewImage-preview3{
-        width: 200px;
+        width: 270px;
         height: 200px;
+    }
+    .restaurant_img_name{
+        width: 150px;
+        outline: none;
+        border: none;
+        background: #f8f7f7;
+        border-bottom: 1px solid #454141;
+    }
+    .restaurant_img_name[type="text"]:focus{
+        background: #ffffff;
+    }
+    .restaurant_img{
+        display: block;
+        text-align: center;
     }
 
 /*E signup.html*/
@@ -314,6 +328,35 @@
         background: #519a76;
     }
 /*E login.html*/
+/*S change.html*/
+    .change_text{
+        font-size: 25px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .change_text_small{
+        font-size: 19px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .email_now{
+        text-align: center;
+    }
+    .change_text_detail{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .change_btn{
+        width: 150px;
+        background: #3399FF;
+        font-size: 18px;
+        color: #ffffff;
+        padding: 12px;
+        font-weight: bold;
+    }
+/*E change.html*/
+
+
 /*S my_page*/
     .my_page_link{
         color: #151414;

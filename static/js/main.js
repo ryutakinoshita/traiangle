@@ -17,8 +17,6 @@ function imgPreView(event) {
   reader.readAsDataURL(file);
 }
 
-
-
 var selecterBox = document.getElementById('checkOn');
 
 function formSwitch() {

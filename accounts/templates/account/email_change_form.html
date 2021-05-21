@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block body %}
+    <section class="email_change mg_t30 pd_b30">
+        <p class="signup_text_detail mg_t50">登録済みのメールアドレス</p>
+        <p class="email_now">{{user.email}}</p>
+        <form class="email_change_form" method="POST">
+            {% csrf_token %}
+            <p class="signup_text_detail mg_t50">新しいメールアドレス</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.email class="registration_main"%}</table>
+            </div>
+            <div class="text-center mg_t50">
+                <button type="submit" class="btn signup_registration_btn">登録</button>
+            </div>
+        </form>
+    </section>
+{% endblock body %}
