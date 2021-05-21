@@ -39,20 +39,65 @@ class SignupView(generic.CreateView):
     form_class = UserCreateForm
     success_url = reverse_lazy('signup_text')
 
-    def form_valid(self,form):
-        user = form.save()
-        login(self.request, user,backend='django.contrib.auth.backends.ModelBackend')
-        return super().form_valid(form)
+    def form_valid(self, form):
+        """仮登録と本登録用メールの発行."""
+        user = form.save(commit=False)
+        user.is_active = False
+        user.save()
 
+
+        current_site = get_current_site(self.request)
+        domain = current_site.domain
+        context = {
+            'protocol': self.request.scheme,
+            'domain': domain,
+            'token': dumps(user.pk),
+            'user': user,
+        }
+
+        subject = render_to_string('account/mails/user_create_subject.txt', context)
+        message = render_to_string('account/mails/user_create_message.txt', context)
+
+        user.email_user(subject, message)
+        return redirect('user_create_done')
+
+class SignupDoneView(generic.TemplateView):
+    template_name = 'account/sign_up_done.html'
+
+
+class SignupFinishView(generic.TemplateView):
+    template_name = 'account/signup_finish.html'
+    timeout_seconds = getattr(settings, 'ACTIVATION_TIMEOUT_SECONDS', 60 * 60 * 24)
+
+
+    def get(self, request, **kwargs):
+        """tokenが正しければ本登録."""
+        token = kwargs.get('token')
+        try:
+            user_pk = loads(token, max_age=self.timeout_seconds)
+        except SignatureExpired:
+            return HttpResponseBadRequest()
+
+        except BadSignature:
+            return HttpResponseBadRequest()
+
+        else:
+            try:
+                user = User.objects.get(pk=user_pk)
+            except User.DoesNotExist:
+                return HttpResponseBadRequest()
+            else:
+                if not user.is_active:
+                    # 問題なければ本登録とする
+                    user.is_active = True
+                    user.save()
+                    return super().get(request, **kwargs)
+
+        return HttpResponseBadRequest()
 
 
 class SignupTextView(generic.TemplateView):
     template_name = 'account/signup_text.html'
-
-class SignupFinishView(generic.TemplateView):
-    template_name = 'account/signup_finish.html'
-
-
 
 class EmailChangeView(LoginRequiredMixin, generic.FormView):
     """メールアドレスの変更"""

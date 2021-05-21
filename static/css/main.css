@@ -97,7 +97,8 @@
     .registration{
         text-align: center;
     }
-    .registration_main{
+    .registration_main,
+    .registration_main_radio{
         width: 70%;
         height: 30px;
         padding: 0;

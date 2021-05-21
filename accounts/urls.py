@@ -4,10 +4,11 @@ from.import views
 
 urlpatterns = [
     path('login/', views.LoginView.as_view(), name='login'),
-    path('signup/', views.SignupView.as_view(), name='signup'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
+    path('signup/', views.SignupView.as_view(), name='signup'),
+    path('signup/done/', views.SignupDoneView.as_view(), name='user_create_done'),
+    path('signup/finish/<token>/', views.SignupFinishView.as_view(), name='signup_finish'),
     path('signup/text/', views.SignupTextView.as_view(), name='signup_text'),
-    path('signup/finish/', views.SignupFinishView.as_view(), name='signup_finish'),
     path('email/change/', views.EmailChangeView.as_view(), name='email_change'),
     path('email/change/done/', views.EmailChangeDoneView.as_view(), name='email_change_done'),
     path('email/change/complete/<str:token>/', views.EmailChangeCompleteView.as_view(), name='email_change_complete'),

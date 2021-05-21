@@ -143,7 +143,7 @@ AUTHENTICATION_BACKENDS = [
 AUTH_USER_MODEL = 'accounts.User'
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'signup_text'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'login'
 
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
