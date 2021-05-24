@@ -19,7 +19,7 @@ class MyPageView(generic.TemplateView):
 class IndividualView(generic.CreateView, LoginRequiredMixin):
     template_name = 'accountsDetail/individual.html'
     form_class = IndividualForm
-    success_url = reverse_lazy('signup_finish')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -29,7 +29,7 @@ class IndividualView(generic.CreateView, LoginRequiredMixin):
 class ProducerView(generic.CreateView,LoginRequiredMixin):
     template_name = 'accountsDetail/producer.html'
     form_class = ProducerForm
-    success_url = reverse_lazy('signup_finish')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         form.instance.user = self.request.user

@@ -22,11 +22,19 @@
         <header>
             <div class="dp_flex">
                 <h5 class="app_name mg_t10 mg_l10"><span class="blue">t</span>ri<span class="red">an</span>gl<span class="yellow">e</span></h5>
+                    {% if perms.producer.view_post %}
+                        <button type="button" class="btn new_user_btn p-0 mg_t10">
+                            <i class="fas fa-user-plus pd_l10"></i>
+                            <a class="link_white pd_r10" href="{% url 'listing_create' %}">出品する</a>
+                        </button>
+                    {% else %}
+
+                    {% endif %}
                 {% if user.is_authenticated %}
                 {% else %}
                     <button type="button" class="btn new_user_btn p-0 mg_t10">
-                    <i class="fas fa-user-plus pd_l10"></i>
-                    <a class="link_white pd_r10" href="{% url 'signup' %}">新規登録</a>
+                        <i class="fas fa-user-plus pd_l10"></i>
+                        <a class="link_white pd_r10" href="{% url 'signup' %}">新規登録</a>
                     </button>
             </div>
                 <div class="mg_r10 text-right pd_b10">

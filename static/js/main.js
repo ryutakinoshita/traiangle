@@ -17,27 +17,7 @@ function imgPreView(event) {
   reader.readAsDataURL(file);
 }
 
-var selecterBox = document.getElementById('checkOn');
 
-function formSwitch() {
-    check = document.getElementsByClassName('registration_main_radio')
-    if (check[1].checked) {
-        selecterBox.style.display = "none";
-
-    } else if (check[2].checked) {
-        selecterBox.style.display = "none";
-
-    } else {
-        selecterBox.style.display = "block";
-    }
-}
-window.addEventListener('load', formSwitch());
-
-function entryChange2(){
-    if(document.getElementById('changeSelect')){
-    id = document.getElementById('changeSelect').value;
-}
-}
 
 function restImgPreView(event,targetId) {
   var file = event.target.files[0];

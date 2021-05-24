@@ -37,6 +37,11 @@ class Producer(models.Model):
     producer_type = models.CharField(max_length=100, choices=Type.Types, blank=True, null=False)
     certification = models.TextField(max_length=500, blank=True, null=True)
 
+    class Meta:
+        permissions = (
+            ('view_content', 'View content'),
+        )
+
     def __str__(self):
             return self.producer_name
 
