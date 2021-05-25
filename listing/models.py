@@ -1,5 +1,7 @@
 from django.db import models
 from accountsDetail.models import Producer
+from config import settings
+from django.utils import timezone
 
 class Type(models.Model):
     TypeListing=(
@@ -28,3 +30,13 @@ class Listing(models.Model):
 
     def __str__(self):
             return self.listing_name
+
+# class BuyingHistory(models.Model):
+#     buying_history= models.ForeignKey(Listing,on_delete=models.PROTECT)
+#     buying_user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
+#     is_sended = models.BooleanField(default=False)
+#     stripe_id = models.CharField(max_length=200)
+#     created_at = models.DateTimeField(default=timezone.now)
+#
+#     def __str__(self):
+#         return '{} {} {}'.format(self.Listing, self.user.email, self.is_sended)

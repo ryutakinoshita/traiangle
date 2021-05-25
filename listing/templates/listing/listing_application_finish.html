@@ -1,0 +1,17 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% block body %}
+    <section class="change mg_t30 pd_b30">
+        <h5 class="change_text_small mg_t50">申請ありがとうございます</h5>
+        <p class="change_text_detail mg_t30">お送り頂いた内容を元に審査致します。</p>
+        <p class="change_text_detail">※審査には3-4日頂く場合もございます。</p>
+        <p class="change_text_detail">審査の結果はご記入頂いたメールアドレスにてお知らせ致します。</p>
+     </section>
+        <div class="text-center mg_t50">
+            <a class="next_link" href="{% url 'my_page' %}">
+               <button type="submit" class="btn change_btn">マイページへ</button>
+            </a>
+        </div>
+    </section>
+{% endblock body %}

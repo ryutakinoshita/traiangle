@@ -318,15 +318,21 @@
         color: #151414;
         font-size: 14px;
     }
+    .login_link:hover{
+        margin-left: auto;
+        margin-right: 30px;
+        color: #151414;
+        font-size: 14px;
+    }
     .login_btn{
         color: #fffff3;
         width: 150px;
         background: #454141;
     }
     .login_btn:hover{
-        color: #454141;
+        color: #fffff3;
         width: 150px;
-        background: #519a76;
+        background: #454141;
     }
 /*E login.html*/
 /*S change.html*/
@@ -378,10 +384,34 @@
         font-size: 20px;
     }
 /*E my_page*/
-/*S user_detail & work_detail*/
+/*S listing*/
 
 
-/*E user_detail & work_detail*/
+/*E listing*/
+    .div_listing{
+        display: flex;
+    }
+    .registration_listing{
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+
+     .filelabel_listing{
+         display: inline-block;
+         position: relative;
+         background-color: #3399FF;
+         color: #fff;
+         font-size: 15px;
+         padding: 10px 15px;
+         margin:0px 5px ;
+         border-radius: 8px;
+         transition: all 0.5s;
+        }
+    .filelabel_listing:hover{
+        background-color: #3399FF;
+    }
+
 
 
 /*S margin/padding*/

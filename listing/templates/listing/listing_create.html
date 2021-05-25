@@ -1,6 +1,49 @@
-{% extends 'app/base.html' %}
+{% extends 'account/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
+
 
 {% block body %}
-
+    <section class="listing mg_t30 pd_b30">
+        <form class="listing_form" method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <p class="signup_text_detail pd_t30">商品画像</p>
+            <div class="img_preview pd_b10 mg_t15" id="preview1"></div>
+            <div class="img_preview pd_b10 mg_t15" id="preview2"></div>
+            <div class="img_preview pd_b10 mg_t15" id="preview3"></div>
+            <div class="div_listing">
+                <div class="registration_listing mg_t15">
+                    <label for="id_listing_img1" class="filelabel_listing">1枚目を選択</label>
+                    <table class="table m-0">{% render_field form.listing_img1|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview1')" %}</table>
+                </div>
+                <div class="registration_listing mg_t15">
+                    <label for="id_listing_img2" class="filelabel_listing">2枚目を選択</label>
+                    <table class="table m-0">{% render_field form.listing_img2|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview2')" %}</table>
+                </div>
+                <div class="registration_listing mg_t15">
+                    <label for="id_listing_img3" class="filelabel_listing">3枚目を選択</label>
+                    <table class="table m-0">{% render_field form.listing_img3|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview3')" %}</table>
+                </div>
+            </div>
+            <p class="signup_text_detail">商品の分類</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.listing_type class="registration_main" placeholder=""%}</table>
+            </div>
+            <p class="signup_text_detail">商品名</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.listing_name class="registration_main" placeholder=""%}</table>
+            </div>
+            <p class="signup_text_detail">価格</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.listing_price class="registration_main" placeholder=""%}</table>
+            </div>
+            <p class="signup_text_detail">商品説明</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.listing_text class="registration_main_big" placeholder=""%}</table>
+            </div>
+            <div class="text-center mg_t50">
+                <button type="submit" class="btn signup_registration_btn">出品</button>
+            </div>
+        </form>
+    </section>
 {% endblock body %}

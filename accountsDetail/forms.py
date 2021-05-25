@@ -22,11 +22,6 @@ class RestaurantForm(forms.ModelForm):
         model = Restaurant
         fields = ("zip_code","prefectures","city","address1","address2",
                   "restaurant_name","restaurant_type","certification","restaurant_img")
-        widgets = {
-            'restaurant_type': forms.RadioSelect(),
-
-        }
-
 
 class RestaurantImageForm(forms.ModelForm):
 
