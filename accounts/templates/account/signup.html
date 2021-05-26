@@ -21,7 +21,8 @@
             </div>
             <p class="signup_text_detail">電話番号</p>
             <div class="registration">
-                <table class="table">{% render_field form.phone class="registration_main"%}</table>
+                <table class="table">{% render_field form.phone class="registration_main" value="+81"%}</table>
+                <p class="signup_text_detail_small mg_t15">※+81の後に続けて記入してください。</p>
             </div>
             <p class="signup_text_detail">パスワード</p>
             <div class="registration">
