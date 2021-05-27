@@ -32,3 +32,8 @@ class ListingApplicationView(generic.FormView):
 
 class ListingApplicationFinishView(generic.TemplateView):
     template_name = 'listing/listing_application_finish.html'
+
+
+class ListingDetailView(generic.DetailView):
+    model = Listing
+    template_name = 'listing/listing_detail.html'

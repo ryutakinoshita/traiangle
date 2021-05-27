@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block body %}
+    <section class="listing_detail mg_t30">
+        <h4 class="listing_name_detail pd_l10 pd_r10 pd_t30">{{ listing.listing_name }}</h4>
+        <p class="listing_type_detail pd_l20 pd_t10">{{ listing.get_listing_type_display }}</p>
+        <div class="swiper-container mg_t15">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="detail_img" src="{{ MEDIA_URL }}{{ listing.listing_img1 }}" alt=""></div>
+                <div class="swiper-slide"><img class="detail_img" src="{{ MEDIA_URL }}{{ listing.listing_img2 }}" alt=""></div>
+                <div class="swiper-slide"><img class="detail_img" src="{{ MEDIA_URL }}{{ listing.listing_img3 }}" alt=""></div>
+            </div>
+
+        </div>
+        <div class="text-right">
+            <p class="listing_user_detail mg_t10 pd_r10">{{ listing.listing_user }}</p>
+        </div>
+        <p class="listing_price_detail pd_l10 ">￥{{ listing.listing_price| intcomma }}</p>
+        <p class="listing_text_detail">{{ listing.listing_text }}</p>
+    </section>
+{% endblock body %}

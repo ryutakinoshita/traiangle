@@ -1,5 +1,7 @@
 {% extends 'app/base.html' %}
 {% load static %}
+{% load humanize %}
+
 
 {% block body %}
     <div class="text-center mg_t30">
@@ -15,8 +17,22 @@
         <input id="TAB02-01" type="radio" name="TAB02" class="tab-switch" checked="checked" /><label class="tab-label switch_black" for="TAB02-01">トップ</label>
         <div class="tab-content">
         </div>
-        <input id="TAB02-02" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label switch_blue" for="TAB02-02">ランキング</label>
+        <input id="TAB02-02" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label switch_blue" for="TAB02-02">新着商品</label>
         <div class="tab-content">
+        <section class="listing_home mg_t30">
+            {% for Listing in Listings %}
+                <a href="{% url 'listing_detail' Listing.id %}">
+                    <div class="listing_card mg_t10">
+                          <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
+                          <div class="listing_text">
+                              <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ Listing.listing_name| truncatechars:15 }}</h5>
+                              <p class="card-text listing_price pd_l20 mg_t15">￥{{ Listing.listing_price| intcomma }}</p>
+                              <p class="card-text listing_type">{{ Listing.listing_user }}</p>
+                          </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </section>
         </div>
         <input id="TAB02-03" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label switch_red" for="TAB02-03">お気に入り</label>
         <div class="tab-content">
