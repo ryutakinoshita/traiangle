@@ -20,8 +20,8 @@
         <input id="TAB02-02" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label switch_blue" for="TAB02-02">新着商品</label>
         <div class="tab-content">
         <section class="listing_home mg_t30">
-            {% for Listing in Listings %}
-                <a href="{% url 'listing_detail' Listing.id %}">
+            {% for Listing in item_data %}
+                <a href="{% url 'listing_detail' Listing.slug %}">
                     <div class="listing_card mg_t10">
                           <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
                           <div class="listing_text">

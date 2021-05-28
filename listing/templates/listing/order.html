@@ -1,0 +1,71 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+{% block body %}
+<div class="my-5">
+  <h3>ショッピングカート</h3>
+</div>
+
+<div class="row order">
+  <div class="col-md-9 mb-5">
+    <div class="card">
+      <div class="card-body px-4 py-3">
+        {% for order_item in order.items.all %}
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <img
+              src="/{{ order_item.item.image.url }}"
+              class="img-fluid"
+              alt="{{ order_item.item.title }}"
+            />
+          </div>
+          <div class="col-md-6">
+            <h5>{{ order_item.item.title }}</h5>
+            <p class="mb-1">
+              数量：
+              <a href=""><span class="badge badge-warning">-</span></a>
+              {{ order_item.quantity }}
+              <a href="{% url 'additem' order_item.item.slug %}"
+                ><span class="badge badge-warning">+</span></a
+              >
+            </p>
+            <a href="">
+              <span class="badge badge-danger">削除</span>
+            </a>
+          </div>
+          <div class="col-md-3 text-right">
+            <p>
+              価格：
+              <span class="text-danger font-weight-bold">
+                {{ order_item.get_total_item_price }}円
+              </span>
+            </p>
+          </div>
+        </div>
+        {% if not forloop.last %}
+        <hr />
+        {% endif %} {% empty %}
+        <p class="mb-3">カートは空です</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body text-center px-2 py-3">
+        {% if order.get_total %}
+        <p>
+          小計：<span class="font-weight-bold">{{ order.get_total }}</span>円
+        </p>
+        <div class="mb-3">
+          <a class="btn btn-warning" href="">レジに進む</a>
+        </div>
+        {% endif %}
+        <a class="btn btn-primary" href="/">買い物を続ける</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

@@ -1,4 +1,6 @@
 from django.db import models
+
+from accounts.models import User
 from accountsDetail.models import Producer
 from config import settings
 from django.utils import timezone
@@ -26,17 +28,38 @@ class Listing(models.Model):
     listing_name=models.CharField(max_length=100,blank=True, null=False)
     listing_text=models.TextField(max_length=500,blank=True, null=True)
     listing_price=models.IntegerField(blank=True, null=True)
+    slug=models.SlugField()
 
 
     def __str__(self):
             return self.listing_name
 
-# class BuyingHistory(models.Model):
-#     buying_history= models.ForeignKey(Listing,on_delete=models.PROTECT)
-#     buying_user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
-#     is_sended = models.BooleanField(default=False)
-#     stripe_id = models.CharField(max_length=200)
-#     created_at = models.DateTimeField(default=timezone.now)
-#
-#     def __str__(self):
-#         return '{} {} {}'.format(self.Listing, self.user.email, self.is_sended)
+
+class OrderItem(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    ordered=models.BooleanField(default=False)
+    item=models.ForeignKey(Listing,on_delete=models.CASCADE)
+    quantity=models.IntegerField(default=1)
+
+    def get_total_item_price(self):
+        return self.quantity * self.item.listing_price *1.1
+
+    def __str__(self):
+        return f'{self.item.listing_name}:{self.quantity}'
+
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    items=models.ManyToManyField(OrderItem)
+    start_date=models.DateTimeField(auto_now_add=True)
+    ordered_date=models.DateTimeField()
+    ordered = models.BooleanField(default=False)
+
+    def get_total(self):
+        total=0
+        for order_item in self.items.all():
+            total+=order_item.get_total_item_price()
+        return total
+
+    def __str__(self):
+        return self.user.email
