@@ -20,7 +20,9 @@
             <p class="listing_user_detail mg_t10 pd_r20">{{ item_data.listing_user }}</p>
         </div>
         <p class="listing_price_detail pd_l10">￥{{ item_data.listing_price| intcomma }}</p>
-        <a href="{% url 'additem' item_data.slug  %}">カートに入れる</a>
+        <div class="text-right mg_r10">
+            <a href="{% url 'additem' item_data.slug  %}"><button type="submit" class="btn cart_btn">カートに入れる</button></a>
+        </div>
         <h5 class="text_title pd_l10 mg_t50">商品説明</h5>
         <p class="listing_text_detail pd_l20 pd_r20">{{ item_data.listing_text }}</p>
     </section>

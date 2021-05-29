@@ -194,14 +194,100 @@
         font-size: 16px;
         line-height:2.5;
     }
+    .cart_btn{
+        color: #fffff3;
+        font-weight: bolder;
+        background: #e7bc15;
+    }
+    .cart_btn:hover{
+        color: #fffff3;
+        font-weight: bolder;
+        background: #e7bc15;
+    }
+    .buy_btn{
+        background: #e7bc15;
+    }
+    .buy_btn:hover{
+        background: #e7bc15;
+    }
+    .continue{
+        color: #3399FF;
+        font-size: 12px;
+    }
+    .no_cart{
+        text-align: center;
+    }
+    .continue_no_cart{
+        text-align: center;
+        color: #3399FF;
+        font-size: 22px;
+    }
+    .total_fee{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .total{
+        font-size: 22px;
+        font-weight: bolder;
+    }
+    .order_item{
+        background: #ffffff;
+        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+    }
+    .name_img_listing{
+        display: flex;
+    }
+    .cart_img{
+        width: 100px;
+        height: 100px;
+    }
+    .cart_name{
+        font-weight: bolder;
+    }
+    .quantity_item{
+        display: flex;
+        justify-content: center;
+         align-items: center;
 
-    /*}*/
+    }
+    .quantity{
+        margin-bottom: 0;
+        font-size: 16px;
+    }
+    .quantity_main{
+        margin-bottom: 0;
+        font-size: 20px;
+        font-weight: bolder;
+    }
 
-    /*.swiper-button-prev {*/
-    /*    width: 24px;*/
-    /*    height: 24px;*/
-    /*    */
-    /*}*/
+    .fa-minus,
+    .fa-plus{
+        font-size: 10px;
+    }
+    .delete_item{
+        color: #fffff3;
+        background: #fa2929;
+        font-size: 14px;
+        width: 60px;
+        padding: 4px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .delete_item:hover{
+        color: #fffff3;
+        background: #fa2929;
+        font-size: 14px;
+        width: 60px;
+        padding: 4px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .individual_item{
+        font-weight: bolder;
+    }
+
+
 
     /*E listing_detail.html*/
     /*S signup.html*/
@@ -602,8 +688,14 @@
         margin-top: 30px;
     }
 
+    .mg_l5 {
+        margin-left: 5px;
+    }
     .mg_l10 {
         margin-left: 10px;
+    }
+    .mg_l30 {
+        margin-left: 30px;
     }
 
     .mg_r10 {
@@ -616,6 +708,9 @@
 
     .pd_t30 {
         padding-top: 30px;
+    }
+    .pd_t50 {
+        padding-top: 50px;
     }
 
     .pd_b10 {

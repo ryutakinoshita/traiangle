@@ -1,13 +1,5 @@
 from django import forms
-from .models import Individual,Producer,Restaurant, RestaurantImage
-from django.core.files.storage import default_storage
-
-class IndividualForm(forms.ModelForm):
-
-    class Meta:
-        model = Individual
-        fields = ("zip_code","prefectures","city","address1","address2")
-
+from .models import Producer,Restaurant, RestaurantImage
 
 class ProducerForm(forms.ModelForm):
 

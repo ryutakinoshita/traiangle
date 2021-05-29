@@ -27,7 +27,8 @@ class UserCreateForm(UserCreationForm):
     class Meta:
         model = User
         fields = [
-            'first_name','last_name','email','phone','password1', 'password2',
+            'first_name','last_name','email','phone','password1', 'password2',"zip_code","prefectures","city",
+            "address1","address2"
         ]
 
 
