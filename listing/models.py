@@ -43,7 +43,7 @@ class OrderItem(models.Model):
 
 
     def get_total_item_price(self):
-        return self.quantity * self.item.listing_price *1.1
+        return self.quantity * self.item.listing_price
 
 
     def __str__(self):
@@ -68,7 +68,7 @@ class Order(models.Model):
 
 
 class Payment(models.Model):
-    user = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
     stripe_charge_id = models.CharField(max_length=50)
     amount = models.IntegerField()
     timestamp = models.DateTimeField(auto_now_add=True)
