@@ -1,11 +1,12 @@
+
 from django.shortcuts import redirect,render,get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View
-import stripe
-from hamcrest.core import description
+from requests import session
 
+import config.settings
 from accounts.models import User
 from django.conf import settings
 from listing.models import Listing,Order,OrderItem,Payment
@@ -13,6 +14,7 @@ from listing.forms import ListingForm,ListingApplicationForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist
+import stripe
 
 
 
@@ -148,6 +150,7 @@ class PaymentView(LoginRequiredMixin, View):
         order = Order.objects.get(user=request.user, ordered=False)
         token = request.POST.get('stripeToken')
         amount = order.get_total()
+        email=User.email
         order_items = order.items.all()
         item_list = []
         for order_item in order_items:
@@ -157,6 +160,7 @@ class PaymentView(LoginRequiredMixin, View):
         charge = stripe.Charge.create(
             amount=amount,
             currency='jpy',
+            email=email,
             description=description,
             source=token,
         )
@@ -174,6 +178,7 @@ class PaymentView(LoginRequiredMixin, View):
         order.payment = payment
         order.save()
         return redirect('thanks')
+
 
 
 

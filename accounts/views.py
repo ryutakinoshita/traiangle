@@ -15,7 +15,6 @@ from django.contrib.auth.views import (
     PasswordResetView,
     PasswordResetDoneView,
     PasswordResetConfirmView,
-    PasswordResetCompleteView,
 )
 from .forms import (
     UserLoginForm,
@@ -24,6 +23,8 @@ from .forms import (
     PasswordResetForm,
     SetPasswordForm,
 )
+
+
 
 User = get_user_model()
 
@@ -175,3 +176,4 @@ class PasswordResetConfirmView(PasswordResetConfirmView):
 
 class PasswordDoneView(generic.TemplateView):
     template_name = 'account/password_done.html'
+

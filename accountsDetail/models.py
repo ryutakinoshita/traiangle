@@ -82,4 +82,3 @@ class RestaurantImage(models.Model):
             return self.restaurant_img1.url
 
 
-

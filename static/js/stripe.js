@@ -8,7 +8,8 @@ const style = {
   },
 };
 
-const card = elements.create("card", { style: style });
+
+const card = elements.create("card", {hidePostalCode: true, style: style });
 card.mount("#card-element");
 card.addEventListener("change", function (event) {
   const displayError = document.getElementById("card-errors");
@@ -39,6 +40,9 @@ function stripeTokenHandler(token) {
   hiddenInput.setAttribute("type", "hidden");
   hiddenInput.setAttribute("name", "stripeToken");
   hiddenInput.setAttribute("value", token.id);
+  hiddenInput.setAttribute("card", "PostalCode");
   form.appendChild(hiddenInput);
   form.submit();
 }
+
+

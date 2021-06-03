@@ -1,8 +1,15 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 from django.shortcuts import render
 from django.views.generic import View
-from listing.models import Listing
 
+from accounts.models import User
+from app.models import StripeCustomer
+from listing.models import Listing
+from django.conf import settings
+from django.http.response import JsonResponse, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+import stripe
 
 
 class HomeView(View):
@@ -11,3 +18,39 @@ class HomeView(View):
         return render(request, 'app/home.html', {
             'item_data': item_data
         })
+
+def index(request):
+    return render(request, 'app/index.html')
+
+@csrf_exempt
+def stripe_config(request):
+    if request.method == 'GET':
+        stripe_config = {'publicKey': settings.STRIPE_PUBLISHABLE_KEY}
+        return JsonResponse(stripe_config, safe=False)
+
+@csrf_exempt
+def create_checkout_session(request):
+    if request.method == 'GET':
+        domain_url = 'http://127.0.0.1:8000/'
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        try:
+            checkout_session = stripe.checkout.Session.create(
+                client_reference_id=request.user.id if request.user.is_authenticated else None,
+                success_url=domain_url + 'account/signup',
+                cancel_url=domain_url + 'cancel/',
+                payment_method_types=['card'],
+                mode='subscription',
+                line_items=[
+                    {
+                        'price': settings.STRIPE_PRICE_ID,
+                        'quantity': 1,
+                    }
+                ]
+            )
+            return JsonResponse({'sessionId': checkout_session['id']})
+        except Exception as e:
+            return JsonResponse({'error': str(e)})
+
+def cancel(request):
+    return render(request, 'app/cancel.html')
+

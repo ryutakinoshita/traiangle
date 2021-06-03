@@ -248,7 +248,7 @@
     .quantity_item{
         display: flex;
         justify-content: center;
-         align-items: center;
+        align-items: center;
 
     }
     .quantity{
@@ -887,7 +887,6 @@
     }
 
     .nav-link {
-
         text-align: center;
         border-style: none;
         color: #151414;
@@ -903,6 +902,36 @@
         padding-top: 5px;
         font-size: 17px;
     }
+    .wrap {
+        width: 100%;
+        display:flex;
+        flex-flow: column;
+        align-items: flex-end;
+        padding-right: 10px;
+
+    }
+    .main_user_btn {
+        background: #519a76;
+        height: 30px;
+        line-height: 30px;
+
+    }
+    .carts{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .item_count{
+        margin-left: 5px;
+        font-size: 20px;
+        font-weight: bolder;
+        color: #3399FF;
+
+    }
+
+
+
+
 
 }
 

@@ -3,17 +3,18 @@
 {% load humanize %}
 
 
+
 {% block body %}
     <section class="cart mg_t50">
         {% if order.get_total %}
             <p class="pd_l10 total">小計 ￥{{ order.get_total |floatformat:0 | intcomma}}</p>
         <div class="total_fee pd_b30">
             <a class="mg_t15" href="{% url 'payment' %}"><button class="btn buy_btn">レジに進む</button></a>
-            <a class="continue mg_t10" href="/">買い物を続ける</a>
+            <a class="continue mg_t10" href="{% url 'home' %}">買い物を続ける</a>
         </div>
         {% else %}
         <div class="text-center">
-            <a class="continue_no_cart mg_t10" href="/">買い物を続ける</a>
+            <a class="continue_no_cart mg_t10" href="{% url 'home' %}">買い物を続ける</a>
         </div>
         {% endif %}
         {% for order_item in order.items.all %}

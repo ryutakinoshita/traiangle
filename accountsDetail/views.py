@@ -15,17 +15,15 @@ class MyPageView(generic.TemplateView):
     template_name = 'accountsDetail/my_page.html'
 
 
-
-
 class ProducerView(generic.CreateView,LoginRequiredMixin):
     template_name = 'accountsDetail/producer.html'
     form_class = ProducerForm
     success_url = reverse_lazy('home')
 
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-
 
 class RestaurantView(generic.CreateView,LoginRequiredMixin):
     template_name = 'accountsDetail/restaurant.html'
@@ -36,8 +34,6 @@ class RestaurantView(generic.CreateView,LoginRequiredMixin):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-
-#
 class RestaurantImageView(generic.CreateView,LoginRequiredMixin):
     template_name = 'accountsDetail/restaurant_image.html'
     form_class = RestaurantImageForm
