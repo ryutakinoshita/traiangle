@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app.apps.AppConfig',
+    # 'app.templatetags.cart_tags',
     'listing.apps.ListingConfig',
     'accountsDetail.apps.AccountsdetailConfig',
     'accounts.apps.AccountsConfig',
@@ -78,6 +79,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                'markdown': 'app.templatetags.cart_tags',
+            }
         },
     },
 ]
@@ -154,4 +158,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 NUMBER_GROUPING = 3
+
 STRIPE_SECRET_KEY = 'sk_test_51IxOUqIrVbQ99ePNxJ4TG4022SOLSfNKtxTBLBHqrUEsdT2GDrCNjZye2vQnhetGy2Gl5CciI1ywFl7j38QUARYg00tYfbkDwc'
+STRIPE_PUBLISHABLE_KEY='pk_test_51IxOUqIrVbQ99ePNf2DoSNFjET5HL7NAewJIVuytJaxlWk9D7XfrSptTploMD8LizoBPKBH4QfcaX8MTL4dfsrIf00lxDnWF1q'
+STRIPE_PRICE_ID ='price_1IxlTrIrVbQ99ePNmwsb5IZq'

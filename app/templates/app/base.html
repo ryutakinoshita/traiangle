@@ -1,4 +1,5 @@
-{% load static %}
+{% load cart_tags %}{% load static %}
+
 
 <html lang="ja">
     <head>
@@ -25,16 +26,27 @@
                 <h5 class="app_name mg_t10 mg_l10"><span class="blue">t</span>ri<span class="red">an</span>gl<span class="yellow">e</span></h5>
                 {% if user.is_authenticated %}
                     {% if perms.producer.view_post %}
-                        <button type="button" class="btn new_user_btn p-0 mg_t10">
+                        <div class="wrap">
+                        <button type="button" class="btn main_user_btn p-0 mg_t10">
                             <i class="fas fa-user-plus pd_l10"></i>
                             <a class="link_white pd_r10" href="{% url 'listing_create' %}">出品する</a>
                         </button>
+                         <a class="nav-link carts" href="{% url 'order' %}">
+                                <i class="fas fa-shopping-cart"></i>
+                                <div class="item_count">{{ request.user|itemCount }} </div>
+                         </a>
+                        </div>
                     {% else %}
-                        <button type="button" class="btn new_user_btn p-0 mg_t10">
-                            <i class="fas fa-user-plus pd_l10"></i>
-                            <a class="link_white pd_r10" href="{% url 'listing_application' %}">生産者申請</a>
-                        </button>
-
+                        <div class="wrap">
+                            <button type="button" class="btn main_user_btn p-0 mg_t10">
+                                <i class="fas fa-user-plus pd_l10"></i>
+                                <a class="link_white pd_r10" href="{% url 'listing_application' %}">生産者申請</a>
+                            </button>
+                                <a class="nav-link" href="{% url 'order' %}">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <div class="item_count">{{ request.user|itemCount }} </div>
+                                </a>
+                        </div>
                     {% endif %}
                 {% else %}
                     <button type="button" class="btn new_user_btn p-0 mg_t10">
@@ -72,7 +84,6 @@
                 </div>
             </footer>
         </div>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -84,6 +95,8 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7Vehhu5eQmAmUHMvf7kmMIKM_zXeayBo&callback&callback=initMap" async defer></script>
+        <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
         <script src="{% static 'js/main.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
     </body>
 </html>

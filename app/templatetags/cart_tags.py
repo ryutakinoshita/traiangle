@@ -1,7 +1,7 @@
 from django import template
 from listing.models import Order
 
-register=template.Library()
+register = template.Library()
 
 @register.filter
 def itemCount(user):
