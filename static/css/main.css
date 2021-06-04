@@ -24,11 +24,9 @@
         cursor: pointer;
         text-decoration: none;
     }
-
     .sub_css {
         display: none;
     }
-
     .app_name {
         font-weight: bold;
         font-size: 30px;
@@ -36,17 +34,14 @@
         font-family: 'Cabin', sans-serif;
         margin-bottom: 0px;
     }
-
     .link_white {
         color: #fffff3;
         font-size: 15px;
     }
-
     .link_white:hover {
         color: #fffff3;
         font-size: 15px;
     }
-
     .new_user_btn {
         background: #519a76;
         height: 30px;
@@ -54,34 +49,77 @@
         margin-left: auto;
         margin-right: 10px;
     }
-
     .fa-user-plus {
         color: #fffff3;
     }
-
     .link_black {
         color: #151414;
         font-size: 15px;
     }
-
     .link_black:hover {
         color: #151414;
         font-size: 15px;
     }
-
     .blue {
         color: #3399FF;
     }
-
     .red {
         color: #CC0033;
     }
-
     .yellow {
         color: #FFCC00;
     }
+/*S index.html&cancel.html*/
+    .index_titles{
+        text-align: center;
+    }
+    .index_title{
+        font-weight: bolder;
+    }
+    .index_title_main{
+        font-weight: bolder;
+        font-size: 45px;
+    }
+    .index_title_sub{
+        font-size: 16px;
+        color:#3399FF ;
+    }
+    .trial_btn{
+        font-weight: bolder;
+        background: #e7bc15;
+    }
+    .trial_btn:hover{
+        font-weight: bolder;
+        background: #e7bc15;
+    }
+    .examples{
+        margin-top: 80px;
+        margin-left: 10px;
+        margin-right: 10px;
+        background: #ffffff;
+        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+       border: 1px solid #32cd32;
+    }
+    .example_main{
+        font-weight: bolder;
+    }
+    .example_sub{
+        margin: 0;
+        font-size: 12px;
+    }
+    .cancel{
+        text-align: center;
 
-    /*S home.html*/
+    }
+    .cancel_text_main{
+        font-weight: bolder;
+        font-size: 26px;
+    }
+    .cancel_text_sub{
+        margin-top: 5px;
+    }
+/*E index.html&cancel.html*/
+/*S home.html*/
     .search {
         width: 50%;
         border: none;
@@ -89,23 +127,19 @@
         appearance: none;
         background: #f8f7f7;
     }
-
     .search[type="text"]:focus {
         border: 1px solid #3399FF;
     }
-
     .search_btn {
         border: none;
         outline: none;
         appearance: none;
         background: #f8f7f7;
     }
-
     .main_hr {
         margin: 0 auto;
         width: 70%;
     }
-
     .listing_card {
         height: 180px;
         background: #ffffff;
@@ -114,27 +148,22 @@
         border-radius: 4px;
 
     }
-
     .listing_img {
         width: 220px;
         height: 100%;
     }
-
     .listing_text {
         width: 100%;
         position: relative;
     }
-
     .listing_name {
         font-size: 20px;
         font-weight: bolder;
     }
-
     .listing_price {
         font-size: 18px;
         color: #b3022e;
     }
-
     .listing_type {
         color: #828181;
         font-size: 12px;
@@ -142,45 +171,37 @@
         bottom: 5px;
         right: 10px;
     }
-
-    /*E home.html*/
-    /*S listing_detail.html*/
+/*E home.html*/
+/*S listing_detail.html*/
     .listing_detail {
         height: 100%;
         background: #ffffff;
         box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
     }
-
     .listing_name_detail {
         font-size: 24px;
         font-weight: bolder;
     }
-
     .listing_type_detail {
         font-size: 13px;
     }
-
     .detail_img {
         text-align: center;
         width: 80%;
         height: 150px;
     }
-
     .swiper-container {
         text-align: center;
         height: 150px;
     }
-
     .listing_user_detail {
         color: #828181;
         font-size: 14px;
     }
-
     .listing_price_detail {
         font-size: 24px;
         color: #b3022e;
     }
-
     .swiper-button-next,
     .swiper-button-prev{
         width: 24px;
@@ -249,7 +270,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
     }
     .quantity{
         margin-bottom: 0;
@@ -260,7 +280,6 @@
         font-size: 20px;
         font-weight: bolder;
     }
-
     .fa-minus,
     .fa-plus{
         font-size: 10px;
