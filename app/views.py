@@ -19,6 +19,18 @@ class HomeView(View):
             'item_data': item_data
         })
 
+    # フリーワード検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        if q_word:
+            object_list = Listing.objects.filter(
+                Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
+            )
+        else:
+            object_list = Listing.objects.all()
+        return object_list
+
+
 def index(request):
     return render(request, 'app/index.html')
 
