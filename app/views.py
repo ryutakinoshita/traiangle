@@ -2,14 +2,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 from django.shortcuts import render
 from django.views.generic import View
-
-from accounts.models import User
-from app.models import StripeCustomer
 from listing.models import Listing
 from django.conf import settings
 from django.http.response import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import stripe
+from django.db.models import Q
+from django.utils import timezone
 
 
 class HomeView(View):
@@ -19,13 +18,22 @@ class HomeView(View):
             'item_data': item_data
         })
 
-    # フリーワード検索
+
+class ProductListView(generic.ListView):
+    model = Listing
+    template_name = 'app/product.html'
+    context_object_name = 'product'
+
+    # 検索
     def get_queryset(self):
         q_word = self.request.GET.get('query')
+        q_date = self.request.GET.get('date')
         if q_word:
             object_list = Listing.objects.filter(
                 Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
             )
+        elif q_date:
+            object_list =Listing.objects.filter(created__lte=timezone.now()).order_by('-created')
         else:
             object_list = Listing.objects.all()
         return object_list

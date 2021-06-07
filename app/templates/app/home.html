@@ -5,12 +5,12 @@
 
 {% block body %}
     <div class="text-center mg_t30">
-        <form  action="#" method="get" class="search_word mg_b40 mg_b60_sub">
+        <form  action="{% url 'product_list' %}" method="get" class="search_word mg_b40 mg_b60_sub">
             <input class="search" type="text" name="query" placeholder="検索" aria-label="Search">
             <button class="search_btn line-none">
                 <i class="fas fa-search"></i>
             </button>
-        <hr class="main_hr p-0">
+            <hr class="main_hr p-0">
         </form>
     </div>
     <div class="tab-wrap mg_t50">

@@ -28,6 +28,7 @@ class Listing(models.Model):
     listing_name=models.CharField(max_length=100,blank=True, null=False)
     listing_text=models.TextField(max_length=500,blank=True, null=True)
     listing_price=models.IntegerField(blank=True, null=True)
+    created = models.DateTimeField(default=timezone.now)
     slug=models.SlugField()
 
 
