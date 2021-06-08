@@ -14,4 +14,5 @@ urlpatterns = [
     path('removesingleitem/<slug>', views.removeSingleItem, name='removesingleitem'),
     path('payment/', views.PaymentView.as_view(), name='payment'),
     path('thanks/', views.ThanksView.as_view(), name='thanks'),
+    path('order/listing', views.OrderListView.as_view(), name='order_listing'),
 ]

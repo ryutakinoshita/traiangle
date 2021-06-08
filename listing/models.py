@@ -39,7 +39,7 @@ class Listing(models.Model):
 class OrderItem(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     ordered=models.BooleanField(default=False)
-    item=models.ForeignKey(Listing,on_delete=models.CASCADE)
+    item=models.ForeignKey(Listing,on_delete=models.CASCADE,related_name='orderItems')
     quantity=models.IntegerField(default=1)
 
 

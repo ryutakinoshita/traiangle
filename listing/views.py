@@ -150,7 +150,6 @@ class PaymentView(LoginRequiredMixin, View):
         order = Order.objects.get(user=request.user, ordered=False)
         token = request.POST.get('stripeToken')
         amount = order.get_total()
-        email=User.email
         order_items = order.items.all()
         item_list = []
         for order_item in order_items:
@@ -160,7 +159,6 @@ class PaymentView(LoginRequiredMixin, View):
         charge = stripe.Charge.create(
             amount=amount,
             currency='jpy',
-            email=email,
             description=description,
             source=token,
         )
@@ -179,6 +177,11 @@ class PaymentView(LoginRequiredMixin, View):
         order.save()
         return redirect('thanks')
 
+
+class OrderListView(generic.ListView):
+    template_name = 'listing/order_list.html'
+    model = OrderItem
+    context_object_name = 'orders'
 
 
 

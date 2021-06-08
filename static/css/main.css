@@ -170,6 +170,20 @@
         bottom: 5px;
         right: 10px;
     }
+    .listing_type_order {
+        color: #828181;
+        font-size: 12px;
+       text-align: right;
+        padding-right: 10px;
+    }
+    .cart_btn_order{
+        font-weight: bolder;
+        background: #e7bc15;
+        padding: 4px;
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+    }
 /*E home.html*/
 /*S listing_detail.html*/
     .listing_detail {
@@ -701,13 +715,13 @@
     .fa-lock,
     .fa-file-contract,
     .fa-book-open,
-    .fa-user-edit {
+    .fa-user-edit,
+    .fa-history{
         font-size: 20px;
     }
 
-    /*E my_page*/
-    /*S listing*/
-    /*E listing*/
+/*E my_page*/
+/*S listing*/
     .div_listing {
         display: flex;
     }
@@ -733,6 +747,7 @@
     .filelabel_listing:hover {
         background-color: #3399FF;
     }
+/*E listing*/
 
 
     /*S margin/padding*/
@@ -755,9 +770,12 @@
     .mg_t50 {
         margin-top: 50px;
     }
+    .mg_b20 {
+        margin-bottom: 20px;
+    }
 
     .mg_b30 {
-        margin-top: 30px;
+        margin-bottom: 30px;
     }
 
     .mg_l5 {
