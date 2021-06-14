@@ -1,16 +1,12 @@
-
 from django.shortcuts import redirect,render,get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View
-from requests import session
-
-import config.settings
 from accounts.models import User
 from django.conf import settings
 from listing.models import Listing,Order,OrderItem,Payment
-from listing.forms import ListingForm,ListingApplicationForm
+from listing.forms import ListingForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist
@@ -18,7 +14,8 @@ import stripe
 
 
 
-class ListingView(generic.CreateView, LoginRequiredMixin):
+class ListingView(generic.CreateView,LoginRequiredMixin):
+    """出品機能"""
     template_name = 'listing/listing_create.html'
     form_class = ListingForm
     success_url = reverse_lazy('home')
@@ -29,17 +26,9 @@ class ListingView(generic.CreateView, LoginRequiredMixin):
 
 
 
-class ListingApplicationView(generic.FormView):
-    template_name = 'listing/listing_application.html'
-    form_class =ListingApplicationForm
-    success_url = reverse_lazy('listing_application_finish')
-
-    def form_valid(self, form):
-        form.send_email()
-        return super().form_valid(form)
-
 @login_required
 def addItem(request, slug):
+    """カートに追加"""
     item = get_object_or_404(Listing, slug=slug)
     order_item, created = OrderItem.objects.get_or_create(
         item=item,
@@ -60,8 +49,11 @@ def addItem(request, slug):
         order.items.add(order_item)
 
     return redirect('order')
+
+
 @login_required
 def removeItem(request, slug):
+    """商品の削除"""
     item = get_object_or_404(Listing, slug=slug)
     order = Order.objects.filter(
         user=request.user,
@@ -80,6 +72,7 @@ def removeItem(request, slug):
             return redirect("order")
 
     return redirect("product", slug=slug)
+
 
 @login_required
 def removeSingleItem(request, slug):
@@ -106,7 +99,9 @@ def removeSingleItem(request, slug):
 
     return redirect("product", slug=slug)
 
+
 class OrderView(LoginRequiredMixin,View):
+    """商品決済確認"""
     def get(self,request,*args,**kwargs):
         try:
             order=Order.objects.get(user=request.user,ordered=False)
@@ -119,23 +114,18 @@ class OrderView(LoginRequiredMixin,View):
 
 
 
-class ListingApplicationFinishView(generic.TemplateView):
-    template_name = 'listing/listing_application_finish.html'
-
-
 class ThanksView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         return render(request, 'listing/thanks.html')
 
 
-class ListingDetailView(View):
-    def get(self, request, *args, **kwargs):
-        item_data = Listing.objects.get(slug=self.kwargs['slug'])
-        return render(request, 'listing/listing_detail.html', {
-            'item_data': item_data
-        })
+class ListingDetailView(generic.DetailView):
+    model = Listing
+    template_name = 'listing/listing_detail.html'
+
 
 class PaymentView(LoginRequiredMixin, View):
+    """商品決済完了"""
     def get(self, request, *args, **kwargs):
         order = Order.objects.get(user=request.user, ordered=False)
         user_data = User.objects.get(id=request.user.id)
@@ -179,9 +169,9 @@ class PaymentView(LoginRequiredMixin, View):
 
 
 class OrderListView(generic.ListView):
+    """購入履歴"""
     template_name = 'listing/order_list.html'
     model = OrderItem
     context_object_name = 'orders'
-
 
 

@@ -9,8 +9,8 @@ SetPasswordForm
 )
 
 
-
 class UserLoginForm(AuthenticationForm):
+    """ログインフォーム"""
     class Meta:
         model = User
         fields = [
@@ -22,17 +22,18 @@ class UserLoginForm(AuthenticationForm):
 
         }
 
-
 class UserCreateForm(UserCreationForm):
+    """全ユーザー登録フォーム"""
     class Meta:
         model = User
         fields = [
             'first_name','last_name','email','phone','password1', 'password2',"zip_code","prefectures","city",
-            "address1","address2"
+            "address1","address2",'business_person_name'
         ]
 
 
 class EmailChangeForm(forms.ModelForm):
+    """メールアドレス変更"""
     class Meta:
         model = User
         fields = [
@@ -46,6 +47,7 @@ class EmailChangeForm(forms.ModelForm):
 
 
 class PasswordResetForm(PasswordResetForm):
+    """パスワードの再設定"""
     class Meta:
         model = User
         fields = [
@@ -53,8 +55,8 @@ class PasswordResetForm(PasswordResetForm):
         ]
 
 
-
 class SetPasswordForm(SetPasswordForm):
+    """新パスワードの設定"""
     class Meta:
         model = User
         fields = [

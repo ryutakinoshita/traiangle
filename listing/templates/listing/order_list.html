@@ -12,7 +12,7 @@
                     <div class="listing_text">
                         <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ order.item.listing_name| truncatechars:15 }}</h5>
                         <p class="card-text listing_price pd_l20 mg_t15">￥{{ order.item.listing_price| intcomma }}</p>
-                        <p class="card-text listing_type_order">{{ order.item.listing_user }}</p>
+                        <p class="card-text listing_type_order">{{ order.item.listing_user.business_person_name}}</p>
                         <a href="{% url 'additem' order.item.slug  %}"><button type="submit" class="btn cart_btn_order">もう一度購入する</button></a>
                     </div>
                 </div>

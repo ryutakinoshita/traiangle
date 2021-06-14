@@ -7,6 +7,10 @@
     <section class="signup mg_t30">
         <form class="h-adr signup_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
+            <p class="signup_text_detail">事業者名または会社名</p>
+            <div class="registration">
+                <table class="table">{% render_field form.business_person_name class="registration_main"%}</table>
+            </div>
             <p class="signup_text_detail">性</p>
             <div class="registration">
                 <table class="table">{% render_field form.first_name class="registration_main"%}</table>

@@ -1,3 +1,4 @@
+// プロフィール写真プレビュー表示
 function imgPreView(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
@@ -18,7 +19,7 @@ function imgPreView(event) {
 }
 
 
-
+// レストラン写真プレビュー表示
 function restImgPreView(event,targetId) {
   var file = event.target.files[0];
   var reader = new FileReader();
@@ -39,6 +40,7 @@ function restImgPreView(event,targetId) {
   reader.readAsDataURL(file);
 }
 
+// 商品写真スワイプ
 var swiper = new Swiper('.swiper-container', {
   navigation: {
     nextEl: '.swiper-button-next',
@@ -54,6 +56,9 @@ var swiper = new Swiper('.swiper-container', {
 
 console.log("Sanity check!");
 
+
+
+// サブスクリプションjs
 // Get Stripe publishable key
 fetch("/config/")
 .then((result) => { return result.json(); })

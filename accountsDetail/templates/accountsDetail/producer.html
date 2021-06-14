@@ -14,10 +14,6 @@
                 <label for="file" class="filelabel">画像を選択</label>
                 <table class="table m-0">{% render_field form.producer_img class="fileinput" name="fileinput" id="file"　onChange="imgPreView(event)"%}</table>
             </div>
-            <p class="signup_text_detail">生産者名または会社名</p>
-            <div class="registration">
-                <table class="table m-0">{% render_field form.producer_name class="registration_main" placeholder=""%}</table>
-            </div>
             <input type="hidden" class="p-country-name" value="Japan">
             <p class="signup_text_detail">生産地の登録</p>
             <div class="registration">

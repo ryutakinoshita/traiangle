@@ -8,7 +8,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.staticfiles.storage import staticfiles_storage
 
 class UserManager(BaseUserManager):
-
+    """"基礎ユーザーモデル"""
     def _create_user(self, email, password, is_staff, is_superuser, **extra_fields):
         if not  username:
             raise ValueError('Users must have an email address')
@@ -42,8 +42,10 @@ def user_portfolio_directory_path(instance, filename):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    """"カスタムユーザーモデル"""
     first_name=models.CharField(max_length=30, null=True, blank=True)
     last_name=models.CharField(max_length=30, null=True, blank=True)
+    business_person_name=models.CharField(max_length=30, null=True, blank=True)
     email = models.EmailField(max_length=100, unique=True)
     phone = PhoneNumberField(unique=True)
     zip_code = models.CharField(max_length=8, blank=True)
@@ -69,6 +71,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = _('user')
         verbose_name_plural = _('users')
+
 
 
     def email_user(self, subject, message, from_email=None, **kwargs):

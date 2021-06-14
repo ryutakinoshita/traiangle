@@ -41,7 +41,7 @@ class SignupView(generic.CreateView):
     success_url = reverse_lazy('signup_text')
 
     def form_valid(self, form):
-        """仮登録と本登録用メールの発行."""
+        """仮登録と本登録用メールの発行"""
         user = form.save(commit=False)
         user.is_active = False
         user.save()
@@ -72,7 +72,6 @@ class SignupFinishView(generic.TemplateView):
 
 
     def get(self, request, **kwargs):
-        """tokenが正しければ本登録."""
         token = kwargs.get('token')
         try:
             user_pk = loads(token, max_age=self.timeout_seconds)
@@ -99,6 +98,7 @@ class SignupFinishView(generic.TemplateView):
 
 class SignupTextView(generic.TemplateView):
     template_name = 'account/signup_text.html'
+
 
 class EmailChangeView(LoginRequiredMixin, generic.FormView):
     """メールアドレスの変更"""
@@ -129,7 +129,6 @@ class EmailChangeDoneView(LoginRequiredMixin, generic.TemplateView):
     template_name = 'account/email_change_done.html'
 
 
-
 class EmailChangeCompleteView(LoginRequiredMixin, generic.TemplateView):
     template_name = 'account/email_change_complete.html'
     timeout_seconds = getattr(settings, 'ACTIVATION_TIMEOUT_SECONDS', 60*60*24)
@@ -142,10 +141,8 @@ class EmailChangeCompleteView(LoginRequiredMixin, generic.TemplateView):
         except SignatureExpired:
             return HttpResponseBadRequest()
 
-
         except BadSignature:
             return HttpResponseBadRequest()
-
 
         else:
             User.objects.filter(email=new_email, is_active=False).delete()

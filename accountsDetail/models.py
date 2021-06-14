@@ -18,21 +18,16 @@ class Type(models.Model):
 
 
 class Producer(models.Model):
+    """生産者"""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     zip_code = models.CharField(max_length=8,blank=True)
     prefectures_city=models.CharField(max_length=40,blank=True)
     producer_img = models.ImageField(upload_to='producerImg/')
-    producer_name=models.CharField(max_length=40,blank=True)
     producer_type = models.CharField(max_length=100, choices=Type.Types, blank=True, null=False)
     certification = models.TextField(max_length=500, blank=True, null=True)
 
-    class Meta:
-        permissions = (
-            ('view_content', 'View content'),
-        )
-
     def __str__(self):
-            return self.producer_name
+            return self.user
 
 
 class TypeSub(models.Model):
@@ -55,6 +50,7 @@ class TypeSub(models.Model):
     )
 
 class Restaurant(models.Model):
+    """飲食店"""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     zip_code = models.CharField(max_length=8,blank=True)
     prefectures=models.CharField(max_length=40,blank=True)
@@ -70,6 +66,7 @@ class Restaurant(models.Model):
             return self.restaurant_name
 
 class RestaurantImage(models.Model):
+    """飲食店写真"""
     user = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     image_name1=models.CharField(max_length=40,blank=True)
     restaurant_img1= models.ImageField(upload_to='restaurantImg/')

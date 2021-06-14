@@ -1,25 +1,25 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 from django.shortcuts import render
-from django.views.generic import View
 from listing.models import Listing
 from django.conf import settings
-from django.http.response import JsonResponse, HttpResponse
+from django.http.response import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import stripe
 from django.db.models import Q
 from django.utils import timezone
 
 
-class HomeView(View):
-    def get(self, request, *args, **kwargs):
-        item_data = Listing.objects.all()
-        return render(request, 'app/home.html', {
-            'item_data': item_data
-        })
+
+class HomeView(LoginRequiredMixin,generic.ListView):
+    """ホーム"""
+    model = Listing
+    template_name = 'app/home.html'
+    context_object_name = 'item_data'
 
 
-class ProductListView(generic.ListView):
+class ProductListView(LoginRequiredMixin,generic.ListView):
+    """商品一覧"""
     model = Listing
     template_name = 'app/product.html'
     context_object_name = 'product'
@@ -42,6 +42,8 @@ class ProductListView(generic.ListView):
 def index(request):
     return render(request, 'app/index.html')
 
+
+
 @csrf_exempt
 def stripe_config(request):
     if request.method == 'GET':
@@ -50,6 +52,7 @@ def stripe_config(request):
 
 @csrf_exempt
 def create_checkout_session(request):
+    """サブスクリプション"""
     if request.method == 'GET':
         domain_url = 'http://127.0.0.1:8000/'
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -72,5 +75,6 @@ def create_checkout_session(request):
             return JsonResponse({'error': str(e)})
 
 def cancel(request):
+    """決済できなかった場合"""
     return render(request, 'app/cancel.html')
 

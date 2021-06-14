@@ -25,7 +25,6 @@
             <div class="dp_flex">
                 <h5 class="app_name mg_t10 mg_l10"><span class="blue">t</span>ri<span class="red">an</span>gl<span class="yellow">e</span></h5>
                 {% if user.is_authenticated %}
-                    {% if perms.producer.view_post %}
                         <div class="wrap">
                         <button type="button" class="btn main_user_btn p-0 mg_t10">
                             <i class="fas fa-user-plus pd_l10"></i>
@@ -37,18 +36,6 @@
                          </a>
                         </div>
                     {% else %}
-                        <div class="wrap">
-                            <button type="button" class="btn main_user_btn p-0 mg_t10">
-                                <i class="fas fa-user-plus pd_l10"></i>
-                                <a class="link_white pd_r10" href="{% url 'listing_application' %}">生産者申請</a>
-                            </button>
-                                <a class="nav-link" href="{% url 'order' %}">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    <div class="item_count">{{ request.user|itemCount }} </div>
-                                </a>
-                        </div>
-                    {% endif %}
-                {% else %}
                     <button type="button" class="btn new_user_btn p-0 mg_t10">
                         <i class="fas fa-user-plus pd_l10"></i>
                         <a class="link_white pd_r10" href="{% url 'signup' %}">新規登録</a>

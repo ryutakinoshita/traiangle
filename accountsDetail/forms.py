@@ -5,7 +5,7 @@ class ProducerForm(forms.ModelForm):
 
     class Meta:
         model = Producer
-        fields = ("zip_code","prefectures_city","producer_name","producer_type","certification","producer_img")
+        fields = ("zip_code","prefectures_city","producer_type","certification","producer_img")
 
 
 class RestaurantForm(forms.ModelForm):
