@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app.apps.AppConfig',
-    # 'app.templatetags.cart_tags',
+    'django_cleanup.apps.CleanupConfig',
     'listing.apps.ListingConfig',
     'accountsDetail.apps.AccountsdetailConfig',
     'accounts.apps.AccountsConfig',
@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'widget_tweaks',
-    'django_cleanup',
     'phonenumber_field',
     'django.contrib.humanize',
 

@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View
 from accounts.models import User
 from django.conf import settings
-from listing.models import Listing,Order,OrderItem,Payment
+from listing.models import Listing, Order, OrderItem, Payment
 from listing.forms import ListingForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
@@ -173,5 +173,4 @@ class OrderListView(generic.ListView):
     template_name = 'listing/order_list.html'
     model = OrderItem
     context_object_name = 'orders'
-
 
