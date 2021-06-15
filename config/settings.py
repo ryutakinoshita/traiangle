@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'phonenumber_field',
     'django.contrib.humanize',
-
 ]
 
 MIDDLEWARE = [

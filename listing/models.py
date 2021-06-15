@@ -2,7 +2,7 @@ from django.db import models
 from autoslug import AutoSlugField
 from accounts.models import User
 from django.utils import timezone
-
+from django.urls import reverse
 
 
 class Type(models.Model):
@@ -31,10 +31,13 @@ class Listing(models.Model):
     listing_text=models.TextField(max_length=500,blank=True, null=True)
     listing_price=models.IntegerField(blank=True, null=True)
     created = models.DateTimeField(default=timezone.now)
+    like = models.ManyToManyField(User, related_name='related_post', blank=True)
     slug=AutoSlugField(populate_from='listing_name',null=False, unique=True)
+
+
+
     def __str__(self):
             return self.listing_name
-
 
 
 class OrderItem(models.Model):
@@ -78,4 +81,3 @@ class Payment(models.Model):
 
     def __str__(self):
         return self.user.email
-

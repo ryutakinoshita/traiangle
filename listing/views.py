@@ -11,7 +11,8 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist
 import stripe
-
+from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 
 class ListingView(generic.CreateView,LoginRequiredMixin):
@@ -75,7 +76,7 @@ def removeItem(request, slug):
 
 
 @login_required
-def removeSingleItem(request, slug):
+def removeSingleItem(request,slug):
     item = get_object_or_404(Listing, slug=slug)
     order = Order.objects.filter(
         user=request.user,
@@ -173,4 +174,38 @@ class OrderListView(generic.ListView):
     template_name = 'listing/order_list.html'
     model = OrderItem
     context_object_name = 'orders'
+
+
+class LikeBase(LoginRequiredMixin, View):
+    """お気に入りベース"""
+    def get(self, request, *args, **kwargs):
+        pk = self.kwargs['pk']
+        related_post = Listing.objects.get(pk=pk)
+
+        if self.request.user in related_post.like.all():
+            obj = related_post.like.remove(self.request.user)
+        else:
+            obj = related_post.like.add(self.request.user)
+        return obj
+
+
+class LikeHome(LikeBase):
+    """ホームでページでお気に入りした場合"""
+    def get(self, request, *args, **kwargs):
+        super().get(request, *args, **kwargs)
+        return redirect('home')
+
+class LikeDetail(LikeBase):
+    """詳細ページでお気に入りした場合"""
+    def get(self, request, *args, **kwargs):
+        super().get(request, *args, **kwargs)
+        return redirect('home')
+
+class LikeListView(generic.ListView):
+    model = Listing
+    template_name = 'listing/like_list.html'
+    context_object_name = 'item_data'
+
+
+
 

@@ -3,7 +3,7 @@
 {% load humanize %}
 
 {% block body %}
-        <section class="listing_detail mg_t15">
+    <section class="listing_detail mg_t15">
         <h4 class="listing_name_detail pd_l10 pd_r10 pd_t30">{{ object.listing_name }}</h4>
         <p class="listing_type_detail pd_l20 pd_t10">{{ object.get_listing_type_display }}</p>
         <div class="swiper-container mg_t15">
@@ -18,6 +18,13 @@
         </div>
         <div class="text-right">
             <p class="listing_user_detail mg_t10 pd_r20">{{ object.listing_user.business_person_name }}</p>
+        </div>
+        <div class="mg_l30 mg_t20 mg_b20">
+              {% if request.user in object.like.all %}
+                  <a href="{% url 'like-detail' object.pk %}" class="" tabindex="-1" role="button" aria-disabled="true"><button type="button" class="btn like_btn"><i class="far fa-star"></i>リストに追加</button></a>
+              {% else %}
+                  <a href="{% url 'like-detail' object.pk %}" class="" tabindex="-1" role="button" aria-disabled="true"><button type="button" class="btn like_btn_true"><i class="fas fa-star"></i></i>お気に入り</button></a>
+              {% endif %}
         </div>
         <p class="listing_price_detail pd_l10">￥{{ object.listing_price| intcomma }}</p>
         <div class="text-right mg_r10">

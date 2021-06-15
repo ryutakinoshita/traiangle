@@ -191,6 +191,18 @@
         bottom: 5px;
         right: 10px;
     }
+    /*.like_btn{*/
+    /*    background: #e7bc15;*/
+    /*}*/
+    .like_btn_true{
+        background: #e7bc15;
+        color: #fffff3;
+    }
+
+    .fa-star{
+        margin-left: 5px;
+    }
+
 /*E home.html*/
 
 
@@ -810,12 +822,8 @@
         justify-content: center;
         align-items: center;
     }
-    .item_count {
-        margin-left: 5px;
-        font-size: 20px;
-        font-weight: bolder;
-        color: #3399FF;
-    }
+
+
 /*E その他*/
 
 

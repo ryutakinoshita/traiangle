@@ -27,6 +27,13 @@
                           <div class="listing_text">
                               <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ Listing.listing_name| truncatechars:15 }}</h5>
                               <p class="card-text listing_price pd_l20 mg_t15">￥{{ Listing.listing_price| intcomma }}</p>
+                              <div class="text-center">
+                                  {% if request.user in Listing.like.all %}
+                                      <a href="{% url 'like-home' Listing.pk %}" class="" tabindex="-1" role="button" aria-disabled="true"><button type="button" class="btn like_btn"><i class="far fa-star"></i>リストに追加</button></a>
+                                  {% else %}
+                                      <a href="{% url 'like-home' Listing.pk %}" class="" tabindex="-1" role="button" aria-disabled="true"><button type="button" class="btn like_btn_true"><i class="fas fa-star"></i></i>お気に入り</button></a>
+                                  {% endif %}
+                              </div>
                               <p class="card-text listing_type">{{ Listing.listing_user.business_person_name }}</p>
                           </div>
                     </div>
@@ -34,12 +41,12 @@
             {% endfor %}
         </section>
         </div>
-        <input id="TAB02-03" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label switch_red" for="TAB02-03">お気に入り</label>
+        <input id="TAB02-03" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label switch_red" for="TAB02-03">ランキング</label>
         <div class="tab-content">
         </div>
         <input id="TAB02-05" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label switch_yellow" for="TAB02-05">お知らせ</label>
         <div class="tab-content">
-        </div>
+        </div>　　　　
     </div>
 
 {% endblock body %}
