@@ -5,20 +5,24 @@
 
 {% block body %}
     <section class="listing_home mg_t30">
-{#        {% if request.user in item %}#}
                 {% for Listing in item_data %}
+                    {% if request.user in Listing.like.all %}
+                        <p class="like_list_text pd_t50">リストに商品がありません</p>
+                    {% else %}
                     <a href="{% url 'listing_detail' Listing.slug%}">
                         <div class="listing_card mg_t10">
                               <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
                               <div class="listing_text">
                                   <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ Listing.listing_name| truncatechars:15 }}</h5>
                                   <p class="card-text listing_price pd_l20 mg_t15">￥{{ Listing.listing_price| intcomma }}</p>
+                                  <div class="text-center mg_t10">
+                                      <a href="{% url 'like-home' Listing.pk %}" class="" tabindex="-1" role="button" aria-disabled="true"><button type="button" class="btn delete_like_btn"><i class="fas fa-minus-circle"></i></i>リストから削除</button></a>
+                                  </div>
                                   <p class="card-text listing_type">{{ Listing.listing_user.business_person_name }}</p>
                               </div>
                         </div>
                     </a>
+                    {% endif %}
                 {% endfor %}
-{#        {% else %}#}
-{#        {% endif %}#}
     </section>
 {% endblock body %}

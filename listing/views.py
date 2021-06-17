@@ -193,18 +193,25 @@ class LikeHome(LikeBase):
     """ホームでページでお気に入りした場合"""
     def get(self, request, *args, **kwargs):
         super().get(request, *args, **kwargs)
-        return redirect('home')
+        return redirect('like_list')
 
 class LikeDetail(LikeBase):
     """詳細ページでお気に入りした場合"""
     def get(self, request, *args, **kwargs):
         super().get(request, *args, **kwargs)
-        return redirect('home')
+        return redirect('like_list')
 
 class LikeListView(generic.ListView):
+    """お気に入り投稿一覧"""
     model = Listing
     template_name = 'listing/like_list.html'
     context_object_name = 'item_data'
+
+
+
+
+
+
 
 
 

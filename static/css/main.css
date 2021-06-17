@@ -1,4 +1,5 @@
 /*app/base.html*/
+/*スマホ用*/
 @media screen and (max-width:639px) {
     body {
         width: 100%;
@@ -191,9 +192,6 @@
         bottom: 5px;
         right: 10px;
     }
-    /*.like_btn{*/
-    /*    background: #e7bc15;*/
-    /*}*/
     .like_btn_true{
         background: #e7bc15;
         color: #fffff3;
@@ -204,6 +202,20 @@
     }
 
 /*E home.html*/
+
+
+/*S like_list.html*/
+    .delete_like_btn{
+        background: #3399FF;
+        color: #fffff3;
+    }
+    .like_list_text{
+        font-weight: bold;
+        text-align: center;
+        font-size: 24px;
+    }
+
+/*E like_list.html*/
 
 
 /*S listing_detail.html*/
@@ -677,13 +689,14 @@
         font-weight: bolder;
         font-size: 20px;
     }
-    .fas fa-envelope,
+    .fa-envelope,
     .fa-map-marker-alt,
     .fa-lock,
     .fa-file-contract,
     .fa-book-open,
     .fa-user-edit,
-    .fa-history{
+    .fa-history
+    .fa-heart{
         font-size: 20px;
     }
 /*E my_page*/

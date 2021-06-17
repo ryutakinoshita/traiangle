@@ -16,4 +16,6 @@ urlpatterns = [
     path('order/listing/', views.OrderListView.as_view(), name='order_listing'),
     path('like-home/<int:pk>', LikeHome.as_view(), name='like-home'),
     path('like-detail/<int:pk>', LikeDetail.as_view(), name='like-detail'),
+
+
     ]
