@@ -6,13 +6,12 @@ from django.views.generic import View
 from accounts.models import User
 from django.conf import settings
 from listing.models import Listing, Order, OrderItem, Payment
-from listing.forms import ListingForm
+from listing.forms import ListingForm,ListingUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist
 import stripe
-from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.shortcuts import resolve_url
 
 
 class ListingView(generic.CreateView,LoginRequiredMixin):
@@ -25,6 +24,20 @@ class ListingView(generic.CreateView,LoginRequiredMixin):
         form.instance.listing_user = self.request.user
         return super().form_valid(form)
 
+class ListingUpdateView(generic.UpdateView):
+    """商品編集"""
+    model = Listing
+    form_class = ListingUpdateForm
+    template_name = 'listing/listing_edit.html'
+
+    def get_success_url(self):
+        return resolve_url('my_listing', pk=self.kwargs['pk'])
+
+
+class MyListingView(generic.DetailView):
+    """自分の出品一覧"""
+    model = User
+    template_name = 'listing/my_listing.html'
 
 
 @login_required

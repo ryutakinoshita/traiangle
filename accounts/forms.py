@@ -7,6 +7,7 @@ PasswordResetForm,
 SetPasswordForm
 
 )
+from  django.forms import ModelForm
 
 
 class UserLoginForm(AuthenticationForm):
@@ -27,7 +28,7 @@ class UserCreateForm(UserCreationForm):
     class Meta:
         model = User
         fields = [
-            'first_name','last_name','email','phone','password1', 'password2',"zip_code","prefectures","city",
+            'first_name','last_name','email','phone','password1','password2',"zip_code","prefectures","city",
             "address1","address2",'business_person_name'
         ]
 
@@ -63,4 +64,11 @@ class SetPasswordForm(SetPasswordForm):
             'password1','password2'
         ]
 
+
+class UserZipUpdateForm(ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            "zip_code", "prefectures", "city","address1", "address2", 'business_person_name'
+        ]
 

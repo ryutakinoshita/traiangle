@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block body %}
+        <section class="listing_home mg_t30">
+            {% for Listing in object.listing_set.all %}
+                <a href="{% url 'listing_detail' Listing.slug%}">
+                    <div class="listing_card mg_t10">
+                          <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
+                          <div class="listing_text">
+                              <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ Listing.listing_name| truncatechars:15 }}</h5>
+                              <p class="card-text listing_price pd_l20 mg_t15">￥{{ Listing.listing_price| intcomma }}</p>
+                              <p class="card-text listing_type">{{ Listing.listing_user.business_person_name }}</p>
+                          </div>
+                    </div>
+                </a>
+                <div class="mg_l10 mg_t10">
+                    <a href="{% url 'listing_update' Listing.pk%}"><button class="btn edit_btn">編集</button></a>
+                </div>
+            {% endfor %}
+        </section>
+
+{% endblock body %}
