@@ -5,11 +5,11 @@
 
 
 {% block body %}
-    <section class="cart mg_t50">
+    <section class="cart mg_t50 pd_b50">
         {% if order.get_total %}
             <p class="pd_l10 total">小計 ￥{{ order.get_total |floatformat:0 | intcomma}}</p>
         <div class="total_fee pd_b30">
-            <a class="mg_t15" href="{% url 'payment' %}"><button class="btn buy_btn">レジに進む</button></a>
+            <a class="mg_t15" href="{% url 'payment' %}"><button type="submit" class="btn btn-warning">レジに進む</button></a>
             <a class="continue mg_t10" href="{% url 'home' %}">買い物を続ける</a>
         </div>
         {% else %}
@@ -27,9 +27,8 @@
                     <p class="quantity pd_l30">数量</p>
                     <a href="{% url 'removesingleitem' order_item.item.slug %}"><i class="fas fa-minus mg_l10"></i></a>
                     <p class="quantity_main mg_l5">{{ order_item.quantity }}</p>
-                    <a href="{% url 'additem' order_item.item.slug %}"><i class="fas fa-plus mg_l5"></i></a>
                 </div>
-                    <a class="delete_item mg_l30" href="{% url 'removeitem' order_item.item.slug %}">削除</a>
+                    <a class="mg_l10" href="{% url 'removeitem' order_item.item.slug %}"><button type="submit" class="btn btn-outline-danger mg_t10 delete_item ">削除</button></a>
                 <p class="individual_item pd_l30 mg_t15 pd_b30">税込 ￥{{ order_item.get_total_item_price |floatformat:0 | intcomma}}</p>
                 {% if not forloop.last %}
                 {% endif %} {% empty %}

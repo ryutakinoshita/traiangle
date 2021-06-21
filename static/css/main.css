@@ -150,14 +150,14 @@
         width: 70%;
     }
     .listing_card {
-        height: 180px;
+        height: auto;
         background: #ffffff;
         display: flex;
         border-radius: 4px;
     }
     .listing_img {
         width: 220px;
-        height: 100%;
+        height: 180px;
     }
     .listing_text {
         width: 100%;
@@ -168,15 +168,12 @@
         font-weight: bolder;
     }
     .listing_price {
-        font-size: 18px;
-        color: #b3022e;
+        font-size: 22px;
     }
     .listing_type {
         color: #828181;
-        font-size: 12px;
-        position: absolute;
-        bottom: 5px;
-        right: 10px;
+        font-size: 14px;
+        text-align: right;
     }
     .listing_type_order {
         color: #828181;
@@ -184,37 +181,19 @@
        text-align: right;
         padding-right: 10px;
     }
-    .cart_btn_order{
-        font-weight: bolder;
-        background: #e7bc15;
-        padding: 4px;
-        position: absolute;
-        bottom: 5px;
-        right: 10px;
-    }
-    .like_btn_true{
-        background: #e7bc15;
-        color: #fffff3;
-    }
-
-    .fa-star{
-        margin-left: 5px;
+    .heart_true{
+        color: #f50c46;
     }
 
 /*E home.html*/
 
 
 /*S like_list.html*/
-    .delete_like_btn{
-        background: #3399FF;
-        color: #fffff3;
-    }
     .like_list_text{
         font-weight: bold;
         text-align: center;
         font-size: 24px;
     }
-
 /*E like_list.html*/
 
 
@@ -261,21 +240,9 @@
         font-size: 16px;
         line-height:2.5;
     }
-    .cart_btn{
-        font-weight: bolder;
-        background: #e7bc15;
-    }
-    .cart_btn:hover{
-        font-weight: bolder;
-        background: #e7bc15;
-    }
-    .buy_btn{
-        font-weight: bolder;
-        background: #e7bc15;
-    }
-    .buy_btn:hover{
-        font-weight: bolder;
-        background: #e7bc15;
+    .add_heart{
+        display:flex;
+        flex-flow: column;
     }
     .continue{
         color: #3399FF;
@@ -331,23 +298,10 @@
         font-size: 10px;
     }
     .delete_item{
-        color: #fffff3;
-        background: #fa2929;
-        font-size: 14px;
-        width: 60px;
-        padding: 4px;
-        border-radius: 4px;
-        cursor: pointer;
+        padding:4px 10px;
+
     }
-    .delete_item:hover{
-        color: #fffff3;
-        background: #fa2929;
-        font-size: 14px;
-        width: 60px;
-        padding: 4px;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+
     .individual_item{
         font-weight: bolder;
     }
@@ -701,15 +655,10 @@
         font-size: 20px;
     }
     .edit_btn{
-        background: #3399FF;
-        color: #fffff3;
-        padding:5px;
+        padding:4px 10px;
     }
-    .edit_btn:hover{
-        background: #3399FF;
-        color: #fffff3;
-        padding:5px;
-    }
+
+
 /*E my_page*/
 
 
@@ -846,6 +795,10 @@
         justify-content: center;
         align-items: center;
     }
+    .heading_text{
+        font-weight: bolder;
+    }
+
 
 
 /*E その他*/
