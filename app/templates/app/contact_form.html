@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+
+{% block body %}
+    <section class="listing mg_t50 pd_b30">
+        <h5 class="change_text">お問い合わせ</h5>
+        <form class="listing_form" method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <div class="registration mg_t30">
+                <table class="table m-0">{% render_field form.email class="registration_main" placeholder="返信用メールアドレス"%}</table>
+            </div>
+            <p class="signup_text_detail">内容の選択</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.contact_us class="registration_main" placeholder=""%}</table>
+            </div>
+            <p class="signup_text_detail">詳細</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.message class="registration_main_big" placeholder=""%}</table>
+            </div>
+            <div class="text-center mg_t50">
+                <button type="submit" class="btn signup_registration_btn">送信</button>
+            </div>
+        </form>
+    </section>
+{% endblock body %}

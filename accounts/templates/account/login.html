@@ -9,10 +9,10 @@
             <div class="registration">
                 <table class="table">{% render_field form.username class="registration_main" placeholder="メールアドレス" %}</table>
             </div>
-            <div class="registration mg_t15">
+            <div class="registration mg_t20">
                 <table class="table">{% render_field form.password class="registration_main" placeholder="パスワード" %}</table>
             </div>
-            <div class="login_link_group mg_t30">
+            <div class="login_link_group mg_t50">
                 <a class="login_link" href="{% url 'signup' %}">新規登録はこちら</a>
                 <a class="login_link" href="{% url 'password_reset' %}">パスワードをお忘れですか？</a>
             </div>

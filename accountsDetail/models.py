@@ -1,5 +1,7 @@
 from django.db import models
 from accounts.models import User
+from listing.models import Listing
+from django.utils import timezone
 
 
 class Type(models.Model):
@@ -79,3 +81,12 @@ class RestaurantImage(models.Model):
             return self.restaurant_img1.url
 
 
+class Review(models.Model):
+    """レビューモデル"""
+    target=models.ForeignKey(Listing,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.SET_DEFAULT,default='退会済みのユーザー')
+    answer_text=models.TextField(max_length=300)
+    time=models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.answer_text

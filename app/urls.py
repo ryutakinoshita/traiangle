@@ -9,4 +9,6 @@ urlpatterns=[
     path('config/', views.stripe_config),
     path('create-checkout-session/', views.create_checkout_session),
     path('cancel/', views.cancel),
+    path('contact/', views.ContactView.as_view(), name='contact'),
+    path('contact/result/', views.ContactResultView.as_view(), name='contact_result'),
 ]

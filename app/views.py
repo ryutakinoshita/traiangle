@@ -1,6 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render
+
+from app.forms import ContactForm
 from listing.models import Listing
 from django.conf import settings
 from django.http.response import JsonResponse
@@ -78,3 +81,21 @@ def cancel(request):
     """決済できなかった場合"""
     return render(request, 'app/cancel.html')
 
+
+class ContactView(LoginRequiredMixin,generic.CreateView):
+    template_name = 'app/contact_form.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('contact_result')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.send_email()
+        return super().form_valid(form)
+
+class ContactResultView(LoginRequiredMixin,generic.TemplateView):
+    template_name = 'app/contact_result.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['success'] = "お問い合わせは正常に送信されました。"
+        return context

@@ -371,7 +371,7 @@
         text-align: center;
     }
     .registration_main,
-    .registration_main_radio {
+    .registration_main_radio{
         width: 70%;
         height: 30px;
         padding: 0;
@@ -379,8 +379,15 @@
     .table {
         margin: 0;
     }
-    .registration_main[type="text"]:focus {
+    .registration_main[type="text"]:focus,
+    .registration_main[type="password"]:focus,
+    .registration_main[type="email"]:focus,
+    .registration_main[type="tel"]:focus{
         background: #e3f1f6;
+    }
+    input::placeholder {
+        color: #b7b9bb;
+        font-size: 15px;
     }
     .signup_registration_btn {
         font-weight: bolder;
@@ -605,9 +612,8 @@
 
 /*S change.html*/
     .change_text {
-        font-size: 25px;
         text-align: center;
-        font-weight: bold;
+        font-weight: bolder;
     }
     .change_text_small {
         font-size: 19px;
@@ -618,8 +624,9 @@
         text-align: center;
     }
     .change_text_detail {
-        padding-left: 20px;
-        padding-right: 20px;
+        font-size: 14px;
+        padding-left: 40px;
+        padding-right: 40px;
     }
     .change_btn {
         width: 150px;
