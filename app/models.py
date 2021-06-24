@@ -25,9 +25,9 @@ CHOICES =(
 
 class Contact(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    contact_us=models.CharField(max_length=20,choices=CHOICES)
-    email=models.EmailField(max_length=100,null=False, blank=True)
-    message=models.TextField(max_length=1000,null=False, blank=True)
+    contact_us=models.CharField(max_length=20,choices=CHOICES,blank=False,null=False)
+    email=models.EmailField(max_length=100,blank=False,null=False)
+    message=models.TextField(max_length=1000,blank=False,null=False)
 
     def __str__(self):
         return self.message

@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.shortcuts import redirect,render,get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
@@ -24,6 +25,11 @@ class ListingView(generic.CreateView,LoginRequiredMixin):
         form.instance.listing_user = self.request.user
         return super().form_valid(form)
 
+class ListingDetailView(generic.DetailView):
+    """商品詳細"""
+    model = Listing
+    template_name = 'listing/listing_detail.html'
+
 class ListingUpdateView(generic.UpdateView):
     """商品編集"""
     model = Listing
@@ -38,6 +44,17 @@ class MyListingView(generic.DetailView):
     """自分の出品一覧"""
     model = User
     template_name = 'listing/my_listing.html'
+
+class OrderListView(generic.DetailView):
+    """購入履歴"""
+    model = User
+    template_name = 'listing/order_list.html'
+
+# class ShippingView(generic.DetailView):
+#     """購入者リスト"""
+#     model =Listing
+#     template_name = 'listing/shipping.html'
+
 
 
 @login_required
@@ -133,9 +150,7 @@ class ThanksView(LoginRequiredMixin, View):
         return render(request, 'listing/thanks.html')
 
 
-class ListingDetailView(generic.DetailView):
-    model = Listing
-    template_name = 'listing/listing_detail.html'
+
 
 
 class PaymentView(LoginRequiredMixin, View):
@@ -179,14 +194,17 @@ class PaymentView(LoginRequiredMixin, View):
         order.ordered = True
         order.payment = payment
         order.save()
+
+
+        subject="商品発送のお願い"
+        message=""
+        from_email="information@myproject"
+        recipient_list=[order_item.item.listing_user.email]
+        send_mail(subject, message, from_email, recipient_list)
         return redirect('thanks')
 
 
-class OrderListView(generic.ListView):
-    """購入履歴"""
-    template_name = 'listing/order_list.html'
-    model = OrderItem
-    context_object_name = 'orders'
+
 
 
 class LikeBase(LoginRequiredMixin, View):
@@ -219,7 +237,6 @@ class LikeListView(generic.ListView):
     model = Listing
     template_name = 'listing/like_list.html'
     context_object_name = 'item_data'
-
 
 
 

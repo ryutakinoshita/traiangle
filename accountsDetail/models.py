@@ -54,14 +54,14 @@ class TypeSub(models.Model):
 class Restaurant(models.Model):
     """飲食店"""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    zip_code = models.CharField(max_length=8,blank=True)
-    prefectures=models.CharField(max_length=40,blank=True)
-    city=models.CharField(max_length=40,blank=True)
-    address1=models.CharField(max_length=40,blank=True)
+    zip_code = models.CharField(max_length=8,blank=False,null=False)
+    prefectures=models.CharField(max_length=40,blank=False,null=False)
+    city=models.CharField(max_length=40,blank=False,null=False)
+    address1=models.CharField(max_length=40,blank=False,null=False)
     address2=models.CharField(max_length=40,blank=True)
-    restaurant_img = models.ImageField(upload_to='restaurantImg/')
-    restaurant_type = models.CharField(max_length=100, choices=TypeSub.Types, blank=True, null=False)
-    restaurant_name=models.CharField(max_length=40,blank=True)
+    restaurant_img = models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
+    restaurant_type = models.CharField(max_length=100, choices=TypeSub.Types,blank=False,null=False)
+    restaurant_name=models.CharField(max_length=40,blank=False,null=False)
     certification = models.TextField(max_length=500, blank=True, null=True)
 
     def __str__(self):
@@ -70,12 +70,12 @@ class Restaurant(models.Model):
 class RestaurantImage(models.Model):
     """飲食店写真"""
     user = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
-    image_name1=models.CharField(max_length=40,blank=True)
-    restaurant_img1= models.ImageField(upload_to='restaurantImg/')
-    image_name2=models.CharField(max_length=40,blank=True)
-    restaurant_img2= models.ImageField(upload_to='restaurantImg/')
-    image_name3=models.CharField(max_length=40,blank=True)
-    restaurant_img3= models.ImageField(upload_to='restaurantImg/')
+    image_name1=models.CharField(max_length=40,blank=True,null=True)
+    restaurant_img1= models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
+    image_name2=models.CharField(max_length=40,blank=True,null=True)
+    restaurant_img2= models.ImageField(upload_to='restaurantImg/',blank=True,null=True)
+    image_name3=models.CharField(max_length=40,blank=True,null=True)
+    restaurant_img3= models.ImageField(upload_to='restaurantImg/',blank=True,null=True)
 
     def __str__(self):
             return self.restaurant_img1.url
@@ -85,7 +85,7 @@ class Review(models.Model):
     """レビューモデル"""
     target=models.ForeignKey(Listing,on_delete=models.CASCADE)
     user=models.ForeignKey(User,on_delete=models.SET_DEFAULT,default='退会済みのユーザー')
-    answer_text=models.TextField(max_length=300)
+    answer_text=models.TextField(max_length=300,blank=True,null=True)
     time=models.DateTimeField(default=timezone.now)
 
     def __str__(self):

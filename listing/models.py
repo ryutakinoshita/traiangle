@@ -23,11 +23,11 @@ class Type(models.Model):
 class Listing(models.Model):
     """出品モデル"""
     listing_user=models.ForeignKey(User, on_delete=models.CASCADE)
-    listing_img1= models.ImageField(upload_to='listingImg')
-    listing_img2= models.ImageField(upload_to='listingImg')
-    listing_img3= models.ImageField(upload_to='listingImg')
-    listing_type =models.CharField(max_length=100, choices=Type.TypeListing, blank=True, null=False)
-    listing_name=models.CharField(max_length=100,blank=True, null=False)
+    listing_img1= models.ImageField(upload_to='listingImg',blank=False, null=False)
+    listing_img2= models.ImageField(upload_to='listingImg',blank=True, null=True)
+    listing_img3= models.ImageField(upload_to='listingImg',blank=True, null=True)
+    listing_type =models.CharField(max_length=100, choices=Type.TypeListing, blank=False, null=False)
+    listing_name=models.CharField(max_length=100,blank=False, null=False)
     listing_text=models.TextField(max_length=500,blank=True, null=True)
     listing_price=models.IntegerField(blank=True, null=True)
     created = models.DateTimeField(default=timezone.now)
@@ -41,9 +41,10 @@ class Listing(models.Model):
 
 
 class OrderItem(models.Model):
+    """購入履歴モデル"""
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    ordered=models.BooleanField(default=False)
     item=models.ForeignKey(Listing,on_delete=models.CASCADE,related_name='orderItems')
+    ordered=models.BooleanField(default=False)
     quantity=models.IntegerField(default=1)
 
 
@@ -73,7 +74,6 @@ class Order(models.Model):
 
 
 class Payment(models.Model):
-
     user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
     stripe_charge_id = models.CharField(max_length=50)
     amount = models.IntegerField()

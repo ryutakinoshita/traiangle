@@ -17,8 +17,9 @@
         </div>
         <div class="my_page_div mg_t30">
             <i class="fas fa-history"></i>
-            <a class="my_page_link pd_l20" href="{% url 'order_listing' %}">注文履歴</a>
+            <a class="my_page_link pd_l20" href="{% url 'order_listing' user.id %}">注文履歴</a>
         </div>
+
         <div class="my_page_div mg_t30">
             <i class="fas fa-envelope"></i>
             <a class="my_page_link pd_l20" href="{% url 'email_change' %}">メールアドレスの変更</a>
