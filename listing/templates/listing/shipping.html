@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block body %}
+    <section class="listing_home mg_t30">
+        {% for order in orders %}
+
+            <a href="{% url 'listing_detail' order.item.slug %}">
+                <div class="listing_card mg_t10 mg_b20">
+                    <img class="listing_img" src="{{ MEDIA_URL }}{{ order.item.listing_img1 }}">
+                    <div class="listing_text">
+                        <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ order.item.listing_name| truncatechars:15 }}</h5>
+                        <p class="card-text listing_price pd_l20 mg_t15">￥{{ order.item.listing_price| intcomma }}</p>
+                        <p class="card-text listing_type_order mg_t20 pd_b10">{{ order.item.listing_user.business_person_name}}</p>
+                        <p class="card-text listing_type_order mg_t20 pd_b10">{{ order.user.first_name}} {{ order.user.last_name}}</p>
+                        <p class="card-text listing_type_order mg_t20 pd_b10">{{ order.user.zip_code}}</p>
+                        <p class="card-text listing_type_order mg_t20 pd_b10">{{ order.user.prefectures}}</p>
+                        <p class="card-text listing_type_order mg_t20 pd_b10">{{ order.user.city}}</p>
+                        <p class="card-text listing_type_order mg_t20 pd_b10">{{ order.user.address1}}</p>
+                        <p class="card-text listing_type_order mg_t20 pd_b10">{{ order.user.address2}}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </section>
+{% endblock body %}

@@ -13,7 +13,7 @@ from .forms import (
 )
 
 
-class MyPageView(generic.TemplateView):
+class MyPageView(LoginRequiredMixin,generic.TemplateView):
     """マイページ"""
     template_name = 'accountsDetail/my_page.html'
 

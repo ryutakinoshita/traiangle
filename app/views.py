@@ -14,7 +14,7 @@ from django.utils import timezone
 
 
 
-class HomeView(LoginRequiredMixin,generic.ListView):
+class HomeView(generic.ListView):
     """ホーム"""
     model = Listing
     template_name = 'app/home.html'

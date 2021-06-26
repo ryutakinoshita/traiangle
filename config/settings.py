@@ -26,6 +26,7 @@ SECRET_KEY = 'rj2k@)q=y=bwuhyhsj3g!cudo05@*v5x*k)u#-k5+^^p&$h#t8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -160,3 +161,5 @@ NUMBER_GROUPING = 3
 STRIPE_SECRET_KEY = 'sk_test_51IxOUqIrVbQ99ePNxJ4TG4022SOLSfNKtxTBLBHqrUEsdT2GDrCNjZye2vQnhetGy2Gl5CciI1ywFl7j38QUARYg00tYfbkDwc'
 STRIPE_PUBLISHABLE_KEY='pk_test_51IxOUqIrVbQ99ePNf2DoSNFjET5HL7NAewJIVuytJaxlWk9D7XfrSptTploMD8LizoBPKBH4QfcaX8MTL4dfsrIf00lxDnWF1q'
 STRIPE_PRICE_ID ='price_1IxlTrIrVbQ99ePNmwsb5IZq'
+
+LOGIN_URL = '/index/'

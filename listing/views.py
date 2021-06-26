@@ -13,9 +13,9 @@ from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist
 import stripe
 from django.shortcuts import resolve_url
+from django.db.models import Q
 
-
-class ListingView(generic.CreateView,LoginRequiredMixin):
+class ListingView(LoginRequiredMixin,generic.CreateView):
     """出品機能"""
     template_name = 'listing/listing_create.html'
     form_class = ListingForm
@@ -25,12 +25,12 @@ class ListingView(generic.CreateView,LoginRequiredMixin):
         form.instance.listing_user = self.request.user
         return super().form_valid(form)
 
-class ListingDetailView(generic.DetailView):
+class ListingDetailView(LoginRequiredMixin,generic.DetailView):
     """商品詳細"""
     model = Listing
     template_name = 'listing/listing_detail.html'
 
-class ListingUpdateView(generic.UpdateView):
+class ListingUpdateView(LoginRequiredMixin,generic.UpdateView):
     """商品編集"""
     model = Listing
     form_class = ListingUpdateForm
@@ -40,20 +40,23 @@ class ListingUpdateView(generic.UpdateView):
         return resolve_url('my_listing', pk=self.kwargs['pk'])
 
 
-class MyListingView(generic.DetailView):
+class MyListingView(LoginRequiredMixin,generic.DetailView):
     """自分の出品一覧"""
     model = User
     template_name = 'listing/my_listing.html'
 
-class OrderListView(generic.DetailView):
+class OrderListView(LoginRequiredMixin,generic.DetailView):
     """購入履歴"""
     model = User
     template_name = 'listing/order_list.html'
 
-# class ShippingView(generic.DetailView):
-#     """購入者リスト"""
-#     model =Listing
-#     template_name = 'listing/shipping.html'
+class ShippingView(LoginRequiredMixin,generic.ListView):
+    """購入者リスト"""
+    model =OrderItem
+    template_name = 'listing/shipping.html'
+    context_object_name = 'orders'
+
+
 
 
 
@@ -232,7 +235,7 @@ class LikeDetail(LikeBase):
         super().get(request, *args, **kwargs)
         return redirect('like_list')
 
-class LikeListView(generic.ListView):
+class LikeListView(LoginRequiredMixin,generic.ListView):
     """お気に入り投稿一覧"""
     model = Listing
     template_name = 'listing/like_list.html'
