@@ -1,0 +1,52 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block body %}
+    <div class="searches mg_t30 mg_b30">
+       <div class="dropdown mg_l20">
+           <a class="btn btn-secondary dropdown-toggle" href={% url 'product_fish' %}"" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               鮮魚
+           </a>
+           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="{% url 'product_vegetables' %}">すべて</a>
+            <a class="dropdown-item" href="{% url 'product_vegetables' %}">野菜</a>
+            <a class="dropdown-item" href="{% url 'product_fruits' %}">果物</a>
+            <a class="dropdown-item" href="{% url 'product_meat' %}">食肉</a>
+            <a class="dropdown-item" href="{% url 'product_dairy' %}">乳製品</a>
+            <a class="dropdown-item" href="{% url 'product_processing' %}">加工食品</a>
+            <a class="dropdown-item" href="{% url 'product_drink' %}">飲料</a>
+            <a class="dropdown-item" href="{% url 'product_alcohol' %}">アルコール飲料</a>
+            <a class="dropdown-item" href="{% url 'product_other' %}">その他</a>
+          </div>
+       </div>
+       <form  action="{% url 'product_fish' %}" method="get" class="search_word mg_b40">
+           <input class="search" type="text" name="query" placeholder="検索" aria-label="Search">
+           <button class="search_btn">
+               <i class="fas fa-search"></i>
+           </button>
+       </form>
+    </div>
+     <section class="listing_home mg_t30">
+            {% for Listing in product %}
+                <a href="{% url 'listing_detail' Listing.slug%}">
+                    <div class="listing_card mg_t10">
+                          <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
+                          <div class="listing_text">
+                              <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ Listing.listing_name| truncatechars:15 }}</h5>
+                          <div class="like_count mg_l10">
+                                  {% if request.user in Listing.like.all %}
+                                      <i class="fas fa-heart heart_true"></i> {{Listing.like.count}}
+                                  {% else %}
+                                      <i class="far fa-heart heart_false"></i> {{Listing.like.count}}
+                                  {% endif %}
+                          </div>
+                              <p class="card-text listing_price pd_l20 mg_t15">￥{{ Listing.listing_price| intcomma }}</p>
+                              <p class="card-text listing_type">{{ Listing.listing_user.business_person_name }}</p>
+                          </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </section>
+{% endblock body %}

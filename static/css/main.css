@@ -129,26 +129,36 @@
 
 
 /*S home.html*/
-    .search {
-        width: 50%;
-        border: none;
-        outline: none;
-        appearance: none;
-        background: #f8f7f7;
+    .dropdown-toggle{
+        padding: 3px 8px;
     }
-    .search[type="text"]:focus {
+    .searches{
+        display: flex;
+        justify-content: center;
+    }
+    .search {
+        /*text-align: center;*/
+        border-left: none;
+        width: 85%;
+        outline: none;
+        background: #f8f7f7;
+        padding: 0 5px;
+        border-radius: 4px;
+    }
+    .search[type="text"]:focus{
         border: 1px solid #3399FF;
     }
-    .search_btn {
+    .search_btn ,
+    .search_btn:hover{
         border: none;
         outline: none;
         appearance: none;
+        padding: 5px 2px;
+        font-size: 20px;
+        color: #3399FF;
         background: #f8f7f7;
     }
-    .main_hr {
-        margin: 0 auto;
-        width: 70%;
-    }
+
     .listing_card {
         height: auto;
         background: #ffffff;
@@ -844,6 +854,9 @@
     }
     .mg_l10 {
         margin-left: 10px;
+    }
+    .mg_l20 {
+        margin-left: 20px;
     }
     .mg_l30 {
         margin-left: 30px;

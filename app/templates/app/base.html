@@ -19,6 +19,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet"type="text/css" href="{% static 'css/main.css'%}">
         <link rel="stylesheet"type="text/css" href="{% static 'css/sub.css'%}">
+
     </head>
     <body class="m-0 p-0">
         <header>
@@ -62,9 +63,9 @@
                                  <i class="fas fa-user"></i>
                                  <p class="footer_nav_base">マイページ</p>
                              </a>
-                             <a class="nav-link p-0" href="#">
+                             <a class="nav-link p-0" href="{% url 'product_list' %}">
                                  <i class="fas fa-search-plus"></i>
-                                 <p class="footer_nav_base">カテゴリ検索</p>
+                                 <p class="footer_nav_base">レシピ検索</p>
                              </a>
                           </div>
                     </nav>
