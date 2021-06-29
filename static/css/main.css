@@ -318,6 +318,22 @@
 /*E listing_detail.html*/
 
 
+/*S listing_create.html*/
+    .listing_create_text{
+        padding-top: 50px;
+        padding-left: 30px;
+        font-weight: bolder;
+    }
+    .listing_btn{
+        width: 40%;
+        font-size: 20px;
+        letter-spacing: 5px;
+        border-radius: 4px;
+    }
+
+/*E listing_create.html*/
+
+
 /*S payment.html*/
     .payment{
         background: #ffffff;
@@ -798,13 +814,7 @@
         display:flex;
         flex-flow: column;
         align-items: flex-end;
-        padding-right: 10px;
-
-    }
-    .main_user_btn {
-        background: #519a76;
-        height: 30px;
-        line-height: 30px;
+        padding: 0;
 
     }
     .carts{
@@ -847,6 +857,9 @@
 
     .mg_b30 {
         margin-bottom: 30px;
+    }
+    .mg_b100 {
+        margin-bottom: 100px;
     }
 
     .mg_l5 {

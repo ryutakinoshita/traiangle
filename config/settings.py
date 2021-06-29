@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'listing.apps.ListingConfig',
     'accountsDetail.apps.AccountsdetailConfig',
     'accounts.apps.AccountsConfig',
+    'recipe.apps.RecipeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'phonenumber_field',
     'django.contrib.humanize',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -163,3 +165,13 @@ STRIPE_PUBLISHABLE_KEY='pk_test_51IxOUqIrVbQ99ePNf2DoSNFjET5HL7NAewJIVuytJaxlWk9
 STRIPE_PRICE_ID ='price_1IxlTrIrVbQ99ePNmwsb5IZq'
 
 LOGIN_URL = '/index/'
+
+
+SUMMERNOTE_THEME = 'bs4'
+X_FRAME_OPTIONS = "SAMEORIGIN"
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'height': '1500px',
+        'width': '100%'
+    },
+}
