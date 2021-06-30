@@ -11,7 +11,7 @@
     header {
         height: 80px;
         background: #ffffff;
-        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+        border-bottom: 3px solid #e5e7e8;
     }
     a {
         color: #4d5156;
@@ -27,6 +27,10 @@
         overflow: hidden;
         margin: 0;
         padding: 0;
+    }
+    input::placeholder {
+        color: #b7b9bb;
+        font-size: 15px;
     }
     li {
         display: inline-block;
@@ -137,7 +141,6 @@
         justify-content: center;
     }
     .search {
-        /*text-align: center;*/
         border-left: none;
         width: 85%;
         outline: none;
@@ -184,6 +187,8 @@
         color: #828181;
         font-size: 14px;
         text-align: right;
+        padding-right: 5px;
+        letter-spacing:1px ;
     }
     .listing_type_order {
         color: #828181;
@@ -211,14 +216,13 @@
     .listing_detail {
         height: 100%;
         background: #ffffff;
-        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
     }
     .listing_name_detail {
         font-size: 24px;
         font-weight: bolder;
     }
     .listing_type_detail {
-        font-size: 13px;
+        font-size: 15px;
     }
     .detail_img {
         text-align: center;
@@ -231,10 +235,11 @@
     }
     .listing_user_detail {
         color: #828181;
-        font-size: 14px;
+        font-size: 18px;
+        letter-spacing: 1px;
     }
     .listing_price_detail {
-        font-size: 24px;
+        font-size: 26px;
         color: #b3022e;
     }
     .swiper-button-next,
@@ -247,7 +252,8 @@
         font-weight: bolder;
     }
     .listing_text_detail{
-        font-size: 16px;
+        font-size: 20px;
+        letter-spacing: 1px;
         line-height:2.5;
     }
     .add_heart{
@@ -309,7 +315,11 @@
     }
     .delete_item{
         padding:4px 10px;
-
+    }
+    .listing_hr{
+        margin: 0;
+        border-width: 1px 0 0 0;
+        border-color:#262628 ;
     }
 
     .individual_item{
@@ -319,9 +329,70 @@
 
 
 /*S listing_create.html*/
+    .listing_create{
+        background: #ffffff;
+        height: auto;
+    }
+    .listing_name_form{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 80%;
+        height: 60px;
+        font-size: 24px;
+    }
+    .listing_text_form{
+        padding: 0;
+        border: none;
+        border-top: 1px solid #262628;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        resize: none;
+        width: 100%;
+        height: 300px;
+        font-size: 24px;
+    }
+    .listing_price_form{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 80%;
+        height: 60px;
+        font-size: 20px;
+    }
+    label[for=id_listing_type_0]{
+        display: none;
+    }
+    label[for=id_listing_type_1],
+    label[for=id_listing_type_2],
+    label[for=id_listing_type_3],
+    label[for=id_listing_type_4],
+    label[for=id_listing_type_5],
+    label[for=id_listing_type_6],
+    label[for=id_listing_type_7],
+    label[for=id_listing_type_8],
+    label[for=id_listing_type_9],
+    label[for=id_listing_type_10]{
+        display: inline-block;
+        border-radius: 20px;
+        text-align: center;
+        text-decoration: none;
+        border: solid 1px #ccc;
+        transition: 0.25s;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 17px;
+        width: 170px;
+        margin: 5px 3px;
+    }
     .listing_create_text{
-        padding-top: 50px;
-        padding-left: 30px;
+        padding-top: 70px;
+        padding-left: 20px;
         font-weight: bolder;
     }
     .listing_btn{
@@ -330,8 +401,196 @@
         letter-spacing: 5px;
         border-radius: 4px;
     }
-
+    .div_listing {
+        display: flex;
+    }
+    .registration_listing {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .filelabel_listing {
+        display: inline-block;
+        position: relative;
+        background-color: #3399FF;
+        color: #fff;
+        font-size: 15px;
+        padding: 10px 15px;
+        margin: 0px 5px;
+        border-radius: 8px;
+        transition: all 0.5s;
+    }
+    .filelabel_listing:hover {
+        background-color: #3399FF;
+    }
+    .listing_update_img{
+        padding-top:20px ;
+    }
 /*E listing_create.html*/
+
+
+/*S recipe_create.html*/
+    .recipe{
+        background: #ffffff;
+        height: auto;
+    }
+    .recipe_create_text{
+        padding-top: 70px;
+        padding-left: 20px;
+        font-weight: bolder;
+    }
+    .recipe_title_form{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 80%;
+        height: 60px;
+        font-size: 24px;
+    }
+    .recipe_tag_form{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 80%;
+        height: 60px;
+        font-size: 20px;
+    }
+    label[for=id_recipe_time_0]{
+        display: none;
+    }
+    label[for=id_recipe_time_1],
+    label[for=id_recipe_time_2],
+    label[for=id_recipe_time_3],
+    label[for=id_recipe_time_4],
+    label[for=id_recipe_time_5],
+    label[for=id_recipe_time_6],
+    label[for=id_recipe_time_7],
+    label[for=id_recipe_time_8]{
+        display: inline-block;
+        border-radius: 20px;
+        text-align: center;
+        text-decoration: none;
+        border: solid 1px #ccc;
+        transition: 0.25s;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 17px;
+        width: 170px;
+        margin: 5px 3px;
+    }
+    .recipe_btn{
+        width: 40%;
+        font-size: 20px;
+        letter-spacing: 5px;
+        border-radius: 4px;
+    }
+
+
+/*E recipe_create.html*/
+
+
+/*E recipe_list.html*/
+    .recipes{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .recipe_one{
+        background: #ffffff;
+        box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+        border-radius: 4px;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 180px;
+        height: 230px;
+    }
+    .recipe_img{
+        width: 100%;
+        height: 120px;
+    }
+    .recipe_title{
+        font-size: 18px;
+        font-weight: bolder;
+        padding-top: 5px;
+        margin: 0;
+    }
+    .recipe_time{
+        padding-top: 10px;
+        font-size: 16px;
+        color: #38a76f;
+        margin: 0;
+    }
+    .recipe_name{
+        margin: 0;
+        letter-spacing: 1px;
+        color: #828181;
+        text-align: right;
+        padding-bottom: 15px ;
+    }
+/*E recipe_list.html*/
+
+
+/*S recipe_detail.html*/
+    .recipe_detail{
+        background: #ffffff;
+        height: 100%;
+    }
+    .recipe_title_detail{
+        font-weight: bolder;
+        font-size: 24px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .recipe_name_detail{
+        margin: 0;
+        letter-spacing: 1px;
+        color: #828181;
+        text-align: right;
+        padding-bottom: 15px ;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 14px;
+    }
+    .recipe_text_detail{
+        font-size: 20px;
+        letter-spacing: 1px;
+        line-height:2.5;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 0;
+    }
+    .text_recipe{
+        padding-left: 15px;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+    .recipe_time_detail{
+        padding-top: 15px;
+        font-size: 16px;
+        color: #38a76f;
+        margin: 0;
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+    .recipe_tag_detail{
+        color: #3399FF;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .recipe_hr{
+        border-width: 1px 0 0 0;
+        border-color:#262628 ;
+    }
+    .recipe_add_time_detail{
+        color: #b7b9bb;
+        text-align: right;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+/*E recipe_detail.html*/
 
 
 /*S payment.html*/
@@ -410,10 +669,6 @@
     .registration_main[type="email"]:focus,
     .registration_main[type="tel"]:focus{
         background: #e3f1f6;
-    }
-    input::placeholder {
-        color: #b7b9bb;
-        font-size: 15px;
     }
     .signup_registration_btn {
         font-weight: bolder;
@@ -695,31 +950,6 @@
 /*E my_page*/
 
 
-/*S listing*/
-    .div_listing {
-        display: flex;
-    }
-    .registration_listing {
-        margin-right: auto;
-        margin-left: auto;
-    }
-    .filelabel_listing {
-        display: inline-block;
-        position: relative;
-        background-color: #3399FF;
-        color: #fff;
-        font-size: 15px;
-        padding: 10px 15px;
-        margin: 0px 5px;
-        border-radius: 8px;
-        transition: all 0.5s;
-    }
-    .filelabel_listing:hover {
-        background-color: #3399FF;
-    }
-/*E listing*/
-
-
 /*S その他*/
     .dp_flex {
         display: flex;
@@ -851,6 +1081,9 @@
     .mg_t50 {
         margin-top: 50px;
     }
+    .mg_t70 {
+        margin-top: 70px;
+    }
     .mg_b20 {
         margin-bottom: 20px;
     }
@@ -900,6 +1133,9 @@
     .pd_b50 {
         padding-bottom: 50px;
     }
+    .pd_b100 {
+        padding-bottom: 50px;
+    }
 
     .pd_l10 {
         padding-left: 10px;
@@ -923,6 +1159,4 @@
 
 /*E margin/padding*/
 }
-
-
 

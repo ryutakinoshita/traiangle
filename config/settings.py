@@ -171,7 +171,7 @@ SUMMERNOTE_THEME = 'bs4'
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SUMMERNOTE_CONFIG = {
     'summernote': {
-        'height': '1500px',
+        'height': '700px',
         'width': '100%'
     },
 }

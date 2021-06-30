@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block body %}
+     <section class="recipe_list mg_t30">
+         <div class="recipes mg_t50">
+            {% for Recipe in recipe %}
+                <a href="{% url 'recipe_detail' Recipe.pk%}">
+                    <div class="recipe_one">
+                        <img class="recipe_img" src="{{ MEDIA_URL }}{{ Recipe.recipe_img1 }}">
+                        <p class="recipe_title">{{ Recipe.recipe_title | truncatechars:15}}</p>
+                        <p class="recipe_time">調理時間 {{ Recipe.get_recipe_time_display }}</p>
+                        <p class="recipe_name">{{ Recipe.user.business_person_name }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+         </div>
+     </section>
+{% endblock body %}

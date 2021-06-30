@@ -4,7 +4,7 @@
 
 
 {% block body %}
-    <section class="listing mg_t30 mg_b100">
+    <section class="listing_create pd_b30">
         <form class="listing_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
             <p class="listing_create_text">商品画像</p>
@@ -27,21 +27,21 @@
             </div>
             <p class="listing_create_text">商品の分類</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.listing_type class="registration_main" placeholder=""%}</table>
+                <table class="table m-0">{% render_field form.listing_type class="listing_type_form" placeholder=""%}</table>
             </div>
             <p class="listing_create_text">商品名</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.listing_name class="registration_main" placeholder=""%}</table>
-            </div>
-            <p class="listing_create_text">価格</p>
-            <div class="registration">
-                <table class="table m-0">{% render_field form.listing_price class="registration_main" placeholder=""%}</table>
+                <table class="table m-0">{% render_field form.listing_name class="listing_name_form" placeholder=""%}</table>
             </div>
             <p class="listing_create_text">商品説明</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.listing_text class="registration_main_big" placeholder=""%}</table>
+                <table class="table m-0">{% render_field form.listing_text class="listing_text_form" placeholder=""%}</table>
             </div>
-            <div class="text-center mg_t50">
+            <p class="listing_create_text">価格</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.listing_price class="listing_price_form" placeholder="※数字以外は入力できません"%}</table>
+            </div>
+            <div class="text-center mg_t70 pd_b100">
                 <button type="submit" class="btn btn-success listing_btn">出品</button>
             </div>
         </form>

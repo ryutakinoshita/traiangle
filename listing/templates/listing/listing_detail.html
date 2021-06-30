@@ -3,7 +3,7 @@
 {% load humanize %}
 
 {% block body %}
-    <section class="listing_detail mg_t15">
+    <section class="listing_detail pd_b50">
         <h4 class="listing_name_detail pd_l10 pd_r10 pd_t30">{{ object.listing_name }}</h4>
         <p class="listing_type_detail pd_l20 pd_t10">{{ object.get_listing_type_display }}</p>
         <div class="swiper-container mg_t15">
@@ -30,8 +30,9 @@
                   <a href="{% url 'like-detail' object.pk %}" class="mg_l10" tabindex="-1" role="button" aria-disabled="true"><button type="button" class="btn btn-outline-dark add_like"><i class="far fa-heart heart_false"></i>お気に入りに追加</button></a>
                   </div>
               {% endif %}
-
         <h5 class="text_title pd_l10 mg_t50">商品説明</h5>
-        <p class="listing_text_detail pd_l20 pd_r20">{{ object.listing_text }}</p>
+        <hr class="listing_hr">
+        <p class="listing_text_detail pd_l20 pd_r20  pd_b50">{{ object.listing_text }}</p>
+        <hr class="listing_hr">
     </section>
 {% endblock body %}

@@ -4,45 +4,41 @@
 
 
 {% block body %}
-    <section class="listing mg_t30 pd_b30">
+    <section class="listing_create pd_b30">
         <form class="listing_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
-            <p class="signup_text_detail pd_t30">商品画像</p>
-            <div class="img_preview pd_b10 mg_t15" id="preview1"></div>
-            <div class="img_preview pd_b10 mg_t15" id="preview2"></div>
-            <div class="img_preview pd_b10 mg_t15" id="preview3"></div>
-            <div class="div_listing">
-                <div class="registration_listing mg_t15">
-                    <label for="id_listing_img1" class="filelabel_listing">1枚目を選択</label>
-                    <table class="table m-0">{% render_field form.listing_img1|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview1')" %}</table>
+            <p class="listing_create_text">商品画像</p>
+            <div class="swiper-container mg_t15">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img class="detail_img" src="{{ MEDIA_URL }}{{ listing.listing_img1 }}" alt=""></div>
+                    <div class="swiper-slide"><img class="detail_img" src="{{ MEDIA_URL }}{{ listing.listing_img2 }}" alt=""></div>
+                    <div class="swiper-slide"><img class="detail_img" src="{{ MEDIA_URL }}{{ listing.listing_img3 }}" alt=""></div>
                 </div>
-                <div class="registration_listing mg_t15">
-                    <label for="id_listing_img2" class="filelabel_listing">2枚目を選択</label>
-                    <table class="table m-0">{% render_field form.listing_img2|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview2')" %}</table>
-                </div>
-                <div class="registration_listing mg_t15">
-                    <label for="id_listing_img3" class="filelabel_listing">3枚目を選択</label>
-                    <table class="table m-0">{% render_field form.listing_img3|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview3')" %}</table>
-                </div>
+                <div class="swiper-pagination swiper-pagination-white"></div>
+                <div class="swiper-button-prev swiper-button-black"></div>
+                <div class="swiper-button-next swiper-button-black"></div>
             </div>
-            <p class="signup_text_detail">商品の分類</p>
+            <div class="text-center mg_t70">
+                <a class="" href=""><button type="button" class="btn btn-primary listing_btn">画像申請</button></a>
+            </div>
+            <p class="listing_create_text">商品の分類</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.listing_type class="registration_main" placeholder=""%}</table>
+                <table class="table m-0">{% render_field form.listing_type class="listing_type_form" placeholder=""%}</table>
             </div>
-            <p class="signup_text_detail">商品名</p>
+            <p class="listing_create_text">商品名</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.listing_name class="registration_main" placeholder=""%}</table>
+                <table class="table m-0">{% render_field form.listing_name class="listing_name_form" placeholder=""%}</table>
             </div>
-            <p class="signup_text_detail">価格</p>
+            <p class="listing_create_text">商品説明</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.listing_price class="registration_main" placeholder=""%}</table>
+                <table class="table m-0">{% render_field form.listing_text class="listing_text_form" placeholder=""%}</table>
             </div>
-            <p class="signup_text_detail">商品説明</p>
+            <p class="listing_create_text">価格</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.listing_text class="registration_main_big" placeholder=""%}</table>
+                <table class="table m-0">{% render_field form.listing_price class="listing_price_form" placeholder="※数字以外は入力できません"%}</table>
             </div>
-            <div class="text-center mg_t50">
-                <button type="submit" class="btn signup_registration_btn">出品</button>
+            <div class="text-center mg_t70 pd_b100">
+                <button type="submit" class="btn btn-success listing_btn">再出品</button>
             </div>
         </form>
     </section>

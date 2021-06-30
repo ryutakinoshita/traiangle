@@ -26,8 +26,6 @@ class HomeView(generic.ListView):
         return context
 
 
-
-
 class ProductListView(LoginRequiredMixin,generic.ListView):
     """商品一覧"""
     model = Listing

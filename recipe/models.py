@@ -11,12 +11,12 @@ Time= (
     ("4", "30分"),
     ("5", "40分"),
     ("6", "50分"),
-    ("7", "60分以上"),
+    ("7", "60分"),
+    ("8", "60分以上"),
 )
 
 class Recipe(models.Model):
     user= models.ForeignKey(User,on_delete=models.CASCADE)
-    username=models.CharField(max_length=100, blank=False, null=False)
     recipe_img1= models.ImageField(upload_to='listingImg',blank=False, null=False)
     recipe_img2= models.ImageField(upload_to='listingImg',blank=True, null=True)
     recipe_img3= models.ImageField(upload_to='listingImg',blank=True, null=True)
