@@ -1,12 +1,13 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import send_mail
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render
-
 from app.forms import ContactForm
+from app.models import Withdrawal
 from listing.models import Listing
 from django.conf import settings
-from django.http.response import JsonResponse
+from django.http.response import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import stripe
 from django.db.models import Q
@@ -248,18 +249,22 @@ def cancel(request):
 
 class ContactView(LoginRequiredMixin,generic.CreateView):
     template_name = 'app/contact_form.html'
+    model = Withdrawal
     form_class = ContactForm
     success_url = reverse_lazy('contact_result')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        form.send_email()
+        subject="退会申請"
+        message="退会申請がありました。"
+        from_email=self.request.user.email
+        recipient_list=["information@myproject"]
+        send_mail(subject, message, from_email, recipient_list)
         return super().form_valid(form)
+
+
+
 
 class ContactResultView(LoginRequiredMixin,generic.TemplateView):
     template_name = 'app/contact_result.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['success'] = "お問い合わせは正常に送信されました。"
-        return context

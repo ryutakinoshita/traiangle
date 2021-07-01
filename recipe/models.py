@@ -25,6 +25,7 @@ class Recipe(models.Model):
     recipe_time=models.CharField(max_length=100,choices=Time, blank=False, null=False)
     food_tag=models.CharField(max_length=100,blank=False, null=False)
     add_time = models.DateTimeField(default=timezone.now)
+    good = models.ManyToManyField(User, related_name='related_good', blank=True)
 
 
     def __str__(self):

@@ -22,6 +22,19 @@
          <hr class="recipe_hr">
          <p class="recipe_text_detail">{{ recipe.recipe_text| safe }}</p>
          <hr class="recipe_hr">
+         {% if request.user in object.good.all %}
+             <div class="text-center mg_t30">
+                 <a href="{% url 'good-detail' object.pk %}" class="delete_item mg_t20" tabindex="-1" role="button" aria-disabled="true">
+                     <button type="submit" class="btn btn-primary delete_item "><i class="fas fa-list pd_r10"></i>マイレシピに追加済み</button>
+                 </a>
+             </div>
+         {% else %}
+             <div class="text-center mg_t30">
+                 <a href="{% url 'good-detail' object.pk %}" class="mg_l10" tabindex="-1" role="button" aria-disabled="true">
+                     <button type="button" class="btn btn-outline-primary add_like"><i class="far fa-plus-square pd_r10"></i>マイレシピに追加</button>
+                 </a>
+             </div>
+         {% endif %}
          <h5 class="text_recipe mg_t50">タグ</h5>
          <p class="recipe_tag_detail">{{ recipe.food_tag }}</p>
          <p class="recipe_add_time_detail mg_t30">{{ recipe.add_time |date:"Y年 m月 d日"}}</p>

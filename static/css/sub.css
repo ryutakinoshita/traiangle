@@ -5,7 +5,7 @@
 
     body {
         width: 100%;
-        padding:none;
+        padding:0;
         font-size: 20px;
         font-family: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, Meiryo, sans-serif;
         background: #f8f7f7;
@@ -192,8 +192,8 @@
     .listing_card {
         height: auto;
         background: #ffffff;
-        display: flex;
         border-radius: 4px;
+        margin: 5px;
     }
     .listing_img {
         width: 220px;
@@ -201,7 +201,6 @@
     }
     .listing_text {
         width: 100%;
-        position: relative;
     }
     .listing_name {
         font-size: 20px;
@@ -224,6 +223,18 @@
     .heart_true{
         color: #f50c46;
     }
+    .listing_home{
+    width: 100%;
+    margin:0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    }
+    .listing_home a{
+    width: 20%;
+    display: flex;
+    align-self: stretch;
+
+    }
  /*E home.html*/
 
 
@@ -245,12 +256,16 @@
     .listing_name_detail {
         font-size: 24px;
         font-weight: bolder;
-        margin-left: 10px;
+        width: 50%;
+       text-align: left;
+       margin:0 0 0 auto;
     }
     .listing_type_detail {
         font-size: 13px;
         border-bottom:solid 2px #DDDDDD;
-        width:40%;
+        width: 50%;
+        text-align: left;
+        margin:0 0 0 auto;
     }
     .detail_img {
        text-align: center;
@@ -272,7 +287,9 @@
     .listing_price_detail {
         font-size: 24px;
         color: #b3022e;
-        margin-left: 20px;
+        width: 50%;
+        text-align: left;
+        margin:0 0 0 auto;
     }
     .swiper-button-next,
     .swiper-button-prev{
@@ -283,14 +300,24 @@
         font-size: 18px;
         font-weight: bolder;
         border-top:solid 2px #DDDDDD;
-        width:40%;
+        width: 50%;
+        text-align: left;
+        margin-left: auto;
+        clear:both;
         
     }
     .listing_text_detail{
         font-size: 16px;
         line-height:2.5;
         border-bottom:solid 2px #DDDDDD;
-        width:40%;
+        width: 50%;
+        text-align: left;
+        margin-left: auto;
+        clear:both;
+    }
+    .listing_cart_detail{
+        margin-right: 10px;
+        float: right;
     }
     .add_heart{
         display:flex;
@@ -427,9 +454,12 @@
     }
 /*E payment.html*/
 /*S listing_detail.html*/
-    .swiper-container{
-        float:right;
-    }
+.swiper-container {
+        text-align: center;
+        height: 300px;
+        width:500px;
+        float:left;
+}
 /*E listing_detail.html*/
 /*S order.html*/
     .btn-outline-danger{

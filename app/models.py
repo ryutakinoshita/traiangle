@@ -13,20 +13,17 @@ class StripeCustomer(models.Model):
 
 
 CHOICES =(
-    ("10","アプリの不具合"),
-    ("20","スパムと迷惑行為について"),
-    ("30","要注意コンテンツ"),
-    ("40","サービスの改善について"),
-    ("50","商品の報告"),
-    ("60","その他"),
-    ("70","退会"),
+    ("10","月額料金が高い"),
+    ("20","使用のメリットをあまり感じられなかった"),
+    ("30","使用していない為"),
+    ("40","他アプリへの乗り換え"),
+    ("50","その他"),
 )
 
 
-class Contact(models.Model):
+class Withdrawal(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     contact_us=models.CharField(max_length=20,choices=CHOICES,blank=False,null=False)
-    email=models.EmailField(max_length=100,blank=False,null=False)
     message=models.TextField(max_length=1000,blank=False,null=False)
 
     def __str__(self):
