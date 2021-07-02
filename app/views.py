@@ -12,7 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 import stripe
 from django.db.models import Q
 from django.utils import timezone
-
+from recipe.models import Recipe
 
 
 class HomeView(generic.ListView):
@@ -21,11 +21,15 @@ class HomeView(generic.ListView):
     template_name = 'app/home.html'
     context_object_name = 'item_data'
 
+
+
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['likes'] = Listing.objects.order_by('like')
+        context.update({
+            'likes':Listing.objects.order_by('like'),
+            'good':Recipe.objects.order_by('good'),
+        })
         return context
-
 
 class ProductListView(LoginRequiredMixin,generic.ListView):
     """商品一覧"""

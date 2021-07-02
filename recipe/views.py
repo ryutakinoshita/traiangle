@@ -26,12 +26,36 @@ class RecipeListView(LoginRequiredMixin,generic.ListView):
     model = Recipe
     template_name = 'recipe/recipe_list.html'
     context_object_name = 'recipe'
+    queryset = Recipe.objects.order_by('add_time')
+
+
+class RecipeListFreeView(LoginRequiredMixin,generic.ListView):
+    """タグ検索レシピ一覧"""
+    model = Recipe
+    template_name = 'recipe/recipe_free_list.html'
+    context_object_name = 'recipe'
 
     def get_queryset(self):
         q_word = self.request.GET.get('query')
         if q_word:
             object_list = Recipe.objects.filter(
                 Q(food_tag__icontains=q_word)
+            )
+        else:
+            object_list = Recipe.objects.order_by('?')
+        return object_list
+
+class RecipeListTimeView(LoginRequiredMixin,generic.ListView):
+    """時間検索レシピ一覧"""
+    model = Recipe
+    template_name = 'recipe/recipe_time_list.html'
+    context_object_name = 'recipe'
+
+    def get_queryset(self):
+        q_data = self.request.GET.get('data')
+        if q_data:
+            object_list = Recipe.objects.filter(
+                Q(recipe_time__icontains=q_data)
             )
         else:
             object_list = Recipe.objects.order_by('?')

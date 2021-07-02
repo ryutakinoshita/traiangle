@@ -134,21 +134,25 @@
 
 /*S home.html*/
     .dropdown-toggle{
-        padding: 3px 8px;
+        padding: 3px 6px;
+        border-color:#151414 ;
+        margin-right: 10px;
     }
     .searches{
         display: flex;
         justify-content: center;
     }
     .search {
-        border-left: none;
         width: 85%;
         outline: none;
+        height: 30px;
+        font-size: 18px;
         background: #f8f7f7;
         padding: 0 5px;
         border-radius: 4px;
     }
-    .search[type="text"]:focus{
+    .search[type="text"]:focus,
+    .search_free[type="text"]:focus{
         border: 1px solid #3399FF;
     }
     .search_btn ,
@@ -198,6 +202,43 @@
     }
     .heart_true{
         color: #f50c46;
+    }
+    .searches_recipe{
+        text-align: center;
+    }
+    .recipe_free{
+        color: #3399FF;
+    }
+    .fa-comment-alt,
+    .fa-clock{
+        padding-right: 3px;
+    }
+    .recipe_cook_time{
+        padding-left: 10px;
+        color: #3399FF;
+    }
+    .recipe_text{
+        font-weight: bolder;
+        font-size: 18px;
+        padding-left: 10px;
+    }
+    .select_search{
+        color: #151414;
+        border-color:#151414 ;
+        width: 170px;
+        font-size: 18px;
+        letter-spacing: 1px;
+        font-weight: bolder;
+        margin-right: 5px;
+    }
+    .search_free{
+        width: 80%;
+        outline: none;
+        height: 30px;
+        background: #f8f7f7;
+        padding: 0 5px;
+        border-radius: 4px;
+        font-size: 18px;
     }
 
 /*E home.html*/

@@ -4,15 +4,16 @@
 
 
 {% block body %}
-    <section class="recipe_list mg_t30">
-    <p class="recipe_text mg_t30">検索する</p>
-    <div class="searches_recipe">
-       <a class="recipe_free" href="{% url 'recipe_free' %}"><i class="far fa-comment-alt"></i>タグで検索</a>
-       <a  class="recipe_cook_time" href="{% url 'recipe_time' %}"><i class="far fa-clock"></i>調理時間で検索</a>
+    <div class="searches mg_t30 mg_b30">
+        <form  action="{% url 'recipe_free' %}" method="get" class="search_word mg_b40">
+           <input class="search_free" type="text" name="query" placeholder="レシピを検索" aria-label="Search">
+           <button class="search_btn">
+               <i class="fas fa-search"></i>
+           </button>
+        </form>
     </div>
-    <hr class="mg_t20">
-    <p class="recipe_text mg_t50">新着レシピ</p>
-         <div class="recipes mg_t15">
+    <section class="recipe_list mg_t30">
+         <div class="recipes mg_t30">
             {% for Recipe in recipe %}
                 <a href="{% url 'recipe_detail' Recipe.pk%}">
                     <div class="recipe_one">

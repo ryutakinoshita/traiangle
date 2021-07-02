@@ -6,8 +6,8 @@
 {% block body %}
     <div class="searches mg_t30 mg_b30">
        <div class="dropdown mg_l20">
-           <a class="btn btn-secondary dropdown-toggle" href={% url 'product_list' %}"" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               すべて
+           <a class="btn btn-light dropdown-toggle" href={% url 'product_list' %}"" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               商品検索
            </a>
            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="{% url 'product_vegetables' %}">野菜</a>
@@ -82,6 +82,20 @@
         </div>
         <input id="TAB02-05" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label switch_yellow" for="TAB02-05">注目のレシピ</label>
         <div class="tab-content">
+            <section class="recipe_list mg_t30">
+                 <div class="recipes mg_t15">
+                    {% for Recipe in good %}
+                        <a href="{% url 'recipe_detail' Recipe.pk%}">
+                            <div class="recipe_one">
+                                <img class="recipe_img" src="{{ MEDIA_URL }}{{ Recipe.recipe_img1 }}">
+                                <p class="recipe_title">{{ Recipe.recipe_title | truncatechars:15}}</p>
+                                <p class="recipe_time">調理時間 {{ Recipe.get_recipe_time_display }}</p>
+                                <p class="recipe_name">投稿者:{{ Recipe.user.business_person_name }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                 </div>
+    </section>
         </div>　　　　
     </div>
 
