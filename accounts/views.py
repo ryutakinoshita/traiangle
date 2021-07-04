@@ -39,7 +39,7 @@ class SignupView(generic.CreateView):
     """登録機能"""
     template_name = 'account/signup.html'
     form_class = UserCreateForm
-    success_url = reverse_lazy('signup_text')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         """仮登録と本登録用メールの発行"""
@@ -97,8 +97,6 @@ class SignupFinishView(generic.TemplateView):
         return HttpResponseBadRequest()
 
 
-class SignupTextView(generic.TemplateView):
-    template_name = 'account/signup_text.html'
 
 
 class EmailChangeView(LoginRequiredMixin, generic.FormView):

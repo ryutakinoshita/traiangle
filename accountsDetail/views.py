@@ -5,9 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from listing.models import Listing
 from .forms import (
-    ProducerForm,
     RestaurantForm,
-    RestaurantImageForm,
     ReviewForm
 
 )
@@ -18,35 +16,16 @@ class MyPageView(LoginRequiredMixin,generic.TemplateView):
     template_name = 'accountsDetail/my_page.html'
 
 
-class ProducerView(LoginRequiredMixin,generic.CreateView):
-    """生産者登録"""
-    template_name = 'accountsDetail/producer.html'
-    form_class = ProducerForm
-    success_url = reverse_lazy('home')
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
 class RestaurantView(LoginRequiredMixin,generic.CreateView):
     """レストラン登録"""
     template_name = 'accountsDetail/restaurant.html'
     form_class = RestaurantForm
-    success_url = reverse_lazy('restaurant_img')
+    success_url = reverse_lazy('')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class RestaurantImageView(LoginRequiredMixin,generic.CreateView):
-    """レストラン写真"""
-    template_name = 'accountsDetail/restaurant_image.html'
-    form_class = RestaurantImageForm
-    success_url = reverse_lazy('signup_finish')
-
-    def form_valid(self, form):
-        form.instance.restaurant=self.request.user
-        return super().form_valid(form)
 
 #
 class ReviewView(LoginRequiredMixin,generic.CreateView):

@@ -4,33 +4,6 @@ from listing.models import Listing
 from django.utils import timezone
 
 
-class Type(models.Model):
-    Types=(
-        ("1", "野菜"),
-        ("2", "果物"),
-        ("3", "鮮魚"),
-        ("4", "食肉"),
-        ("5", "乳製品"),
-        ("6", "加工食品"),
-        ("7", "飲料"),
-        ("9", "アルコール飲料"),
-        ("10", "園芸"),
-        ("11", "その他"),
-    )
-
-
-class Producer(models.Model):
-    """生産者"""
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    zip_code = models.CharField(max_length=8,blank=True)
-    prefectures_city=models.CharField(max_length=40,blank=True)
-    producer_img = models.ImageField(upload_to='producerImg/')
-    producer_type = models.CharField(max_length=100, choices=Type.Types, blank=True, null=False)
-    certification = models.TextField(max_length=500, blank=True, null=True)
-
-    def __str__(self):
-            return self.user
-
 
 class TypeSub(models.Model):
     Types=(
@@ -59,7 +32,9 @@ class Restaurant(models.Model):
     city=models.CharField(max_length=40,blank=False,null=False)
     address1=models.CharField(max_length=40,blank=False,null=False)
     address2=models.CharField(max_length=40,blank=True)
-    restaurant_img = models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
+    restaurant_img1 = models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
+    restaurant_img2 = models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
+    restaurant_img3= models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
     restaurant_type = models.CharField(max_length=100, choices=TypeSub.Types,blank=False,null=False)
     restaurant_name=models.CharField(max_length=40,blank=False,null=False)
     certification = models.TextField(max_length=500, blank=True, null=True)
@@ -67,18 +42,7 @@ class Restaurant(models.Model):
     def __str__(self):
             return self.restaurant_name
 
-class RestaurantImage(models.Model):
-    """飲食店写真"""
-    user = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
-    image_name1=models.CharField(max_length=40,blank=True,null=True)
-    restaurant_img1= models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
-    image_name2=models.CharField(max_length=40,blank=True,null=True)
-    restaurant_img2= models.ImageField(upload_to='restaurantImg/',blank=True,null=True)
-    image_name3=models.CharField(max_length=40,blank=True,null=True)
-    restaurant_img3= models.ImageField(upload_to='restaurantImg/',blank=True,null=True)
 
-    def __str__(self):
-            return self.restaurant_img1.url
 
 
 class Review(models.Model):

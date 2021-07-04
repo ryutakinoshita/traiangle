@@ -45,7 +45,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     """"カスタムユーザーモデル"""
     first_name=models.CharField(max_length=30,blank=False,null=False)
     last_name=models.CharField(max_length=30, blank=False,null=False)
-    business_person_name=models.CharField(max_length=30,blank=True)
     email = models.EmailField(max_length=100, unique=True)
     phone = PhoneNumberField(unique=True)
     zip_code = models.CharField(max_length=8,blank=False,null=False)

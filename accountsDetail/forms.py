@@ -1,13 +1,6 @@
 from django import forms
-from .models import Producer,Restaurant, RestaurantImage,Review
+from .models import Restaurant, Review
 
-class ProducerForm(forms.ModelForm):
-
-    class Meta:
-        model = Producer
-        fields = (
-            "zip_code","prefectures_city","producer_type","certification","producer_img"
-        )
 
 
 class RestaurantForm(forms.ModelForm):
@@ -15,16 +8,10 @@ class RestaurantForm(forms.ModelForm):
     class Meta:
         model = Restaurant
         fields = (
-            "zip_code","prefectures","city","address1","address2","restaurant_name","restaurant_type","certification","restaurant_img"
+            "zip_code","prefectures","city","address1","address2","restaurant_name","restaurant_type","certification","restaurant_img1","restaurant_img2","restaurant_img3"
         )
 
-class RestaurantImageForm(forms.ModelForm):
 
-    class Meta:
-        model = RestaurantImage
-        fields = (
-            "image_name1","restaurant_img1","image_name2","restaurant_img2","image_name3","restaurant_img3"
-        )
 
 class ReviewForm(forms.ModelForm):
 

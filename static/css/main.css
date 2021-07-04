@@ -35,6 +35,40 @@
     li {
         display: inline-block;
     }
+    .table {
+        margin: 0;
+    }
+    .registration_main[type="text"]:focus,
+    .registration_main[type="password"]:focus,
+    .registration_main[type="email"]:focus,
+    .registration_main[type="tel"]:focus{
+        background: #e3f1f6;
+    }
+    #previewImage {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+    .img_preview {
+        text-align: center;
+    }
+    .filelabel {
+        display: inline-block;
+        position: relative;
+        background-color: #3399FF;
+        color: #fff;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: all 0.5s;
+    }
+    .filelabel:hover {
+        background-color: #3399FF;
+    }
+
+    .fileinput {
+        display: none;
+    }
     .sub_css {
         display: none;
     }
@@ -691,145 +725,38 @@
 
 
 /*S signup.html*/
-    .signup_text_detail {
-        margin-top: 30px;
-        margin-left: 50px;
-        margin-bottom: 10px;
+    .signup_text_detail{
+        padding-top: 70px;
+        padding-left: 20px;
         font-weight: bolder;
-    }
-    .registration {
-        text-align: center;
-    }
-    .registration_main,
-    .registration_main_radio{
-        width: 70%;
-        height: 30px;
-        padding: 0;
-    }
-    .table {
         margin: 0;
     }
-    .registration_main[type="text"]:focus,
-    .registration_main[type="password"]:focus,
-    .registration_main[type="email"]:focus,
-    .registration_main[type="tel"]:focus{
-        background: #e3f1f6;
+    .signup{
+        background: #ffffff;
+        height: auto;
     }
-    .signup_registration_btn {
-        font-weight: bolder;
-        font-size: 18px;
-        color: #fffff3;
-        background: #519a76;
-        width: 150px;
+    .sign_up_user{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 80%;
+        height: 60px;
+        font-size: 24px;
     }
-    .signup_registration_btn:hover {
-        font-weight: bolder;
-        font-size: 18px;
-        color: #fffff3;
-        background: #519a76;
-        width: 150px;
-    }
-    .individual_text,
-    .Producer_text {
-        font-size: 25px;
-        text-align: center;
-        font-weight: bold;
-    }
-    .signup_text_detail_small {
-        padding-left: 30px;
-        padding-right: 30px;
-        font-size: 14px;
-        font-weight: 500;
-    }
-    #previewImage {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-    }
-    .img_preview {
+    .registration{
         text-align: center;
     }
-    .filelabel {
-        display: inline-block;
-        position: relative;
-        background-color: #3399FF;
-        color: #fff;
-        font-size: 16px;
-        padding: 10px 20px;
-        border-radius: 8px;
-        transition: all 0.5s;
-    }
-    .filelabel:hover {
-        background-color: #3399FF;
+    .signup_btn{
+        width: 40%;
+        font-size: 20px;
+        letter-spacing: 5px;
+        border-radius: 4px;
     }
 
-    .fileinput {
-        display: none;
-    }
-    label[for=id_producer_type_0] {
-        display: none;
-    }
-    .registration_radio {
-        margin-top: 30px;
-        margin-left: 50px;
-        margin-bottom: 5px;
-    }
-    label[for=id_producer_type_1],
-    label[for=id_producer_type_2],
-    label[for=id_producer_type_3],
-    label[for=id_producer_type_4],
-    label[for=id_producer_type_5],
-    label[for=id_producer_type_6],
-    label[for=id_producer_type_7],
-    label[for=id_producer_type_8],
-    label[for=id_producer_type_9],
-    label[for=id_producer_type_10],
-    label[for=id_producer_type_11] {
-        display: inline-block;
-        border-radius: 20px;
-        text-align: center;
-        text-decoration: none;
-        border: solid 1px #ccc;
-        transition: 0.25s;
-        padding: 5px;
-        cursor: pointer;
-        font-size: 17px;
-        width: 170px;
-        margin: 5px 3px;
-    }
-    .registration_check {
-        display: inline-block;
-    }
-    .registration_main_big {
-        width: 70%;
-        height: 150px;
-        font-size: 20px;
-        resize: none;
-        overflow: scroll;
-    }
-    .registration_main_big[type="textarea"]:focus {
-        background: #e3f1f6;
-    }
-    #previewImage-preview1,
-    #previewImage-preview2,
-    #previewImage-preview3 {
-        width: 270px;
-        height: 200px;
-    }
-    .restaurant_img_name {
-        width: 150px;
-        outline: none;
-        border: none;
-        background: #f8f7f7;
-        border-bottom: 1px solid #454141;
-    }
-    .restaurant_img_name[type="text"]:focus {
-        background: #ffffff;
-    }
-    .restaurant_img {
-        display: block;
-        text-align: center;
-    }
+
+
 /*E signup.html*/
 
 
@@ -887,6 +814,7 @@
 
     .signup_finish_text_main {
         font-size: 20px;
+         font-weight: bolder;
     }
     .signup_finish_text_sub {
         font-weight: bolder;
@@ -923,45 +851,79 @@
         color: #151414;
         font-size: 14px;
     }
-    .login_btn {
-        color: #fffff3;
-        width: 150px;
-        background: #454141;
-    }
+    .login_btn,
     .login_btn:hover {
-        color: #fffff3;
         width: 150px;
-        background: #454141;
     }
+
+
 /*E login.html*/
 
 
 /*S change.html*/
     .change_text {
+        font-size: 24px;
         text-align: center;
         font-weight: bolder;
     }
     .change_text_small {
-        font-size: 19px;
+        font-size: 22px;
         text-align: center;
-        font-weight: bold;
+        font-weight: bolder;
     }
     .email_now {
         text-align: center;
     }
     .change_text_detail {
-        font-size: 14px;
-        padding-left: 40px;
-        padding-right: 40px;
+        font-size: 19px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
-    .change_btn {
-        width: 150px;
-        background: #3399FF;
-        font-size: 18px;
-        color: #ffffff;
-        padding: 12px;
+    .password_reset{
+        background: #ffffff;
+        height: 100%;
+    }
+    .password_change_text{
+        padding-left: 20px;
+        padding-top:70px;
+        font-weight: bolder;
+    }
+    .password_change_text_detail{
+        padding: 30px 25px;
+        font-size: 15px;
+    }
+    .password_change{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 80%;
+        height: 60px;
+        font-size: 24px;
+    }
+    .registration{
+        text-align: center;
+    }
+    .change_btn{
+        width: 50%;
+        font-size: 20px;
+        letter-spacing: 5px;
+        border-radius: 4px;
+    }
+    .individual_text{
+        padding-left: 20px;
+        padding-top: 70px;
         font-weight: bold;
+        font-size: 22px;
     }
+    .email_change{
+        background: #ffffff;
+        height: 100%;
+
+    }
+
+
 /*E change.html*/
 
 

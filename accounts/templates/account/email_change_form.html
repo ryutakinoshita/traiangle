@@ -4,14 +4,15 @@
 
 
 {% block body %}
-    <section class="email_change mg_t50 pd_b30">
+    <section class="email_change">
         <form class="email_change_form" method="POST">
+             <h5 class="individual_text">メールアドレスの変更</h5>
             {% csrf_token %}
             <div class="registration pd_t50">
-                <table class="table width_100">{% render_field form.email class="registration_main" placeholder="新しいメールアドレス"%}</table>
+                <table class="table width_100">{% render_field form.email class="sign_up_user" placeholder="新しいメールアドレス"%}</table>
             </div>
             <div class="text-center mg_t50">
-                <button type="submit" class="btn signup_registration_btn">変更</button>
+                <button type="submit" class="btn btn-primary signup_btn">変更</button>
             </div>
         </form>
     </section>

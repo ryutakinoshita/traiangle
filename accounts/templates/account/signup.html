@@ -4,62 +4,57 @@
 
 
 {% block body %}
-    <section class="signup mg_t30">
+    <section class="signup">
         <form class="h-adr signup_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
-            <p class="signup_text_detail">事業者名または会社名</p>
-            <div class="registration">
-                <table class="table">{% render_field form.business_person_name class="registration_main"%}</table>
-            </div>
             <p class="signup_text_detail">性</p>
             <div class="registration">
-                <table class="table">{% render_field form.first_name class="registration_main"%}</table>
+                <table class="table">{% render_field form.first_name class="sign_up_user" placeholder="大阪"%}</table>
             </div>
             <p class="signup_text_detail">名</p>
             <div class="registration">
-                <table class="table">{% render_field form.last_name class="registration_main"%}</table>
+                <table class="table">{% render_field form.last_name class="sign_up_user"　placeholder="太郎"%}</table>
             </div>
             <p class="signup_text_detail">メールアドレス</p>
             <div class="registration">
-                <table class="table width_100">{% render_field form.email class="registration_main"%}</table>
+                <table class="table width_100">{% render_field form.email class="sign_up_user"　placeholder="triangle@gmail.com"%}</table>
             </div>
             <p class="signup_text_detail">電話番号</p>
             <div class="registration">
-                <table class="table">{% render_field form.phone class="registration_main" value="+81"%}</table>
+                <table class="table">{% render_field form.phone class="sign_up_user" value="+81"%}</table>
                 <p class="signup_text_detail_small mg_t15">※+81の後に続けて記入してください。</p>
             </div>
             <p class="signup_text_detail">パスワード</p>
             <div class="registration">
-                <table class="table">{% render_field form.password1 class="registration_main" placeholder="半角英数字8文字以上" %}</table>
+                <table class="table">{% render_field form.password1 class="sign_up_user" placeholder="半角英数字8文字以上" %}</table>
             </div>
             <p class="signup_text_detail">パスワードの再入力</p>
             <div class="registration">
-                <table class="table">{% render_field form.password2 class="registration_main" placeholder="パスワードの再入力" %}</table>
+                <table class="table">{% render_field form.password2 class="sign_up_user" placeholder="パスワードの再入力" %}</table>
             </div>
-            <h5 class="individual_text pd_t50">住所の登録</h5>
             <input type="hidden" class="p-country-name" value="Japan">
              <p class="signup_text_detail">郵便番号</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.zip_code class="p-postal-code registration_main"  placeholder="例 5408570"%}</table>
+                <table class="table m-0">{% render_field form.zip_code class="p-postal-code sign_up_user"  placeholder="例 5408570"%}</table>
             </div>
             <p class="signup_text_detail">都道府県</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.prefectures class="p-region registration_main" placeholder="例 大阪府"%}</table>
+                <table class="table m-0">{% render_field form.prefectures class="p-region sign_up_user" placeholder="例 大阪府"%}</table>
             </div>
             <p class="signup_text_detail">市町村</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.city  class="p-locality registration_main" placeholder="例 大阪市"%}</table>
+                <table class="table m-0">{% render_field form.city  class="p-locality sign_up_user" placeholder="例 大阪市"%}</table>
             </div>
             <p class="signup_text_detail">住所1</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.address1 class="p-street-address registration_main" placeholder="例 中央区大手町 〇〇番地"%}</table>
+                <table class="table m-0">{% render_field form.address1 class="p-street-address sign_up_user" placeholder="例 中央区大手町 〇〇番地"%}</table>
             </div>
             <p class="signup_text_detail">住所2</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.address2 class="extended-address registration_main" placeholder="例 triangleマンション　〇〇号室"%}</table>
+                <table class="table m-0">{% render_field form.address2 class="extended-address sign_up_user" placeholder="例 triangleマンション　〇〇号室"%}</table>
             </div>
-            <div class="text-center mg_t50">
-                <button type="submit" class="btn signup_registration_btn">登録</button>
+            <div class="text-center  mg_t70 pd_b100">
+                <button type="submit" class="btn btn-success signup_btn">登録</button>
             </div>
         </form>
     </section>

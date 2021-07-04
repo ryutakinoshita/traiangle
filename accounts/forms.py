@@ -29,7 +29,7 @@ class UserCreateForm(UserCreationForm):
         model = User
         fields = [
             'first_name','last_name','email','phone','password1','password2',"zip_code","prefectures","city",
-            "address1","address2",'business_person_name'
+            "address1","address2",
         ]
 
 
@@ -69,6 +69,6 @@ class UserZipUpdateForm(ModelForm):
     class Meta:
         model = User
         fields = [
-            "zip_code", "prefectures", "city","address1", "address2", 'business_person_name'
+            "zip_code", "prefectures", "city","address1", "address2",
         ]
 
