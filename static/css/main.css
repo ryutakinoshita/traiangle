@@ -44,13 +44,17 @@
     .registration_main[type="tel"]:focus{
         background: #e3f1f6;
     }
-    #previewImage {
+    #previewImage-preview1,
+    #previewImage-preview2,
+    #previewImage-preview3 {
         width: 150px;
         height: 150px;
-        border-radius: 50%;
     }
     .img_preview {
         text-align: center;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
     }
     .filelabel {
         display: inline-block;
@@ -925,6 +929,105 @@
 
 
 /*E change.html*/
+
+
+/*S restaurant.html*/
+    .restaurant{
+        background: #ffffff;
+        height: auto;
+    }
+    .restaurant_create_text{
+        padding-top: 70px;
+        padding-left: 20px;
+        font-weight: bolder;
+    }
+    .restaurant_name_form,
+    .restaurant_address_form{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 80%;
+        height: 60px;
+        font-size: 24px;
+    }
+    .restaurant_time_form{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 80%;
+        height: 60px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .restaurant_text_form{
+        border: none;
+        border-top: 1px solid #262628;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        resize: none;
+        width: 100%;
+        height: 300px;
+        font-size: 24px;
+        padding: 0 10px;
+
+    }
+     label[for=id_restaurant_type_0],
+     label[for=id_business_hours_option_0]{
+        display: none;
+    }
+    label[for=id_restaurant_type_1],
+    label[for=id_restaurant_type_2],
+    label[for=id_restaurant_type_3],
+    label[for=id_restaurant_type_4],
+    label[for=id_restaurant_type_5],
+    label[for=id_restaurant_type_6],
+    label[for=id_restaurant_type_7],
+    label[for=id_restaurant_type_8],
+    label[for=id_restaurant_type_9],
+    label[for=id_restaurant_type_10],
+    label[for=id_restaurant_type_11],
+    label[for=id_restaurant_type_12],
+    label[for=id_restaurant_type_13],
+    label[for=id_restaurant_type_14] {
+        display: inline-block;
+        border-radius: 20px;
+        text-align: center;
+        text-decoration: none;
+        border: solid 1px #ccc;
+        transition: 0.25s;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 17px;
+        width: 170px;
+        margin: 5px 3px;
+    }
+    label[for=id_business_hours_option_1],
+    label[for=id_business_hours_option_2],
+    label[for=id_business_hours_option_3],
+    label[for=id_business_hours_option_4]{
+        border-radius: 20px;
+        text-decoration: none;
+        border: solid 1px #ccc;
+        transition: 0.25s;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 17px;
+        width: 300px;
+        margin: 5px 3px;
+    }
+    .restaurant_btn{
+        width: 40%;
+        font-size: 20px;
+        letter-spacing: 5px;
+        border-radius: 4px;
+    }
+/*E restaurant.html*/
+
 
 
 /*S my_page*/

@@ -4,52 +4,86 @@
 
 
 {% block body %}
-    <section class="individual mg_t30 pd_b30">
-        <h5 class="Producer_text">詳細の登録</h5>
+    <section class="restaurant pd_b30">
         <form class="h-adr individual_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
-            <p class="signup_text_detail pd_t30">店舗ロゴ</p>
-            <div class="img_preview pd_b10 mg_t15" id="preview"></div>
-            <div class="registration mg_t15">
-                 <label for="file" class="filelabel">画像を選択</label>
-                <table class="table m-0">{% render_field form.restaurant_img class="fileinput" name="fileinput" id="file"　onChange="imgPreView(event)" %}</table>
+            <p class="listing_create_text">店舗画像</p>
+             <div class="swiper-container mg_t15 mg_b30">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><div class="img_preview pd_b10 mg_t15" id="preview1"></div></div>
+                    <div class="swiper-slide"><div class="img_preview pd_b10 mg_t15" id="preview2"></div></div>
+                    <div class="swiper-slide"><div class="img_preview pd_b10 mg_t15" id="preview3"></div></div>
+                </div>
+                <div class="swiper-pagination swiper-pagination-white"></div>
+                <div class="swiper-button-prev swiper-button-black"></div>
+                <div class="swiper-button-next swiper-button-black"></div>
             </div>
-            <p class="signup_text_detail">店舗の種類</p>
+                <div class="div_listing">
+                    <div class="registration_listing mg_t15">
+                        <label for="id_restaurant_img1" class="filelabel_listing">1枚目を選択</label>
+                        <table class="table m-0">{% render_field form.restaurant_img1|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview1')" %}</table>
+                    </div>
+                    <div class="registration_listing mg_t15">
+                        <label for="id_restaurant_img2" class="filelabel_listing">2枚目を選択</label>
+                        <table class="table m-0">{% render_field form.restaurant_img2|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview2')" %}</table>
+                    </div>
+                    <div class="registration_listing mg_t15">
+                        <label for="id_restaurant_img3" class="filelabel_listing">3枚目を選択</label>
+                        <table class="table m-0">{% render_field form.restaurant_img3|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview3')" %}</table>
+                    </div>
+                </div>
+            </div>
+            <p class="restaurant_create_text">店舗の種類</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.restaurant_type class="registration_main_radio" placeholder=""%}</table>
+                <table class="table m-0">{% render_field form.restaurant_type class="restaurant_radio" placeholder=""%}</table>
             </div>
-            <p class="signup_text_detail">店舗名または会社名</p>
+            <p class="restaurant_create_text">店舗名</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.restaurant_name class="registration_main" placeholder=""%}</table>
+                <table class="table m-0">{% render_field form.restaurant_name class="restaurant_name_form" placeholder="" %}</table>
             </div>
-
+            <p class="restaurant_create_text">営業開始時間</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.business_hours_start class="restaurant_time_form" placeholder="" type="time"%}</table>
+            </div>
+            <p class="restaurant_create_text">営業終了時間</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.business_hours_end class="restaurant_time_form" placeholder="" type="time"%}</table>
+            </div>
+            <p class="restaurant_create_text">受け取り時間</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.business_hours_option class="restaurant_radio" placeholder=""%}</table>
+            </div>
+            <p class="restaurant_create_text">店舗紹介</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.certification class="restaurant_text_form" placeholder="〇〇料理中心に営業しています"%}</table>
+            </div>
             <input type="hidden" class="p-country-name" value="Japan">
-             <p class="signup_text_detail">郵便番号</p>
+             <p class="restaurant_create_text">郵便番号</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.zip_code class="p-postal-code registration_main"  placeholder="例 5408570"%}</table>
+                <table class="table m-0">{% render_field form.zip_code class="p-postal-code restaurant_address_form"  placeholder="例 5408570"%}</table>
             </div>
-            <p class="signup_text_detail">都道府県</p>
+            <p class="restaurant_create_text">都道府県</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.prefectures class="p-region registration_main" placeholder="例 大阪府"%}</table>
+                <table class="table m-0">{% render_field form.prefectures class="p-region restaurant_address_form" placeholder="例 大阪府"%}</table>
             </div>
-            <p class="signup_text_detail">市町村</p>
+            <p class="restaurant_create_text">市町村</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.city  class="p-locality registration_main" placeholder="例 大阪市"%}</table>
+                <table class="table m-0">{% render_field form.city  class="p-locality restaurant_address_form" placeholder="例 大阪市"%}</table>
             </div>
-            <p class="signup_text_detail">住所1</p>
+            <p class="restaurant_create_text">住所1</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.address1 class="p-street-address registration_main" placeholder="例 中央区大手町 〇〇番地"%}</table>
+                <table class="table m-0">{% render_field form.address1 class="p-street-address restaurant_address_form" placeholder="例 中央区大手町 〇〇番地"%}</table>
             </div>
-            <p class="signup_text_detail">住所2</p>
+            <p class="restaurant_create_text">住所2</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.address2 class="extended-address registration_main" placeholder="例 triangleビル"%}</table>
+                <table class="table m-0">{% render_field form.address2 class="extended-address restaurant_address_form" placeholder="例 triangleビル"%}</table>
             </div>
-            <p class="signup_text_detail">店舗紹介</p>
+            <p class="restaurant_create_text">最寄り駅</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.certification class="registration_main_big" placeholder=""%}</table>
+                <table class="table m-0">{% render_field form.nearest_station class="restaurant_address_form" placeholder="JR大阪駅"%}</table>
             </div>
-            <div class="text-center mg_t50">
-                <button type="submit" class="btn signup_registration_btn">登録</button>
+            <div class="text-center mg_t70 mg_b100">
+                <button type="submit" class="btn btn-success restaurant_btn">登録</button>
             </div>
         </form>
     </section>

@@ -23,6 +23,7 @@ from .forms import (
     PasswordResetForm,
     SetPasswordForm,
     UserZipUpdateForm,
+    RestaurantUserCreateForm,
 )
 from django.shortcuts import resolve_url
 
@@ -33,6 +34,9 @@ class LoginView(LoginView):
     """ログイン機能"""
     form_class = UserLoginForm
     template_name = 'account/login.html'
+
+    def get_success_url(self):
+        return resolve_url('home')
 
 
 class SignupView(generic.CreateView):
@@ -62,6 +66,7 @@ class SignupView(generic.CreateView):
 
         user.email_user(subject, message)
         return redirect('user_create_done')
+
 
 class SignupDoneView(generic.TemplateView):
     template_name = 'account/sign_up_done.html'
@@ -97,6 +102,69 @@ class SignupFinishView(generic.TemplateView):
         return HttpResponseBadRequest()
 
 
+class RestaurantLoginView(LoginView):
+    """レストランログイン機能"""
+    form_class = UserLoginForm
+    template_name = 'account/restaurant_login.html'
+
+    def get_success_url(self):
+        return resolve_url('restaurant')
+
+class RestaurantUserCreateView(generic.CreateView):
+    """レストランユーザー登録機能"""
+    template_name = 'account/restaurant_signup.html'
+    form_class = RestaurantUserCreateForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        """仮登録と本登録用メールの発行"""
+        user = form.save(commit=False)
+        user.is_active = False
+        user.save()
+
+
+        current_site = get_current_site(self.request)
+        domain = current_site.domain
+        context = {
+            'protocol': self.request.scheme,
+            'domain': domain,
+            'token': dumps(user.pk),
+            'user': user,
+        }
+
+        subject = render_to_string('account/mails/restaurant_create_subject.txt', context)
+        message = render_to_string('account/mails/restaurant_create_message.txt', context)
+
+        user.email_user(subject, message)
+        return redirect('user_create_done')
+
+class RestaurantFinishView(generic.TemplateView):
+    template_name = 'account/restaurant_finish.html'
+    timeout_seconds = getattr(settings, 'ACTIVATION_TIMEOUT_SECONDS', 60 * 60 * 24)
+
+    def get(self, request, **kwargs):
+        token = kwargs.get('token')
+        try:
+            user_pk = loads(token, max_age=self.timeout_seconds)
+        except SignatureExpired:
+            return HttpResponseBadRequest()
+
+        except BadSignature:
+            return HttpResponseBadRequest()
+
+        else:
+            try:
+                user = User.objects.get(pk=user_pk)
+            except User.DoesNotExist:
+                return HttpResponseBadRequest()
+            else:
+                if not user.is_active:
+                    # 問題なければ本登録とする
+                    user.is_active = True
+                    user.save()
+                    return super().get(request, **kwargs)
+
+        return HttpResponseBadRequest()
 
 
 class EmailChangeView(LoginRequiredMixin, generic.FormView):
@@ -121,7 +189,7 @@ class EmailChangeView(LoginRequiredMixin, generic.FormView):
         message = render_to_string('account/mails/E-mail_change_message.txt', context)
         send_mail(subject, message, None, [new_email])
 
-        return redirect('email_change_done')
+        return redirect('user_create_done')
 
 
 class EmailChangeDoneView(LoginRequiredMixin, generic.TemplateView):

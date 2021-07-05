@@ -31,7 +31,14 @@ class UserCreateForm(UserCreationForm):
             'first_name','last_name','email','phone','password1','password2',"zip_code","prefectures","city",
             "address1","address2",
         ]
-
+class RestaurantUserCreateForm(UserCreationForm):
+    """全ユーザー登録フォーム"""
+    class Meta:
+        model = User
+        fields = [
+            'first_name','last_name','email','phone','password1','password2',"zip_code","prefectures","city",
+            "address1","address2",
+        ]
 
 class EmailChangeForm(forms.ModelForm):
     """メールアドレス変更"""

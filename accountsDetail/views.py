@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -6,8 +6,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from listing.models import Listing
 from .forms import (
     RestaurantForm,
-    ReviewForm
-
+    ReviewForm,
+    ApplicationForm,
 )
 
 
@@ -20,14 +20,13 @@ class RestaurantView(LoginRequiredMixin,generic.CreateView):
     """レストラン登録"""
     template_name = 'accountsDetail/restaurant.html'
     form_class = RestaurantForm
-    success_url = reverse_lazy('')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 
-#
 class ReviewView(LoginRequiredMixin,generic.CreateView):
     template_name = 'accountsDetail/review.html'
     form_class = ReviewForm
@@ -46,3 +45,13 @@ class ReviewView(LoginRequiredMixin,generic.CreateView):
         context = super().get_context_data(**kwargs)
         context['listing'] = get_object_or_404(Listing, pk=self.kwargs['pk'])
         return context
+
+def application_form(request):
+    if request.method == 'POST':
+        form =ApplicationForm(request.POST)
+        if form.is_valid():
+            return redirect('home')
+    else:
+        form = ApplicationForm()
+    return render(request, 'accountsDetail/application.html', {'form': form})
+
