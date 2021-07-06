@@ -27,15 +27,6 @@
                 <h5 class="app_name mg_t10 mg_l10"><span class="blue">t</span>ri<span class="red">an</span>gl<span class="yellow">e</span></h5>
                 {% if user.is_authenticated %}
                         <div class="wrap">
-                            <div class="dropdown">
-                                <button class="btn btn-outline-success dropdown-toggle mg_t10" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    追加
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="{% url 'listing_create' %}">出品する</a>
-                                    <a class="dropdown-item" href="{% url 'recipe_create' %}">レシピを書く</a>
-                                </div>
-                            </div>
                              <a class="nav-link carts" href="{% url 'order' %}">
                                     <i class="fas fa-shopping-cart"></i>
                                     <div class="item_count">{{ request.user|itemCount }} </div>
@@ -70,7 +61,7 @@
                              </a>
                              <a class="nav-link p-0" href="{% url 'recipe_list' %}">
                                  <i class="fas fa-search-plus"></i>
-                                 <p class="footer_nav_base">レシピ検索</p>
+                                 <p class="footer_nav_base">店舗検索</p>
                              </a>
                           </div>
                     </nav>

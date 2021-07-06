@@ -77,6 +77,6 @@ class ApplicationForm(forms.Form):
         message = EmailMessage(subject=restaurant_name + "からの出店申請",
                                body="店舗住所:"+"〒"+zip_code+prefectures+city+address1+address2+"最寄り駅:"+nearest_station+"申請内容:"+text+restaurant_type,
                                from_email=email,
-                               to=[""],
+                               to=["kinoshitaryuta@gmail.com"],
                                cc=[email])
         message.send()

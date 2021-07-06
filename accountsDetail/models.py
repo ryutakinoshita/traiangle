@@ -31,6 +31,19 @@ class Hour(models.Model):
         ("4", "TELでのお問い合わせ確認"),
     )
 
+class Prefectures(models.Model):
+    Types=(
+        ("1", "三重県"),
+        ("2", "滋賀県"),
+        ("3", "京都府"),
+        ("4", "大阪府"),
+        ("5", "兵庫県"),
+        ("6", "奈良県"),
+        ("7", "和歌山県"),
+
+
+    )
+
 class Restaurant(models.Model):
     """飲食店"""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -38,9 +51,9 @@ class Restaurant(models.Model):
     restaurant_img1 = models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
     restaurant_img2 = models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
     restaurant_img3= models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
-    restaurant_type = models.CharField(max_length=100, choices=TypeSub.Types,blank=False,null=False)
+    restaurant_type = models.CharField(max_length=100,choices=TypeSub.Types,blank=False,null=False)
     zip_code = models.CharField(max_length=8,blank=False,null=False)
-    prefectures=models.CharField(max_length=40,blank=False,null=False)
+    prefectures=models.CharField(max_length=40,choices=Prefectures.Types,blank=False,null=False)
     city=models.CharField(max_length=40,blank=False,null=False)
     address1=models.CharField(max_length=40,blank=False,null=False)
     address2=models.CharField(max_length=40,blank=True)
@@ -49,6 +62,7 @@ class Restaurant(models.Model):
     business_hours_start=models.CharField(max_length=40,blank=True,null=True)
     business_hours_end=models.CharField(max_length=40,blank=True,null=True)
     business_hours_option=models.CharField(max_length=40, choices=Hour.Types,blank=False,null=False)
+    like = models.ManyToManyField(User, related_name='related_like', blank=True)
 
 
     def __str__(self):

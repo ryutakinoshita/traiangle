@@ -208,8 +208,6 @@ class PaymentView(LoginRequiredMixin, View):
 
 
 
-
-
 class LikeBase(LoginRequiredMixin, View):
     """お気に入りベース"""
     def get(self, request, *args, **kwargs):

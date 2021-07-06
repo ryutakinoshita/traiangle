@@ -132,17 +132,13 @@
         font-size: 45px;
     }
     .index_title_sub{
-        font-size: 16px;
-        color:#3399FF ;
+        font-size: 15px;
     }
-    .trial_btn{
-        font-weight: bolder;
-        background: #e7bc15;
-    }
+    .trial_btn,
     .trial_btn:hover{
         font-weight: bolder;
-        background: #e7bc15;
     }
+
     .examples{
         margin-top: 80px;
         margin-left: 10px;
@@ -278,6 +274,37 @@
         border-radius: 4px;
         font-size: 18px;
     }
+    .restaurant_body{
+        padding: 20px 0 0;
+    }
+    .restaurant_name{
+        text-align: center;
+        font-weight: bolder;
+        font-size: 26px;
+    }
+    .restaurant_type{
+        text-align: center;
+        padding-top: 5px;
+        font-size: 14px;
+        color: #38a76f;
+    }
+    .restaurant_business_hours{
+        margin: 0;
+        padding-top:15px ;
+        text-align: center;
+        font-size: 22px;
+    }
+    .restaurant_business_hours_option{
+        text-align: center;
+        font-size: 14px;
+        color: #3399FF;
+    }
+    .restaurant_nearest_station{
+        padding-top: 20px;
+        text-align: right;
+        padding-right: 10px;
+        color: #999898;
+    }
 
 /*E home.html*/
 
@@ -306,11 +333,11 @@
     .detail_img {
         text-align: center;
         width: 80%;
-        height: 150px;
+        height: 200px;
     }
     .swiper-container {
         text-align: center;
-        height: 150px;
+        height: 230px;
     }
     .listing_user_detail {
         color: #828181;
@@ -951,6 +978,7 @@
         width: 80%;
         height: 60px;
         font-size: 24px;
+        background: #ffffff;
     }
     .restaurant_time_form{
         padding: 0;
@@ -962,6 +990,7 @@
         height: 60px;
         font-size: 20px;
         text-align: center;
+        background: #ffffff;
     }
     .restaurant_text_form{
         border: none;
@@ -1029,6 +1058,36 @@
 /*E restaurant.html*/
 
 
+/*S restaurant_detail.html*/
+    .restaurant_detail{
+        background: #ffffff;
+        height: auto;
+    }
+    .restaurant_hr{
+        margin: 0;
+        border-width: 1px 0 0 0;
+        border-color: #5c5c5f;
+    }
+    .restaurant_zip_code,
+    .restaurant_address{
+        font-size: 20px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    .restaurant_detail_text{
+        font-weight: bolder;
+        font-size: 22px;
+        padding-left: 50px;
+    }
+    .restaurant_nearest_detail{
+        text-align: right;
+        padding-right: 10px;
+    }
+    .restaurant_tel{
+        font-size: 18px;
+        text-align: center;
+    }
+/*E restaurant_detail.html*/
 
 /*S my_page*/
     .my_page_link {
@@ -1158,9 +1217,14 @@
 
     }
     .carts{
+        padding-top: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: 22px;
+    }
+    .item_count{
+        padding-left: 5px;
     }
     .heading_text{
         font-weight: bolder;

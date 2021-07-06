@@ -3,6 +3,8 @@ from django.core.mail import send_mail
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render
+
+from accountsDetail.models import Restaurant
 from app.forms import ContactForm
 from app.models import Withdrawal
 from listing.models import Listing
@@ -28,6 +30,7 @@ class HomeView(generic.ListView):
         context.update({
             'likes':Listing.objects.order_by('like'),
             'good':Recipe.objects.order_by('good'),
+            'restaurant':Restaurant.objects.order_by('like'),
         })
         return context
 
