@@ -59,7 +59,7 @@
                                  <i class="fas fa-user"></i>
                                  <p class="footer_nav_base">マイページ</p>
                              </a>
-                             <a class="nav-link p-0" href="{% url 'recipe_list' %}">
+                             <a class="nav-link p-0" href="{% url 'link' %}">
                                  <i class="fas fa-search-plus"></i>
                                  <p class="footer_nav_base">店舗検索</p>
                              </a>
@@ -80,7 +80,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7Vehhu5eQmAmUHMvf7kmMIKM_zXeayBo&callback&callback=initMap" async defer></script>
         <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
-        <script src="{% static 'js/main.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
     </body>
 </html>

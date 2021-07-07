@@ -1087,7 +1087,49 @@
         font-size: 18px;
         text-align: center;
     }
+    .form-check-label{
+        font-weight: bolder;
+    }
 /*E restaurant_detail.html*/
+
+
+/*S restaurant_search.html*/
+    .search_rest{
+        padding-left: 30px;
+    }
+    .search_rests{
+        margin-top: 5px;
+    }
+/*E restaurant_search.html*/
+
+
+/*S my_restaurant_detail.html*/
+    .tab-rest:checked + .switch_black {
+        border-bottom: 2px solid #454141;
+    }
+
+    .tab-rest:checked + .switch_blue {
+        border-bottom: 2px solid #454141;
+    }
+
+    .tab-rest:checked + .switch_red {
+        border-bottom: 2px solid #454141;
+    }
+
+    .tab-rest:checked + .switch_yellow {
+       border-bottom: 2px solid #454141;
+    }
+/* ラジオボタン非表示 */
+    .tab-rest {
+        display: none;
+    }
+    .tab-rest:checked + .tab-label + .tab-content {
+        height: auto;
+        overflow: auto;
+        opacity: 1;
+        transition: .5s opacity;
+    }
+/*E my_restaurant_detail.html*/
 
 /*S my_page*/
     .my_page_link {

@@ -3,7 +3,9 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import FormView
+from django.db.models import Q
 
+from accounts.models import User
 from listing.models import Listing
 from .forms import (
     RestaurantForm,
@@ -99,3 +101,208 @@ class RestaurantLikeListView(LoginRequiredMixin,generic.ListView):
     model = Restaurant
     template_name = 'accountsDetail/restaurant_like_list.html'
     context_object_name = 'item_data'
+
+
+class RestaurantListMieView(LoginRequiredMixin,generic.ListView):
+    """Mie"""
+    model = Restaurant
+    template_name = 'accountsDetail/restaurant_Mie.html'
+    context_object_name = 'restaurant'
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        q_type = self.request.GET.get('type')
+        if q_word:
+            object_list = Restaurant.objects.filter(
+                Q(restaurant_name__icontains=q_word) | Q(certification__icontains=q_word)
+            )
+        elif q_data:
+            object_list=Restaurant.objects.filter(
+                Q(nearest_station__icontains=q_data)| Q(city__icontains=q_data)| Q(address1__icontains=q_data)
+            )
+        elif q_type:
+            object_list=Restaurant.objects.filter(
+                Q(restaurant_type__icontains=q_type)
+            )
+        else:
+            object_list = Restaurant.objects.filter(prefectures="1")
+        return object_list.filter(prefectures="1")
+
+
+class RestaurantListSigaView(LoginRequiredMixin,generic.ListView):
+    """Siga"""
+    model = Restaurant
+    template_name = 'accountsDetail/restaurant_Siga.html'
+    context_object_name = 'restaurant'
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        q_type = self.request.GET.get('type')
+        if q_word:
+            object_list = Restaurant.objects.filter(
+                Q(restaurant_name__icontains=q_word) | Q(certification__icontains=q_word)
+            )
+        elif q_data:
+            object_list=Restaurant.objects.filter(
+                Q(nearest_station__icontains=q_data)| Q(city__icontains=q_data)| Q(address1__icontains=q_data)
+            )
+        elif q_type:
+            object_list=Restaurant.objects.filter(
+                Q(restaurant_type__icontains=q_type)
+            )
+        else:
+            object_list = Restaurant.objects.filter(prefectures="2")
+        return object_list.filter(prefectures="2")
+
+
+class RestaurantListKyotoView(LoginRequiredMixin,generic.ListView):
+    """Kyoto"""
+    model = Restaurant
+    template_name = 'accountsDetail/restaurant_Kyoto.html'
+    context_object_name = 'restaurant'
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        q_type = self.request.GET.get('type')
+        if q_word:
+            object_list = Restaurant.objects.filter(
+                Q(restaurant_name__icontains=q_word) | Q(certification__icontains=q_word)
+            )
+        elif q_data:
+            object_list=Restaurant.objects.filter(
+                Q(nearest_station__icontains=q_data)| Q(city__icontains=q_data)| Q(address1__icontains=q_data)
+            )
+        elif q_type:
+            object_list=Restaurant.objects.filter(
+                Q(restaurant_type__icontains=q_type)
+            )
+        else:
+            object_list = Restaurant.objects.filter(prefectures="3")
+        return object_list.filter(prefectures="3")
+
+
+
+class RestaurantListOsakaView(LoginRequiredMixin,generic.ListView):
+    """Osaka"""
+    model = Restaurant
+    template_name = 'accountsDetail/restaurant_Osaka.html'
+    context_object_name = 'restaurant'
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        q_type = self.request.GET.get('type')
+        if q_word:
+            object_list = Restaurant.objects.filter(
+                Q(restaurant_name__icontains=q_word) | Q(certification__icontains=q_word)
+            )
+        elif q_data:
+            object_list=Restaurant.objects.filter(
+                Q(nearest_station__icontains=q_data)| Q(city__icontains=q_data)| Q(address1__icontains=q_data)
+            )
+        elif q_type:
+            object_list=Restaurant.objects.filter(
+                Q(restaurant_type__icontains=q_type)
+            )
+        else:
+            object_list = Restaurant.objects.filter(prefectures="4")
+        return object_list.filter(prefectures="4")
+
+
+class RestaurantListHyogoView(LoginRequiredMixin,generic.ListView):
+    """Hyogo"""
+    model = Restaurant
+    template_name = 'accountsDetail/restaurant_Hyogo.html'
+    context_object_name = 'restaurant'
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        q_type = self.request.GET.get('type')
+        if q_word:
+            object_list = Restaurant.objects.filter(
+                Q(restaurant_name__icontains=q_word) | Q(certification__icontains=q_word)
+            )
+        elif q_data:
+            object_list=Restaurant.objects.filter(
+                Q(nearest_station__icontains=q_data)| Q(city__icontains=q_data)| Q(address1__icontains=q_data)
+            )
+        elif q_type:
+            object_list=Restaurant.objects.filter(
+                Q(restaurant_type__icontains=q_type)
+            )
+        else:
+            object_list = Restaurant.objects.filter(prefectures="5")
+        return object_list.filter(prefectures="5")
+
+
+class RestaurantListNaraView(LoginRequiredMixin,generic.ListView):
+    """Nara"""
+    model = Restaurant
+    template_name = 'accountsDetail/restaurant_Nara.html'
+    context_object_name = 'restaurant'
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        q_type = self.request.GET.get('type')
+        if q_word:
+            object_list = Restaurant.objects.filter(
+                Q(restaurant_name__icontains=q_word) | Q(certification__icontains=q_word)
+            )
+        elif q_data:
+            object_list=Restaurant.objects.filter(
+                Q(nearest_station__icontains=q_data)| Q(city__icontains=q_data)| Q(address1__icontains=q_data)
+            )
+        elif q_type:
+            object_list=Restaurant.objects.filter(
+                Q(restaurant_type__icontains=q_type)
+            )
+        else:
+            object_list = Restaurant.objects.filter(prefectures="6")
+        return object_list.filter(prefectures="6")
+
+
+class RestaurantListWakayamaView(LoginRequiredMixin,generic.ListView):
+    """Wakayama"""
+    model = Restaurant
+    template_name = 'accountsDetail/restaurant_Wakayama.html'
+    context_object_name = 'restaurant'
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        q_type = self.request.GET.get('type')
+        if q_word:
+            object_list = Restaurant.objects.filter(
+                Q(restaurant_name__icontains=q_word) | Q(certification__icontains=q_word)
+            )
+        elif q_data:
+            object_list=Restaurant.objects.filter(
+                Q(nearest_station__icontains=q_data)| Q(city__icontains=q_data)| Q(address1__icontains=q_data)
+            )
+        elif q_type:
+            object_list=Restaurant.objects.filter(
+                Q(restaurant_type__icontains=q_type)
+            )
+        else:
+            object_list = Restaurant.objects.filter(prefectures="7")
+        return object_list.filter(prefectures="7")
+
+class RestaurantLinkView(LoginRequiredMixin,generic.TemplateView):
+    template_name = 'accountsDetail/restaurant_link.html'
+
+
+class MyRestaurantDetailView(LoginRequiredMixin,generic.DetailView):
+    model = User
+    template_name = 'accountsDetail/my_restaurant_detail.html'

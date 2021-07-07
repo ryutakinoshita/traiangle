@@ -40,8 +40,6 @@ class Prefectures(models.Model):
         ("5", "兵庫県"),
         ("6", "奈良県"),
         ("7", "和歌山県"),
-
-
     )
 
 class Restaurant(models.Model):
