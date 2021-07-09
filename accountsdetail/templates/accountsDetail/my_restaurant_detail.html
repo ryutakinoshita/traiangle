@@ -26,20 +26,21 @@
         </div>
         <div class="tab-wrap mg_t50">
             <input id="TAB02-01" type="radio" name="TAB02" class="tab-rest" checked="checked" /><label class="tab-label switch_black" for="TAB02-01">ユーザー情報</label>
-            <p>責任者 {{ user.first_name }}{{ user.last_name }}</p>
-            <p>TEL {{ user.phone }}</p>
-            <p>E-メール {{ user.email }}</p>
+            <div class="tab-content">
+            <div class="my_rest_users">
+                <p class="my_rest_user pd_t30">ユーザー名 {{ user.first_name }}{{ user.last_name }}</p>
+                <p class="my_rest_user pd_t30">E-メール {{ user.email }}</p>
+                <p class="my_rest_user pd_t30">TEL {{ user.phone }}</p>
+            </div>
+            </div>
+            <input id="TAB02-02" type="radio" name="TAB02" class="tab-rest" /><label class="tab-label switch_blue rest_label" for="TAB02-02">出品した商品</label>
+            <div class="tab-content">
+            </div>
+            <input id="TAB02-03" type="radio" name="TAB02" class="tab-rest" /><label class="tab-label switch_red rest_label" for="TAB02-03">購入者リスト</label>
+            <div class="tab-content">
 
-            <div class="tab-content">
             </div>
-            <input id="TAB02-02" type="radio" name="TAB02" class="tab-rest" /><label class="tab-label switch_blue" for="TAB02-02">出品した商品</label>
-            <div class="tab-content">
-            </div>
-            <input id="TAB02-03" type="radio" name="TAB02" class="tab-rest" /><label class="tab-label switch_red" for="TAB02-03">購入者リスト</label>
-            <div class="tab-content">
-
-            </div>
-            <input id="TAB02-05" type="radio" name="TAB02" class="tab-rest" /><label class="tab-label switch_yellow" for="TAB02-05">売り上げ金額</label>
+            <input id="TAB02-05" type="radio" name="TAB02" class="tab-rest" /><label class="tab-label switch_yellow rest_label" for="TAB02-05">売り上げ金額</label>
             <div class="tab-content">
 
             </div>　　　　

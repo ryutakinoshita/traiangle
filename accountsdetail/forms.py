@@ -1,5 +1,5 @@
 from django import forms
-from .models import Restaurant, Review
+from .models import Restaurant
 from django.core.mail import EmailMessage
 
 
@@ -20,16 +20,16 @@ class RestaurantForm(forms.ModelForm):
             'business_hours_end': forms.TimeInput(format='%H:%M'),
 
         }
-
-
-
-class ReviewForm(forms.ModelForm):
-
-    class Meta:
-        model = Review
-        fields = (
-            "answer_text",
-                  )
+#
+#
+#
+# class ReviewForm(forms.ModelForm):
+#
+#     class Meta:
+#         model = Review
+#         fields = (
+#             "answer_text",
+#                   )
 
 
 

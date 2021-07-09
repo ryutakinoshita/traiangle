@@ -7,14 +7,14 @@
             <i class="fas fa-user-edit"></i>
             <a class="my_page_link pd_l10" href="{% url 'my_restaurant_detail' user.id %}">店舗ページへ</a>
         </div>
+         <div class="my_page_div mg_t30">
+            <i class="fas fa-folder-plus"></i>
+            <a class="my_page_link pd_l20" href="{% url 'listing_create' %}">出品する</a>
+        </div>
         <div class="my_page_div mg_t30">
             <i class="fas fa-map-marker-alt"></i>
             <a class="my_page_link pd_l20" href="{% url 'user_update' user.id %}">住所登録・変更</a>
         </div>
-{#         <div class="my_page_div mg_t30">#}
-{#            <i class="fas fa-list-alt"></i>#}
-{#            <a class="my_page_link pd_l20" href="{% url 'my_listing' user.id %}">出品履歴</a>#}
-{#        </div>#}
         <div class="my_page_div mg_t30">
             <i class="fas fa-envelope"></i>
             <a class="my_page_link pd_l20" href="{% url 'email_change' %}">メールアドレスの変更</a>

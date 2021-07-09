@@ -6,6 +6,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View
 from accounts.models import User
 from django.conf import settings
+
+from accountsdetail.models import Restaurant
 from listing.models import Listing, Order, OrderItem, Payment
 from listing.forms import ListingForm,ListingUpdateForm
 from django.contrib.auth.decorators import login_required
@@ -22,13 +24,14 @@ class ListingView(LoginRequiredMixin,generic.CreateView):
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
-        form.instance.listing_user = self.request.user
+        form.instance.listing_user =self.request.user
         return super().form_valid(form)
 
 class ListingDetailView(LoginRequiredMixin,generic.DetailView):
     """商品詳細"""
     model = Listing
     template_name = 'listing/listing_detail.html'
+
 
 class ListingUpdateView(LoginRequiredMixin,generic.UpdateView):
     """商品編集"""

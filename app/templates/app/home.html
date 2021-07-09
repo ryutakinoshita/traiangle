@@ -29,7 +29,7 @@
        </form>
     </div>
     <div class="tab-wrap mg_t50">
-        <input id="TAB02-01" type="radio" name="TAB02" class="tab-switch" checked="checked" /><label class="tab-label switch_black" for="TAB02-01">トップ</label>
+        <input id="TAB02-01" type="radio" name="TAB02" class="tab-switch" checked="checked" /><label class="tab-label switch_black" for="TAB02-01">注目商品</label>
         <div class="tab-content">
         </div>
         <input id="TAB02-02" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label switch_blue" for="TAB02-02">新着商品</label>
@@ -38,18 +38,21 @@
             {% for Listing in item_data %}
                 <a href="{% url 'listing_detail' Listing.slug%}">
                     <div class="listing_card mg_t10">
-                          <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
-                          <div class="listing_text">
-                              <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ Listing.listing_name| truncatechars:15 }}</h5>
-                          <div class="like_count mg_l10">
-                                  {% if request.user in Listing.like.all %}
-                                      <i class="fas fa-heart heart_true"></i> {{Listing.like.count}}
-                                  {% else %}
-                                      <i class="far fa-heart heart_false"></i> {{Listing.like.count}}
-                                  {% endif %}
-                          </div>
-                              <p class="card-text listing_price pd_l20 mg_t15">￥{{ Listing.listing_price| intcomma }}</p>
-                              <p class="card-text listing_type">{{ Listing.listing_user.business_person_name }}</p>
+                        <div>
+                            <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
+                            <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
+                        </div>
+                        <div class="listing_text">
+                            <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ Listing.listing_name| truncatechars:15 }}</h5>
+                            <p class="price_text">通常販売価格</p>
+                            <p class="card-text listing_originally_price"><del>￥{{ Listing.listing_originally_price| intcomma }}</del></p>
+                            <p class="card-text down">↓</p>
+                            <p class="price_text">特別販売価格</p>
+                            <p class="card-text listing_price">￥{{ Listing.listing_originally_price| intcomma }}</p>
+                            <p class="card-text listing_type"></p>
+                            {% for restaurant in restaurants %}
+                                <p class="restaurant_listing_name">{{ restaurant.restaurant_name| truncatechars:15 }}</p>
+                            {% endfor %}
                           </div>
                     </div>
                 </a>
@@ -73,25 +76,9 @@
                         </div>
                     </a>
                 {% endfor %}
+
             </section>
-        </div>
-        <input id="TAB02-05" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label switch_yellow" for="TAB02-05">注目商品</label>
-        <div class="tab-content">
-            <section class="recipe_list mg_t30">
-                 <div class="recipes mg_t15">
-                    {% for Recipe in good %}
-                        <a href="{% url 'recipe_detail' Recipe.pk%}">
-                            <div class="recipe_one">
-                                <img class="recipe_img" src="{{ MEDIA_URL }}{{ Recipe.recipe_img1 }}">
-                                <p class="recipe_title">{{ Recipe.recipe_title | truncatechars:15}}</p>
-                                <p class="recipe_time">調理時間 {{ Recipe.get_recipe_time_display }}</p>
-                                <p class="recipe_name">投稿者:{{ Recipe.user.business_person_name }}</p>
-                            </div>
-                        </a>
-                    {% endfor %}
-                 </div>
-    </section>
-        </div>　　　　
+        </div>　　
     </div>
 
 {% endblock body %}

@@ -52,6 +52,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     city = models.CharField(max_length=40,blank=False,null=False)
     address1 = models.CharField(max_length=40,blank=False,null=False)
     address2 = models.CharField(max_length=40,blank=True)
+    rest_name= models.CharField(max_length=100,blank=True)
     created = models.DateTimeField(default=timezone.now)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)

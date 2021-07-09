@@ -27,17 +27,20 @@ class UserCreateForm(UserCreationForm):
     """全ユーザー登録フォーム"""
     class Meta:
         model = User
+        exclude=(
+            "rest_name",
+        )
         fields = [
             'first_name','last_name','email','phone','password1','password2',"zip_code","prefectures","city",
             "address1","address2",
         ]
 class RestaurantUserCreateForm(UserCreationForm):
-    """全ユーザー登録フォーム"""
+    """レストランユーザー登録フォーム"""
     class Meta:
         model = User
         fields = [
             'first_name','last_name','email','phone','password1','password2',"zip_code","prefectures","city",
-            "address1","address2",
+            "address1","address2","rest_name",
         ]
 
 class EmailChangeForm(forms.ModelForm):

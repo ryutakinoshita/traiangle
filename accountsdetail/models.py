@@ -1,6 +1,5 @@
 from django.db import models
 from accounts.models import User
-from listing.models import Listing
 from django.utils import timezone
 
 
@@ -44,7 +43,7 @@ class Prefectures(models.Model):
 
 class Restaurant(models.Model):
     """飲食店"""
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='rest')
     restaurant_name=models.CharField(max_length=40,blank=False,null=False)
     restaurant_img1 = models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
     restaurant_img2 = models.ImageField(upload_to='restaurantImg/',blank=False,null=False)
@@ -69,12 +68,12 @@ class Restaurant(models.Model):
 
 
 
-class Review(models.Model):
-    """レビューモデル"""
-    target=models.ForeignKey(Listing,on_delete=models.CASCADE)
-    user=models.ForeignKey(User,on_delete=models.SET_DEFAULT,default='退会済みのユーザー')
-    answer_text=models.TextField(max_length=300,blank=True,null=True)
-    time=models.DateTimeField(default=timezone.now)
-
-    def __str__(self):
-        return self.answer_text
+# class Review(models.Model):
+#     """レビューモデル"""
+#     target=models.ForeignKey(Listing,on_delete=models.CASCADE)
+#     user=models.ForeignKey(User,on_delete=models.SET_DEFAULT,default='退会済みのユーザー')
+#     answer_text=models.TextField(max_length=300,blank=True,null=True)
+#     time=models.DateTimeField(default=timezone.now)
+#
+#     def __str__(self):
+#         return self.answer_text

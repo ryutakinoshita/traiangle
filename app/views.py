@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render
-from accountsDetail.models import Restaurant
+from accountsdetail.models import Restaurant
 from app.forms import ContactForm
 from app.models import Withdrawal
 from listing.models import Listing
@@ -30,6 +30,7 @@ class HomeView(generic.ListView):
             'likes':Listing.objects.order_by('like'),
             'good':Recipe.objects.order_by('good'),
             'restaurant':Restaurant.objects.order_by('like'),
+            'restaurants':Restaurant.objects.all(),
         })
         return context
 
@@ -50,167 +51,6 @@ class ProductListView(LoginRequiredMixin,generic.ListView):
             object_list = Listing.objects.order_by('?')
         return object_list
 
-
-class ProductListVegetablesView(LoginRequiredMixin,generic.ListView):
-    """野菜一覧"""
-    model = Listing
-    template_name = 'app/product_vegetables.html'
-    context_object_name = 'product'
-
-    # 検索
-    def get_queryset(self):
-        q_word = self.request.GET.get('query')
-        if q_word:
-            object_list = Listing.objects.filter(
-                Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
-            )
-        else:
-            object_list = Listing.objects.filter(listing_type="1")
-        return object_list.filter(listing_type="1")
-
-
-class ProductListFruitsView(LoginRequiredMixin,generic.ListView):
-    """果物一覧"""
-    model = Listing
-    template_name = 'app/product_fruits.html'
-    context_object_name = 'product'
-
-    # 検索
-    def get_queryset(self):
-        q_word = self.request.GET.get('query')
-        if q_word:
-            object_list = Listing.objects.filter(
-                Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
-            )
-        else:
-            object_list = Listing.objects.filter(listing_type="2")
-        return object_list.filter(listing_type="2")
-
-
-class ProductListFishView(LoginRequiredMixin,generic.ListView):
-    """鮮魚一覧"""
-    model = Listing
-    template_name = 'app/product_fish.html'
-    context_object_name = 'product'
-
-    # 検索
-    def get_queryset(self):
-        q_word = self.request.GET.get('query')
-        if q_word:
-            object_list = Listing.objects.filter(
-                Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
-            )
-        else:
-            object_list = Listing.objects.filter(listing_type="3")
-        return object_list.filter(listing_type="3")
-
-
-class ProductListMeatView(LoginRequiredMixin,generic.ListView):
-    """食肉一覧"""
-    model = Listing
-    template_name = 'app/product_meat.html'
-    context_object_name = 'product'
-
-    # 検索
-    def get_queryset(self):
-        q_word = self.request.GET.get('query')
-        if q_word:
-            object_list = Listing.objects.filter(
-                Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
-            )
-        else:
-            object_list = Listing.objects.filter(listing_type="4")
-        return object_list.filter(listing_type="4")
-
-
-class ProductListDairyView(LoginRequiredMixin,generic.ListView):
-    """乳製品一覧"""
-    model = Listing
-    template_name = 'app/product_dairy.html'
-    context_object_name = 'product'
-
-    # 検索
-    def get_queryset(self):
-        q_word = self.request.GET.get('query')
-        if q_word:
-            object_list = Listing.objects.filter(
-                Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
-            )
-        else:
-            object_list = Listing.objects.filter(listing_type="5")
-        return object_list.filter(listing_type="5")
-
-
-class ProductListProcessingView(LoginRequiredMixin,generic.ListView):
-    """加工食品"""
-    model = Listing
-    template_name = 'app/product_processing.html'
-    context_object_name = 'product'
-
-    # 検索
-    def get_queryset(self):
-        q_word = self.request.GET.get('query')
-        if q_word:
-            object_list = Listing.objects.filter(
-                Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
-            )
-        else:
-            object_list = Listing.objects.filter(listing_type="6")
-        return object_list.filter(listing_type="6")
-
-
-class ProductListDrinkView(LoginRequiredMixin,generic.ListView):
-    """飲料"""
-    model = Listing
-    template_name = 'app/product_drink.html'
-    context_object_name = 'product'
-
-    # 検索
-    def get_queryset(self):
-        q_word = self.request.GET.get('query')
-        if q_word:
-            object_list = Listing.objects.filter(
-                Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
-            )
-        else:
-            object_list = Listing.objects.filter(listing_type="7")
-        return object_list.filter(listing_type="7")
-
-
-class ProductListAlcoholView(LoginRequiredMixin,generic.ListView):
-    """アルコール飲料"""
-    model = Listing
-    template_name = 'app/product_alcohol.html'
-    context_object_name = 'product'
-
-    # 検索
-    def get_queryset(self):
-        q_word = self.request.GET.get('query')
-        if q_word:
-            object_list = Listing.objects.filter(
-                Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
-            )
-        else:
-            object_list = Listing.objects.filter(listing_type="8")
-        return object_list.filter(listing_type="8")
-
-
-class ProductListOtherView(LoginRequiredMixin,generic.ListView):
-    """"その他"""
-    model = Listing
-    template_name = 'app/product_other.html'
-    context_object_name = 'product'
-
-    # 検索
-    def get_queryset(self):
-        q_word = self.request.GET.get('query')
-        if q_word:
-            object_list = Listing.objects.filter(
-                Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
-            )
-        else:
-            object_list = Listing.objects.filter(listing_type="9")
-        return object_list.filter(listing_type="9")
 
 
 def index(request):

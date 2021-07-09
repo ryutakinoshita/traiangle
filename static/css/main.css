@@ -208,7 +208,7 @@
     }
     .listing_img {
         width: 220px;
-        height: 180px;
+        height:200px;
     }
     .listing_text {
         width: 100%;
@@ -219,7 +219,26 @@
         font-weight: bolder;
     }
     .listing_price {
+       text-align: center;
+        color: #CC0033;
         font-size: 22px;
+        margin: 0;
+    }
+    .down{
+       text-align: center;
+        font-size: 22px;
+        margin: 0;
+    }
+    .listing_originally_price{
+         text-align: center;
+        font-size: 22px;
+        margin: 0;
+    }
+    .price_text{
+        padding-left: 10px;
+        margin: 0;
+        font-size: 15px;
+        font-weight: bolder;
     }
     .listing_type {
         color: #828181;
@@ -233,6 +252,18 @@
         font-size: 12px;
        text-align: right;
         padding-right: 10px;
+    }
+    .restaurant_listing_name{
+        text-align: right;
+        padding-right: 10px;
+        font-size: 14px;
+        color: #828181;
+    }
+    .listing_consumption_time{
+        padding-left: 10px;
+        padding-top: 10px;
+        font-size: 16px;
+        color: #38a76f;
     }
     .heart_true{
         color: #f50c46;
@@ -320,8 +351,9 @@
 
 /*S listing_detail.html*/
     .listing_detail {
-        height: 100%;
+        height: auto;
         background: #ffffff;
+        padding-bottom: 200px;
     }
     .listing_name_detail {
         font-size: 24px;
@@ -345,7 +377,7 @@
         letter-spacing: 1px;
     }
     .listing_price_detail {
-        font-size: 26px;
+        font-size: 30px;
         color: #b3022e;
     }
     .swiper-button-next,
@@ -431,6 +463,17 @@
     .individual_item{
         font-weight: bolder;
     }
+    .listing_detail_rest_text{
+        font-weight: bolder;
+        padding-left: 15px;
+    }
+    .restaurant_listing_detail{
+        padding-left: 50px;
+        font-size: 22px;
+    }
+    .listing_text_detail {
+        font-size: 22px;
+    }
 /*E listing_detail.html*/
 
 
@@ -470,31 +513,6 @@
         width: 80%;
         height: 60px;
         font-size: 20px;
-    }
-    label[for=id_listing_type_0]{
-        display: none;
-    }
-    label[for=id_listing_type_1],
-    label[for=id_listing_type_2],
-    label[for=id_listing_type_3],
-    label[for=id_listing_type_4],
-    label[for=id_listing_type_5],
-    label[for=id_listing_type_6],
-    label[for=id_listing_type_7],
-    label[for=id_listing_type_8],
-    label[for=id_listing_type_9],
-    label[for=id_listing_type_10]{
-        display: inline-block;
-        border-radius: 20px;
-        text-align: center;
-        text-decoration: none;
-        border: solid 1px #ccc;
-        transition: 0.25s;
-        padding: 5px;
-        cursor: pointer;
-        font-size: 17px;
-        width: 170px;
-        margin: 5px 3px;
     }
     .listing_create_text{
         padding-top: 70px;
@@ -1129,6 +1147,10 @@
         opacity: 1;
         transition: .5s opacity;
     }
+    .my_rest_user{
+        padding-left: 20px;
+        font-weight: bolder;
+    }
 /*E my_restaurant_detail.html*/
 
 /*S my_page*/
@@ -1150,7 +1172,8 @@
     .fa-user-edit,
     .fa-history
     .fa-heart,
-    .fa-list-alt{
+    .fa-list-alt,
+    .fa-folder-plus{
         font-size: 20px;
     }
     .edit_btn{
