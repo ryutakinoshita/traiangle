@@ -1,0 +1,13 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% block body %}
+    <section class="delete">
+        <p class="delete_text mg_t50">「{{ listing.listing_name }}」を削除しますか？</p>
+        <form method='POST' role="form" action="" class="delete_form mg_t50">
+            {% csrf_token %}
+            <div class="text-center">
+                <button type="submit" class="btn btn-danger listing_btn">削除</button>
+            </div>
+        </form>
+    </section>
+{% endblock body %}

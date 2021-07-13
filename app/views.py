@@ -3,7 +3,8 @@ from django.core.mail import send_mail
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render
-from accountsdetail.models import Restaurant
+
+from accounts.models import User
 from app.forms import ContactForm
 from app.models import Withdrawal
 from listing.models import Listing
@@ -29,8 +30,7 @@ class HomeView(generic.ListView):
         context.update({
             'likes':Listing.objects.order_by('like'),
             'good':Recipe.objects.order_by('good'),
-            'restaurant':Restaurant.objects.order_by('like'),
-            'restaurants':Restaurant.objects.all(),
+            'restaurants':User.objects.all(),
         })
         return context
 
@@ -38,19 +38,227 @@ class ProductListView(LoginRequiredMixin,generic.ListView):
     """商品一覧"""
     model = Listing
     template_name = 'app/product.html'
-    context_object_name = 'product'
+    context_object_name = 'item_data'
+
+
 
     # 検索
     def get_queryset(self):
         q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+
         if q_word:
             object_list = Listing.objects.filter(
-                Q(listing_name__icontains=q_word) | Q(listing_text__icontains=q_word)
+                Q(listing_name__icontains=q_word) |
+                Q(listing_text__icontains=q_word) |
+                Q(listing_user__city__icontains=q_word) |
+                Q(listing_user__address1__icontains=q_word) |
+                Q(listing_user__rest_name__icontains=q_word)
+            )
+        elif q_data:
+            object_list = Listing.objects.filter(
+                Q(listing_price__lte=q_data)
             )
         else:
             object_list = Listing.objects.order_by('?')
         return object_list
 
+class ProductListMieView(LoginRequiredMixin,generic.ListView):
+    """Mie"""
+    model = Listing
+    template_name = 'app/listing_Mie.html'
+    context_object_name = 'item_data'
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        if q_word:
+            object_list = Listing.objects.filter(
+                Q(listing_name__icontains=q_word)|
+                Q(listing_text__icontains=q_word)|
+                Q(listing_user__city__icontains=q_word)|
+                Q(listing_user__address1__icontains=q_word)|
+                Q(listing_user__rest_name__icontains=q_word)
+            )
+        elif q_data:
+            object_list = Listing.objects.filter(
+
+            )
+        else:
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="1")
+        return object_list.filter(listing_user__prefectures__icontains="1")
+
+
+class ProductListSigaView(LoginRequiredMixin,generic.ListView):
+    """Siga"""
+    model = Listing
+    template_name = 'app/listing_Siga.html'
+    context_object_name = 'item_data'
+
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        if q_word:
+            object_list = Listing.objects.filter(
+                Q(listing_name__icontains=q_word) |
+                Q(listing_text__icontains=q_word) |
+                Q(listing_user__city__icontains=q_word) |
+                Q(listing_user__address1__icontains=q_word) |
+                Q(listing_user__rest_name__icontains=q_word)
+            )
+        elif q_data:
+            object_list = Listing.objects.filter(
+
+            )
+        else:
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="2")
+        return object_list.filter(listing_user__prefectures__icontains="2")
+
+
+class ProductListKyotoView(LoginRequiredMixin,generic.ListView):
+    """Kyoto"""
+    model = Listing
+    template_name = 'app/listing_Kyoto.html'
+    context_object_name = 'item_data'
+
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        if q_word:
+            object_list = Listing.objects.filter(
+                Q(listing_name__icontains=q_word) |
+                Q(listing_text__icontains=q_word) |
+                Q(listing_user__city__icontains=q_word) |
+                Q(listing_user__address1__icontains=q_word) |
+                Q(listing_user__rest_name__icontains=q_word)
+            )
+        elif q_data:
+            object_list = Listing.objects.filter(
+
+            )
+        else:
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="3")
+        return object_list.filter(listing_user__prefectures__icontains="3")
+
+
+class ProductListOsakaView(LoginRequiredMixin,generic.ListView):
+    """Osaka"""
+    model = Listing
+    template_name = 'app/listing_Osaka.html'
+    context_object_name = 'item_data'
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        if q_word:
+            object_list = Listing.objects.filter(
+                Q(listing_name__icontains=q_word) |
+                Q(listing_text__icontains=q_word) |
+                Q(listing_user__city__icontains=q_word) |
+                Q(listing_user__address1__icontains=q_word) |
+                Q(listing_user__rest_name__icontains=q_word)
+            )
+        elif q_data:
+            object_list = Listing.objects.filter(
+
+            )
+        else:
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="4")
+        return object_list.filter(listing_user__prefectures__icontains="4")
+
+
+class ProductListHyogoView(LoginRequiredMixin,generic.ListView):
+    """Hyogo"""
+    model = Listing
+    template_name = 'app/listing_Hyogo.html'
+    context_object_name = 'item_data'
+
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        if q_word:
+            object_list = Listing.objects.filter(
+                Q(listing_name__icontains=q_word) |
+                Q(listing_text__icontains=q_word) |
+                Q(listing_user__city__icontains=q_word) |
+                Q(listing_user__address1__icontains=q_word) |
+                Q(listing_user__rest_name__icontains=q_word)
+            )
+        elif q_data:
+            object_list = Listing.objects.filter(
+
+            )
+        else:
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="5")
+        return object_list.filter(listing_user__prefectures__icontains="5")
+
+
+class ProductListNaraView(LoginRequiredMixin,generic.ListView):
+    """Nara"""
+    model = Listing
+    template_name = 'app/listing_Nara.html'
+    context_object_name = 'item_data'
+
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        if q_word:
+            object_list = Listing.objects.filter(
+                Q(listing_name__icontains=q_word) |
+                Q(listing_text__icontains=q_word) |
+                Q(listing_user__city__icontains=q_word) |
+                Q(listing_user__address1__icontains=q_word) |
+                Q(listing_user__rest_name__icontains=q_word)
+            )
+        elif q_data:
+            object_list = Listing.objects.filter(
+
+            )
+        else:
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="6")
+        return object_list.filter(listing_user__prefectures__icontains="6")
+
+
+class ProductListWakayamaView(LoginRequiredMixin,generic.ListView):
+    """Wakayama"""
+    model = Listing
+    template_name = 'app/listing_Wakayama.html'
+    context_object_name = 'item_data'
+
+
+    # 検索
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+        q_data = self.request.GET.get('data')
+        if q_word:
+            object_list = Listing.objects.filter(
+                Q(listing_name__icontains=q_word) |
+                Q(listing_text__icontains=q_word) |
+                Q(listing_user__city__icontains=q_word) |
+                Q(listing_user__address1__icontains=q_word) |
+                Q(listing_user__rest_name__icontains=q_word)
+            )
+        elif q_data:
+            object_list=Listing.objects.filter(
+
+            )
+        else:
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="7")
+        return object_list.filter(listing_user__prefectures__icontains="7")
+
+
+class AppView(generic.TemplateView):
+    template_name = 'app/app.html'
 
 
 def index(request):
@@ -73,7 +281,7 @@ def create_checkout_session(request):
         try:
             checkout_session = stripe.checkout.Session.create(
                 client_reference_id=request.user.id if request.user.is_authenticated else None,
-                success_url=domain_url + 'account/signup',
+                success_url=domain_url + 'account/signup/restaurant/',
                 cancel_url=domain_url + 'cancel/',
                 payment_method_types=['card'],
                 mode='subscription',

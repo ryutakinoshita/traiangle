@@ -3,9 +3,6 @@ from autoslug import AutoSlugField
 from accounts.models import User
 from django.utils import timezone
 
-from accountsdetail.models import Restaurant
-
-
 class Type(models.Model):
     TypeListing=(
         ("1", "和食"),
@@ -37,7 +34,7 @@ class Hour(models.Model):
 
 class Listing(models.Model):
     """出品モデル"""
-    listing_user=models.ForeignKey(User, on_delete=models.CASCADE,related_name='related_small')
+    listing_user=models.ForeignKey(User, on_delete=models.CASCADE)
     listing_img1= models.ImageField(upload_to='listingImg',blank=False, null=False)
     listing_img2= models.ImageField(upload_to='listingImg',blank=True, null=True)
     listing_img3= models.ImageField(upload_to='listingImg',blank=True, null=True)

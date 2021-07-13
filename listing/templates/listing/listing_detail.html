@@ -34,7 +34,7 @@
                 <p class="restaurant_listing_detail">{{ object.listing_user.rest_name}}</p>
                 <p class="listing_detail_rest_text pd_t10">住所</p>
                 <p class="restaurant_listing_detail">〒{{ object.listing_user.zip_code}}</p>
-                <p class="restaurant_listing_detail">{{ object.listing_user.prefectures}} {{ object.listing_user.city}}</p>
+                <p class="restaurant_listing_detail">{{ object.listing_user.get_prefectures_display}} {{ object.listing_user.city}}</p>
                 <p class="restaurant_listing_detail">{{ object.listing_user.address1}} {{ object.listing_user.address2}}</p>
                 <p class="listing_detail_rest_text pd_t10">連絡先</p>
                 <p class="restaurant_listing_detail">TEL {{ object.listing_user.phone}}</p>

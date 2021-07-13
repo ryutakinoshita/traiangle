@@ -1,35 +1,7 @@
 from django import forms
-from .models import Restaurant
 from django.core.mail import EmailMessage
 
 
-
-class RestaurantForm(forms.ModelForm):
-
-    class Meta:
-        model = Restaurant
-        fields = (
-            'restaurant_name','restaurant_img1','restaurant_img2','restaurant_img3','restaurant_type','zip_code','prefectures','city','address1','address2',
-            'certification','nearest_station','business_hours_start','business_hours_end','business_hours_option'
-
-        )
-        widgets = {
-            'restaurant_type': forms.RadioSelect(),
-            'business_hours_option': forms.RadioSelect(),
-            'business_hours_start': forms.TimeInput(format='%H:%M'),
-            'business_hours_end': forms.TimeInput(format='%H:%M'),
-
-        }
-#
-#
-#
-# class ReviewForm(forms.ModelForm):
-#
-#     class Meta:
-#         model = Review
-#         fields = (
-#             "answer_text",
-#                   )
 
 
 

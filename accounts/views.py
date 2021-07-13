@@ -24,6 +24,7 @@ from .forms import (
     SetPasswordForm,
     UserZipUpdateForm,
     RestaurantUserCreateForm,
+    RestaurantUserUpdateForm,
 )
 from django.shortcuts import resolve_url
 
@@ -108,7 +109,7 @@ class RestaurantLoginView(LoginView):
     template_name = 'account/restaurant_login.html'
 
     def get_success_url(self):
-        return resolve_url('restaurant')
+        return resolve_url('my_page_restaurant')
 
 class RestaurantUserCreateView(generic.CreateView):
     """レストランユーザー登録機能"""
@@ -251,4 +252,12 @@ class UserZipUpdateView(generic.UpdateView):
     def get_success_url(self):
         return resolve_url('my_page')
 
+class RestaurantUserUpdateView(generic.UpdateView):
+    """レストラン情報変更"""
+    model = User
+    form_class = RestaurantUserUpdateForm
+    template_name = 'account/restaurant_edit.html'
+
+    def get_success_url(self):
+        return resolve_url('my_page_restaurant')
 

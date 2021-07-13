@@ -452,7 +452,8 @@
         font-size: 10px;
     }
     .delete_item{
-        padding:4px 10px;
+        color: #CC0033;
+        font-size: 16px;
     }
     .listing_hr{
         margin: 0;
@@ -1151,6 +1152,19 @@
         padding-left: 20px;
         font-weight: bolder;
     }
+    .update_link{
+        color: #3399FF;
+        font-size: 15px;
+    }
+    .delete_text{
+        text-align: center;
+        font-weight: bolder;
+    }
+    .delete_link{
+        text-align: center;
+        font-size: 17px;
+        color: #CC0033;
+    }
 /*E my_restaurant_detail.html*/
 
 /*S my_page*/
@@ -1182,6 +1196,17 @@
 
 
 /*E my_page*/
+
+
+/*S product.html*/
+    .search_price{
+        width: 60%;
+        display: flex;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+/*E product.html*/
 
 
 /*S その他*/

@@ -7,23 +7,9 @@
     <section class="listing_create pd_b30">
         <form class="listing_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
-            <p class="listing_create_text">商品画像</p>
-            <div class="swiper-container mg_t15">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img class="detail_img" src="{{ MEDIA_URL }}{{ listing.listing_img1 }}" alt=""></div>
-                    <div class="swiper-slide"><img class="detail_img" src="{{ MEDIA_URL }}{{ listing.listing_img2 }}" alt=""></div>
-                    <div class="swiper-slide"><img class="detail_img" src="{{ MEDIA_URL }}{{ listing.listing_img3 }}" alt=""></div>
-                </div>
-                <div class="swiper-pagination swiper-pagination-white"></div>
-                <div class="swiper-button-prev swiper-button-black"></div>
-                <div class="swiper-button-next swiper-button-black"></div>
-            </div>
-            <div class="text-center mg_t70">
-                <a class="" href=""><button type="button" class="btn btn-primary listing_btn">画像申請</button></a>
-            </div>
             <p class="listing_create_text">商品の分類</p>
             <div class="registration">
-                <table class="table m-0">{% render_field form.listing_type class="listing_type_form" placeholder=""%}</table>
+                <table class="table m-0">{% render_field form.listing_type class="listing_name_form" placeholder=""%}</table>
             </div>
             <p class="listing_create_text">商品名</p>
             <div class="registration">
@@ -33,12 +19,23 @@
             <div class="registration">
                 <table class="table m-0">{% render_field form.listing_text class="listing_text_form" placeholder=""%}</table>
             </div>
-            <p class="listing_create_text">価格</p>
+            <p class="listing_create_text">定価価格</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.listing_originally_price class="listing_price_form" placeholder="※数字以外は入力できません"%}</table>
+            </div>
+            <p class="listing_create_text">販売価格</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.listing_price class="listing_price_form" placeholder="※数字以外は入力できません"%}</table>
             </div>
-            <div class="text-center mg_t70 pd_b100">
-                <button type="submit" class="btn btn-success listing_btn">再出品</button>
+            <p class="listing_create_text">消費までの時間</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.consumption_time class="listing_name_form" placeholder=""%}</table>
+            </div>
+            <div class="text-center mg_t70">
+                <button type="submit" class="btn btn-success listing_btn">変更</button>
+            </div>
+            <div class="text-center mg_t10">
+                <a href="{% url 'listing_delete' listing.id %}" class="delete_link pd_b100">商品の削除</a>
             </div>
         </form>
     </section>

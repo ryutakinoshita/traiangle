@@ -10,20 +10,20 @@
     </div>
    <div class="searches mg_t15 mg_b20" id="freeWord">
        <div class="dropdown mg_l20">
-           <a class="btn btn-secondary dropdown-toggle" href={% url 'product_list' %}"" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               すべて
+           <a class="btn btn-secondary dropdown-toggle" href={% url 'product_kyoto' %}"" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               京都府
            </a>
            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="{% url 'product_list' %}">すべて</a>
                 <a class="dropdown-item" href="{% url 'product_mie' %}">三重県</a>
                 <a class="dropdown-item" href="{% url 'product_siga' %}">滋賀県</a>
-                <a class="dropdown-item" href="{% url 'product_kyoto' %}">京都府</a>
                 <a class="dropdown-item" href="{% url 'product_osaka' %}">大阪府</a>
                 <a class="dropdown-item" href="{% url 'product_hyogo' %}">兵庫県</a>
                 <a class="dropdown-item" href="{% url 'product_nara' %}">奈良県</a>
                 <a class="dropdown-item" href="{% url 'product_wakayama' %}">和歌山県</a>
            </div>
        </div>
-       <form  action="{% url 'product_list' %}" method="get" class="search_word mg_b20">
+       <form  action="{% url 'product_kyoto' %}" method="get" class="search_word mg_b20">
            <input class="search" type="text" name="query" placeholder="地名またはキーワードで検索" aria-label="Search">
            <button class="search_btn">
                <i class="fas fa-search"></i>
@@ -41,27 +41,28 @@
         </button>
     </form>
     <section class="listing_home mg_t50 pd_b100">
-        {% for Listing in item_data %}
-            <a href="{% url 'listing_detail' Listing.slug%}">
-                <div class="listing_card mg_t10">
-                    <div>
-                        <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
-                        <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
+
+            {% for Listing in item_data %}
+                <a href="{% url 'listing_detail' Listing.slug%}">
+                    <div class="listing_card mg_t10">
+                        <div>
+                            <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
+                            <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
+                        </div>
+                        <div class="listing_text">
+                            <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ Listing.listing_name| truncatechars:15 }}</h5>
+                            <p class="price_text">通常販売価格</p>
+                            <p class="card-text listing_originally_price"><del>￥{{ Listing.listing_originally_price| intcomma }}</del></p>
+                            <p class="card-text down">↓</p>
+                            <p class="price_text">特別販売価格</p>
+                            <p class="card-text listing_price">￥{{ Listing.listing_price| intcomma }}</p>
+                            <p class="card-text listing_type"></p>
+                            {% for restaurant in restaurants %}
+                                <p class="restaurant_listing_name">{{ restaurant.restaurant_name| truncatechars:15 }}</p>
+                            {% endfor %}
+                          </div>
                     </div>
-                    <div class="listing_text">
-                        <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ Listing.listing_name| truncatechars:15 }}</h5>
-                        <p class="price_text">通常販売価格</p>
-                        <p class="card-text listing_originally_price"><del>￥{{ Listing.listing_originally_price| intcomma }}</del></p>
-                        <p class="card-text down">↓</p>
-                        <p class="price_text">特別販売価格</p>
-                        <p class="card-text listing_price">￥{{ Listing.listing_price| intcomma }}</p>
-                        <p class="card-text listing_type"></p>
-                        {% for restaurant in restaurants %}
-                            <p class="restaurant_listing_name">{{ restaurant.restaurant_name| truncatechars:15 }}</p>
-                        {% endfor %}
-                      </div>
-                </div>
-            </a>
-        {% endfor %}
-    </section>
+                </a>
+            {% endfor %}
+     </section>
 {% endblock body %}

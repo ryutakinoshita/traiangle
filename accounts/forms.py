@@ -24,11 +24,12 @@ class UserLoginForm(AuthenticationForm):
         }
 
 class UserCreateForm(UserCreationForm):
-    """全ユーザー登録フォーム"""
+    """ユーザー登録フォーム"""
     class Meta:
         model = User
         exclude=(
-            "rest_name",
+            "rest_name",'restaurant_img1','restaurant_img2','restaurant_img3','certification',
+            'nearest_station','business_hours_start','business_hours_end','business_hours_option','restaurant_type'
         )
         fields = [
             'first_name','last_name','email','phone','password1','password2',"zip_code","prefectures","city",
@@ -40,7 +41,8 @@ class RestaurantUserCreateForm(UserCreationForm):
         model = User
         fields = [
             'first_name','last_name','email','phone','password1','password2',"zip_code","prefectures","city",
-            "address1","address2","rest_name",
+            "address1","address2","rest_name",'restaurant_img1','restaurant_img2','restaurant_img3','certification',
+            'nearest_station','business_hours_start','business_hours_end','business_hours_option','restaurant_type'
         ]
 
 class EmailChangeForm(forms.ModelForm):
@@ -76,9 +78,19 @@ class SetPasswordForm(SetPasswordForm):
 
 
 class UserZipUpdateForm(ModelForm):
+    """ユーザー変更フォーム"""
     class Meta:
         model = User
         fields = [
             "zip_code", "prefectures", "city","address1", "address2",
         ]
 
+class RestaurantUserUpdateForm(ModelForm):
+    """レストラン変更フォーム"""
+    class Meta:
+        model = User
+        fields = [
+            'phone',"zip_code","prefectures","city",
+            "address1","address2","rest_name",'certification',
+            'nearest_station','business_hours_start','business_hours_end','business_hours_option','restaurant_type'
+        ]

@@ -10,11 +10,11 @@
     </div>
    <div class="searches mg_t15 mg_b20" id="freeWord">
        <div class="dropdown mg_l20">
-           <a class="btn btn-secondary dropdown-toggle" href={% url 'product_list' %}"" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               すべて
+           <a class="btn btn-secondary dropdown-toggle" href={% url 'product_mie' %}"" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               三重県
            </a>
            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="{% url 'product_mie' %}">三重県</a>
+                <a class="dropdown-item" href="{% url 'product_list' %}">すべて</a>
                 <a class="dropdown-item" href="{% url 'product_siga' %}">滋賀県</a>
                 <a class="dropdown-item" href="{% url 'product_kyoto' %}">京都府</a>
                 <a class="dropdown-item" href="{% url 'product_osaka' %}">大阪府</a>
@@ -34,7 +34,7 @@
         <input class="form-check-input" type="radio" name="maker" value="place" onclick="formSwitch()">
         <label class="form-check-label"> 予算で検索</label>
     </div>
-    <form  action="{% url 'product_list' %}" method="get" class="search_price mg_b40 mg_t15" id="placeList">
+    <form  action="{% url 'product_mie' %}" method="get" class="search_price mg_b40 mg_t15" id="placeList">
         ￥<input class="search" type="number" name="data" placeholder="予算を入力" aria-label="Search">
         <button class="search_btn">
             <i class="fas fa-search"></i>
@@ -63,5 +63,5 @@
                 </div>
             </a>
         {% endfor %}
-    </section>
+     </section>
 {% endblock body %}

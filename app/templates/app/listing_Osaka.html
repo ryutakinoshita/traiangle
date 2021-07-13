@@ -10,20 +10,20 @@
     </div>
    <div class="searches mg_t15 mg_b20" id="freeWord">
        <div class="dropdown mg_l20">
-           <a class="btn btn-secondary dropdown-toggle" href={% url 'product_list' %}"" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               すべて
+           <a class="btn btn-secondary dropdown-toggle" href={% url 'product_osaka' %}"" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               大阪府
            </a>
            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="{% url 'product_list' %}">すべて</a>
                 <a class="dropdown-item" href="{% url 'product_mie' %}">三重県</a>
                 <a class="dropdown-item" href="{% url 'product_siga' %}">滋賀県</a>
                 <a class="dropdown-item" href="{% url 'product_kyoto' %}">京都府</a>
-                <a class="dropdown-item" href="{% url 'product_osaka' %}">大阪府</a>
                 <a class="dropdown-item" href="{% url 'product_hyogo' %}">兵庫県</a>
                 <a class="dropdown-item" href="{% url 'product_nara' %}">奈良県</a>
                 <a class="dropdown-item" href="{% url 'product_wakayama' %}">和歌山県</a>
            </div>
        </div>
-       <form  action="{% url 'product_list' %}" method="get" class="search_word mg_b20">
+       <form  action="{% url 'product_osaka' %}" method="get" class="search_word mg_b20">
            <input class="search" type="text" name="query" placeholder="地名またはキーワードで検索" aria-label="Search">
            <button class="search_btn">
                <i class="fas fa-search"></i>
@@ -63,5 +63,5 @@
                 </div>
             </a>
         {% endfor %}
-    </section>
+     </section>
 {% endblock body %}

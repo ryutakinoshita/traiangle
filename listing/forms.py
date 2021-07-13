@@ -18,10 +18,9 @@ class ListingUpdateForm(ModelForm):
     class Meta:
         model = Listing
         fields = (
-            "listing_type", "listing_name", "listing_text", "listing_price"
+            "listing_type", "listing_name", "listing_text","listing_price",
+            "listing_originally_price", "consumption_time",
         )
-        widgets = {
-            'listing_type': forms.RadioSelect(),
-        }
+
 
 

@@ -6,8 +6,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View
 from accounts.models import User
 from django.conf import settings
-
-from accountsdetail.models import Restaurant
 from listing.models import Listing, Order, OrderItem, Payment
 from listing.forms import ListingForm,ListingUpdateForm
 from django.contrib.auth.decorators import login_required
@@ -21,7 +19,7 @@ class ListingView(LoginRequiredMixin,generic.CreateView):
     """出品機能"""
     template_name = 'listing/listing_create.html'
     form_class = ListingForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('my_page_restaurant')
 
     def form_valid(self, form):
         form.instance.listing_user =self.request.user
@@ -40,8 +38,16 @@ class ListingUpdateView(LoginRequiredMixin,generic.UpdateView):
     template_name = 'listing/listing_edit.html'
 
     def get_success_url(self):
-        return resolve_url('my_listing', pk=self.kwargs['pk'])
+        return resolve_url('my_page_restaurant')
 
+
+class ListingDeleteView(generic.DeleteView):
+    """商品編集"""
+    model = Listing
+    template_name = 'listing/listing_delete.html'
+
+    def get_success_url(self):
+        return resolve_url('my_page_restaurant')
 
 class MyListingView(LoginRequiredMixin,generic.DetailView):
     """自分の出品一覧"""
