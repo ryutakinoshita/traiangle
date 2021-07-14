@@ -60,6 +60,8 @@ class OrderItem(models.Model):
     item=models.ForeignKey(Listing,on_delete=models.CASCADE,related_name='orderItems')
     ordered=models.BooleanField(default=False)
     quantity=models.IntegerField(default=1)
+    order_date=models.DateTimeField(default=timezone.now)
+    confirmed = models.ManyToManyField(User, related_name='confirmed_listing', blank=True)
 
 
     def get_total_item_price(self):

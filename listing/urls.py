@@ -1,7 +1,7 @@
 import django.contrib.auth.views
 from django.urls import path
 from.import views
-from .views import LikeHome, LikeDetail
+from .views import LikeHome, LikeDetail,Confirmed
 
 urlpatterns = [
     path('create/', views.ListingView.as_view(), name='listing_create'),
@@ -20,5 +20,7 @@ urlpatterns = [
     path('order/listing/<int:pk>', views.OrderListView.as_view(), name='order_listing'),
     path('like-home/<int:pk>', LikeHome.as_view(), name='like-home'),
     path('like-detail/<int:pk>', LikeDetail.as_view(), name='like-detail'),
+    path('buyer/',views.BuyerListView.as_view(),name='buyer_list'),
+    path('confirmed/<int:pk>',Confirmed.as_view(), name='confirmed'),
 
     ]

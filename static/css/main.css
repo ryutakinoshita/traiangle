@@ -219,7 +219,7 @@
         font-weight: bolder;
     }
     .listing_price {
-       text-align: center;
+        text-align: center;
         color: #CC0033;
         font-size: 22px;
         margin: 0;
@@ -1207,6 +1207,28 @@
         margin-left: auto;
     }
 /*E product.html*/
+
+
+/*S buyer_list.html*/
+    .buyer_detail_text{
+        text-align: center;
+        font-size: 22px;
+        margin: 0;
+    }
+    .buyer_detail_time{
+        text-align: center;
+        font-size: 18px;
+        margin: 0;
+    }
+    .confirmed_btn{
+        letter-spacing: 1px;
+        border-radius: 4px;
+    }
+    .confirmed_btn_true{
+        letter-spacing: 1px;
+        border-radius: 4px;
+    }
+/*E buyer_list.html*/
 
 
 /*S その他*/

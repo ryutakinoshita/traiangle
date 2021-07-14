@@ -1,0 +1,38 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block body %}
+    <section class="listing_home mg_t30">
+           {% for buyer in item_data %}
+                <div class="listing_card mg_t10 pd_b30">
+                        <div>
+                            <img class="listing_img" src="{{ MEDIA_URL }}{{ buyer.item.listing_img1 }}">
+                            {% if request.user in buyer.confirmed.all %}
+                                <div class="text-center mg_t10">
+                                    <a href="{% url 'confirmed' buyer.pk %}"tabindex="-1" role="button" aria-disabled="true">
+                                        <button type="button" class="btn btn-danger confirmed_btn">オーダー確認済み</button>
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="text-center mg_t10">
+                                      <a href="{% url 'confirmed' buyer.pk %}" tabindex="-1" role="button" aria-disabled="true">
+                                          <button type="button" class="btn btn-outline-danger confirmed_btn_true" >オーダーを確認しました</button>
+                                      </a>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="listing_text">
+                            <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ buyer.item.listing_name| truncatechars:15 }}</h5>
+                            <p class="price_text">販売価格</p>
+                            <p class="card-text listing_price">￥{{ buyer.item.listing_price| intcomma }}</p>
+                            <p class="price_text pd_t30">お客様名</p>
+                            <p class="buyer_detail_text">{{ buyer.user.first_name }} {{ buyer.user.last_name }}</p>
+                            <p class="price_text pd_t10">注文日</p>
+                            <p class="buyer_detail_time">{{ buyer.order_date|date:"Y/m/d G:i"}}</p>
+                        </div>
+                    </div>
+           {% endfor %}
+    </section>
+{% endblock body %}

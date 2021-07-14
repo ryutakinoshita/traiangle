@@ -249,10 +249,32 @@ class LikeListView(LoginRequiredMixin,generic.ListView):
     context_object_name = 'item_data'
 
 
+class BuyerListView(LoginRequiredMixin,generic.ListView):
+    model = OrderItem
+    template_name = 'listing/buyer_list.html'
+    context_object_name = 'item_data'
+
+    def get_queryset(self):
+        return OrderItem.objects.filter(item__listing_user=self.request.user)
 
 
+class ConfirmedBase(LoginRequiredMixin, View):
+    """確認ベース"""
+    def get(self, request, *args, **kwargs):
+        pk = self.kwargs['pk']
+        confirmed_listing = OrderItem.objects.get(pk=pk)
 
+        if self.request.user in confirmed_listing.confirmed.all():
+            obj = confirmed_listing.confirmed.remove(self.request.user)
+        else:
+            obj = confirmed_listing.confirmed.add(self.request.user)
+        return obj
 
+class Confirmed(ConfirmedBase):
+    """確認"""
+    def get(self, request, *args, **kwargs):
+        super().get(request, *args, **kwargs)
+        return redirect('buyer_list')
 
 
 

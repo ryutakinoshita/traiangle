@@ -93,7 +93,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     restaurant_img2 = models.ImageField(upload_to='restaurantImg/',blank=True, null=True)
     restaurant_img3= models.ImageField(upload_to='restaurantImg/',blank=True, null=True)
     rest_name= models.CharField(max_length=100,blank=True, null=True)
-    restaurant_type = models.CharField(max_length=100, choices=TypeSub.Types, blank=False, null=False)
+    restaurant_type = models.CharField(max_length=100, choices=TypeSub.Types,blank=True, null=True)
     certification = models.TextField(max_length=500, blank=True, null=True)
     nearest_station = models.CharField(max_length=40, blank=True, null=True)
     business_hours_start = models.CharField(max_length=40, blank=True, null=True)
