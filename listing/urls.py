@@ -10,7 +10,6 @@ urlpatterns = [
     path('shipping/',views.ShippingView.as_view(),name='shipping'),
     path('listing/update/<slug>/', views.ListingUpdateView.as_view(), name='listing_edit'),
     path('listing/delete/<int:pk>/', views.ListingDeleteView.as_view(), name='listing_delete'),
-    path('like/',views.LikeListView.as_view(),name='like_list'),
     path('additem/<slug>/', views.addItem, name='additem'),
     path('order/',views.OrderView.as_view(),name='order'),
     path('removeitem/<slug>/', views.removeItem, name='removeitem'),

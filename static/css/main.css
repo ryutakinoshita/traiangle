@@ -44,6 +44,9 @@
     .registration_main[type="tel"]:focus{
         background: #e3f1f6;
     }
+    .sign_up_user{
+        background: #ffffff;
+    }
     #previewImage-preview1,
     #previewImage-preview2,
     #previewImage-preview3 {
@@ -220,8 +223,8 @@
     }
     .listing_price {
         text-align: center;
-        color: #CC0033;
-        font-size: 22px;
+        font-weight: bolder;
+        font-size: 28px;
         margin: 0;
     }
     .down{
@@ -262,8 +265,8 @@
     .listing_consumption_time{
         padding-left: 10px;
         padding-top: 10px;
-        font-size: 16px;
-        color: #38a76f;
+        font-size: 18px;
+        color: #379ae7;
     }
     .heart_true{
         color: #f50c46;
@@ -336,6 +339,16 @@
         padding-right: 10px;
         color: #999898;
     }
+    .listing_sale{
+        background: #38a76f;
+        color: #ffffff;
+        font-size: 14px;
+        width: 90%;
+        text-align: center;
+        margin: 0 auto;
+        border-radius: 4px;
+        letter-spacing:1px ;
+    }
 
 /*E home.html*/
 
@@ -356,7 +369,7 @@
         padding-bottom: 200px;
     }
     .listing_name_detail {
-        font-size: 24px;
+        font-size: 30px;
         font-weight: bolder;
     }
     .listing_type_detail {
@@ -377,8 +390,8 @@
         letter-spacing: 1px;
     }
     .listing_price_detail {
-        font-size: 30px;
-        color: #b3022e;
+        font-size: 32px;
+       font-weight: bolder;
     }
     .swiper-button-next,
     .swiper-button-prev{
@@ -550,176 +563,13 @@
     .listing_update_img{
         padding-top:20px ;
     }
-/*E listing_create.html*/
 
-
-/*S recipe_create.html*/
-    .recipe{
-        background: #ffffff;
-        height: auto;
-    }
-    .recipe_create_text{
-        padding-top: 70px;
-        padding-left: 20px;
-        font-weight: bolder;
-    }
-    .recipe_title_form{
-        padding: 0;
-        border: none;
-        border-bottom: 1px solid #262628;
-        outline: none;
-        appearance: none;
-        width: 80%;
-        height: 60px;
-        font-size: 24px;
-    }
-    .recipe_tag_form{
-        padding: 0;
-        border: none;
-        border-bottom: 1px solid #262628;
-        outline: none;
-        appearance: none;
-        width: 80%;
-        height: 60px;
-        font-size: 20px;
-    }
-    label[for=id_recipe_time_0]{
+    label[for=id_sale_0]{
         display: none;
     }
-    label[for=id_recipe_time_1],
-    label[for=id_recipe_time_2],
-    label[for=id_recipe_time_3],
-    label[for=id_recipe_time_4],
-    label[for=id_recipe_time_5],
-    label[for=id_recipe_time_6],
-    label[for=id_recipe_time_7],
-    label[for=id_recipe_time_8]{
-        display: inline-block;
-        border-radius: 20px;
-        text-align: center;
-        text-decoration: none;
-        border: solid 1px #ccc;
-        transition: 0.25s;
-        padding: 5px;
-        cursor: pointer;
-        font-size: 17px;
-        width: 170px;
-        margin: 5px 3px;
-    }
-    .recipe_btn{
-        width: 40%;
-        font-size: 20px;
-        letter-spacing: 5px;
-        border-radius: 4px;
-    }
 
+/*E listing_create.html*/
 
-/*E recipe_create.html*/
-
-
-/*E recipe_list.html*/
-    .recipes{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-
-    }
-    .recipe_one{
-        background: #ffffff;
-        box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
-        margin: 0 auto;
-        border-radius: 4px;
-        padding-left: 5px;
-        padding-right: 5px;
-        width: 180px;
-        height: 260px;
-    }
-    .recipe_img{
-        width: 100%;
-        height: 120px;
-    }
-    .recipe_title{
-        font-size: 18px;
-        font-weight: bolder;
-        padding-top: 5px;
-        margin: 0;
-    }
-    .recipe_time{
-        padding-top: 10px;
-        font-size: 16px;
-        color: #38a76f;
-        margin: 0;
-    }
-    .recipe_name{
-        margin: 0;
-        letter-spacing: 1px;
-        color: #828181;
-        text-align: right;
-        font-size: 15px;
-        padding-top: 15px;
-        padding-bottom: 15px ;
-    }
-/*E recipe_list.html*/
-
-
-/*S recipe_detail.html*/
-    .recipe_detail{
-        background: #ffffff;
-        height: 100%;
-    }
-    .recipe_title_detail{
-        font-weight: bolder;
-        font-size: 24px;
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-    .recipe_name_detail{
-        margin: 0;
-        letter-spacing: 1px;
-        color: #828181;
-        text-align: right;
-        padding-bottom: 15px ;
-        padding-left: 15px;
-        padding-right: 15px;
-        font-size: 14px;
-    }
-    .recipe_text_detail{
-        font-size: 20px;
-        letter-spacing: 1px;
-        line-height:2.5;
-        padding-left: 20px;
-        padding-right: 20px;
-        margin: 0;
-    }
-    .text_recipe{
-        padding-left: 15px;
-        font-size: 16px;
-        font-weight: bolder;
-    }
-    .recipe_time_detail{
-        padding-top: 15px;
-        font-size: 16px;
-        color: #38a76f;
-        margin: 0;
-        padding-left: 45px;
-        padding-right: 45px;
-    }
-    .recipe_tag_detail{
-        color: #3399FF;
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-    .recipe_hr{
-        border-width: 1px 0 0 0;
-        border-color:#262628 ;
-    }
-    .recipe_add_time_detail{
-        color: #b7b9bb;
-        text-align: right;
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-/*E recipe_detail.html*/
 
 
 /*S payment.html*/
@@ -803,6 +653,9 @@
         font-size: 20px;
         letter-spacing: 5px;
         border-radius: 4px;
+    }
+    .sale_form{
+        font-size: 22px;
     }
 
 
@@ -1187,7 +1040,8 @@
     .fa-history
     .fa-heart,
     .fa-list-alt,
-    .fa-folder-plus{
+    .fa-folder-plus,
+    .fa-user-friends{
         font-size: 20px;
     }
     .edit_btn{
@@ -1227,6 +1081,10 @@
     .confirmed_btn_true{
         letter-spacing: 1px;
         border-radius: 4px;
+    }
+    .refund_link{
+        color: #3399FF;
+        font-size: 15px;
     }
 /*E buyer_list.html*/
 

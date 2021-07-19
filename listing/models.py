@@ -31,6 +31,11 @@ class Hour(models.Model):
         ("4", "7日以内の召し上がり"),
     )
 
+class Sale(models.Model):
+    sales=(
+        ("1","タイムセール商品"),
+
+    )
 
 class Listing(models.Model):
     """出品モデル"""
@@ -41,8 +46,8 @@ class Listing(models.Model):
     listing_type =models.CharField(max_length=100, choices=Type.TypeListing, blank=False, null=False)
     listing_name=models.CharField(max_length=100,blank=False, null=False)
     listing_text=models.TextField(max_length=500,blank=True, null=True)
-    listing_originally_price=models.IntegerField(blank=True, null=True)
     listing_price=models.IntegerField(blank=True, null=True)
+    sale=models.CharField(max_length=40, choices=Sale.sales,blank=True,null=True)
     consumption_time=models.CharField(max_length=40, choices=Hour.Hours,blank=False,null=False)
     created = models.DateTimeField(default=timezone.now)
     like = models.ManyToManyField(User, related_name='related_post', blank=True)
@@ -97,4 +102,5 @@ class Payment(models.Model):
 
     def __str__(self):
         return self.user.email
+
 

@@ -14,7 +14,6 @@ from django.views.decorators.csrf import csrf_exempt
 import stripe
 from django.db.models import Q
 from django.utils import timezone
-from recipe.models import Recipe
 
 
 class HomeView(generic.ListView):
@@ -29,7 +28,6 @@ class HomeView(generic.ListView):
         context = super().get_context_data(*args, **kwargs)
         context.update({
             'likes':Listing.objects.order_by('like'),
-            'good':Recipe.objects.order_by('good'),
             'restaurants':User.objects.all(),
         })
         return context
@@ -52,7 +50,7 @@ class ProductListView(LoginRequiredMixin,generic.ListView):
                 Q(listing_name__icontains=q_word) |
                 Q(listing_text__icontains=q_word) |
                 Q(listing_user__city__icontains=q_word) |
-                Q(listing_user__address1__icontains=q_word) |
+                Q(listing_user__address1__icontains=q_word)|
                 Q(listing_user__rest_name__icontains=q_word)
             )
         elif q_data:

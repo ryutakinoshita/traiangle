@@ -8,8 +8,8 @@ from django.db.models import Q
 from accounts.models import User
 from listing.models import Listing
 from .forms import (
-    # ReviewForm,
     ApplicationForm,
+    RefundForm,
 )
 from django.views.generic import View
 
@@ -18,28 +18,8 @@ class MyPageView(LoginRequiredMixin,generic.TemplateView):
     template_name = 'accountsdetail/my_page.html'
 
 
-
-# class ReviewView(LoginRequiredMixin,generic.CreateView):
-#     template_name = 'accountsdetail/review.html'
-#     form_class = ReviewForm
-#
-#
-#     def form_valid(self, form ):
-#         form.instance.user = self.request.user
-#         listing_pk = self.kwargs['pk']
-#         listing = get_object_or_404(Listing, pk=listing_pk)
-#         review = form.save(commit=False)
-#         review.target = listing
-#         review.save()
-#         return redirect('home',pk=listing_pk)
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['listing'] = get_object_or_404(Listing, pk=self.kwargs['pk'])
-#         return context
-
-
 class ApplicationView(FormView):
+    """出店申請"""
     template_name = 'accountsdetail/application.html'
     form_class = ApplicationForm
     success_url = reverse_lazy('application_done')
@@ -48,8 +28,24 @@ class ApplicationView(FormView):
         form.send_email()
         return super().form_valid(form)
 
+
 class ApplicationDoneView(generic.TemplateView):
     template_name = 'accountsdetail/application_done.html'
+
+
+class RefundView(FormView):
+    """返金申請"""
+    template_name = 'accountsdetail/Refund.html'
+    form_class = RefundForm
+    success_url = reverse_lazy('refund_done')
+
+    def form_valid(self, form):
+        form.send_email()
+        return super().form_valid(form)
+
+class RefundDoneView(generic.TemplateView):
+    template_name = 'accountsdetail/Refund_done.html'
+
 
 class RestaurantMyPageView(LoginRequiredMixin,generic.TemplateView):
     """レストランマイページ"""
@@ -61,9 +57,6 @@ class RestaurantDetailView(LoginRequiredMixin,generic.DetailView):
     model = User
     template_name = 'accountsdetail/restaurant_detail.html'
     context_object_name = 'restaurants'
-
-
-
 
 
 class RestaurantListMieView(LoginRequiredMixin,generic.ListView):

@@ -8,9 +8,13 @@ class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
         fields = (
-            "listing_img1","listing_img2","listing_img3","listing_type","listing_name","listing_text","listing_price",
-            "listing_originally_price","consumption_time",
+            "listing_img1","listing_img2","listing_img3","listing_type","listing_name","listing_text",
+            "listing_price","consumption_time","sale"
                   )
+        widgets={
+            "sale":forms.RadioSelect()
+        }
+
 
 
 class ListingUpdateForm(ModelForm):
@@ -18,9 +22,7 @@ class ListingUpdateForm(ModelForm):
     class Meta:
         model = Listing
         fields = (
-            "listing_type", "listing_name", "listing_text","listing_price",
-            "listing_originally_price", "consumption_time",
+            "listing_type", "listing_name", "listing_text","listing_price","consumption_time","sale"
         )
-
 
 

@@ -19,10 +19,6 @@
             <div class="registration">
                 <table class="table m-0">{% render_field form.listing_text class="listing_text_form" placeholder=""%}</table>
             </div>
-            <p class="listing_create_text">定価価格</p>
-            <div class="registration">
-                <table class="table m-0">{% render_field form.listing_originally_price class="listing_price_form" placeholder="※数字以外は入力できません"%}</table>
-            </div>
             <p class="listing_create_text">販売価格</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.listing_price class="listing_price_form" placeholder="※数字以外は入力できません"%}</table>
@@ -34,7 +30,7 @@
             <div class="text-center mg_t70">
                 <button type="submit" class="btn btn-success listing_btn">変更</button>
             </div>
-            <div class="text-center mg_t10">
+            <div class="text-center mg_t10 ">
                 <a href="{% url 'listing_delete' listing.id %}" class="delete_link pd_b100">商品の削除</a>
             </div>
         </form>

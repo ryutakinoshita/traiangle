@@ -17,8 +17,8 @@
             <div class="swiper-button-next swiper-button-black"></div>
         </div>
 
-        <p class="price_text">特別販売価格</p>
-        <p class="listing_price_detail pd_l10">￥{{ object.listing_price| intcomma }}</p>
+        <p class="price_text pd_l10">販売価格</p>
+        <p class="listing_price_detail pd_l30">￥{{ object.listing_price| intcomma }}</p>
               {% if request.user in object.like.all %}
                   <a href="{% url 'additem' object.slug  %}" class="mg_l30"><button type="submit" class="btn btn-warning listing_cart_detail">カートに入れる</button></a>
               {% else %}

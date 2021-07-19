@@ -242,11 +242,7 @@ class LikeDetail(LikeBase):
         super().get(request, *args, **kwargs)
         return redirect('like_list')
 
-class LikeListView(LoginRequiredMixin,generic.ListView):
-    """お気に入り投稿一覧"""
-    model = Listing
-    template_name = 'listing/like_list.html'
-    context_object_name = 'item_data'
+
 
 
 class BuyerListView(LoginRequiredMixin,generic.ListView):

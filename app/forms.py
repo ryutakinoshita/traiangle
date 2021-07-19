@@ -14,17 +14,6 @@ class ContactForm(ModelForm):
 
        'contact_us','message',
         ]
-    #
-    # def send_email(self):
-    #     subject = "お問い合わせ"
-    #     message = self.cleaned_data['message']
-    #     email = Withdrawal.user.email
-    #     from_email = '<{email}>'.format(email=email)
-    #     recipient_list = [settings.EMAIL_HOST_USER]
-    #     try:
-    #         send_mail(subject, message, from_email, recipient_list)
-    #     except BadHeaderError:
-    #         return HttpResponse("無効なヘッダが検出されました。")
 
 
 

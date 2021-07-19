@@ -66,6 +66,7 @@ fetch("/config/")
   }
 });
 
+
 function formSwitch() {
       hoge = document.getElementsByName('maker')
       if (hoge[0].checked) {
@@ -90,3 +91,4 @@ function formSwitch() {
       }
 }
 window.addEventListener('load', formSwitch());
+

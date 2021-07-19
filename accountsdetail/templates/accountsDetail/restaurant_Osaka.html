@@ -58,7 +58,7 @@
                <div class="card mg_b30">
                    <img class="card-img-top" src="{{ MEDIA_URL }}{{ restaurants.restaurant_img1 }}">
                    <div class="card-body restaurant_body">
-                      <h5 class="restaurant_name">{{ restaurants.restaurant_name| truncatechars:15 }}</h5>
+                      <h5 class="restaurant_name">{{ restaurants.rest_name| truncatechars:15 }}</h5>
                       <p class="restaurant_type">{{ restaurants.get_restaurant_type_display }}</p>
                       <p class="restaurant_business_hours">営業時間{{ restaurants.business_hours_start }}～{{ restaurants.business_hours_end }}</p>
                       <p class="restaurant_business_hours_option">{{ restaurants.get_business_hours_option_display }}</p>

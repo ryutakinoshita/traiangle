@@ -43,18 +43,17 @@
                                 <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
                             </div>
                             <div class="listing_text">
-                                <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ Listing.listing_name| truncatechars:15 }}</h5>
-                                <p class="price_text">通常販売価格</p>
-                                <p class="card-text listing_originally_price"><del>￥{{ Listing.listing_originally_price| intcomma }}</del></p>
-                                <p class="card-text down">↓</p>
-                                <p class="price_text">特別販売価格</p>
+                                <div class="card-text listing_sale mg_t15">{{ Listing.get_sale_display|default_if_none:'' }}</div>
+                                <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ Listing.listing_name| truncatechars:15 }}</h5>
+                                <p class="price_text pd_t30">販売価格</p>
                                 <p class="card-text listing_price">￥{{ Listing.listing_price| intcomma }}</p>
-                                <p class="card-text listing_type"></p>
+                                <p class="restaurant_listing_name">{{ Listing.listing_user.rest_name| truncatechars:15 }}</p>
                                 <div class="text-right mg_t20 mg_r10 pd_b10 edit_div">
                                     <a href="{% url 'listing_edit' Listing.slug %}" class="update_link">投稿の編集</a>
                                 </div>
                             </div>
                         </div>
+
                     </a>
                 {% endfor %}
             </div>

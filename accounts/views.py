@@ -22,7 +22,6 @@ from .forms import (
     EmailChangeForm,
     PasswordResetForm,
     SetPasswordForm,
-    UserZipUpdateForm,
     RestaurantUserCreateForm,
     RestaurantUserUpdateForm,
 )
@@ -243,14 +242,6 @@ class PasswordDoneView(generic.TemplateView):
     template_name = 'account/password_done.html'
 
 
-class UserZipUpdateView(generic.UpdateView):
-    """住所変更"""
-    model = User
-    form_class = UserZipUpdateForm
-    template_name = 'account/user_edit.html'
-
-    def get_success_url(self):
-        return resolve_url('my_page')
 
 class RestaurantUserUpdateView(generic.UpdateView):
     """レストラン情報変更"""

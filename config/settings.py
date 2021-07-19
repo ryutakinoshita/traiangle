@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'listing.apps.ListingConfig',
     'accountsdetail.apps.AccountsdetailConfig',
     'accounts.apps.AccountsConfig',
-    'recipe.apps.RecipeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
