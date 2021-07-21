@@ -52,6 +52,7 @@ class Listing(models.Model):
     created = models.DateTimeField(default=timezone.now)
     like = models.ManyToManyField(User, related_name='related_post', blank=True)
     slug=AutoSlugField(populate_from='listing_name',null=False, unique=True)
+    status = models.IntegerField(choices=((1, '販売中'), (2, '売り切れ')),blank=True, null=True,default=1)
 
 
 

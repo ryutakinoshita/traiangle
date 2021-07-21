@@ -7,13 +7,18 @@ from django.views.generic import View
 from accounts.models import User
 from django.conf import settings
 from listing.models import Listing, Order, OrderItem, Payment
-from listing.forms import ListingForm,ListingUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist
 import stripe
 from django.shortcuts import resolve_url
-from django.db.models import Q
+from listing.forms import (
+    ListingForm,
+    ListingUpdateForm,
+)
+
+
+
 
 class ListingView(LoginRequiredMixin,generic.CreateView):
     """出品機能"""
@@ -24,6 +29,7 @@ class ListingView(LoginRequiredMixin,generic.CreateView):
     def form_valid(self, form):
         form.instance.listing_user =self.request.user
         return super().form_valid(form)
+
 
 class ListingDetailView(LoginRequiredMixin,generic.DetailView):
     """商品詳細"""
@@ -41,30 +47,27 @@ class ListingUpdateView(LoginRequiredMixin,generic.UpdateView):
         return resolve_url('my_page_restaurant')
 
 
-class ListingDeleteView(generic.DeleteView):
-    """商品編集"""
-    model = Listing
-    template_name = 'listing/listing_delete.html'
 
-    def get_success_url(self):
-        return resolve_url('my_page_restaurant')
 
-class MyListingView(LoginRequiredMixin,generic.DetailView):
+class MyListingView(LoginRequiredMixin,generic.ListView):
     """自分の出品一覧"""
-    model = User
+    model = Listing
     template_name = 'listing/my_listing.html'
+    context_object_name = 'item_data'
 
-class OrderListView(LoginRequiredMixin,generic.DetailView):
+    def get_queryset(self):
+        return Listing.objects.filter(listing_user=self.request.user,status=1)
+
+
+
+class OrderListView(LoginRequiredMixin,generic.ListView):
     """購入履歴"""
-    model = User
+    model = OrderItem
     template_name = 'listing/order_list.html'
+    context_object_name = 'item_data'
 
-class ShippingView(LoginRequiredMixin,generic.ListView):
-    """購入者リスト"""
-    model =OrderItem
-    template_name = 'listing/shipping.html'
-    context_object_name = 'orders'
-
+    def get_queryset(self):
+        return OrderItem.objects.filter(user=self.request.user,item__status=1)
 
 
 
@@ -246,6 +249,7 @@ class LikeDetail(LikeBase):
 
 
 class BuyerListView(LoginRequiredMixin,generic.ListView):
+    """購入者リスト"""
     model = OrderItem
     template_name = 'listing/buyer_list.html'
     context_object_name = 'item_data'

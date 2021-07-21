@@ -5,7 +5,8 @@
 
 {% block body %}
     <section class="listing_home mg_t30">
-        {% for order in object.orderitem_set.all %}
+
+        {% for order in item_data %}
             <a href="{% url 'listing_detail' order.item.slug %}">
                 <div class="listing_card mg_t10 mg_b20">
                     <img class="listing_img" src="{{ MEDIA_URL }}{{ order.item.listing_img1 }}">
@@ -20,6 +21,8 @@
                     </div>
                 </div>
             </a>
+
         {% endfor %}
+
     </section>
 {% endblock body %}

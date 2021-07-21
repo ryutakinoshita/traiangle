@@ -22,7 +22,10 @@ class ListingUpdateForm(ModelForm):
     class Meta:
         model = Listing
         fields = (
-            "listing_type", "listing_name", "listing_text","listing_price","consumption_time","sale"
+            "listing_type", "listing_name", "listing_text","listing_price","consumption_time","sale","status",
         )
+
+
+
 
 

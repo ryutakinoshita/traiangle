@@ -21,13 +21,14 @@ class HomeView(generic.ListView):
     model = Listing
     template_name = 'app/home.html'
     context_object_name = 'item_data'
+    queryset = Listing.objects.filter(status=1)
 
 
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context.update({
-            'likes':Listing.objects.order_by('like'),
+            'likes':Listing.objects.filter(status=1).order_by('like'),
             'restaurants':User.objects.all(),
         })
         return context
@@ -37,6 +38,7 @@ class ProductListView(LoginRequiredMixin,generic.ListView):
     model = Listing
     template_name = 'app/product.html'
     context_object_name = 'item_data'
+    queryset = Listing.objects.filter(status=1)
 
 
 
@@ -58,7 +60,7 @@ class ProductListView(LoginRequiredMixin,generic.ListView):
                 Q(listing_price__lte=q_data)
             )
         else:
-            object_list = Listing.objects.order_by('?')
+            object_list = Listing.objects.filter(status=1).order_by('?')
         return object_list
 
 class ProductListMieView(LoginRequiredMixin,generic.ListView):
@@ -84,8 +86,8 @@ class ProductListMieView(LoginRequiredMixin,generic.ListView):
 
             )
         else:
-            object_list = Listing.objects.filter(listing_user__prefectures__icontains="1")
-        return object_list.filter(listing_user__prefectures__icontains="1")
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="1",status=1)
+        return object_list.filter(listing_user__prefectures__icontains="1",status=1)
 
 
 class ProductListSigaView(LoginRequiredMixin,generic.ListView):
@@ -112,8 +114,8 @@ class ProductListSigaView(LoginRequiredMixin,generic.ListView):
 
             )
         else:
-            object_list = Listing.objects.filter(listing_user__prefectures__icontains="2")
-        return object_list.filter(listing_user__prefectures__icontains="2")
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="2",status=1)
+        return object_list.filter(listing_user__prefectures__icontains="2",status=1)
 
 
 class ProductListKyotoView(LoginRequiredMixin,generic.ListView):
@@ -140,8 +142,8 @@ class ProductListKyotoView(LoginRequiredMixin,generic.ListView):
 
             )
         else:
-            object_list = Listing.objects.filter(listing_user__prefectures__icontains="3")
-        return object_list.filter(listing_user__prefectures__icontains="3")
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="3",status=1)
+        return object_list.filter(listing_user__prefectures__icontains="3",status=1)
 
 
 class ProductListOsakaView(LoginRequiredMixin,generic.ListView):
@@ -167,8 +169,8 @@ class ProductListOsakaView(LoginRequiredMixin,generic.ListView):
 
             )
         else:
-            object_list = Listing.objects.filter(listing_user__prefectures__icontains="4")
-        return object_list.filter(listing_user__prefectures__icontains="4")
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="4",status=1)
+        return object_list.filter(listing_user__prefectures__icontains="4",status=1)
 
 
 class ProductListHyogoView(LoginRequiredMixin,generic.ListView):
@@ -195,8 +197,8 @@ class ProductListHyogoView(LoginRequiredMixin,generic.ListView):
 
             )
         else:
-            object_list = Listing.objects.filter(listing_user__prefectures__icontains="5")
-        return object_list.filter(listing_user__prefectures__icontains="5")
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="5",status=1)
+        return object_list.filter(listing_user__prefectures__icontains="5",status=1)
 
 
 class ProductListNaraView(LoginRequiredMixin,generic.ListView):
@@ -223,8 +225,8 @@ class ProductListNaraView(LoginRequiredMixin,generic.ListView):
 
             )
         else:
-            object_list = Listing.objects.filter(listing_user__prefectures__icontains="6")
-        return object_list.filter(listing_user__prefectures__icontains="6")
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="6",status=1)
+        return object_list.filter(listing_user__prefectures__icontains="6",status=1)
 
 
 class ProductListWakayamaView(LoginRequiredMixin,generic.ListView):
@@ -243,7 +245,7 @@ class ProductListWakayamaView(LoginRequiredMixin,generic.ListView):
                 Q(listing_name__icontains=q_word) |
                 Q(listing_text__icontains=q_word) |
                 Q(listing_user__city__icontains=q_word) |
-                Q(listing_user__address1__icontains=q_word) |
+                Q(listing_user__address1__icontains=q_word)|
                 Q(listing_user__rest_name__icontains=q_word)
             )
         elif q_data:
@@ -251,8 +253,8 @@ class ProductListWakayamaView(LoginRequiredMixin,generic.ListView):
 
             )
         else:
-            object_list = Listing.objects.filter(listing_user__prefectures__icontains="7")
-        return object_list.filter(listing_user__prefectures__icontains="7")
+            object_list = Listing.objects.filter(listing_user__prefectures__icontains="7",status=1)
+        return object_list.filter(listing_user__prefectures__icontains="7",status=1)
 
 
 class AppView(generic.TemplateView):

@@ -33,34 +33,9 @@
                 <p class="my_rest_user pd_t30">TEL {{ user.phone }}</p>
             </div>
             </div>
-            <input id="TAB02-02" type="radio" name="TAB02" class="tab-rest" /><label class="tab-label switch_blue rest_label" for="TAB02-02">出品した商品</label>
+            <input id="TAB02-02" type="radio" name="TAB02" class="tab-rest" /><label class="tab-label switch_blue rest_label" for="TAB02-02">売り上げ金額</label>
             <div class="tab-content">
-                {% for Listing in object.listing_set.all %}
-                    <a href="{% url 'listing_detail' Listing.slug%}">
-                        <div class="listing_card mg_t10">
-                            <div>
-                                <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
-                                <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
-                            </div>
-                            <div class="listing_text">
-                                <div class="card-text listing_sale mg_t15">{{ Listing.get_sale_display|default_if_none:'' }}</div>
-                                <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ Listing.listing_name| truncatechars:15 }}</h5>
-                                <p class="price_text pd_t30">販売価格</p>
-                                <p class="card-text listing_price">￥{{ Listing.listing_price| intcomma }}</p>
-                                <p class="restaurant_listing_name">{{ Listing.listing_user.rest_name| truncatechars:15 }}</p>
-                                <div class="text-right mg_t20 mg_r10 pd_b10 edit_div">
-                                    <a href="{% url 'listing_edit' Listing.slug %}" class="update_link">投稿の編集</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </a>
-                {% endfor %}
             </div>
-            <input id="TAB02-05" type="radio" name="TAB02" class="tab-rest" /><label class="tab-label switch_yellow rest_label" for="TAB02-05">売り上げ金額</label>
-            <div class="tab-content">
-
-            </div>　　　　
         </div>
     </section>
 {% endblock body %}
