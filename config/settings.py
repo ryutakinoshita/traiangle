@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'django.contrib.humanize',
     'django_summernote',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [

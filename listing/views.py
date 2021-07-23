@@ -1,5 +1,8 @@
+from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import send_mail
+from django.core.signing import BadSignature, SignatureExpired, dumps, loads
 from django.shortcuts import redirect,render,get_object_or_404
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -210,10 +213,26 @@ class PaymentView(LoginRequiredMixin, View):
         order.payment = payment
         order.save()
 
+        current_site = get_current_site(self.request)
+        domain = current_site.domain
+        context = {
+            'protocol': self.request.scheme,
+            'domain': domain,
+            "user":{
+                "first_name":order_item.user.first_name,
+                "last_name":order_item.user.last_name
+            },
+            "listing": {
+                "listing_name": order_item.item.listing_name,
+                "listing_price": order_item.item.listing_price,
+                "listing_profit": order_item.item.listing_price * 0.964,
+            }
+
+        }
 
         subject="商品発送のお願い"
-        message=""
-        from_email="information@myproject"
+        message=render_to_string('listing/mails/order_subject.txt',context)
+        from_email="kinoshitaryuta@gmail.com"
         recipient_list=[order_item.item.listing_user.email]
         send_mail(subject, message, from_email, recipient_list)
         return redirect('thanks')
@@ -254,8 +273,18 @@ class BuyerListView(LoginRequiredMixin,generic.ListView):
     template_name = 'listing/buyer_list.html'
     context_object_name = 'item_data'
 
-    def get_queryset(self):
-        return OrderItem.objects.filter(item__listing_user=self.request.user)
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context.update({
+            'item_data':OrderItem.objects.filter(item__listing_user=self.request.user),
+            'order':Order.objects.all()
+
+
+        })
+        return context
+
+
+
 
 
 class ConfirmedBase(LoginRequiredMixin, View):

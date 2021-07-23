@@ -1035,7 +1035,7 @@
         font-weight: bolder;
         font-size: 20px;
     }
-    .fa-envelope,
+    .fa-reply-all,
     .fa-map-marker-alt,
     .fa-lock,
     .fa-file-contract,
@@ -1046,7 +1046,8 @@
     .fa-list-alt,
     .fa-folder-plus,
     .fa-user-friends,
-    .fa-cubes{
+    .fa-cubes,
+    .fa-user-alt{
         font-size: 20px;
     }
     .edit_btn{
@@ -1055,6 +1056,26 @@
 
 
 /*E my_page*/
+
+
+/*S my_page_detail*/
+    .my_users{
+        display:flex;
+        margin-top:30px ;
+        padding-left: 20px;
+    }
+    .my_user_text{
+        padding-left: 20px;
+        font-weight: bolder;
+        font-size: 24px;
+    }
+    .fa-signature,
+    .fa-envelope,
+    .fa-phone{
+        font-size: 25px;
+    }
+
+/*E my_page_detail*/
 
 
 /*S product.html*/

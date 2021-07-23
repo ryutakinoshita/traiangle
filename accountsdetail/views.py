@@ -18,6 +18,12 @@ class MyPageView(LoginRequiredMixin,generic.TemplateView):
     template_name = 'accountsdetail/my_page.html'
 
 
+class MyPageDetailView(LoginRequiredMixin,generic.DetailView):
+    """ユーザー情報確認"""
+    model = User
+    template_name = 'accountsdetail/my_page_detail.html'
+
+
 class ApplicationView(FormView):
     """出店申請"""
     template_name = 'accountsdetail/application.html'

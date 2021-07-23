@@ -5,6 +5,7 @@ from.import views
 urlpatterns = [
     path('restaurant/<int:pk>/', views.RestaurantDetailView.as_view(), name='restaurant_detail'),
     path('my_page/', views.MyPageView.as_view(), name='my_page'),
+    path('my_page/<int:pk>/', views.MyPageDetailView.as_view(), name='my_page_detail'),
     path('my_page/restaurant/', views.RestaurantMyPageView.as_view(), name='my_page_restaurant'),
     path('application/', views.ApplicationView.as_view(), name='application'),
     path('application/done/', views.ApplicationDoneView.as_view(), name='ApplicationDoneView'),
@@ -16,7 +17,7 @@ urlpatterns = [
     path('nara/',views.RestaurantListNaraView.as_view(),name='nara'),
     path('wakayama/',views.RestaurantListWakayamaView.as_view(),name='wakayama'),
     path('link/',views.RestaurantLinkView.as_view(),name='link'),
-    path('my/restaurant/<int:pk>', views.MyRestaurantDetailView.as_view(), name='my_restaurant_detail'),
+    path('my/restaurant/<int:pk>/', views.MyRestaurantDetailView.as_view(), name='my_restaurant_detail'),
     path('refund/', views.RefundView.as_view(), name='refund'),
     path('refund/done/', views.RefundDoneView.as_view(), name='refund_done'),
 

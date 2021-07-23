@@ -1,0 +1,11 @@
+{{ user.first_name }} {{ user.last_name }} 様より注文予約がありました。
+下記URLよりご確認お願い致します。
+
+商品名:{{ listing.listing_name}}
+販売額:￥{{ listing.listing_price}}
+販売利益:￥{{ listing.listing_profit|floatformat:"0" }}
+
+{{ protocol}}://{{ domain }}{% url 'buyer_list' %}
+
+
+

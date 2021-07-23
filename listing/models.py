@@ -1,7 +1,11 @@
 from django.db import models
 from autoslug import AutoSlugField
+from django.db.models import Sum
+
 from accounts.models import User
 from django.utils import timezone
+
+
 
 class Type(models.Model):
     TypeListing=(
@@ -72,7 +76,6 @@ class OrderItem(models.Model):
 
     def get_total_item_price(self):
         return self.quantity * self.item.listing_price
-
 
     def __str__(self):
         return f'{self.item.listing_name}:{self.quantity}'
