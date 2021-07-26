@@ -4,17 +4,30 @@
 
 
 {% block body %}
-    <section class="payment mg_t50 pd_t30">
-        <h5 class="payment_title">注文内容を確認する</h5>
+    <section class="payment pd_t50 pd_b100">
+        <h6 class="payment_title pd_b30">注文内容を確認する</h6>
+        <p class="payment_detail_text pd_t30 pd_l20 pd_b30">合計金額 {{ order.get_total|floatformat:0| intcomma}}円</p>
         <form action="." method="POST" id="payment-form">
         {% csrf_token %}
-            <h6 class="address_name_pay pd_t30 pd_l10">お届け先住所</h6>
-            <p class="address_detail">{{ user_data.first_name }} {{ user_data.last_name }} 様</p>
-            <p class="address_detail">〒{{ user_data.zip_code }}</p>
-            <p class="address_detail">{{ user_data.prefectures }} {{ user_data.city }}</p>
-            <p class="address_detail">{{ user_data.address1 }} {{ user_data.address2 }}</p>
-            <h6 class="address_name_pay pd_t30 pd_l10">注文内容</h6>
-            <p class="payment_detail_text">合計金額 {{ order.get_total|floatformat:0| intcomma}}円</p>
+             {% for order_item in order.items.all%}
+                <section class="listing_home mg_t20">
+                    <div class="listing_card mg_t10">
+                        <img class="cart_img pd_t30 pd_l30" src="{{ MEDIA_URL }}{{ order_item.item.listing_img1 }}" alt="">
+                        <div class="listing_text pd_t10">
+                            <div class="card-text listing_sale">{{ order_item.item.get_sale_display|default_if_none:'' }}</div>
+                            <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ order_item.item.listing_name }}</h5>
+                            <div class="quantity_item">
+                                <p class="quantity pd_l30">数量</p>
+                                <p class="quantity_main mg_l5">{{ order_item.quantity }}</p>
+                            </div>
+                            <p class="individual_item pd_l30 pd_t10">税込 ￥{{ order_item.get_total_item_price |floatformat:0 | intcomma}}</p>
+                            <p class="restaurant_listing_name mg_t10">{{ order_item.item.listing_user.rest_name| truncatechars:15 }}</p>
+                        </div>
+                    </div>
+                </section>
+                 {% empty %}
+                <p class="no_cart mg_t15">カートに商品がありません</p>
+            {% endfor %}
             <h6 class="address_name_pay pd_t30 pd_l10">お支払い方法</h6>
             <div class="form-row">
               <div id="card-element"></div>

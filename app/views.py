@@ -29,7 +29,6 @@ class HomeView(generic.ListView):
         context = super().get_context_data(*args, **kwargs)
         context.update({
             'likes':Listing.objects.filter(status=1).order_by('like'),
-            'restaurants':User.objects.all(),
         })
         return context
 

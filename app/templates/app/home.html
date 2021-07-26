@@ -4,85 +4,106 @@
 
 
 {% block body %}
-    <div class="searches mg_t30 mg_b30">
-       <div class="dropdown mg_l20">
-           <a class="btn btn-light dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             都道府県
-           </a>
-           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'product_list' %}">全て</a>
-            <a class="dropdown-item" href="{% url 'product_mie' %}">三重県</a>
-            <a class="dropdown-item" href="{% url 'product_siga' %}">滋賀県</a>
-            <a class="dropdown-item" href="{% url 'product_kyoto' %}">京都府</a>
-            <a class="dropdown-item" href="{% url 'product_osaka' %}">大阪府</a>
-            <a class="dropdown-item" href="{% url 'product_hyogo' %}">兵庫県</a>
-            <a class="dropdown-item" href="{% url 'product_nara' %}">奈良県</a>
-            <a class="dropdown-item" href="{% url 'product_wakayama' %}">和歌山県</a>
-          </div>
-       </div>
-       <form  action="{% url 'product_list' %}" method="get" class="search_word mg_b40">
-           <input class="search" type="text" name="query" placeholder="商品検索" aria-label="Search">
-           <button class="search_btn">
-               <i class="fas fa-search"></i>
-           </button>
-       </form>
-    </div>
-    <div class="tab-wrap  mg_t30　mg_b100">
-        <input id="TAB02-01" type="radio" name="TAB02" class="tab-switch" checked="checked" /><label class="tab-label switch_black" for="TAB02-01">注目商品</label>
-        <div class="tab-content">
+    <section class="home mg_t30 mg_b100">
+        <div class="searches mg_b30">
+           <div class="dropdown mg_l20">
+               <a class="btn btn-light dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 都道府県
+               </a>
+               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="{% url 'product_list' %}">全て</a>
+                <a class="dropdown-item" href="{% url 'product_mie' %}">三重県</a>
+                <a class="dropdown-item" href="{% url 'product_siga' %}">滋賀県</a>
+                <a class="dropdown-item" href="{% url 'product_kyoto' %}">京都府</a>
+                <a class="dropdown-item" href="{% url 'product_osaka' %}">大阪府</a>
+                <a class="dropdown-item" href="{% url 'product_hyogo' %}">兵庫県</a>
+                <a class="dropdown-item" href="{% url 'product_nara' %}">奈良県</a>
+                <a class="dropdown-item" href="{% url 'product_wakayama' %}">和歌山県</a>
+              </div>
+           </div>
+           <form  action="{% url 'product_list' %}" method="get" class="search_word mg_b40">
+               <input class="search" type="text" name="query" placeholder="商品検索" aria-label="Search">
+               <button class="search_btn">
+                   <i class="fas fa-search"></i>
+               </button>
+           </form>
         </div>
-        <input id="TAB02-02" type="radio" name="TAB02" class="tab-switch"/><label class="tab-label switch_blue" for="TAB02-02">新着商品</label>
-        <div class="tab-content">
-        <section class="listing_home mg_t30">
-            {% for Listing in item_data%}
-                <a href="{% url 'listing_detail' Listing.slug%}">
-                    <div class="listing_card mg_t10">
-                        <div>
-                            <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
-                            <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
-                        </div>
-                        <div class="listing_text">
-                            <div class="card-text listing_sale mg_t15">{{ Listing.get_sale_display|default_if_none:'' }}</div>
-                            <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ Listing.listing_name| truncatechars:15 }}</h5>
-                            <p class="price_text pd_t30">販売価格</p>
-                            <p class="card-text listing_price">￥{{ Listing.listing_price| intcomma }}</p>
-                            <p class="restaurant_listing_name">{{ Listing.listing_user.rest_name| truncatechars:15 }}</p>
-                        </div>
-                    </div>
-                </a>
-            {% endfor %}
-        </section>
-        </div>
-        <input id="TAB02-03" type="radio" name="TAB02" class="tab-switch"/><label class="tab-label switch_red" for="TAB02-03">お気に入り商品</label>
-        <div class="tab-content">
-            <section class="listing_home mg_t30　mg_b100">
-            {% for Listing in item_data %}
-                {% if request.user in Listing.like.all %}
-                <a href="{% url 'listing_detail' Listing.slug%}">
-                    <div class="listing_card mg_t10">
-                        <div>
-                            <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
-                            <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
-                        </div>
-                        <div class="listing_text">
-                            <div class="card-text listing_sale mg_t15">{{ Listing.get_sale_display|default_if_none:'' }}</div>
-                            <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ Listing.listing_name| truncatechars:15 }}</h5>
-                            <p class="price_text pd_t30">販売価格</p>
-                            <p class="card-text listing_price">￥{{ Listing.listing_price| intcomma }}</p>
-                            <p class="card-text listing_type"></p>
-                            <p class="restaurant_listing_name">{{ Listing.listing_user.rest_name| truncatechars:15 }}</p>
-                            <a href="{% url 'additem' Listing.slug  %}" ><button type="submit" class="btn btn-warning mg_t10">カートに入れる</button></a>
-                            <div class="text-right pd_r10 pd_b10 mg_t10">
-                                <a href="{% url 'like-home' Listing.pk %}" class="delete_item " tabindex="-1" role="button" aria-disabled="true">削除</a>
+        <div class="tab-wrap">
+            <input id="TAB02-01" type="radio" name="TAB02" class="tab-switch" checked="checked" /><label class="tab-label switch_black" for="TAB02-01">注目商品</label>
+            <div class="tab-content">
+                 {% for Listing in likes%}
+                    <section class="listing_home mg_t20">
+                        <a href="{% url 'listing_detail' Listing.slug%}">
+                            <div class="listing_card mg_t10">
+                                <div>
+                                    <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
+                                    <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
+                                </div>
+                                <div class="listing_text pd_t10">
+                                    <div class="card-text listing_sale">{{ Listing.get_sale_display|default_if_none:'' }}</div>
+                                    <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ Listing.listing_name| truncatechars:15 }}</h5>
+                                    <p class="price_text pd_t30">販売価格</p>
+                                    <p class="card-text listing_price">￥{{ Listing.listing_price| intcomma }}</p>
+                                    <p class="restaurant_listing_name mg_t10">{{ Listing.listing_user.rest_name| truncatechars:15 }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </section>
+                {% endfor %}
+            </div>
+            <input id="TAB02-02" type="radio" name="TAB02" class="tab-switch"/><label class="tab-label switch_blue" for="TAB02-02">新着商品</label>
+            <div class="tab-content">
+                {% for Listing in item_data%}
+                    <section class="listing_home mg_t20">
+                        <a href="{% url 'listing_detail' Listing.slug%}">
+                            <div class="listing_card mg_t10">
+                                <div>
+                                    <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
+                                    <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
+                                </div>
+                                <div class="listing_text pd_t10">
+                                    <div class="card-text listing_sale">{{ Listing.get_sale_display|default_if_none:'' }}</div>
+                                    <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ Listing.listing_name| truncatechars:15 }}</h5>
+                                    <p class="price_text pd_t30">販売価格</p>
+                                    <p class="card-text listing_price">￥{{ Listing.listing_price| intcomma }}</p>
+                                    <p class="restaurant_listing_name mg_t10">{{ Listing.listing_user.rest_name| truncatechars:15 }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </section>
+                {% endfor %}
+            </div>
+            <input id="TAB02-03" type="radio" name="TAB02" class="tab-switch"/><label class="tab-label switch_red" for="TAB02-03">お気に入り商品</label>
+            <div class="tab-content">
+                {% for Listing in item_data %}
+                <section class="listing_home mg_t20">
+                    {% if request.user in Listing.like.all %}
+                    <a href="{% url 'listing_detail' Listing.slug%}">
+                        <div class="listing_card mg_t10">
+                            <div>
+                                <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
+                                <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
+                            </div>
+                            <div class="listing_text">
+                                <div class="card-text listing_sale mg_t15">{{ Listing.get_sale_display|default_if_none:'' }}</div>
+                                <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ Listing.listing_name| truncatechars:15 }}</h5>
+                                <p class="price_text pd_t30">販売価格</p>
+                                <p class="card-text listing_price">￥{{ Listing.listing_price| intcomma }}</p>
+                                <p class="card-text listing_type"></p>
+                                <p class="restaurant_listing_name">{{ Listing.listing_user.rest_name| truncatechars:15 }}</p>
+                                <a href="{% url 'additem' Listing.slug  %}" ><button type="submit" class="btn btn-warning mg_t10">カートに入れる</button></a>
+                                <div class="text-right pd_r10 pd_b10 mg_t10">
+                                    <a href="{% url 'like-home' Listing.pk %}" class="delete_item " tabindex="-1" role="button" aria-disabled="true">削除</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-                {% else %}
-                {% endif %}
-            {% endfor %}
-            </section>
-        </div>　　
-    </div>
+                    </a>
+                    {% else %}
+                    {% endif %}
+                </section>
+                {% endfor %}
+            </div>　　
+        </div>
+    </section>
 
 {% endblock body %}

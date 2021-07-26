@@ -5,10 +5,10 @@
 
 
 {% block body %}
-    <section class="cart mg_t50 pd_b50">
+    <section class="cart mg_t50 pd_b100">
         {% if order.get_total %}
             <p class="pd_l10 total">小計 ￥{{ order.get_total |floatformat:0 | intcomma}}</p>
-        <div class="total_fee pd_b30">
+        <div class="total_fee pd_b10">
             <a class="mg_t15" href="{% url 'payment' %}"><button type="submit" class="btn btn-warning">レジに進む</button></a>
             <a class="continue mg_t10" href="{% url 'home' %}">買い物を続ける</a>
         </div>
@@ -17,23 +17,27 @@
             <a class="continue_no_cart mg_t10" href="{% url 'home' %}">買い物を続ける</a>
         </div>
         {% endif %}
-        {% for order_item in order.items.all %}
-            <div class="order_item">
-                <div class="name_img_listing">
-                    <img class="cart_img pd_t30 pd_l30" src="{{ MEDIA_URL }}{{ order_item.item.listing_img1 }}" alt="">
-                    <h5 class="cart_name pd_t30 pd_l20">{{ order_item.item.listing_name }}</h5>
-                </div>
-                <div class="quantity_item mg_t15">
-                    <p class="quantity pd_l30">数量</p>
-                    <a href="{% url 'removesingleitem' order_item.item.slug %}"><i class="fas fa-minus mg_l10"></i></a>
-                    <p class="quantity_main mg_l5">{{ order_item.quantity }}</p>
-                </div>
-                    <a class="mg_l10" href="{% url 'removeitem' order_item.item.slug %}"><button type="submit" class="btn btn-outline-danger mg_t10 delete_item ">削除</button></a>
-                <p class="individual_item pd_l30 mg_t15 pd_b30">税込 ￥{{ order_item.get_total_item_price |floatformat:0 | intcomma}}</p>
-                {% if not forloop.last %}
-                {% endif %} {% empty %}
+        {% for order_item in order.items.all%}
+                <section class="listing_home mg_t20">
+                    <div class="listing_card mg_t10">
+                        <img class="cart_img pd_t30 pd_l30" src="{{ MEDIA_URL }}{{ order_item.item.listing_img1 }}" alt="">
+                        <div class="listing_text pd_t10">
+                            <div class="card-text listing_sale">{{ order_item.item.get_sale_display|default_if_none:'' }}</div>
+                            <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ order_item.item.listing_name }}</h5>
+                            <div class="quantity_item">
+                                <p class="quantity pd_l30">数量</p>
+                                <a href="{% url 'removesingleitem' order_item.item.slug %}"><i class="fas fa-minus mg_l10"></i></a>
+                                <p class="quantity_main mg_l5">{{ order_item.quantity }}</p>
+                                <a href="{% url 'additem' order_item.item.slug %}"><i class="fas fa-plus mg_l10"></i></a>
+                            </div>
+                            <p class="individual_item pd_l30 pd_t10">税込 ￥{{ order_item.get_total_item_price |floatformat:0 | intcomma}}</p>
+                            <a class="mg_l10" href="{% url 'removeitem' order_item.item.slug %}"><button type="submit" class="btn btn-outline-danger delete_item ">削除</button></a>
+                            <p class="restaurant_listing_name mg_t10">{{ order_item.item.listing_user.rest_name| truncatechars:15 }}</p>
+                        </div>
+                    </div>
+                </section>
+                 {% empty %}
                 <p class="no_cart mg_t15">カートに商品がありません</p>
-            </div>
         {% endfor %}
     </section>
 {% endblock body %}
