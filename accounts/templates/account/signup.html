@@ -4,7 +4,7 @@
 
 
 {% block body %}
-    <section class="signup">
+    <section class="signup body_sub_auto">
         <form class="h-adr signup_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
             <p class="signup_text_detail">性</p>
@@ -31,7 +31,7 @@
             <div class="registration">
                 <table class="table">{% render_field form.password2 class="sign_up_user" placeholder="パスワードの再入力" %}</table>
             </div>
-            <div class="text-center  mg_t70 pd_b100">
+            <div class="text-center mg_t70 pd_b100 mg_t70_sub pd_b100_sub">
                 <button type="submit" class="btn btn-success signup_btn">登録</button>
             </div>
         </form>

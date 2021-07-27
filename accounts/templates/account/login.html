@@ -3,20 +3,20 @@
 {% load widget_tweaks %}
 
 {% block body %}
-    <section class="login mg_t50">
+    <section class="login mg_t50 body_sub pd_t50_sub pd_b50_sub">
         <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
             <div class="registration">
                 <table class="table">{% render_field form.username class="registration_main" placeholder="メールアドレス" %}</table>
             </div>
-            <div class="registration mg_t20">
+            <div class="registration mg_t20 mg_t20_sub">
                 <table class="table">{% render_field form.password class="registration_main" placeholder="パスワード" %}</table>
             </div>
-            <div class="login_link_group mg_t50">
+            <div class="login_link_group mg_t50 mg_t70_sub">
                 <a class="login_link" href="{% url 'signup' %}">新規登録はこちら</a>
                 <a class="login_link" href="{% url 'password_reset' %}">パスワードをお忘れですか？</a>
             </div>
-            <div class="text-center mg_t50">
+            <div class="text-center mg_t50 mg_t50_sub">
                 <button type="submit" class="btn btn-dark login_btn">ログイン</button>
             </div>
         </form>

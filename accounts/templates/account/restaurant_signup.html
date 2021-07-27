@@ -4,7 +4,7 @@
 
 
 {% block body %}
-    <section class="signup">
+    <section class="signup body_sub_auto">
         <form class="h-adr signup_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
             <p class="signup_text_detail">性</p>
@@ -56,12 +56,12 @@
             <div class="registration">
                 <table class="table m-0">{% render_field form.rest_name class="extended-address sign_up_user" placeholder=""%}</table>
             </div>
-            <p class="listing_create_text">店舗画像</p>
-             <div class="swiper-container mg_t15 mg_b30">
+            <p class="signup_text_detail">店舗画像</p>
+             <div class="swiper-container mg_t15 mg_b30 mg_t15_sub mg_b30_sub">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><div class="img_preview pd_b10 mg_t15" id="preview1"></div></div>
-                    <div class="swiper-slide"><div class="img_preview pd_b10 mg_t15" id="preview2"></div></div>
-                    <div class="swiper-slide"><div class="img_preview pd_b10 mg_t15" id="preview3"></div></div>
+                    <div class="swiper-slide"><div class="img_preview pd_b10 mg_t15 pd_b10_sub mg_t15_sub" id="preview1"></div></div>
+                    <div class="swiper-slide"><div class="img_preview pd_b10 mg_t15 pd_b10_sub mg_t15_sub" id="preview2"></div></div>
+                    <div class="swiper-slide"><div class="img_preview pd_b10 mg_t15 pd_b10_sub mg_t15_sub" id="preview3"></div></div>
                 </div>
                 <div class="swiper-pagination swiper-pagination-white"></div>
                 <div class="swiper-button-prev swiper-button-black"></div>
@@ -82,31 +82,31 @@
                     </div>
                 </div>
             </div>
-            <p class="restaurant_create_text">店舗の種類</p>
+            <p class="signup_text_detail">店舗の種類</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.restaurant_type class="sign_up_user" placeholder=""%}</table>
             </div>
-            <p class="restaurant_create_text">営業開始時間</p>
+            <p class="signup_text_detail">営業開始時間</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.business_hours_start class="restaurant_time_form" placeholder="" type="time"%}</table>
             </div>
-            <p class="restaurant_create_text">営業終了時間</p>
+            <p class="signup_text_detail">営業終了時間</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.business_hours_end class="restaurant_time_form" placeholder="" type="time"%}</table>
             </div>
-            <p class="restaurant_create_text">受け取り時間</p>
+            <p class="signup_text_detail">受け取り時間</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.business_hours_option class="sign_up_user" placeholder=""%}</table>
             </div>
-            <p class="restaurant_create_text">店舗紹介</p>
+            <p class="signup_text_detail">店舗紹介</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.certification class="restaurant_text_form" placeholder="〇〇料理中心に営業しています"%}</table>
             </div>
-            <p class="restaurant_create_text">最寄り駅</p>
+            <p class="signup_text_detail">最寄り駅</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.nearest_station class="sign_up_user" placeholder="JR大阪駅"%}</table>
             </div>
-            <div class="text-center  mg_t70 pd_b100">
+            <div class="text-center  mg_t70 pd_b100 mg_t70_sub pd_b100_sub">
                 <button type="submit" class="btn btn-success signup_btn">登録</button>
             </div>
         </form>

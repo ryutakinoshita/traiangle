@@ -1,0 +1,388 @@
+@media screen and (min-width:1024px) {
+/*S base.html*/
+    body {
+        width: 100%;
+        font-size: 22px;
+        font-family: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, Meiryo, sans-serif;
+        background: #f8f7f7;
+        color: #4d5156;
+    }
+    .main_css{
+        display: none;
+    }
+    .app_name {
+        font-weight: bold;
+        font-size: 34px;
+        color: #151414;
+        font-family: 'Cabin', sans-serif;
+        margin-bottom: 0px;
+    }
+    header {
+        height: 120px;
+        background: #ffffff;
+        border-bottom: 3px solid #e5e7e8;
+    }
+    .blue {
+        color: #3399FF;
+    }
+    .red {
+        color: #CC0033;
+    }
+    .yellow {
+        color: #FFCC00;
+    }
+    .body_sub{
+        margin: 0 auto;
+        height: 100%;
+        width: 60%;
+        background: #ffffff;
+    }
+    .body_sub_auto{
+        margin: 0 auto;
+        background: #ffffff;
+        height: auto;
+        width: 60%;
+    }
+    .registration_main[type="text"]:focus,
+    .registration_main[type="password"]:focus,
+    .registration_main[type="email"]:focus,
+    .registration_main[type="tel"]:focus{
+        background: #e3f1f6;
+    }
+     a {
+        color: #4d5156;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #4d5156;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    ul {
+        list-style: none;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    input::placeholder {
+        color: #b7b9bb;
+        font-size: 19px;
+    }
+    li {
+        display: inline-block;
+    }
+    .table {
+        margin: 0;
+    }
+
+/*E base.html*/
+
+
+/*S email_change.html*/
+    .sign_up_user{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 70%;
+        height: 60px;
+        font-size: 24px;
+    }
+    .individual_text{
+        padding-left: 50px;
+        padding-top: 70px;
+        font-weight: bold;
+        font-size: 26px;
+    }
+
+    .registration{
+        text-align: center;
+    }
+    .signup_btn{
+        width: 20%;;
+        font-size: 20px;
+        letter-spacing: 5px;
+        border-radius: 4px;
+    }
+    .change_btn{
+        width: 50%;
+        font-size: 20px;
+        letter-spacing: 5px;
+        border-radius: 4px;
+    }
+    .change_text {
+        font-size: 26px;
+        text-align: center;
+        font-weight: bolder;
+    }
+    .change_text_detail {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .change_text_small {
+        font-size: 24px;
+        text-align: center;
+        font-weight: bolder;
+    }
+/*E email_change.html*/
+
+
+/*S password_change.html*/
+    .password_change_text{
+        font-size: 24px;
+        padding-left: 30px;
+        padding-top:70px;
+        font-weight: bolder;
+    }
+    .password_change_text_detail{
+        padding: 40px 35px;
+        font-size: 18px;
+    }
+    .password_change{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 70%;
+        height: 60px;
+        font-size: 24px;
+    }
+/*E password_change.html*/
+
+
+/*S login.html*/
+    .login_link_group {
+        display: flex;
+        flex-flow: column;
+    }
+    .login_link {
+        margin-left: auto;
+        margin-right: 40px;
+        color: #3399FF;
+        font-size: 17px;
+    }
+    .login_btn,
+    .login_btn:hover {
+        width: 150px;
+    }
+
+/*E login.html*/
+
+
+/*S signup.html*/
+    .signup_text_detail{
+        padding-top: 70px;
+        padding-left: 40px;
+        font-weight: bolder;
+        margin: 0;
+    }
+    .restaurant_time_form{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 70%;
+        height: 60px;
+        font-size: 24px;
+        text-align: center;
+        background: #ffffff;
+    }
+    .restaurant_text_form{
+        border: none;
+        border-top: 1px solid #262628;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        resize: none;
+        width: 100%;
+        height: 300px;
+        font-size: 24px;
+        padding: 0 10px;
+
+    }
+    .div_listing {
+        display: flex;
+    }
+    .registration_listing {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .filelabel_listing {
+        display: inline-block;
+        position: relative;
+        background-color: #3399FF;
+        color: #fff;
+        padding: 15px 20px;
+        margin: 0px 5px;
+        border-radius: 8px;
+        transition: all 0.5s;
+    }
+    .filelabel_listing:hover {
+        background-color: #3399FF;
+    }
+    #previewImage-preview1,
+    #previewImage-preview2,
+    #previewImage-preview3 {
+        width: 200px;
+        height: 200px;
+    }
+    .img_preview {
+        text-align: center;
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+    .swiper-container {
+        text-align: center;
+        height: 240px;
+    }
+    .filelabel {
+        display: inline-block;
+        position: relative;
+        background-color: #3399FF;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: all 0.5s;
+    }
+    .filelabel:hover {
+        background-color: #3399FF;
+    }
+
+    .fileinput {
+        display: none;
+    }
+    .signup_finish_text {
+        font-size: 40px;
+    }
+
+    .signup_finish_text_main {
+        font-size: 24px;
+         font-weight: bolder;
+    }
+    .signup_finish_text_sub {
+        font-weight: bolder;
+    }
+    .link_black_finish {
+        color: #3399FF;
+        font-size: 24px;
+    }
+    .link_black_finish:hover {
+        color: #3399FF;
+        font-size: 24px;
+    }
+    .finish {
+        color: #3399FF;
+        font-size: 24px;
+    }
+
+/*E signup.html*/
+
+
+/*S margin/padding*/
+    .mg_t10_sub{
+        margin-top: 10px;
+    }
+
+    .mg_t15_sub{
+        margin-top: 15px;
+    }
+
+    .mg_t20_sub {
+        margin-top: 20px;
+    }
+
+    .mg_t30_sub {
+        margin-top: 30px;
+    }
+
+    .mg_t50_sub {
+        margin-top: 50px;
+    }
+    .mg_t70_sub {
+        margin-top: 70px;
+    }
+    .mg_b20_sub {
+        margin-bottom: 20px;
+    }
+
+    .mg_b30_sub {
+        margin-bottom: 30px;
+    }
+    .mg_b100_sub {
+        margin-bottom: 100px;
+    }
+
+    .mg_l5_sub {
+        margin-left: 5px;
+    }
+    .mg_l10_sub {
+        margin-left: 10px;
+    }
+    .mg_l20_sub {
+        margin-left: 20px;
+    }
+    .mg_l30_sub {
+        margin-left: 30px;
+    }
+
+    .mg_r10_sub {
+        margin-right: 10px;
+    }
+
+    .pd_t10_sub {
+        padding-top: 10px;
+    }
+
+    .pd_t30_sub {
+        padding-top: 30px;
+    }
+    .pd_t50_sub {
+        padding-top: 50px;
+    }
+    .pd_t70_sub {
+        padding-top: 70px;
+    }
+
+    .pd_b10_sub {
+        padding-bottom: 10px;
+    }
+
+    .pd_b30_sub {
+        padding-bottom: 30px;
+    }
+    .pd_b50_sub {
+        padding-bottom: 50px;
+    }
+    .pd_b100_sub {
+        padding-bottom: 100px;
+    }
+    .pd_b200_sub {
+        padding-bottom: 200px;
+    }
+
+    .pd_l10_sub {
+        padding-left: 10px;
+    }
+
+    .pd_l20_sub {
+        padding-left: 20px;
+    }
+
+    .pd_l30_sub {
+        padding-left: 30px;
+    }
+
+    .pd_r10_sub {
+        padding-right: 10px;
+    }
+
+    .pd_r20_sub {
+        padding-right: 20px;
+    }
+
+/*E margin/padding*/
+}

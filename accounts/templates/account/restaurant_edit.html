@@ -4,7 +4,7 @@
 
 
 {% block body %}
-    <section class="signup">
+    <section class="signup body_sub_auto pd_b100 pd_b100_sub">
         <form class="h-adr signup_form" method="post" enctype="multipart/form-data" action="">
         {% csrf_token %}
              <p class="signup_text_detail">電話番号</p>
@@ -37,31 +37,31 @@
             <div class="registration">
                 <table class="table m-0">{% render_field form.rest_name class="extended-address sign_up_user" placeholder=""%}</table>
             </div>
-            <p class="restaurant_create_text">店舗の種類</p>
+            <p class="signup_text_detail">店舗の種類</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.restaurant_type class="sign_up_user" placeholder=""%}</table>
             </div>
-            <p class="restaurant_create_text">営業開始時間</p>
+            <p class="signup_text_detail">営業開始時間</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.business_hours_start class="restaurant_time_form" placeholder="" type="time"%}</table>
             </div>
-            <p class="restaurant_create_text">営業終了時間</p>
+            <p class="signup_text_detail">営業終了時間</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.business_hours_end class="restaurant_time_form" placeholder="" type="time"%}</table>
             </div>
-            <p class="restaurant_create_text">受け取り時間</p>
+            <p class="signup_text_detail">受け取り時間</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.business_hours_option class="sign_up_user" placeholder=""%}</table>
             </div>
-            <p class="restaurant_create_text">店舗紹介</p>
+            <p class="signup_text_detail">店舗紹介</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.certification class="restaurant_text_form" placeholder="〇〇料理中心に営業しています"%}</table>
             </div>
-            <p class="restaurant_create_text">最寄り駅</p>
+            <p class="signup_text_detail">最寄り駅</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.nearest_station class="sign_up_user" placeholder="JR大阪駅"%}</table>
             </div>
-            <div class="text-center  mg_t70 pd_b100">
+            <div class="text-center mg_t70 mg_t70_sub">
                 <button type="submit" class="btn btn-success signup_btn">登録</button>
             </div>
 
