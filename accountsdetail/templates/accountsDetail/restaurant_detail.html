@@ -4,8 +4,8 @@
 
 
 {% block body %}
-    <section class="restaurant_detail">
-        <div class="pd_t50 pd_b100">
+    <section class="restaurant_detail body_sub_auto">
+        <div class="pd_t50 pd_b100 pd_t50_sub pd_b100_sub">
            <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><img class="detail_img" src="{{ MEDIA_URL }}{{ restaurants.restaurant_img1 }}" alt=""></div>
@@ -21,12 +21,12 @@
                <p class="restaurant_type">{{ restaurants.get_restaurant_type_display }}</p>
                <p class="restaurant_business_hours">営業時間{{ restaurants.business_hours_start }}～{{ restaurants.business_hours_end }}</p>
                <p class="restaurant_business_hours_option">{{ restaurants.get_business_hours_option_display }}</p>
-               <p class="restaurant_tel mg_b30">TEL {{ restaurants.user.phone }}</p>
+               <p class="restaurant_tel mg_b30">TEL {{ restaurants.phone }}</p>
                <hr class="restaurant_hr">
-               <h5 class="restaurant_detail_text mg_t30">店舗住所</h5>
-               <p class="restaurant_zip_code mg_t20">〒{{ restaurants.zip_code }}</p>
-               <p class="restaurant_address">{{ restaurants.get_prefectures_display }} {{ restaurants.city }}</p>
-               <p class="restaurant_address">{{ restaurants.address1 }} {{ restaurants.address2 }}</p>
+               <h5 class="restaurant_detail_text mg_t30 mg_t30_sub">店舗住所</h5>
+               <p class="restaurant_zip_code mg_t20 mg_t20_sub">〒{{ restaurants.zip_code }}</p>
+               <p class="restaurant_address mg_t20_sub">{{ restaurants.get_prefectures_display }} {{ restaurants.city }}</p>
+               <p class="restaurant_address mg_t20_sub">{{ restaurants.address1 }} {{ restaurants.address2 }}</p>
                <p class="restaurant_nearest_detail">最寄り駅 {{ restaurants.nearest_station }}</p>
            </div>
         </div>

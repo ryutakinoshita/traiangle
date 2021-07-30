@@ -4,7 +4,7 @@
 
 
 {% block body %}
-    <section class="listing_create pd_b30">
+    <section class="listing_create body_sub_auto">
         <form class="listing_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
             <p class="listing_create_text">商品の分類</p>
@@ -31,7 +31,7 @@
             <div class="registration">
                 <table class="table m-0">{% render_field form.status class="listing_name_form" placeholder=""%}</table>
             </div>
-            <div class="text-center mg_t70">
+            <div class="text-center mg_t70 pd_b100 mg_t70_sub pd_b100_sub">
                 <button type="submit" class="btn btn-success listing_btn">変更</button>
             </div>
 

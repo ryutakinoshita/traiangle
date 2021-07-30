@@ -6,28 +6,30 @@
 {% block body %}
 
      <section class="listing_home mg_t30 pd_b100">
-            {% for Listing in item_data%}
-                <section class="listing_home mg_t20">
+         <div class="listings">
+             {% for Listing in item_data%}
+                <section class="listing_home mg_t20 mg_t20_sub mg_l20_sub">
                     <a href="{% url 'listing_detail' Listing.slug%}">
                         <div class="listing_card mg_t10">
                             <div>
                                 <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
                                 <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
                             </div>
-                            <div class="listing_text pd_t10">
+                            <div class="listing_text pd_t10 pd_t10_sub">
                                 <div class="card-text listing_sale">{{ Listing.get_sale_display|default_if_none:'' }}</div>
-                                <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ Listing.listing_name| truncatechars:15 }}</h5>
-                                <p class="price_text pd_t30">販売価格</p>
+                                <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10 pd_t30_sub pd_l20_sub pd_r10_sub">{{ Listing.listing_name| truncatechars:15 }}</h5>
+                                <p class="price_text pd_t30 pd_t30_sub">販売価格</p>
                                 <p class="card-text listing_price">￥{{ Listing.listing_price| intcomma }}</p>
-                                <p class="restaurant_listing_name mg_t10">{{ Listing.listing_user.rest_name| truncatechars:15 }}</p>
-                            <div class="text-right mg_t20 mg_r10 pd_b10 edit_div">
+                                <p class="restaurant_listing_name mg_t10 mg_t20_sub">{{ Listing.listing_user.rest_name| truncatechars:15 }}</p>
+                            <div class="text-right mg_t20 mg_r10 pd_b10 edit_div pd_b10_sub mg_r10_sub">
                                 <a href="{% url 'listing_edit' Listing.slug %}" class="update_link">投稿の編集</a>
                             </div>
                             </div>
                         </div>
                     </a>
                 </section>
-                {% endfor %}
-        </section>
+            {% endfor %}
+         </div>
+     </section>
 
 {% endblock body %}

@@ -18,7 +18,7 @@
         margin-bottom: 0px;
     }
     header {
-        height: 120px;
+        height: 130px;
         background: #ffffff;
         border-bottom: 3px solid #e5e7e8;
     }
@@ -74,8 +74,284 @@
     .table {
         margin: 0;
     }
+    .carts{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 26px;
+        padding: 0;
+    }
+    .item_count{
+        padding-left: 10px;
+    }
+    .wrap{
+        padding-right: 20px;
+    }
+    .dp_flex_sub{
+        display: flex;
+        /*justify-content: flex-end;*/
+    }
+    .user_page_link,
+    .link_blue{
+        font-size: 16px;
+        margin-left: auto;
+        margin-right: 20px;
+        font-weight: bolder;
+        letter-spacing: 1px;
+    }
+     .link_blue:hover{
+         font-size: 16px;
+        margin-left: auto;
+        margin-right: 20px;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        color: #3399FF;
+
+     }
+    .new_user_btn {
+        height: 40px;
+        width: 130px;
+        line-height: 40px;
+        display: block;
+        margin-left: auto;
+        margin-right: 10px;
+
+    }
+    .link_white {
+        color: #fffff3;
+        font-size: 18px;
+    }
+    .link_white:hover {
+        color: #fffff3;
+        font-size: 18px;
+    }
+    .link_black {
+        color: #151414;
+        font-size: 18px;
+    }
+    .link_black:hover {
+        color: #151414;
+        font-size: 18px;
+    }
+
 
 /*E base.html*/
+
+
+/*S index.html&cancel.html*/
+    .index_titles{
+        text-align: center;
+    }
+    .index_title{
+        font-size: 22px;
+        font-weight: bolder;
+    }
+    .index_title_main{
+        font-weight: bolder;
+        font-size: 60px;
+        letter-spacing: 2px;
+    }
+    .index_title_sub{
+        font-size: 18px;
+    }
+    .trial_btn,
+    .trial_btn:hover{
+        font-weight: bolder;
+    }
+    .app_btn{
+        width: 20%;
+        font-size: 20px;
+        letter-spacing: 5px;
+        border-radius: 4px;
+    }
+
+
+    .examples{
+        margin-top: 80px;
+        margin-left: 10px;
+        margin-right: 10px;
+        background: #ffffff;
+        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+       border: 1px solid #32cd32;
+    }
+    .example_main{
+        font-weight: bolder;
+    }
+    .example_sub{
+        margin: 0;
+        font-size: 12px;
+    }
+    .cancel{
+        text-align: center;
+
+    }
+    .cancel_text_main{
+        font-weight: bolder;
+        font-size: 26px;
+    }
+
+/*E index.html&cancel.html*/
+/*S home.html*/
+    .dropdown-toggle{
+        padding: 3px 6px;
+        border-color:#151414 ;
+        margin-right: 10px;
+    }
+    .searches{
+        display: flex;
+        justify-content: center;
+    }
+    .search {
+        width: 85%;
+        outline: none;
+        height: 30px;
+        font-size: 18px;
+        background: #f8f7f7;
+        padding: 0 5px;
+        border-radius: 4px;
+    }
+    .search[type="text"]:focus,
+    .search_free[type="text"]:focus{
+        border: 1px solid #3399FF;
+    }
+    .search_btn ,
+    .search_btn:hover{
+        border: none;
+        outline: none;
+        appearance: none;
+        padding: 5px 2px;
+        font-size: 20px;
+        color: #3399FF;
+        background: #f8f7f7;
+    }
+    .search_home{
+        width:400px;
+        outline: none;
+        height: 30px;
+        background: #f8f7f7;
+        padding: 0 5px;
+        border-radius: 4px;
+    }
+      .tab-wrap {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /*タブメニュー*/
+    .tab-label {
+        font-size: 20px;
+        color: #151414;
+        font-weight: bolder;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+        white-space: nowrap;
+        text-align: center;
+        order: -1;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+        flex: 1;
+    }
+    .tab-label:not(:last-of-type) {
+        margin-right: 5px;
+    }
+    .tab-content {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    .tab-switch {
+        display: none;
+    }
+    .tab-switch:checked + .switch_black {
+        border-bottom: 2px solid #454141;
+    }
+        .tab-switch:checked + .switch_blue {
+        border-bottom: 2px solid #3399FF;
+    }
+
+    .tab-switch:checked + .switch_red {
+        border-bottom: 2px solid #CC0033;
+    }
+
+    .tab-switch:checked + .switch_yellow {
+        border-bottom: 2px solid #FFCC00;
+    }
+
+    .tab-switch:checked + .tab-label + .tab-content {
+        height: auto;
+        overflow: auto;
+        opacity: 1;
+        transition: .5s opacity;
+    }
+    .my_page{
+        padding-left: 100px;
+    }
+     .listing_card {
+        height: auto;
+        background: #ffffff;
+        display: flex;
+        border-radius:4px;
+         width: auto;
+    }
+    .listing_img {
+        width: 220px;
+        height:200px;
+    }
+    .listing_text {
+        width: 100%;
+        position: relative;
+    }
+    .listing_name {
+        font-size: 22px;
+        font-weight: bolder;
+    }
+    .listing_price {
+        padding-left: 20px;
+        font-weight: bolder;
+        font-size: 28px;
+        margin: 0;
+    }
+    .listing_consumption_time{
+        padding-left: 10px;
+        padding-top: 10px;
+        font-size: 18px;
+        color: #379ae7;
+    }
+    .listing_sale{
+        background: #38a76f;
+        color: #ffffff;
+        font-size: 18px;
+        width: 160px;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 4px;
+        letter-spacing:1px ;
+    }
+    .price_text{
+        padding-left: 10px;
+        margin: 0;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+    .restaurant_listing_name{
+        text-align: right;
+        padding-right: 10px;
+        font-size: 14px;
+        color: #828181;
+    }
+    .listings{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .delete_item{
+        color: #CC0033;
+        font-size: 16px;
+        padding: 4px 6px;
+    }
+/*E home.html*/
 
 
 /*S email_change.html*/
@@ -239,6 +515,11 @@
         text-align: center;
         height: 240px;
     }
+    .swiper-button-next,
+    .swiper-button-prev{
+        width: 24px;
+        height: 24px;
+    }
     .filelabel {
         display: inline-block;
         position: relative;
@@ -280,6 +561,455 @@
     }
 
 /*E signup.html*/
+
+
+/*S my_page.html*/
+    .fa-reply-all,
+    .fa-map-marker-alt,
+    .fa-lock,
+    .fa-file-contract,
+    .fa-book-open,
+    .fa-user-edit,
+    .fa-history
+    .fa-heart,
+    .fa-list-alt,
+    .fa-folder-plus,
+    .fa-user-friends,
+    .fa-cubes,
+    .fa-user-alt{
+        font-size: 24px;
+    }
+     .my_page_link {
+        color: #151414;
+        font-weight: bolder;
+        font-size: 26px;
+    }
+    .my_page_link:hover {
+        color: #151414;
+        font-weight: bolder;
+        font-size: 26px;
+    }
+    .detail_img {
+        text-align: center;
+        width: 50%;
+        height: 70%;
+    }
+    .restaurant_body{
+        padding: 40px 0 0;
+    }
+    .restaurant_name{
+        text-align: center;
+        font-weight: bolder;
+        font-size: 30px;
+    }
+    .restaurant_type{
+        text-align: center;
+        padding-top: 10px;
+        font-size: 16px;
+        color: #38a76f;
+    }
+    .restaurant_business_hours{
+        margin: 0;
+        padding-top:25px ;
+        text-align: center;
+        font-size: 26px;
+    }
+    .restaurant_business_hours_option{
+        text-align: center;
+        font-size: 14px;
+        color: #3399FF;
+    }
+    .restaurant_nearest_station{
+        padding-top: 20px;
+        text-align: right;
+        padding-right: 10px;
+        color: #999898;
+    }
+    .restaurant_tel{
+        text-align: center;
+    }
+    .restaurant_hr{
+        margin: 0;
+        border-width: 1px 0 0 0;
+        border-color: #5c5c5f;
+    }
+    .restaurant_zip_code,
+    .restaurant_address{
+        font-size: 24px;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+    .restaurant_detail_text{
+        font-weight: bolder;
+        font-size: 25px;
+        padding-left: 170px;
+    }
+    .restaurant_nearest_detail{
+        text-align: right;
+        padding-right: 10px;
+    }
+    .restaurant {
+        width: 300px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .card-img-top{
+        width: 300px;
+        height: 250px;
+    }
+    .restaurants{
+        display: flex;
+    }
+    .update_link{
+        color: #3399FF;
+        font-size: 18px;
+    }
+     .my_users{
+        display:flex;
+        margin-top:30px ;
+        padding-left: 20px;
+    }
+    .my_user_text{
+        padding-left: 20px;
+        font-weight: bolder;
+        font-size: 24px;
+    }
+    .fa-signature,
+    .fa-envelope,
+    .fa-phone{
+        font-size: 25px;
+    }
+/*E my_page.html*/
+
+
+/*S application.html*/
+
+     label[for=id_restaurant_type_0],
+     label[for=id_business_hours_option_0]{
+        display: none;
+    }
+    label[for=id_restaurant_type_1],
+    label[for=id_restaurant_type_2],
+    label[for=id_restaurant_type_3],
+    label[for=id_restaurant_type_4],
+    label[for=id_restaurant_type_5],
+    label[for=id_restaurant_type_6],
+    label[for=id_restaurant_type_7],
+    label[for=id_restaurant_type_8],
+    label[for=id_restaurant_type_9],
+    label[for=id_restaurant_type_10],
+    label[for=id_restaurant_type_11],
+    label[for=id_restaurant_type_12],
+    label[for=id_restaurant_type_13],
+    label[for=id_restaurant_type_14] {
+        display: inline-block;
+        border-radius: 20px;
+        text-align: center;
+        text-decoration: none;
+        border: solid 1px #ccc;
+        transition: 0.25s;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 17px;
+        width: 170px;
+        margin: 5px 3px;
+    }
+
+/*E application.html*/
+    .form-check-label{
+        font-weight: bolder;
+    }
+
+
+
+/*S restaurant_search.html*/
+    .search_rest{
+        padding-left: 80px;
+    }
+    .search_rests{
+        margin-top: 15px;
+    }
+    .search_btn ,
+    .search_btn:hover{
+        border: none;
+        outline: none;
+        appearance: none;
+        padding: 5px 2px;
+        font-size: 22px;
+        color: #3399FF;
+        background: #f8f7f7;
+    }
+    .form-check-label{
+        font-weight: bolder;
+    }
+    .search{
+        width: 60%;
+        outline: none;
+        height: 45px;
+        font-size: 22px;
+        background: #f8f7f7;
+        padding: 0 5px;
+        border-radius: 4px;
+    }
+/*E restaurant_search.html*/
+/*E listing_search.html*/
+    .search_listing{
+         width:400px;
+        outline: none;
+        height: 30px;
+        background: #f8f7f7;
+        padding: 0 5px;
+        border-radius: 4px;
+    }
+    .form-check{
+        text-align:center ;
+        margin: 0 auto;
+        padding-right: 500px;
+    }
+    .search_price{
+        text-align: center;
+    }
+/*E listing_search.html*/
+/*S listing_detail.html*/
+    .listing_name_detail {
+        font-size: 30px;
+        font-weight: bolder;
+    }
+    .listing_type_detail {
+        font-size: 15px;
+    }
+    .listing_user_detail {
+        color: #828181;
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+    .listing_price_detail {
+        font-size: 35px;
+       font-weight: bolder;
+    }
+    .listing_cart_detail_like{
+        width: 200px;
+    }
+      .listing_detail_rest_text{
+        font-weight: bolder;
+        padding-left: 16px;
+    }
+    .restaurant_listing_detail{
+        padding-left: 50px;
+        font-size: 25px;
+    }
+    .listing_text_detail {
+        font-size: 25px;
+    }
+/*E listing_detail.html*/
+
+
+/*S listing_create.html*/
+    .listing_name_form{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 70%;
+        height: 60px;
+        font-size: 24px;
+    }
+    .listing_text_form{
+        border: none;
+        border-top: 1px solid #262628;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        resize: none;
+        width: 100%;
+        height: 300px;
+        font-size: 24px;
+        padding: 0 10px;
+    }
+    .listing_price_form{
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid #262628;
+        outline: none;
+        appearance: none;
+        width: 70%;
+        height: 60px;
+        font-size: 24px;
+    }
+    .listing_create_text{
+        padding-top: 70px;
+        padding-left: 20px;
+        font-weight: bolder;
+    }
+    .listing_btn{
+        width: 40%;
+        font-size: 20px;
+        letter-spacing: 5px;
+        border-radius: 4px;
+    }
+    label[for=id_sale_0]{
+        display: none;
+    }
+
+/*E listing_create.html*/
+
+
+/*S my_listing.html*/
+    .update_link{
+        color: #3399FF;
+        font-size: 15px;
+    }
+    .buyer_detail_text {
+        padding-left: 20px;
+        font-weight: bolder;
+        margin: 0;
+    }
+    .buyer_detail_time{
+        text-align: center;
+        font-size: 18px;
+        margin: 0;
+    }
+        .refund_link{
+        color: #3399FF;
+        font-size: 15px;
+    }
+/*E my_listing.html*/
+
+
+/*S order.html*/
+     .total_fee{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .total{
+        font-size: 30px;
+        font-weight: bolder;
+    }
+    .cart_btn{
+        width: 150px;
+    }
+    .continue{
+        color: #3399FF;
+        font-size: 18px;
+    }
+     .no_cart{
+        text-align: center;
+    }
+    .continue_no_cart{
+        text-align: center;
+        color: #3399FF;
+        font-size: 28px;
+    }
+    .cart_img{
+        width: 200px;
+        height:200px;
+    }
+    .order_card {
+        border-bottom:1px solid #d5d3d3;
+        border-top:1px solid #d5d3d3;
+    }
+    .quantity_item{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 70px;
+    }
+    .quantity{
+        margin-bottom: 0;
+        font-size: 20px;
+    }
+    .quantity_main{
+        margin-bottom: 0;
+        font-size: 24px;
+        font-weight: bolder;
+    }
+    .fa-minus,
+    .fa-plus{
+        font-size: 16px;
+    }
+    .individual_item{
+        margin-left: 100px;
+        font-size: 28px;
+        font-weight: bolder;
+    }
+    .delete_item{
+        width: 100px;
+    }
+    .order_rest_name{
+        font-size: 18px;
+        margin-right: 20px;
+    }
+        .payment{
+        background: #ffffff;
+        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+    }
+    .payment_title{
+        text-align: center;
+        font-weight: bolder;
+        font-size: 20px;
+    }
+    .payment_detail_text{
+        font-weight: bolder;
+        font-size: 28px;
+    }
+    .address_name_pay{
+        font-size: 20px;
+    }
+    .StripeElement {
+      background-color: #f1f1f1;
+      height: 40px;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      box-shadow: 0 1px 3px 0 #e6ebf1;
+      -webkit-transition: box-shadow 150ms ease;
+      transition: box-shadow 150ms ease;
+    }
+    .StripeElement--focus{
+      box-shadow: 0 1px 3px 0 #cfd7df;
+    }
+    .StripeElement--invalid{
+      border-color: #fa755a;
+    }
+    .StripeElement--webkit-autofill{
+      background-color: #fefde5 !important;
+    }
+    .order_btn{
+        width: 200px;
+    }
+    .signup_finish {
+        text-align: center;
+    }
+    .signup_finish_text {
+        font-size: 40px;
+        font-weight: bolder;
+        letter-spacing: 2px;
+    }
+
+    .signup_finish_text_main {
+        font-size: 22px;
+         font-weight: bolder;
+    }
+    .signup_finish_text_sub {
+        font-weight: bolder;
+    }
+    .link_black_finish {
+        color: #3399FF;
+        font-size: 24px;
+    }
+    .link_black_finish:hover {
+        color: #3399FF;
+        font-size: 24px;
+    }
+    .finish {
+        color: #3399FF;
+        font-size: 20px;
+    }
+/*E order.html*/
+
 
 
 /*S margin/padding*/
@@ -328,6 +1058,9 @@
     .mg_l30_sub {
         margin-left: 30px;
     }
+    .mg_l50_sub{
+        margin-left: 50px;
+    }
 
     .mg_r10_sub {
         margin-right: 10px;
@@ -375,6 +1108,10 @@
     .pd_l30_sub {
         padding-left: 30px;
     }
+    .pd_l50_sub {
+        padding-left: 50px;
+    }
+
 
     .pd_r10_sub {
         padding-right: 10px;

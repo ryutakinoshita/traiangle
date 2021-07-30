@@ -4,16 +4,16 @@
 
 
 {% block body %}
-    <section class="index mg_t50">
+    <section class="index mg_t50 mg_t70_sub">
         <div class="index_titles">
             <h6 class="index_title">テイクアウト予約サービス</h6>
             <h4 class="index_title_main pd_t10"><span class="blue">t</span>ri<span class="red">an</span>gl<span class="yellow">e</span></h4>
         </div>
-        <div class="text-center mg_t70">
-          <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary">ユーザーとして登録</button></a>
+        <div class="text-center mg_t70 mg_t70_sub">
+          <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary app_btn">ユーザーとして登録</button></a>
         </div>
-        <div class="text-center mg_t20">
-         <a href="{% url 'application' %}"><button class="btn btn-link" type="button">飲食店として申請する</button></a>
+        <div class="text-center mg_t20 mg_t20_sub">
+         <a href="{% url 'application' %}"><button class="btn btn-link app_btn" type="button">飲食店として申請する</button></a>
         </div>
     </section>
 {% endblock body %}

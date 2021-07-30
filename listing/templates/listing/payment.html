@@ -4,37 +4,37 @@
 
 
 {% block body %}
-    <section class="payment pd_t50 pd_b100">
+    <section class="payment pd_t50 pd_b100 pd_t50_sub pd_b100_sub body_sub_auto">
         <h6 class="payment_title pd_b30">注文内容を確認する</h6>
-        <p class="payment_detail_text pd_t30 pd_l20 pd_b30">合計金額 {{ order.get_total|floatformat:0| intcomma}}円</p>
+        <p class="payment_detail_text pd_t30 pd_l20 pd_b30 pd_t50_sub pd_b50_sub pd_l30_sub">合計金額 {{ order.get_total|floatformat:0| intcomma}}円</p>
         <form action="." method="POST" id="payment-form">
         {% csrf_token %}
              {% for order_item in order.items.all%}
-                <section class="listing_home mg_t20">
-                    <div class="listing_card mg_t10">
+                <section class="listing_home order_card mg_t20 mg_t30_sub">
+                    <div class="listing_card mg_t10 mg_t20_sub">
                         <img class="cart_img pd_t30 pd_l30" src="{{ MEDIA_URL }}{{ order_item.item.listing_img1 }}" alt="">
                         <div class="listing_text pd_t10">
-                            <div class="card-text listing_sale">{{ order_item.item.get_sale_display|default_if_none:'' }}</div>
-                            <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ order_item.item.listing_name }}</h5>
-                            <div class="quantity_item">
+                            <div class="card-text listing_sale mg_l30_sub">{{ order_item.item.get_sale_display|default_if_none:'' }}</div>
+                            <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10 pd_l50_sub pd_t10_sub pd_r10_sub">{{ order_item.item.listing_name }}</h5>
+                            <div class="quantity_item mg_t30_sub">
                                 <p class="quantity pd_l30">数量</p>
-                                <p class="quantity_main mg_l5">{{ order_item.quantity }}</p>
+                                <p class="quantity_main mg_l10 mg_l10_sub">{{ order_item.quantity }}</p>
                             </div>
-                            <p class="individual_item pd_l30 pd_t10">税込 ￥{{ order_item.get_total_item_price |floatformat:0 | intcomma}}</p>
-                            <p class="restaurant_listing_name mg_t10">{{ order_item.item.listing_user.rest_name| truncatechars:15 }}</p>
+                            <p class="individual_item pd_l30 pd_t10 mg_t20_sub">税込 ￥{{ order_item.get_total_item_price |floatformat:0 | intcomma}}</p>
+                            <p class="restaurant_listing_name order_rest_name mg_t10">{{ order_item.item.listing_user.rest_name| truncatechars:15 }}</p>
                         </div>
                     </div>
                 </section>
                  {% empty %}
                 <p class="no_cart mg_t15">カートに商品がありません</p>
             {% endfor %}
-            <h6 class="address_name_pay pd_t30 pd_l10">お支払い方法</h6>
+            <h6 class="address_name_pay pd_t30 pd_l10 pd_l20_sub pd_t50_sub pd_b10_sub">お支払い方法</h6>
             <div class="form-row">
               <div id="card-element"></div>
               <div id="card-errors" role="alert"></div>
             </div>
-            <div class="text-center mg_t30 pd_b50">
-                <button type="submit" class="btn btn-warning">注文を確定する</button>
+            <div class="text-center mg_t30 pd_b50 mg_t50_sub">
+                <button type="submit" class="btn btn-warning order_btn">注文を確定する</button>
             </div>
         </form>
     </section>

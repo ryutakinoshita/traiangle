@@ -256,13 +256,13 @@ class LikeHome(LikeBase):
     """ホームでページでお気に入りした場合"""
     def get(self, request, *args, **kwargs):
         super().get(request, *args, **kwargs)
-        return redirect('like_list')
+        return redirect('home')
 
 class LikeDetail(LikeBase):
     """詳細ページでお気に入りした場合"""
     def get(self, request, *args, **kwargs):
         super().get(request, *args, **kwargs)
-        return redirect('like_list')
+        return redirect('home')
 
 
 

@@ -5,34 +5,34 @@
 
 
 {% block body %}
-    <section class="cart mg_t50 pd_b100">
+    <section class="cart mg_t50 pd_b100 pd_t50_sub pd_b100_sub body_sub_auto">
         {% if order.get_total %}
-            <p class="pd_l10 total">小計 ￥{{ order.get_total |floatformat:0 | intcomma}}</p>
+            <p class="pd_l10 total pd_l30_sub">小計 ￥{{ order.get_total |floatformat:0 | intcomma}}</p>
         <div class="total_fee pd_b10">
-            <a class="mg_t15" href="{% url 'payment' %}"><button type="submit" class="btn btn-warning">レジに進む</button></a>
-            <a class="continue mg_t10" href="{% url 'home' %}">買い物を続ける</a>
+            <a class="mg_t15" href="{% url 'payment' %}"><button type="submit" class="btn btn-warning cart_btn">レジに進む</button></a>
+            <a class="continue mg_t10 mg_t10_sub" href="{% url 'home' %}">買い物を続ける</a>
         </div>
         {% else %}
         <div class="text-center">
-            <a class="continue_no_cart mg_t10" href="{% url 'home' %}">買い物を続ける</a>
+            <a class="continue_no_cart mg_t10 mg_t10_sub" href="{% url 'home' %}">買い物を続ける</a>
         </div>
         {% endif %}
         {% for order_item in order.items.all%}
-                <section class="listing_home mg_t20">
-                    <div class="listing_card mg_t10">
+                <section class="listing_home order_card mg_t20 mg_t30_sub">
+                    <div class="listing_card mg_t10 mg_t20_sub">
                         <img class="cart_img pd_t30 pd_l30" src="{{ MEDIA_URL }}{{ order_item.item.listing_img1 }}" alt="">
                         <div class="listing_text pd_t10">
-                            <div class="card-text listing_sale">{{ order_item.item.get_sale_display|default_if_none:'' }}</div>
-                            <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ order_item.item.listing_name }}</h5>
-                            <div class="quantity_item">
+                            <div class="card-text listing_sale mg_l30_sub">{{ order_item.item.get_sale_display|default_if_none:'' }}</div>
+                            <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10 pd_l50_sub pd_t10_sub pd_r10_sub">{{ order_item.item.listing_name }}</h5>
+                            <div class="quantity_item mg_t30_sub">
                                 <p class="quantity pd_l30">数量</p>
-                                <a href="{% url 'removesingleitem' order_item.item.slug %}"><i class="fas fa-minus mg_l10"></i></a>
-                                <p class="quantity_main mg_l5">{{ order_item.quantity }}</p>
-                                <a href="{% url 'additem' order_item.item.slug %}"><i class="fas fa-plus mg_l10"></i></a>
+                                <a href="{% url 'removesingleitem' order_item.item.slug %}"><i class="fas fa-minus mg_l10 mg_l20_sub"></i></a>
+                                <p class="quantity_main mg_l10 mg_l10_sub">{{ order_item.quantity }}</p>
+                                <a href="{% url 'additem' order_item.item.slug %}"><i class="fas fa-plus mg_l10 mg_l10_sub"></i></a>
                             </div>
-                            <p class="individual_item pd_l30 pd_t10">税込 ￥{{ order_item.get_total_item_price |floatformat:0 | intcomma}}</p>
-                            <a class="mg_l10" href="{% url 'removeitem' order_item.item.slug %}"><button type="submit" class="btn btn-outline-danger delete_item ">削除</button></a>
-                            <p class="restaurant_listing_name mg_t10">{{ order_item.item.listing_user.rest_name| truncatechars:15 }}</p>
+                            <p class="individual_item pd_l30 pd_t10 mg_t20_sub">税込 ￥{{ order_item.get_total_item_price |floatformat:0 | intcomma}}</p>
+                            <a class="mg_l10 mg_l30_sub" href="{% url 'removeitem' order_item.item.slug %}"><button type="submit" class="btn btn-outline-danger delete_item">削除</button></a>
+                            <p class="restaurant_listing_name order_rest_name mg_t10">{{ order_item.item.listing_user.rest_name| truncatechars:15 }}</p>
                         </div>
                     </div>
                 </section>

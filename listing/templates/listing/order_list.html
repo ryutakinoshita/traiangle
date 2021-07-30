@@ -4,22 +4,24 @@
 
 
 {% block body %}
-    <section class="listing_home mg_t30 pd_b100">
+    <section class="listing_home mg_t30 pd_b100 pd_b100_sub">
+    <div class="listings">
         {% for order in item_data %}
             <a href="{% url 'listing_detail' order.item.slug %}">
-                <div class="listing_card mg_t10 mg_b20">
+                <div class="listing_card mg_t10 mg_b20 mg_t30_sub">
                     <img class="listing_img" src="{{ MEDIA_URL }}{{ order.item.listing_img1 }}">
-                    <p class="price_text pd_t10">購入日 </p>
-                    <p class="card-text buyer_detail_time">{{ order.order_date|date:"Y/m/d G:i" }}</p>
-                    <div class="listing_text pd_t10">
+                    <p class="price_text pd_t10 pd_t10_sub">購入日 </p>
+                    <p class="card-text buyer_detail_time pd_b10 pd_b10_sub">{{ order.order_date|date:"Y/m/d G:i" }}</p>
+                    <div class="listing_text pd_t10 pd_t10_sub">
                         <div class="card-text listing_sale">{{ order.item.get_sale_display|default_if_none:'' }}</div>
-                        <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ order.item.listing_name| truncatechars:15 }}</h5>
-                        <p class="card-text listing_price pd_l20 mg_t15">￥{{ order.item.listing_price| intcomma }}</p>
-                        <p class="card-text listing_type_order mg_t20 pd_b10">{{ order.item.listing_user.rest_name| truncatechars:15}}</p>
+                        <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15 mg_t15_sub pd_l10_sub pd_r10_sub">{{ order.item.listing_name| truncatechars:15 }}</h5>
+                        <p class="card-text listing_price pd_l20 mg_t15 mg_t15_sub">￥{{ order.item.listing_price| intcomma }}</p>
+                        <p class="card-text restaurant_listing_name mg_t20 pd_b10 mg_t20_sub pd_b10_sub">{{ order.item.listing_user.rest_name| truncatechars:15}}</p>
                         <a href="{% url 'additem' order.item.slug  %}"><button type="submit" class="btn btn-outline-primary mg_t10 mg_b20">もう一度購入する</button></a>
                     </div>
                 </div>
             </a>
         {% endfor %}
+    </div>
     </section>
 {% endblock body %}

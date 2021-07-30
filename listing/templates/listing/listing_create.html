@@ -4,11 +4,11 @@
 
 
 {% block body %}
-    <section class="listing_create pd_b30">
+    <section class="listing_create body_sub_auto">
         <form class="listing_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
             <p class="listing_create_text">商品画像</p>
-            <div class="swiper-container mg_t15">
+            <div class="swiper-container mg_t15 mg_t30_sub">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><div class="img_preview pd_b10 mg_t15" id="preview1"></div></div>
                     <div class="swiper-slide"><div class="img_preview pd_b10 mg_t15" id="preview2"></div></div>
@@ -19,15 +19,15 @@
                 <div class="swiper-button-next swiper-button-black"></div>
             </div>
             <div class="div_listing">
-                <div class="registration_listing mg_t15">
+                <div class="registration_listing mg_t15 mg_t30_sub">
                     <label for="id_listing_img1" class="filelabel_listing">1枚目を選択</label>
                     <table class="table m-0">{% render_field form.listing_img1|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview1')" %}</table>
                 </div>
-                <div class="registration_listing mg_t15">
+                <div class="registration_listing mg_t15 mg_t30_sub">
                     <label for="id_listing_img2" class="filelabel_listing">2枚目を選択</label>
                     <table class="table m-0">{% render_field form.listing_img2|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview2')" %}</table>
                 </div>
-                <div class="registration_listing mg_t15">
+                <div class="registration_listing mg_t15 mg_t30_sub">
                     <label for="id_listing_img3" class="filelabel_listing">3枚目を選択</label>
                     <table class="table m-0">{% render_field form.listing_img3|add_class:"fileinput"|attr:"onChange:restImgPreView(event,'preview3')" %}</table>
                 </div>
@@ -56,7 +56,7 @@
             <div class="registration">
                 <table class="table m-0">{% render_field form.sale class="sale_form" placeholder=""%}</table>
             </div>
-            <div class="text-center mg_t70 pd_b100">
+            <div class="text-center mg_t70 pd_b100 mg_t70_sub pd_b100_sub">
                 <button type="submit" class="btn btn-success listing_btn">出品</button>
             </div>
         </form>

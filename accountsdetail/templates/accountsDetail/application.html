@@ -5,7 +5,7 @@
 
 {% block body %}
 
-    <section class="signup">
+    <section class="signup body_sub_auto">
         <form class="h-adr signup_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
             <p class="signup_text_detail">店舗名</p>
@@ -45,11 +45,11 @@
             <div class="registration">
                 <table class="table m-0">{% render_field form.nearest_station class="extended-address sign_up_user" placeholder="例 triangleマンション　〇〇号室"%}</table>
             </div>
-            <p class="restaurant_create_text">備考</p>
+            <p class="signup_text_detail">備考</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.text  class="restaurant_text_form" placeholder="質問等ありましたらお書き下さい。"%}</table>
             </div>
-            <div class="text-center  mg_t70 pd_b100">
+            <div class="text-center  mg_t70 pd_b100 mg_t70_sub pd_b100_sub">
                 <button type="submit" class="btn btn-success signup_btn">申請</button>
             </div>
         </form>

@@ -4,39 +4,41 @@
 
 
 {% block body %}
-    <section class="listing_home mg_t30 pd_b100">
+    <section class="listing_home mg_t30 pd_b100 pd_b100_sub" >
+    <div class="listings">
        {% for buyer in item_data %}
-            <div class="listing_card mg_t10 pd_b30">
+            <div class="listing_card mg_t10 pd_b30 mg_t30_sub pd_b30_sub">
                 <div>
                     <img class="listing_img" src="{{ MEDIA_URL }}{{ buyer.item.listing_img1 }}">
                     {% if request.user in buyer.confirmed.all %}
-                        <div class="text-center mg_t10">
+                        <div class="text-center mg_t10 mg_t20_sub">
                             <a href="{% url 'confirmed' buyer.pk %}"tabindex="-1" role="button" aria-disabled="true">
                                 <button type="button" class="btn btn-danger confirmed_btn">オーダー確認済み</button>
                             </a>
                         </div>
                     {% else %}
-                        <div class="text-center mg_t10">
+                        <div class="text-center mg_t10 mg_t20_sub">
                             <a href="{% url 'confirmed' buyer.pk %}" tabindex="-1" role="button" aria-disabled="true">
                                 <button type="button" class="btn btn-outline-danger confirmed_btn_true" >オーダーを確認しました</button>
                             </a>
                         </div>
                     {% endif %}
                 </div>
-             <div class="listing_text pd_t10">
+             <div class="listing_text pd_t10 pd_t10_sub">
                     <div class="card-text listing_sale">{{ buyer.item.get_sale_display|default_if_none:'' }}</div>
-                    <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15">{{ buyer.item.listing_name| truncatechars:15 }}</h5>
+                    <h5 class="card-title listing_name pd_l10 pd_r10 mg_t15 mg_t15_sub pd_l10_sub pd_r10_sub">{{ buyer.item.listing_name| truncatechars:15 }}</h5>
                     <p class="price_text">販売価格</p>
                     <p class="card-text listing_price">￥{{ buyer.item.listing_price| intcomma }}</p>
-                    <p class="price_text pd_t30">お客様名</p>
+                    <p class="price_text pd_t30 pd_t30_sub">お客様名</p>
                     <p class="buyer_detail_text">{{ buyer.user.first_name }} {{ buyer.user.last_name }}</p>
-                    <p class="price_text pd_t10">注文日</p>
+                    <p class="price_text pd_t10 pd_t10_sub">注文日</p>
                     <p class="buyer_detail_time">{{ buyer.order_date|date:"Y/m/d G:i"}}</p>
-                    <div class="text-center pd_t10">
+                    <div class="text-center pd_t10 pd_t10_sub">
                         <a href="{% url 'refund' %}" class="refund_link">返品申請を行う</a>
                     </div>
                 </div>
             </div>
        {% endfor %}
+    </div>
     </section>
 {% endblock body %}

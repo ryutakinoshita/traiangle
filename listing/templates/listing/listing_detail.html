@@ -3,9 +3,9 @@
 {% load humanize %}
 
 {% block body %}
-    <section class="listing_detail">
-        <h4 class="listing_name_detail pd_l10 pd_r10 pd_t30">{{ object.listing_name }}</h4>
-        <p class="listing_type_detail pd_l20 pd_t10">{{ object.get_listing_type_display }}</p>
+    <section class="listing_detail pd_b100 body_sub_auto pd_b100_sub">
+        <h4 class="listing_name_detail pd_l10 pd_r10 pd_t30 pd_t30_sub pd_l10_sub pd_r10_sub">{{ object.listing_name }}</h4>
+        <p class="listing_type_detail pd_l20 pd_t10 pd_t10_sub pd_l20_sub">{{ object.get_listing_type_display }}</p>
         <div class="swiper-container mg_t15">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img class="detail_img" src="{{ MEDIA_URL }}{{ object.listing_img1 }}" alt=""></div>
@@ -17,20 +17,22 @@
             <div class="swiper-button-next swiper-button-black"></div>
         </div>
 
-        <p class="price_text pd_l10">販売価格</p>
-        <p class="listing_price_detail pd_l30">￥{{ object.listing_price| intcomma }}</p>
+        <p class="price_text pd_l10 pd_l30_sub">販売価格</p>
+        <p class="listing_price_detail pd_l30 pd_l50_sub mg_b30_sub">￥{{ object.listing_price| intcomma }}</p>
               {% if request.user in object.like.all %}
-                  <a href="{% url 'additem' object.slug  %}" class="mg_l30"><button type="submit" class="btn btn-warning listing_cart_detail">カートに入れる</button></a>
+                  <div class="text-center">
+                  <a href="{% url 'additem' object.slug  %}" class=""><button type="submit" class="btn btn-warning listing_cart_detail_like">カートに入れる</button></a>
+                  </div>
               {% else %}
                   <div class="text-center">
                   <a href="{% url 'additem' object.slug  %}" class=""><button type="submit" class="btn btn-warning listing_cart_detail">カートに入れる</button></a>
-                  <a href="{% url 'like-detail' object.pk %}" class="mg_l10" tabindex="-1" role="button" aria-disabled="true"><button type="button" class="btn btn-outline-dark add_like"><i class="far fa-heart heart_false"></i>お気に入りに追加</button></a>
+                  <a href="{% url 'like-detail' object.pk %}" class="mg_l10 mg_l20_sub" tabindex="-1" role="button" aria-disabled="true"><button type="button" class="btn btn-outline-dark add_like"><i class="far fa-heart heart_false"></i>お気に入りに追加</button></a>
                   </div>
               {% endif %}
-        <div class="tab-wrap mg_t50">
-            <input id="TAB02-01" type="radio" name="TAB02" class="tab-rest" checked="checked" /><label class="tab-label switch_black" for="TAB02-01">店舗情報</label>
+        <div class="tab-wrap mg_t50 mg_t70_sub">
+            <input id="TAB02-01" type="radio" name="TAB02" class="tab-switch"  checked="checked" /><label class="tab-label switch_black" for="TAB02-01">店舗情報</label>
             <div class="tab-content">
-                <p class="listing_detail_rest_text pd_t30">店舗名</p>
+                <p class="listing_detail_rest_text pd_t30 pd_t30_sub">店舗名</p>
                 <p class="restaurant_listing_detail">{{ object.listing_user.rest_name}}</p>
                 <p class="listing_detail_rest_text pd_t10">住所</p>
                 <p class="restaurant_listing_detail">〒{{ object.listing_user.zip_code}}</p>
@@ -39,9 +41,9 @@
                 <p class="listing_detail_rest_text pd_t10">連絡先</p>
                 <p class="restaurant_listing_detail">TEL {{ object.listing_user.phone}}</p>
             </div>
-            <input id="TAB02-02" type="radio" name="TAB02" class="tab-rest" /><label class="tab-label switch_blue rest_label" for="TAB02-02">商品説明</label>
+            <input id="TAB02-02" type="radio" name="TAB02" class="tab-switch"  /><label class="tab-label switch_black" for="TAB02-02">商品説明</label>
             <div class="tab-content">
-                <p class="listing_text_detail pd_l20 pd_r20 ">{{ object.listing_text }}</p>
+                <p class="listing_text_detail pd_t10 pd_l20 pd_r20 pd_r20_sub pd_l20_sub pd_t10_sub">{{ object.listing_text }}</p>
             </div>
         </div>
 

@@ -4,7 +4,8 @@
 
 
 {% block body %}
-    <div class="search_rest mg_t20">
+    <section class="pd_b100 pd_b100_sub">
+    <div class="search_rest mg_t20 mg_t30_sub">
         <div class="form-check">
             <input class="form-check-input" type="radio" name="maker" value="food" onclick="formSwitch()" checked>
             <label class="form-check-label">フリーワード検索</label>
@@ -15,7 +16,7 @@
                <i class="fas fa-search"></i>
            </button>
         </form>
-        <div class="form-check mg_t20">
+        <div class="form-check mg_t20 mg_t30_sub">
             <input class="form-check-input" type="radio" name="maker" value="place" onclick="formSwitch()">
             <label class="form-check-label"> 地名・駅名で検索</label>
         </div>
@@ -25,7 +26,7 @@
                 <i class="fas fa-search"></i>
             </button>
         </form>
-        <div class="form-check mg_t20">
+        <div class="form-check mg_t20 mg_t30_sub">
             <input class="form-check-input" type="radio" name="maker" value="place" onclick="formSwitch()">
             <label class="form-check-label">店舗分類で検索</label>
         </div>
@@ -52,20 +53,23 @@
         </form>
     </div>
      <hr class="mg_t20">
-    <section class="restaurant mg_t30 mg_b100">
-        {% for restaurants in restaurant %}
-            <a href="{% url 'restaurant_detail' restaurants.pk %}">
-               <div class="card mg_b30">
-                   <img class="card-img-top" src="{{ MEDIA_URL }}{{ restaurants.restaurant_img1 }}">
-                   <div class="card-body restaurant_body">
-                      <h5 class="restaurant_name">{{ restaurants.rest_name| truncatechars:15 }}</h5>
-                      <p class="restaurant_type">{{ restaurants.get_restaurant_type_display }}</p>
-                      <p class="restaurant_business_hours">営業時間{{ restaurants.business_hours_start }}～{{ restaurants.business_hours_end }}</p>
-                      <p class="restaurant_business_hours_option">{{ restaurants.get_business_hours_option_display }}</p>
-                      <p class="restaurant_nearest_station">最寄り駅 {{ restaurants.nearest_station }}</p>
-                   </div>
-                </div>
-            </a>
-        {% endfor %}
+        <div class="restaurants">
+            {% for restaurants in restaurant %}
+                <section class="restaurant mg_t30 mg_t30_sub">
+                    <a href="{% url 'restaurant_detail' restaurants.pk %}">
+                       <div class="card mg_b30">
+                           <img class="card-img-top" src="{{ MEDIA_URL }}{{ restaurants.restaurant_img1 }}">
+                           <div class="card-body restaurant_body">
+                              <h5 class="restaurant_name">{{ restaurants.rest_name| truncatechars:15 }}</h5>
+                              <p class="restaurant_type">{{ restaurants.get_restaurant_type_display }}</p>
+                              <p class="restaurant_business_hours">営業時間{{ restaurants.business_hours_start }}～{{ restaurants.business_hours_end }}</p>
+                              <p class="restaurant_business_hours_option">{{ restaurants.get_business_hours_option_display }}</p>
+                              <p class="restaurant_nearest_station">最寄り駅 {{ restaurants.nearest_station }}</p>
+                           </div>
+                        </div>
+                    </a>
+                </section>
+            {% endfor %}
+        </div>
     </section>
 {% endblock %}

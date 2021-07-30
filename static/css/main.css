@@ -252,10 +252,6 @@
     .index_title_sub{
         font-size: 15px;
     }
-    .trial_btn,
-    .trial_btn:hover{
-        font-weight: bolder;
-    }
 
     .examples{
         margin-top: 80px;
@@ -294,7 +290,9 @@
         display: flex;
         justify-content: center;
     }
-    .search {
+    .search,
+    .search_listing,
+    .search_home{
         width: 85%;
         outline: none;
         height: 30px;
@@ -337,7 +335,7 @@
         font-weight: bolder;
     }
     .listing_price {
-        text-align: center;
+        padding-left: 20px;
         font-weight: bolder;
         font-size: 28px;
         margin: 0;
@@ -485,7 +483,6 @@
     .listing_detail {
         height: auto;
         background: #ffffff;
-        padding-bottom: 200px;
     }
     .listing_name_detail {
         font-size: 30px;
@@ -606,6 +603,9 @@
     }
     .listing_text_detail {
         font-size: 22px;
+    }
+    .listing_cart_detail_like{
+        width: 200px;
     }
 /*E listing_detail.html*/
 
@@ -926,7 +926,8 @@
     .registration{
         text-align: center;
     }
-    .change_btn{
+    .change_btn,
+    .app_btn{
         width: 50%;
         font-size: 20px;
         letter-spacing: 5px;

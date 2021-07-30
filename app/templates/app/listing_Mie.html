@@ -4,12 +4,12 @@
 
 
 {% block body %}
-    <section class="listing_home mg_t30 pd_b100">
+    <section class="listing_list mg_t30 mg_b100 mg_t50_sub pd_b100_sub">
        <div class="form-check mg_l10 mg_t20">
             <input class="form-check-input" type="radio" name="maker" value="food" onclick="formSwitch()" checked>
             <label class="form-check-label">フリーワード検索</label>
         </div>
-       <div class="searches mg_t15 mg_b20" id="freeWord">
+       <div class="searches mg_t15 mg_b20 mg_t15_sub mg_b30_sub" id="freeWord">
            <div class="dropdown mg_l20">
                <a class="btn btn-secondary dropdown-toggle" href={% url 'product_mie' %}"" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    三重県
@@ -24,41 +24,43 @@
                     <a class="dropdown-item" href="{% url 'product_wakayama' %}">和歌山県</a>
                </div>
            </div>
-           <form  action="{% url 'product_list' %}" method="get" class="search_word mg_b20">
-               <input class="search" type="text" name="query" placeholder="地名またはキーワードで検索" aria-label="Search">
+           <form  action="{% url 'product_osaka' %}" method="get" class="search_word mg_b20 mg_b20_sub">
+               <input class="search_listing" type="text" name="query" placeholder="地名またはキーワードで検索" aria-label="Search">
                <button class="search_btn">
                    <i class="fas fa-search"></i>
                </button>
            </form>
        </div>
-       <div class="form-check mg_t20 mg_l10">
+       <div class="form-check mg_t20 mg_l10 mg_t20_sub">
             <input class="form-check-input" type="radio" name="maker" value="place" onclick="formSwitch()">
             <label class="form-check-label"> 予算で検索</label>
         </div>
-        <form  action="{% url 'product_mie' %}" method="get" class="search_price mg_b40 mg_t15" id="placeList">
-            ￥<input class="search" type="number" name="data" placeholder="予算を入力" aria-label="Search">
+        <form  action="{% url 'product_mie' %}" method="get" class="search_price mg_b30 mg_t15 mg_b30_sub" id="placeList">
+            ￥<input class="search_listing" type="number" name="data" placeholder="予算を入力" aria-label="Search">
             <button class="search_btn">
                 <i class="fas fa-search"></i>
             </button>
         </form>
-        {% for Listing in item_data%}
-                <section class="listing_home mg_t20">
+     <div class="listings mg_t50_sub">
+             {% for Listing in item_data%}
+                <section class="listing_home mg_t20 mg_t20_sub mg_l20_sub">
                     <a href="{% url 'listing_detail' Listing.slug%}">
                         <div class="listing_card mg_t10">
                             <div>
                                 <img class="listing_img" src="{{ MEDIA_URL }}{{ Listing.listing_img1 }}">
                                 <p class="card-text listing_consumption_time">※{{ Listing.get_consumption_time_display }}</p>
                             </div>
-                            <div class="listing_text pd_t10">
+                            <div class="listing_text pd_t10 pd_t10_sub">
                                 <div class="card-text listing_sale">{{ Listing.get_sale_display|default_if_none:'' }}</div>
-                                <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10">{{ Listing.listing_name| truncatechars:15 }}</h5>
-                                <p class="price_text pd_t30">販売価格</p>
+                                <h5 class="card-title listing_name pd_l10 pd_r10 mg_t10 pd_t30_sub pd_l20_sub pd_r10_sub">{{ Listing.listing_name| truncatechars:15 }}</h5>
+                                <p class="price_text pd_t30 pd_t30_sub">販売価格</p>
                                 <p class="card-text listing_price">￥{{ Listing.listing_price| intcomma }}</p>
-                                <p class="restaurant_listing_name mg_t10">{{ Listing.listing_user.rest_name| truncatechars:15 }}</p>
+                                <p class="restaurant_listing_name mg_t10 mg_t20_sub">{{ Listing.listing_user.rest_name| truncatechars:15 }}</p>
                             </div>
                         </div>
                     </a>
                 </section>
-        {% endfor %}
-     </section>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock body %}

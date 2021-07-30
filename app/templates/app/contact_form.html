@@ -5,7 +5,7 @@
 
 
 {% block body %}
-    <section class="signup pd_t50 pd_b50">
+    <section class="signup pd_t50 pd_b50 body_sub_auto pd_t50_sub">
         <h5 class="change_text">退会</h5>
         <form class="listing_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
@@ -17,7 +17,7 @@
             <div class="registration">
                 <table class="table m-0">{% render_field form.message class="restaurant_text_form" placeholder=""%}</table>
             </div>
-            <div class="text-center mg_t70 pd_b100">
+            <div class="text-center mg_t70 pd_b100 mg_t70_sub pd_b100_sub">
                 <button type="submit" class="btn btn-danger signup_btn">退会</button>
             </div>
         </form>
