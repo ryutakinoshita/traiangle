@@ -322,7 +322,8 @@
         display: flex;
         border-radius: 4px;
     }
-    .listing_img {
+    .listing_img,
+    .restaurant_listing_img{
         width: 220px;
         height:200px;
     }
@@ -330,11 +331,13 @@
         width: 100%;
         position: relative;
     }
-    .listing_name {
+    .listing_name ,
+    .restaurant_detail_listing_name {
         font-size: 20px;
         font-weight: bolder;
     }
-    .listing_price {
+    .listing_price ,
+    .restaurant_listing_price{
         padding-left: 20px;
         font-weight: bolder;
         font-size: 28px;
@@ -350,7 +353,8 @@
         font-size: 22px;
         margin: 0;
     }
-    .price_text{
+    .price_text,
+    .restaurant_price_text{
         padding-left: 10px;
         margin: 0;
         font-size: 15px;
@@ -369,11 +373,16 @@
        text-align: right;
         padding-right: 10px;
     }
-    .restaurant_listing_name{
+    .restaurant_listing_name,
+    .restaurant_detail_listing_name{
         text-align: right;
         padding-right: 10px;
         font-size: 14px;
         color: #828181;
+    }
+    .restaurant_listing_home{
+        border-bottom:1px solid #d5d3d3;
+        border-top:1px solid #d5d3d3;
     }
     .listing_consumption_time{
         padding-left: 10px;
@@ -452,7 +461,8 @@
         padding-right: 10px;
         color: #999898;
     }
-    .listing_sale{
+    .listing_sale,
+    .restaurant_listing_sale{
         background: #38a76f;
         color: #ffffff;
         font-size: 14px;
@@ -1061,21 +1071,20 @@
     }
     .restaurant_zip_code,
     .restaurant_address{
-        font-size: 20px;
-        letter-spacing: 1px;
-        text-align: center;
-    }
-    .restaurant_detail_text{
+        padding-left: 70px;
         font-weight: bolder;
-        font-size: 22px;
-        padding-left: 50px;
+        letter-spacing: 3px;
+
     }
     .restaurant_nearest_detail{
-        text-align: right;
-        padding-right: 10px;
+        padding-left: 70px;
+        font-weight: bolder;
+        letter-spacing: 3px;
+
     }
     .restaurant_tel{
         font-size: 18px;
+        letter-spacing: 1px;
         text-align: center;
     }
     .form-check-label{

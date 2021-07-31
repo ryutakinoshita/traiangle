@@ -626,6 +626,8 @@
         color: #999898;
     }
     .restaurant_tel{
+        letter-spacing: 1px;
+        font-size: 24px;
         text-align: center;
     }
     .restaurant_hr{
@@ -635,9 +637,11 @@
     }
     .restaurant_zip_code,
     .restaurant_address{
-        font-size: 24px;
-        letter-spacing: 2px;
-        text-align: center;
+        padding-left: 70px;
+        font-size: 30px;
+        font-weight: bolder;
+        letter-spacing: 3px;
+
     }
     .restaurant_detail_text{
         font-weight: bolder;
@@ -645,8 +649,62 @@
         padding-left: 170px;
     }
     .restaurant_nearest_detail{
+        padding-left: 70px;
+        font-size: 30px;
+        font-weight: bolder;
+        letter-spacing: 3px;
+
+    }
+    .restaurant_listing_img {
+        width: 240px;
+        height:240px;
+    }
+    .listing_text {
+        width: 100%;
+        position: relative;
+    }
+    .restaurant_detail_listing_name {
+        font-size: 24px;
+        font-weight: bolder;
+    }
+    .restaurant_listing_price {
+        padding-left: 40px;
+        font-weight: bolder;
+        font-size: 35px;
+        margin: 0;
+    }
+    .listing_consumption_time{
+        padding-left: 10px;
+        padding-top: 10px;
+        font-size: 18px;
+        color: #379ae7;
+    }
+    .restaurant_listing_sale{
+        background: #38a76f;
+        color: #ffffff;
+        font-size: 22px;
+        width: 200px;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 4px;
+        letter-spacing:1px ;
+    }
+    .restaurant_price_text{
+        padding-left: 20px;
+        margin: 0;
+        font-size: 18px;
+        font-weight: bolder;
+    }
+    .restaurant_detail_name{
         text-align: right;
-        padding-right: 10px;
+        padding-right: 20px;
+        font-size: 18px;
+        color: #828181;
+    }
+    .restaurant_listing_home{
+        border-bottom:1px solid #d5d3d3;
+        border-top:1px solid #d5d3d3;
     }
     .restaurant {
         width: 300px;
