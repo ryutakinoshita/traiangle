@@ -419,6 +419,7 @@
         font-size: 18px;
         letter-spacing: 1px;
         font-weight: bolder;
+        padding: 4px 8px;
         margin-right: 5px;
     }
     .search_free{
@@ -693,7 +694,9 @@
         padding-top:20px ;
     }
 
-    label[for=id_sale_0]{
+    label[for=id_sale_0],
+    label[for=id_privacy_user_0],
+    label[for=id_terms_user_0]{
         display: none;
     }
 
@@ -784,6 +787,23 @@
     }
     .sale_form{
         font-size: 22px;
+    }
+    .registration_privacy_terms{
+        display: flex;
+        align-items: center;
+    }
+    .privacy_terms_form{
+        width: 15px;
+        height: 15px;
+    }
+    .privacy_terms{
+        font-size: 16px;
+        margin: 0;
+    }
+    .link_privacy_terms,
+    .link_privacy_terms:hover{
+        font-size: 18px;
+        color: #3399FF;
     }
 
 
@@ -936,13 +956,13 @@
     .registration{
         text-align: center;
     }
-    .change_btn,
-    .app_btn{
-        width: 50%;
-        font-size: 20px;
-        letter-spacing: 5px;
+    .app_btn,
+    .change_btn{
+        font-size: 18px;
+        letter-spacing: 2px;
         border-radius: 4px;
     }
+
     .individual_text{
         padding-left: 20px;
         padding-top: 70px;
@@ -1336,6 +1356,64 @@
     .pd_r20 {
         padding-right: 20px;
     }
+
+     .flame30 {
+    margin: 2em auto;
+    background: #e5f8ff;
+    width:100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    }
+    .flame30 .flame30-title {
+    font-size: 1.2em;
+    background: #5e5e5e;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    }
+    .flame30 p {
+    padding: 15px 20px;
+    margin: 0;
+    }
+
+      a.btn_02 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        border: 1px solid #228bc8;
+        box-sizing: border-box;
+        width: 100%;
+        height: 50px;
+        padding: 0 6% 0 12%;
+        color: #228bc8;
+        font-size: 16px;
+        text-align: left;
+        text-decoration: none;
+        position: relative;
+        transition-duration: 0.2s;
+      }
+      a.btn_02:hover {
+        background: #228bc8;
+        color: #fff;
+      }
+      a.btn_02:before {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 0 7px 8px;
+        border-color: transparent transparent transparent #228bc8;
+        position: absolute;
+        top: 50%;
+        left: 6%;
+        margin-top: -7px;
+      }
+      a.btn_02:hover:before {
+        border-color: transparent transparent transparent #fff;
+      }
 
 /*E margin/padding*/
 }

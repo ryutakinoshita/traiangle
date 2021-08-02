@@ -1,0 +1,72 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+
+{% block body %}
+    <section class="listing mg_t50 pd_b30">
+       
+        <a href="{%url 'contact'%}" class="change_text_small mg_t70 btn_02">ユーザーヘルプ</a>
+        <a href="help_Store.html" class="change_text_small mg_t20 btn_02">出品店ヘルプ</a>
+
+        <h5 class="change_text mg_t70">ユーザーヘルプ</h5>
+
+        <div class="flame30 mg_t50">
+            <div class="flame30-title">triangleとは？</div>
+            <p>triangleは、飲食店のテイクアウトサービスを仲介するサービスです。</p>
+        </div>
+        <div class="flame30"> 
+            <div class="flame30-title">会員登録は無料ですか？</div>
+            <p>会員登録は無料です。</p>
+        </div>
+        <div class="flame30">
+            <div class="flame30-title">お問い合わせ方法</div>
+            <p>ログインができない場合<br>
+                ご登録のメールアドレスより、以下の情報をメールにてお問い合わせください。<br>
+                * 宛先：[　　　　]<br>
+                * 件名：お困りの内容をご入力ください。<br>
+                * 本文：取引のオーダーID、商品名、ご状況についてなるべく詳しくご入力ください。<br>
+
+                ログイン済みの場合<br>
+                お問い合わせフォームよりご連絡をお願いいたします。<br>
+                
+            </p>
+        </div>
+        <div class="flame30">
+            <div class="flame30-title">お電話でのお問い合わせに関して</div>
+            <p>triangleのご登録・ご利用・取引に関するお問い合わせにつきましては、メールにて回答させていただいております。お手数ですがtraiangle内のお問い合わせフォームをご利用いただくか、[  ]宛にメールにてお送りくださいますようお願いいたします。</p>
+        </div>
+        <div class="flame30">
+            <div class="flame30-title">どのように商品検索を行えば良いですか。</div>
+            <p>triangle では、お探しの商品を「地域」と「フリーワード」と「予算」で検索することができます。  <br>
+                　・地域：お住まいの府県を選択し検索します。<br>
+                　・フリーワード：お探しの商品名称を検索窓に入力し検索します。<br>　
+                　・予算：お探しの商品金額を入力し検索します。<br>
+                これら3つを上手く組み合わせて検索すると、お探しの商品を見つけやすくなります。</p>
+        </div>
+        <div class="flame30">
+            <div class="flame30-title">商品を購入するにあたっての支払方法にはどのようなものがありますか。</div>
+            <p>支払方法は、クレジットカードのみになります。</p>
+        </div>
+        <div class="flame30">
+            <div class="flame30-title">お店の営業時間外にリクエストは可能ですか？</div>
+            <p> 営業時間外のリクエストは不可となっております。<br>
+                 営業時間は出品店により変わるため店舗詳細ページにてご確認ください。</p>
+        </div>
+        <div class="flame30">
+            <div class="flame30-title">なぜ引き取り時間が決められているのですか？</div>
+            <p>ユーザーと出品店の取引を円滑に行うためです。</p>
+        </div>
+        <div class="flame30 mg_t50">
+            <div class="flame30-title">商品のアレルギー情報はどこで確認できますか？</div>
+            <p>サービスの性質上、商品のアレルギー情報を正確に記載するのが難しくなっています。不安なお客様は、店舗へ直接ご確認下さい。</p>
+        </div>
+        <div class="flame30">
+            <div class="flame30-title">上記以外の質問がある場合</div>
+            <p>  こちらのお問い合わせフォームへご連絡ください。<br>
+                問い合わせURL
+            </p>
+        </div>
+    </section>
+{% endblock body %}

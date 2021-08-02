@@ -321,3 +321,18 @@ class ContactView(LoginRequiredMixin,generic.CreateView):
 class ContactResultView(LoginRequiredMixin,generic.TemplateView):
     template_name = 'app/contact_result.html'
 
+
+class PrivacyPolicyView(generic.TemplateView):
+    template_name ='app/privacy_policy.html'
+
+
+class TermsUserView(generic.TemplateView):
+    template_name ='app/terms_user.html'
+
+
+class TermsStoreView(generic.TemplateView):
+    template_name ='app/terms_store.html'
+
+
+class HelpView(generic.TemplateView):
+    template_name ='app/help.html'

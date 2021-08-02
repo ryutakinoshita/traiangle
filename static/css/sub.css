@@ -159,7 +159,6 @@
         font-weight: bolder;
     }
     .app_btn{
-        width: 20%;
         font-size: 20px;
         letter-spacing: 5px;
         border-radius: 4px;
@@ -382,7 +381,6 @@
         border-radius: 4px;
     }
     .change_btn{
-        width: 50%;
         font-size: 20px;
         letter-spacing: 5px;
         border-radius: 4px;
@@ -559,6 +557,24 @@
         color: #3399FF;
         font-size: 24px;
     }
+    .registration_privacy_terms{
+        display: flex;
+        align-items: center;
+    }
+    .privacy_terms_form{
+        width: 18px;
+        height: 18px;
+    }
+    .privacy_terms{
+        font-size: 18px;
+        margin: 0;
+    }
+    .link_privacy_terms,
+    .link_privacy_terms:hover{
+        font-size: 22px;
+        color: #3399FF;
+    }
+
 
 /*E signup.html*/
 
@@ -786,6 +802,7 @@
     }
     .search_rests{
         margin-top: 15px;
+         padding-left: 160px;
     }
     .search_btn ,
     .search_btn:hover{
@@ -906,7 +923,9 @@
         letter-spacing: 5px;
         border-radius: 4px;
     }
-    label[for=id_sale_0]{
+    label[for=id_sale_0],
+    label[for=id_privacy_user_0],
+    label[for=id_terms_user_0]{
         display: none;
     }
 

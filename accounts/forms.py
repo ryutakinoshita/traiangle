@@ -14,9 +14,9 @@ class UserLoginForm(AuthenticationForm):
     """ログインフォーム"""
     class Meta:
         model = User
-        fields = [
+        fields = (
             'email', 'password',
-        ]
+        )
         labels = {
             'email': 'E-mail',
             'password': 'password',
@@ -32,26 +32,39 @@ class UserCreateForm(UserCreationForm):
             'nearest_station','business_hours_start','business_hours_end','business_hours_option',
             'restaurant_type',"zip_code","prefectures","city","address1","address2",
         )
-        fields = [
-            'first_name','last_name','email','phone','password1','password2',
-        ]
+        fields = (
+            'first_name','last_name','email','phone','password1','password2','privacy_user','terms_user',
+        )
+        widgets = {
+            'privacy_user': forms.CheckboxInput(),
+            'terms_user': forms.CheckboxInput(),
+        }
+
+
+
 class RestaurantUserCreateForm(UserCreationForm):
     """レストランユーザー登録フォーム"""
     class Meta:
         model = User
-        fields = [
+        fields = (
             'first_name','last_name','email','phone','password1','password2',"zip_code","prefectures","city",
             "address1","address2","rest_name",'restaurant_img1','restaurant_img2','restaurant_img3','certification',
-            'nearest_station','business_hours_start','business_hours_end','business_hours_option','restaurant_type'
-        ]
+            'nearest_station','business_hours_start','business_hours_end','business_hours_option','restaurant_type',
+            'privacy_user','terms_user',
+        )
+        widgets = {
+            'privacy_user': forms.CheckboxInput(),
+            'terms_user': forms.CheckboxInput(),
+        }
+
 
 class EmailChangeForm(forms.ModelForm):
     """メールアドレス変更"""
     class Meta:
         model = User
-        fields = [
+        fields = (
             'email',
-        ]
+        )
 
     def clean_email(self):
         email = self.cleaned_data['email']
@@ -63,26 +76,26 @@ class PasswordResetForm(PasswordResetForm):
     """パスワードの再設定"""
     class Meta:
         model = User
-        fields = [
+        fields = (
             'email',
-        ]
+        )
 
 
 class SetPasswordForm(SetPasswordForm):
     """新パスワードの設定"""
     class Meta:
         model = User
-        fields = [
+        fields = (
             'password1','password2'
-        ]
+        )
 
 
 class RestaurantUserUpdateForm(ModelForm):
     """レストラン変更フォーム"""
     class Meta:
         model = User
-        fields = [
+        fields = (
             'phone',"zip_code","prefectures","city",
             "address1","address2","rest_name",'certification',
             'nearest_station','business_hours_start','business_hours_end','business_hours_option','restaurant_type'
-        ]
+        )

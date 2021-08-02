@@ -106,6 +106,21 @@
             <div class="registration">
                 <table class="table m-0">{% render_field form.nearest_station class="sign_up_user" placeholder="JR大阪駅"%}</table>
             </div>
+            <p class="listing_create_text">利用規約、プライバシー・ポリシーへの同意</p>
+            <div class="mg_t20 mg_l20 mg_t30_sub mg_l30_sub">
+                <a href="{% url 'privacy_policy' %}" class="link_privacy_terms">プライバシー・ポリシー</a>
+            </div>
+            <div class="registration_privacy_terms pd_l30 mg_t10 pd_l50_sub mg_t10_sub">
+                {% render_field form.privacy_user class="privacy_terms_form" required="required"%}
+                <p class="privacy_terms mg_l10 mg_l10_sub">プライバシー・ポリシーについて同意します</p>
+            </div>
+            <div class="mg_t50 mg_l20 mg_t50_sub mg_l30_sub">
+                <a href="{% url 'terms_user' %}" class="link_privacy_terms">利用規約</a>
+            </div>
+            <div class="registration_privacy_terms pd_l30 mg_t10 pd_l50_sub mg_t10_sub">
+                {% render_field form.terms_user class="privacy_terms_form" required="required"%}
+                <p class="privacy_terms mg_l10 mg_l10_sub">利用規約について同意します</p>
+            </div>
             <div class="text-center  mg_t70 pd_b100 mg_t70_sub pd_b100_sub">
                 <button type="submit" class="btn btn-success signup_btn">登録</button>
             </div>
