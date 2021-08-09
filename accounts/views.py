@@ -9,6 +9,9 @@ from django.core.signing import BadSignature, SignatureExpired, dumps, loads
 from django.contrib.auth import get_user_model, login
 from django.http import HttpResponseBadRequest
 from django.conf import settings
+from django.shortcuts import resolve_url
+import stripe
+import time
 from django.contrib.auth.views import (
     LoginView,
     LogoutView,
@@ -25,10 +28,10 @@ from .forms import (
     RestaurantUserCreateForm,
     RestaurantUserUpdateForm,
 )
-from django.shortcuts import resolve_url
-
-
 User = get_user_model()
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
 
 class LoginView(LoginView):
     """ログイン機能"""
@@ -52,6 +55,7 @@ class SignupView(generic.CreateView):
         user.save()
 
 
+
         current_site = get_current_site(self.request)
         domain = current_site.domain
         context = {
@@ -66,6 +70,7 @@ class SignupView(generic.CreateView):
 
         user.email_user(subject, message)
         return redirect('user_create_done')
+
 
 
 class SignupDoneView(generic.TemplateView):
@@ -110,6 +115,7 @@ class RestaurantLoginView(LoginView):
     def get_success_url(self):
         return resolve_url('my_page_restaurant')
 
+
 class RestaurantUserCreateView(generic.CreateView):
     """レストランユーザー登録機能"""
     template_name = 'account/restaurant_signup.html'
@@ -120,6 +126,65 @@ class RestaurantUserCreateView(generic.CreateView):
         """仮登録と本登録用メールの発行"""
         user = form.save(commit=False)
         user.is_active = False
+        account = stripe.Account.create(
+            type="custom",
+            country="JP",
+            email=user.email,
+            business_type="individual",
+            capabilities={
+                'card_payments': {
+                    'requested': True,
+                },
+                'transfers': {
+                    'requested': True,
+                },
+            },
+        )
+        user.stripe_user_id=account['id']
+
+        acct_id=account['id']
+        stripe.Account.modify(
+            acct_id,
+            individual={
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'first_name_kana': user.stripe_first_name_kana,
+                'last_name_kana': user.stripe_last_name_kana,
+                'first_name_kanji': user.first_name,
+                'last_name_kanji': user.last_name,
+                'email':user.email,
+                'phone': '+81'+user.phone,
+                'gender': user.stripe_gender,
+                'address_kanji': {
+                    "country": "JP",
+                    "state": user.stripe_state,
+                    "city": user.stripe_city,
+                    "town": user.stripe_town,
+                    "line1": user.stripe_line1,
+                    "line2": user.stripe_line2,
+                    "postal_code": user.stripe_postal_code,
+                },
+                'address_kana': {
+                    "country": "JP",
+                    "postal_code": user.stripe_postal_code,
+                    "state": user.stripe_state_kana,
+                    "city": user.stripe_city_kana,
+                    "town": user.stripe_town_kana,
+                    "line1": user.stripe_line1_kana,
+                    "line2": user.stripe_line2_kana,
+                },
+                'dob': {
+                    "day": user.stripe_day,
+                    "month": user.stripe_month,
+                    "year": user.stripe_year
+                },
+
+            },
+            tos_acceptance={
+                "date": int(time.time()),
+                "ip": "8.8.8.8"
+            }
+        )
         user.save()
 
 

@@ -4,7 +4,6 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import FormView
 from django.db.models import Q
-
 from accounts.models import User
 from listing.models import Listing
 from .forms import (

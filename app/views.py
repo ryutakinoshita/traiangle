@@ -2,8 +2,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
 from django.urls import reverse_lazy
 from django.views import generic
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.generic.edit import FormView
 
+import accounts.models
 from accounts.models import User
 from app.forms import ContactForm
 from app.models import Withdrawal
@@ -14,6 +16,10 @@ from django.views.decorators.csrf import csrf_exempt
 import stripe
 from django.db.models import Q
 from django.utils import timezone
+import time
+import stripe
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
 
 
 class HomeView(generic.ListView):
@@ -336,3 +342,8 @@ class TermsStoreView(generic.TemplateView):
 
 class HelpView(generic.TemplateView):
     template_name ='app/help.html'
+
+class HelpStoreView(generic.TemplateView):
+    template_name ='app/help.html'
+
+

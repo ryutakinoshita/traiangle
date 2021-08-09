@@ -80,6 +80,7 @@ class Hour(models.Model):
 
 
 
+
 class User(AbstractBaseUser, PermissionsMixin):
     """"カスタムユーザーモデル"""
     first_name=models.CharField(max_length=30,blank=False,null=False)
@@ -101,6 +102,24 @@ class User(AbstractBaseUser, PermissionsMixin):
     business_hours_start = models.CharField(max_length=40, blank=True, null=True)
     business_hours_end = models.CharField(max_length=40, blank=True, null=True)
     business_hours_option = models.CharField(max_length=40, choices=Hour.Types,blank=True, null=True)
+    stripe_user_id = models.CharField(max_length=50)
+    stripe_first_name_kana = models.CharField(max_length=30,blank=True, null=True)
+    stripe_last_name_kana = models.CharField(max_length=30,blank=True, null=True)
+    stripe_gender=models.CharField(max_length=100,blank=True, null=True)
+    stripe_state = models.CharField(max_length=30,blank=True, null=True)
+    stripe_city = models.CharField(max_length=100,blank=True, null=True)
+    stripe_town = models.CharField(max_length=100,blank=True, null=True)
+    stripe_line1 = models.CharField(max_length=100,blank=True, null=True)
+    stripe_line2 = models.CharField(max_length=100,blank=True, null=True)
+    stripe_postal_code = models.CharField(max_length=8,blank=True, null=True)
+    stripe_state_kana = models.CharField(max_length=100,blank=True, null=True)
+    stripe_city_kana = models.CharField(max_length=100,blank=True, null=True)
+    stripe_town_kana = models.CharField(max_length=100,blank=True, null=True)
+    stripe_line1_kana = models.CharField(max_length=100,blank=True, null=True)
+    stripe_line2_kana = models.CharField(max_length=100,blank=True, null=True)
+    stripe_day = models.CharField(max_length=2,blank=True, null=True)
+    stripe_month = models.CharField(max_length=2,blank=True, null=True)
+    stripe_year = models.CharField(max_length=4,blank=True, null=True)
     privacy_user = models.BooleanField('プライバシー・ポリシーの確認',default=False)
     terms_user = models.BooleanField('利用規約への同意',default=False)
     created = models.DateTimeField(default=timezone.now)

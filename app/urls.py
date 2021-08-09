@@ -23,4 +23,5 @@ urlpatterns=[
     path('terms/user/', views.TermsUserView.as_view(), name='terms_user'),
     path('terms/store/', views.TermsStoreView.as_view(), name='terms_store'),
     path('help/', views.HelpView.as_view(), name='help'),
+    path('help/store/', views.HelpStoreView.as_view(), name='help_store'),
 ]

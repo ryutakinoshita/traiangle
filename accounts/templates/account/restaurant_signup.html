@@ -11,10 +11,23 @@
             <div class="registration">
                 <table class="table">{% render_field form.first_name class="sign_up_user" placeholder="大阪"%}</table>
             </div>
+             <p class="signup_text_detail">姓　カナ</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_first_name_kana class="sign_up_user"　%}</table>
+            </div>
             <p class="signup_text_detail">名</p>
             <div class="registration">
                 <table class="table">{% render_field form.last_name class="sign_up_user"　placeholder="太郎"%}</table>
             </div>
+            <p class="signup_text_detail">名　カナ</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_last_name_kana class="sign_up_user"　%}</table>
+            </div>
+            <p class="signup_text_detail">性別</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_gender class="sign_up_user"%}</table>
+            </div>
+            <p class="gender_type">※男性の場合はmale、女性の場合はfemaleとお書き下さい。</p>
             <p class="signup_text_detail">メールアドレス</p>
             <div class="registration">
                 <table class="table width_100">{% render_field form.email class="sign_up_user"　placeholder="triangle@gmail.com"%}</table>
@@ -105,6 +118,62 @@
             <p class="signup_text_detail">最寄り駅</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.nearest_station class="sign_up_user" placeholder="JR大阪駅"%}</table>
+            </div>
+            <p class="signup_text_detail">郵便番号</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_postal_code class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">都道府県</p>
+            <div class="registration">
+                <table class="table">{% render_field form.stripe_state class="sign_up_user" %}</table>
+            </div>
+            <p class="signup_text_detail">都道府県　カナ</p>
+            <div class="registration">
+                <table class="table">{% render_field form.stripe_state_kana class="sign_up_user" %}</table>
+            </div>
+            <p class="signup_text_detail">市町村</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_city class="sign_up_user"　%}</table>
+            </div>
+            <p class="signup_text_detail">市町村　カナ</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_city_kana class="sign_up_user"　%}</table>
+            </div>
+            <p class="signup_text_detail">町名</p>
+            <div class="registration">
+                <table class="table">{% render_field form.stripe_town class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">町名　カナ</p>
+            <div class="registration">
+                <table class="table">{% render_field form.stripe_town_kana class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">番地</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_line1 class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">番地　カナ</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_line1_kana class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">建物名</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_line2 class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">建物名　カナ</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_line2_kana class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">西暦</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_year class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">月</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_month class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">日</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_day class="sign_up_user"%}</table>
             </div>
             <p class="listing_create_text">利用規約、プライバシー・ポリシーへの同意</p>
             <div class="mg_t20 mg_l20 mg_t30_sub mg_l30_sub">

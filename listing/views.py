@@ -188,6 +188,7 @@ class PaymentView(LoginRequiredMixin, View):
         token = request.POST.get('stripeToken')
         amount = order.get_total()
         order_items = order.items.all()
+
         item_list = []
         for order_item in order_items:
             item_list.append(str(order_item.item) + '：' + str(order_item.quantity))
@@ -198,6 +199,8 @@ class PaymentView(LoginRequiredMixin, View):
             currency='jpy',
             description=description,
             source=token,
+            stripe_account='acct_1JKBAGRGtE945Dqx',
+
         )
 
         payment = Payment(user=request.user)

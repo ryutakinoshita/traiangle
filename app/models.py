@@ -1,6 +1,6 @@
 from django.db import models
 from accounts.models import User
-
+from phonenumber_field.modelfields import PhoneNumberField
 
 class StripeCustomer(models.Model):
     """サブスクリプションモデル"""
@@ -28,3 +28,5 @@ class Withdrawal(models.Model):
 
     def __str__(self):
         return self.message
+
+

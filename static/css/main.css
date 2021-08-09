@@ -762,6 +762,10 @@
         font-weight: bolder;
         margin: 0;
     }
+    .gender_type{
+        font-size: 16px;
+        padding: 5px 20px 0;
+    }
     .signup{
         background: #ffffff;
         height: auto;
@@ -1357,27 +1361,36 @@
         padding-right: 20px;
     }
 
-     .flame30 {
+ .terms-text{
+    line-height:35px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.flame30 {
     margin: 2em auto;
-    background: #e5f8ff;
+    background: #fff;
     width:100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
-    }
-    .flame30 .flame30-title {
-    font-size: 1.2em;
-    background: #5e5e5e;
-    padding: 4px;
-    text-align: center;
-    color: #FFF;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    }
-    .flame30 p {
-    padding: 15px 20px;
-    margin: 0;
-    }
+    line-height: 40px;
+}
+.flame30-title {
+        font-size: 1.2em;
+        background: #5e5e5e;
+        padding: 4px;
+        text-align: center;
+        color: #FFF;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        margin-bottom: 10px;
+}
+.flame30-text{
+        padding-left: 10px;
+        padding-right:10px;
+}
 
-      a.btn_02 {
+
+a.btn_02 {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1393,12 +1406,12 @@
         text-decoration: none;
         position: relative;
         transition-duration: 0.2s;
-      }
-      a.btn_02:hover {
+}
+a.btn_02:hover {
         background: #228bc8;
         color: #fff;
-      }
-      a.btn_02:before {
+}
+a.btn_02:before {
         content: "";
         display: inline-block;
         width: 0;
@@ -1410,10 +1423,15 @@
         top: 50%;
         left: 6%;
         margin-top: -7px;
-      }
-      a.btn_02:hover:before {
+}
+a.btn_02:hover:before {
         border-color: transparent transparent transparent #fff;
-      }
-
+}
+.text-size{
+        font-size: 10px;
+}
+.pd_b150 {
+        padding-bottom: 100px;
+}
 /*E margin/padding*/
 }
