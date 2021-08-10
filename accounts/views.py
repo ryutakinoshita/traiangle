@@ -141,7 +141,6 @@ class RestaurantUserCreateView(generic.CreateView):
             },
         )
         user.stripe_user_id=account['id']
-
         acct_id=account['id']
         stripe.Account.modify(
             acct_id,
@@ -185,7 +184,25 @@ class RestaurantUserCreateView(generic.CreateView):
                 "ip": "8.8.8.8"
             }
         )
+        stripe.Account.create_external_account(
+            acct_id,
+            external_account={
+                "object": "bank_account",
+                "account_number": user.stripe_account_number,
+                "routing_number": user.stripe_bunk_code+user.stripe_routing_number,
+                "account_holder_name": user.stripe_account_holder_name,
+                "account_holder_type": "individual",
+                "currency": "jpy",
+                "country": "JP"
+            }
+        )
         user.save()
+        with open('media/stripeImg/stripe_img', 'rb') as fp:
+            stripe.File.create(
+                file=fp,
+                purpose='dispute_evidence',
+                stripe_account=acct_id
+            )
 
 
         current_site = get_current_site(self.request)

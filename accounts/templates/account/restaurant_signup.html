@@ -175,6 +175,26 @@
             <div class="registration">
                 <table class="table width_100">{% render_field form.stripe_day class="sign_up_user"%}</table>
             </div>
+            <p class="signup_text_detail">口座番号</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_account_number class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">銀行コード</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_bunk_code class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">支店番号</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_routing_number class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">ご名義人</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_account_holder_name class="sign_up_user"%}</table>
+            </div>
+            <p class="signup_text_detail">本人確認</p>
+            <div class="registration">
+                <table class="table width_100">{% render_field form.stripe_img class="sign_up_user"%}</table>
+            </div>
             <p class="listing_create_text">利用規約、プライバシー・ポリシーへの同意</p>
             <div class="mg_t20 mg_l20 mg_t30_sub mg_l30_sub">
                 <a href="{% url 'privacy_policy' %}" class="link_privacy_terms">プライバシー・ポリシー</a>

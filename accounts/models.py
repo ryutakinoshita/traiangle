@@ -78,6 +78,25 @@ class Hour(models.Model):
         ("4", "TELでのお問い合わせ確認"),
     )
 
+class Bank(models.Model):
+    code=(
+        ("0001", "みずほ銀行"),
+        ("0005", "三菱UFJ銀行"),
+        ("0009", "三井住友銀行"),
+        ("0010", "りそな銀行"),
+        ("0033", "PayPay銀行"),
+        ("0034", "セブン銀行"),
+        ("0035", "ソニー銀行"),
+        ("0036", "楽天銀行"),
+        ("0038", "住信SBIネット銀行"),
+        ("0039", "auじぶん銀行"),
+        ("0040", "イオン銀行"),
+        ("0042", "ローソン銀行"),
+        ("0157", "滋賀銀行"),
+        ("0158", "京都銀行"),
+        ("0159", "関西みらい銀行"),
+
+    )
 
 
 
@@ -120,6 +139,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     stripe_day = models.CharField(max_length=2,blank=True, null=True)
     stripe_month = models.CharField(max_length=2,blank=True, null=True)
     stripe_year = models.CharField(max_length=4,blank=True, null=True)
+    stripe_account_number=models.CharField(max_length=100,blank=True, null=True)
+    stripe_bunk_code=models.CharField(max_length=100,choices=Bank.code,blank=True, null=True)
+    stripe_routing_number=models.CharField(max_length=100,blank=True, null=True)
+    stripe_account_holder_name=models.CharField(max_length=100,blank=True, null=True)
+    stripe_img=models.ImageField(upload_to='stripeImg/',blank=True, null=True)
     privacy_user = models.BooleanField('プライバシー・ポリシーの確認',default=False)
     terms_user = models.BooleanField('利用規約への同意',default=False)
     created = models.DateTimeField(default=timezone.now)

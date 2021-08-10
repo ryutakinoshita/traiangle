@@ -33,7 +33,8 @@ class UserCreateForm(UserCreationForm):
             'restaurant_type',"zip_code","prefectures","city","address1","address2",'stripe_first_name_kana',
             'stripe_last_name_kana','stripe_state','stripe_city','stripe_town','stripe_line1','stripe_line2',
             'stripe_postal_code','stripe_state_kana','stripe_city_kana','stripe_town_kana','stripe_line1_kana',
-            'stripe_line2_kana','stripe_day','stripe_month','stripe_year','stripe_gender',
+            'stripe_line2_kana','stripe_day','stripe_month','stripe_year','stripe_gender','stripe_account_number',
+            'stripe_bunk_code','stripe_routing_number','stripe_account_holder_name','stripe_img',
         )
         fields = (
             'first_name','last_name','email','phone','password1','password2','privacy_user','terms_user',
@@ -56,6 +57,7 @@ class RestaurantUserCreateForm(UserCreationForm):
             'privacy_user','terms_user','stripe_first_name_kana','stripe_last_name_kana','stripe_state','stripe_city',
             'stripe_town','stripe_line1','stripe_line2','stripe_postal_code','stripe_state_kana','stripe_city_kana',
             'stripe_town_kana','stripe_line1_kana','stripe_line2_kana','stripe_day','stripe_month','stripe_year','stripe_gender',
+            'stripe_account_number','stripe_bunk_code','stripe_routing_number','stripe_account_holder_name','stripe_img',
 
         )
         widgets = {
