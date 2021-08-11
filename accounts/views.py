@@ -12,6 +12,8 @@ from django.conf import settings
 from django.shortcuts import resolve_url
 import stripe
 import time
+import os
+from config.settings import BASE_DIR
 from django.contrib.auth.views import (
     LoginView,
     LogoutView,
@@ -196,13 +198,25 @@ class RestaurantUserCreateView(generic.CreateView):
                 "country": "JP"
             }
         )
+
         user.save()
-        with open('media/stripeImg/stripe_img', 'rb') as fp:
-            stripe.File.create(
+
+        with open(user.stripe_img.path, 'rb') as fp:
+            res=stripe.File.create(
                 file=fp,
                 purpose='dispute_evidence',
                 stripe_account=acct_id
             )
+            verification_id = res["id"]
+        stripe.Account.modify(
+            acct_id,
+            individual={"verification": {
+                "document": {
+                    "front": verification_id
+                }
+            }})
+
+
 
 
         current_site = get_current_site(self.request)
