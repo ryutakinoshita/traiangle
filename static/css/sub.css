@@ -452,6 +452,13 @@
         font-weight: bolder;
         margin: 0;
     }
+     .stripe_text{
+        padding-top: 50px;
+        padding-left: 30px;
+        font-weight: bolder;
+        font-size: 27px;
+        margin: 0;
+    }
     .gender_type{
         font-size: 22px;
         padding: 10px 40px 0;
@@ -1202,86 +1209,70 @@
         padding-right: 20px;
     }
 
-    .terms-text{
-    line-height:35px;
-}
+    .privacy_title{
+        font-size: 26px;
+        font-weight: bolder;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .privacy_titles{
+        font-size: 24px;
+        padding-left: 20px;
+        font-weight: bolder;
+        margin-top: 50px;
+        margin-bottom: 15px;
+    }
+    .privacy_text_normal{
+        font-size: 20px;
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+    .privacy_text_small{
+        font-size: 19px;
+        padding-right: 25px;
+        padding-left: 30px;
+    }
 
-    .flame30 {
-    margin: 2em auto;
-    background: #fff;
-    width:80%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
-    line-height: 40px;
+ .flame30 {
+        margin: 10px auto 70px;
+        background: #fff;
+        width:60%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+        line-height: 40px;
 
     }
     .flame30-title {
-        font-size: 1.2em;
+        font-size: 20px;
         background: #5e5e5e;
+        width: 100%;
         padding: 4px;
         text-align: center;
         color: #FFF;
         font-weight: bold;
-        letter-spacing: 0.1em;
+        letter-spacing: 1px;
         margin-bottom: 10px;
-
     }
-
     .flame30-text{
+        font-size: 18px;
         padding-left: 10px;
         padding-right:10px;
     }
-    section {
-        max-width: none;
-        margin: 0 auto;
+    .help_text{
+        margin: 0;
     }
-    a.btn_02 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #fff;
-        border: 1px solid #228bc8;
-        box-sizing: border-box;
-        width: 50%;
-        height: 50px;
-        padding: 0 6% 0 12%;
-        color: #228bc8;
+    .help_text_small{
+        padding-left: 5px;
         font-size: 16px;
-        text-align: left;
-        text-decoration: none;
-        position: relative;
-        transition-duration: 0.2s;
-        margin-left:auto;
-        margin-right:auto;
+        margin: 0;
     }
-    a.btn_02:hover {
-        background: #228bc8;
-        color: #fff;
+    .help_link_text,
+    .help_link_text:hover{
+        font-size: 20px;
+        color: #3399FF;
+        margin: 0;
     }
-    a.btn_02:before {
-        content: "";
-        display: inline-block;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 7px 0 7px 8px;
-        border-color: transparent transparent transparent #228bc8;
-        position: absolute;
-        top: 50%;
-        left: 6%;
-        margin-top: -7px;
-    }
-    a.btn_02:hover:before {
-        border-color: transparent transparent transparent #fff;
-    }
-    .text-size{
-        font-size: 10px;
-    }
-    .pd_l100 {
-        padding-left: 100px;
-    }
-    .pd_r100 {
-        padding-right: 100px;
-    }
+
+
 
 
 

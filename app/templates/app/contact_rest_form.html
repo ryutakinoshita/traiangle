@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+
+{% block body %}
+    <section class="signup pd_t50 pd_b50 body_sub_auto pd_t50_sub">
+        <h5 class="change_text">お問い合わせ</h5>
+        <form class="listing_form" method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <p class="signup_text_detail">内容の選択</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.contact_us class="sign_up_user" placeholder=""%}</table>
+            </div>
+            <p class="signup_text_detail">詳細</p>
+            <div class="registration">
+                <table class="table m-0">{% render_field form.message class="restaurant_text_form" placeholder=""%}</table>
+            </div>
+            <div class="text-center mg_t70 pd_b100 mg_t70_sub pd_b100_sub">
+                <button type="submit" class="btn btn-primary signup_btn">送信</button>
+            </div>
+        </form>
+    </section>
+{% endblock body %}

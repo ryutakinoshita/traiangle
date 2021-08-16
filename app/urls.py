@@ -19,6 +19,8 @@ urlpatterns=[
     path('cancel/', views.cancel),
     path('contact/', views.ContactView.as_view(), name='contact'),
     path('contact/result/', views.ContactResultView.as_view(), name='contact_result'),
+    path('contact/rest/', views.ContactRestView.as_view(), name='contact_rest'),
+    path('contact/result/rest/', views.ContactResultRestView.as_view(), name='contact_result_rest'),
     path('privacy/policy/', views.PrivacyPolicyView.as_view(), name='privacy_policy'),
     path('terms/user/', views.TermsUserView.as_view(), name='terms_user'),
     path('terms/store/', views.TermsStoreView.as_view(), name='terms_store'),

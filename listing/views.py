@@ -199,7 +199,7 @@ class PaymentView(LoginRequiredMixin, View):
             currency='jpy',
             description=description,
             source=token,
-            stripe_account='acct_1JKBAGRGtE945Dqx',
+            stripe_account=order_items.model.item.listing_user.stripe_user_id,
 
         )
 

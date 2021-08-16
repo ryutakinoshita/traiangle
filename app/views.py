@@ -7,8 +7,8 @@ from django.views.generic.edit import FormView
 
 import accounts.models
 from accounts.models import User
-from app.forms import ContactForm
-from app.models import Withdrawal
+from app.forms import ContactForm, ContactRestForm
+from app.models import Withdrawal, Contact
 from listing.models import Listing
 from django.conf import settings
 from django.http.response import JsonResponse, HttpResponse
@@ -315,9 +315,9 @@ class ContactView(LoginRequiredMixin,generic.CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         subject="退会申請"
-        message="退会申請がありました。"
+        message="退会申請がありました"
         from_email=self.request.user.email
-        recipient_list=["information@myproject"]
+        recipient_list=["kinoshitaryuta@gmil.com"]
         send_mail(subject, message, from_email, recipient_list)
         return super().form_valid(form)
 
@@ -326,6 +326,24 @@ class ContactView(LoginRequiredMixin,generic.CreateView):
 
 class ContactResultView(LoginRequiredMixin,generic.TemplateView):
     template_name = 'app/contact_result.html'
+
+class ContactRestView(LoginRequiredMixin,generic.CreateView):
+    template_name = 'app/contact_rest_form.html'
+    model = Contact
+    form_class = ContactRestForm
+    success_url = reverse_lazy('contact_result_rest')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        subject="お問い合わせ"
+        message="お問い合わせがありました"
+        from_email=self.request.user.email
+        recipient_list=["kinoshitaryuta@gmil.com"]
+        send_mail(subject, message, from_email, recipient_list)
+        return super().form_valid(form)
+
+class ContactResultRestView(LoginRequiredMixin,generic.TemplateView):
+    template_name = 'app/contact_result_rest.html'
 
 
 class PrivacyPolicyView(generic.TemplateView):
@@ -344,6 +362,6 @@ class HelpView(generic.TemplateView):
     template_name ='app/help.html'
 
 class HelpStoreView(generic.TemplateView):
-    template_name ='app/help.html'
+    template_name ='app/help_store.html'
 
 

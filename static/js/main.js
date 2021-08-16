@@ -70,17 +70,14 @@ fetch("/config/")
 function formSwitch() {
       hoge = document.getElementsByName('maker')
       if (hoge[0].checked) {
-          // 好きな食べ物が選択されたら下記を実行します
           document.getElementById('freeWord').style.display = "";
           document.getElementById('placeList').style.display = "none";
           document.getElementById('rest_type').style.display = "none";
       } else if (hoge[1].checked) {
-          // 好きな場所が選択されたら下記を実行します
           document.getElementById('freeWord').style.display = "none";
           document.getElementById('placeList').style.display = "";
           document.getElementById('rest_type').style.display = "none";
       }else if (hoge[2].checked) {
-          // 好きな場所が選択されたら下記を実行します
           document.getElementById('freeWord').style.display = "none";
           document.getElementById('placeList').style.display = "none";
           document.getElementById('rest_type').style.display = "";
