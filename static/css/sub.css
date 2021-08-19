@@ -196,9 +196,8 @@
         border-color:#151414 ;
         margin-right: 10px;
     }
-    .searches{
+    .searches {
         display: flex;
-        justify-content: center;
     }
     .search {
         width: 85%;
@@ -284,7 +283,7 @@
         transition: .5s opacity;
     }
     .my_page{
-        padding-left: 100px;
+        padding-left: 150px;
     }
      .listing_card {
         height: auto;
@@ -293,9 +292,17 @@
         border-radius:4px;
          width: auto;
     }
+    .listing_card_fav {
+        height: 320px;
+        background: #ffffff;
+        display: flex;
+        border-radius:4px;
+         width: auto;
+    }
     .listing_img {
-        width: 220px;
-        height:200px;
+        padding: 10px;
+        width: 200px;
+        height:180px;
     }
     .listing_text {
         width: 100%;
@@ -312,16 +319,17 @@
         margin: 0;
     }
     .listing_consumption_time{
-        padding-left: 10px;
+        padding-left: 5px;
         padding-top: 10px;
-        font-size: 18px;
+        padding-bottom: 10px;
+        font-size: 14px;
         color: #379ae7;
     }
     .listing_sale{
         background: #38a76f;
         color: #ffffff;
-        font-size: 18px;
-        width: 160px;
+        font-size: 15px;
+        width: 140px;
         text-align: center;
         margin-left: 10px;
         margin-right: 10px;
@@ -349,6 +357,12 @@
         color: #CC0033;
         font-size: 16px;
         padding: 4px 6px;
+    }
+    .rest_page{
+        text-align: center;
+        letter-spacing: 26px;
+        font-size: 30px;
+        font-weight: bolder;
     }
 /*E home.html*/
 
@@ -440,6 +454,7 @@
     .login_btn,
     .login_btn:hover {
         width: 150px;
+        font-size: 18px;
     }
 
 /*E login.html*/
@@ -606,20 +621,17 @@
     .fa-user-alt{
         font-size: 24px;
     }
-     .my_page_link {
+     .my_page_link ,
+     .my_page_link:hover {
         color: #151414;
         font-weight: bolder;
-        font-size: 26px;
-    }
-    .my_page_link:hover {
-        color: #151414;
-        font-weight: bolder;
-        font-size: 26px;
+         letter-spacing: 4px;
+        font-size: 30px;
     }
     .detail_img {
         text-align: center;
-        width: 50%;
-        height: 70%;
+        width: 40%;
+        height: 80%;
     }
     .restaurant_body{
         padding: 40px 0 0;
@@ -663,25 +675,23 @@
         border-color: #5c5c5f;
     }
     .restaurant_zip_code,
-    .restaurant_address{
-        padding-left: 70px;
-        font-size: 30px;
-        font-weight: bolder;
+    .restaurant_address,
+    .restaurant_nearest_detail{
+        text-align: center;
+        font-size: 24px;
         letter-spacing: 3px;
-
+    }
+    .restaurant_detail_name_text{
+       text-align: center;
+        padding-right: 300px;
+        font-weight: bolder;
     }
     .restaurant_detail_text{
         font-weight: bolder;
         font-size: 25px;
         padding-left: 170px;
     }
-    .restaurant_nearest_detail{
-        padding-left: 70px;
-        font-size: 30px;
-        font-weight: bolder;
-        letter-spacing: 3px;
 
-    }
     .restaurant_listing_img {
         width: 240px;
         height:240px;
@@ -699,12 +709,6 @@
         font-weight: bolder;
         font-size: 35px;
         margin: 0;
-    }
-    .listing_consumption_time{
-        padding-left: 10px;
-        padding-top: 10px;
-        font-size: 18px;
-        color: #379ae7;
     }
     .restaurant_listing_sale{
         background: #38a76f;
@@ -744,6 +748,8 @@
     }
     .restaurants{
         display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
     .update_link{
         color: #3399FF;
@@ -761,7 +767,8 @@
     }
     .fa-signature,
     .fa-envelope,
-    .fa-phone{
+    .fa-phone,
+    .fa-map-marker-alt{
         font-size: 25px;
     }
 /*E my_page.html*/
@@ -801,20 +808,14 @@
     }
 
 /*E application.html*/
-    .form-check-label{
-        font-weight: bolder;
-    }
-
 
 
 /*S restaurant_search.html*/
     .search_rest{
-        padding-left: 80px;
+        text-align: left;
+        padding-left: 150px;
     }
-    .search_rests{
-        margin-top: 15px;
-         padding-left: 160px;
-    }
+
     .search_btn ,
     .search_btn:hover{
         border: none;
@@ -840,21 +841,14 @@
 /*E restaurant_search.html*/
 /*E listing_search.html*/
     .search_listing{
-         width:400px;
+        width:400px;
         outline: none;
         height: 30px;
         background: #f8f7f7;
         padding: 0 5px;
         border-radius: 4px;
     }
-    .form-check{
-        text-align:center ;
-        margin: 0 auto;
-        padding-right: 500px;
-    }
-    .search_price{
-        text-align: center;
-    }
+
 /*E listing_search.html*/
 /*S listing_detail.html*/
     .listing_name_detail {
@@ -875,6 +869,7 @@
     }
     .listing_cart_detail_like{
         width: 200px;
+        font-size: 22px;
     }
       .listing_detail_rest_text{
         font-weight: bolder;
@@ -938,6 +933,14 @@
     label[for=id_privacy_user_0],
     label[for=id_terms_user_0]{
         display: none;
+    }
+    .listing_type_time{
+        font-size: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .registration_time{
+        padding-left: 30px;
     }
 
 /*E listing_create.html*/

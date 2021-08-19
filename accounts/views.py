@@ -101,7 +101,6 @@ class SignupFinishView(generic.TemplateView):
                 return HttpResponseBadRequest()
             else:
                 if not user.is_active:
-                    # 問題なければ本登録とする
                     user.is_active = True
                     user.save()
                     return super().get(request, **kwargs)
@@ -255,7 +254,6 @@ class RestaurantFinishView(generic.TemplateView):
                 return HttpResponseBadRequest()
             else:
                 if not user.is_active:
-                    # 問題なければ本登録とする
                     user.is_active = True
                     user.save()
                     return super().get(request, **kwargs)

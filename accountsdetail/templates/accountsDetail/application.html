@@ -21,23 +21,23 @@
                 <table class="table">{% render_field form.restaurant_type class="restaurant_radio" %}</table>
             </div>
             <input type="hidden" class="p-country-name" value="Japan">
-             <p class="signup_text_detail">郵便番号</p>
+             <p class="signup_text_detail">店舗 郵便番号</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.zip_code class="p-postal-code sign_up_user"  placeholder="例 5408570"%}</table>
             </div>
-            <p class="signup_text_detail">都道府県</p>
+            <p class="signup_text_detail">店舗 都道府県</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.prefectures class="p-region sign_up_user" placeholder="例 大阪府"%}</table>
             </div>
-            <p class="signup_text_detail">市町村</p>
+            <p class="signup_text_detail">店舗 市町村</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.city  class="p-locality sign_up_user" placeholder="例 大阪市"%}</table>
             </div>
-            <p class="signup_text_detail">住所1</p>
+            <p class="signup_text_detail">店舗 区・町名</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.address1 class="p-street-address sign_up_user" placeholder="例 中央区大手町 〇〇番地"%}</table>
             </div>
-            <p class="signup_text_detail">住所2</p>
+            <p class="signup_text_detail">店舗 番地・建物名</p>
             <div class="registration">
                 <table class="table m-0">{% render_field form.address2 class="extended-address sign_up_user" placeholder="例 triangleマンション　〇〇号室"%}</table>
             </div>

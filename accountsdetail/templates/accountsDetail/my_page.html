@@ -17,11 +17,11 @@
         </div>
         <div class="my_page_div mg_t30 mg_t50_sub">
             <i class="fas fa-file-contract"></i>
-            <a class="my_page_link pd_l20 pd_l30_sub" href="{% url 'contact' %}">お問い合わせ</a>
+            <a class="my_page_link pd_l20 pd_l30_sub" href="{% url 'help' %}">ヘルプ</a>
         </div>
         <div class="my_page_div mg_t30 mg_t50_sub">
             <i class="fas fa-book-open"></i>
-            <a class="my_page_link pd_l20 pd_l30_sub" href="#">利用規約</a>
+            <a class="my_page_link pd_l20 pd_l30_sub" href="{% url 'terms_user' %}">利用規約</a>
         </div>
     </section>
 {% endblock body %}

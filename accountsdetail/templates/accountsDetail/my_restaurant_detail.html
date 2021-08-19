@@ -24,17 +24,21 @@
                 <a href="{% url 'restaurant_update' user.id %}" class="update_link">レストラン情報の変更</a>
             </div>
         </div>
-        <div class="my_users">
+        <div class="my_users pd_l30_sub pd_t30_sub">
             <i class="fas fa-signature"></i>
             <p class="my_user_text">{{ user.first_name }}{{ user.last_name }}</p>
         </div>
-        <div class="my_users">
+        <div class="my_users pd_l30_sub pd_t30_sub">
             <i class="fas fa-envelope"></i>
             <p class="my_user_text">{{ user.email }}</p>
         </div>
-        <div class="my_users">
+        <div class="my_users pd_l30_sub pd_t30_sub">
             <i class="fas fa-phone"></i>
             <p class="my_user_text">{{ user.phone }}</p>
+        </div>
+        <div class="my_users pd_l30_sub pd_t30_sub">
+            <i class="fas fa-map-marker-alt"></i>
+            <p class="my_user_text">〒{{ user.zip_code }} {{ user.get_prefectures_display  }} {{ user.city }} {{ user.address1 }} {{ user.address2 }}</p>
         </div>
     </section>
 {% endblock body %}

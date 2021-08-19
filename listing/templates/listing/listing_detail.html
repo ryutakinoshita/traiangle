@@ -25,7 +25,7 @@
                   </div>
               {% else %}
                   <div class="text-center">
-                  <a href="{% url 'additem' object.slug  %}" class=""><button type="submit" class="btn btn-warning listing_cart_detail">カートに入れる</button></a>
+                  <a href="{% url 'additem' object.slug  %}" class=""><button type="submit" class="btn btn-warning listing_cart_detail_like">カートに入れる</button></a>
                   <a href="{% url 'like-detail' object.pk %}" class="mg_l10 mg_l20_sub" tabindex="-1" role="button" aria-disabled="true"><button type="button" class="btn btn-outline-dark add_like"><i class="far fa-heart heart_false"></i>お気に入りに追加</button></a>
                   </div>
               {% endif %}

@@ -5,6 +5,7 @@
 
 {% block body %}
     <section class="listing_list mg_t30 mg_b100 mg_t50_sub pd_b100_sub">
+     <div class="search_rest mg_t20 mg_t30_sub">
        <div class="form-check mg_l10 mg_t20">
             <input class="form-check-input" type="radio" name="maker" value="food" onclick="formSwitch()" checked>
             <label class="form-check-label">フリーワード検索</label>
@@ -41,7 +42,9 @@
                 <i class="fas fa-search"></i>
             </button>
         </form>
-     <div class="listings mg_t50_sub">
+     </div>
+    <hr class="mg_t20 mg_t50_sub">
+     <div class="listings mg_t10_sub">
              {% for Listing in item_data%}
                 <section class="listing_home mg_t20 mg_t20_sub mg_l20_sub">
                     <a href="{% url 'listing_detail' Listing.slug%}">
