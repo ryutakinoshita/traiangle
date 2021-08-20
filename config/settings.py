@@ -25,11 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'rj2k@)q=y=bwuhyhsj3g!cudo05@*v5x*k)u#-k5+^^p&$h#t8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
 
 # Application definition
 
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django_summernote',
     'mathfilters',
+    'django_ses'
 ]
 
 MIDDLEWARE = [
@@ -141,6 +142,43 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'INFO',
+        },
+        'WSEH': {
+            'handlers': ['file'],
+            'level': 'INFO',
+
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/django.log'),
+            'formatter': 'prod',
+            'when': 'D',
+            'interval': 1,
+            'backupCount': 7,
+        },
+    },
+    'formatters': {
+        'prod': {
+            'format': '\t'.join([
+                '%(asctime)s',
+                '[%(levelname)s]',
+                '%(pathname)s(Line:%(lineno)d)',
+                '%(message)s'
+            ])
+        }
+    }
+}
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -151,17 +189,22 @@ SITE_ID = 1
 
 ACCOUNT_LOGOUT_REDIRECT_URL = 'login'
 
-EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = '/usr/share/nginx/html/static'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/usr/share/nginx/html/media'
 NUMBER_GROUPING = 3
 
 STRIPE_SECRET_KEY = 'sk_test_51IxOUqIrVbQ99ePNxJ4TG4022SOLSfNKtxTBLBHqrUEsdT2GDrCNjZye2vQnhetGy2Gl5CciI1ywFl7j38QUARYg00tYfbkDwc'
 STRIPE_PUBLISHABLE_KEY='pk_test_51IxOUqIrVbQ99ePNf2DoSNFjET5HL7NAewJIVuytJaxlWk9D7XfrSptTploMD8LizoBPKBH4QfcaX8MTL4dfsrIf00lxDnWF1q'
 STRIPE_PRICE_ID ='price_1IxlTrIrVbQ99ePNmwsb5IZq'
+
+AWS_SES_ACCESS_KEY_ID = os.environ.get('AWS_SES_ACCESS_KEY_ID')
+AWS_SES_SECRET_KEY_ID = os.environ.get('AWS_SES_SECRET_KEY_ID')
+EMAIL_BACKEND = 'django_ses.SES.Backend'
 
 LOGIN_URL = '/app/'
 
@@ -174,3 +217,4 @@ SUMMERNOTE_CONFIG = {
         'width': '100%'
     },
 }
+
