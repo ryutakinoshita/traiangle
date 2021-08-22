@@ -286,10 +286,12 @@
         border-color:#151414 ;
         margin-right: 10px;
     }
-    .searches{
+    .searches,
+    .searches_home{
         display: flex;
         justify-content: center;
     }
+
     .search,
     .search_listing,
     .search_home{

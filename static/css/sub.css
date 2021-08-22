@@ -199,6 +199,11 @@
     .searches {
         display: flex;
     }
+    .searches_home {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
     .search {
         width: 85%;
         outline: none;
