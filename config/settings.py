@@ -192,10 +192,8 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'login'
 
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = '/usr/share/nginx/html/static'
 MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = '/usr/share/nginx/html/media'
 NUMBER_GROUPING = 3
 
