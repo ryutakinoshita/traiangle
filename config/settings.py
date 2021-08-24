@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django_summernote',
     'mathfilters',
-    'django_ses'
+    'django_ses',
 ]
 
 MIDDLEWARE = [
@@ -151,7 +151,7 @@ LOGGING = {
             'handlers': ['file'],
             'level': 'INFO',
         },
-        'WSEH': {
+        'traiangle': {
             'handlers': ['file'],
             'level': 'INFO',
 
@@ -203,8 +203,8 @@ STRIPE_PUBLISHABLE_KEY='pk_test_51IxOUqIrVbQ99ePNf2DoSNFjET5HL7NAewJIVuytJaxlWk9
 STRIPE_PRICE_ID ='price_1IxlTrIrVbQ99ePNmwsb5IZq'
 
 AWS_SES_ACCESS_KEY_ID = os.environ.get('AWS_SES_ACCESS_KEY_ID')
-AWS_SES_SECRET_KEY_ID = os.environ.get('AWS_SES_SECRET_KEY_ID')
-EMAIL_BACKEND = 'django_ses.SES.Backend'
+AWS_SES_SECRET_ACCESS_KEY= os.environ.get('AWS_SES_SECRET_ACCESS_KEY')
+EMAIL_BACKEND = 'django_ses.SESBackend'
 
 LOGIN_URL = '/app/'
 
