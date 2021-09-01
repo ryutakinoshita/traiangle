@@ -114,7 +114,21 @@ class RestaurantLoginView(LoginView):
     template_name = 'account/restaurant_login.html'
 
     def get_success_url(self):
-        return resolve_url('my_page_restaurant')
+        current_site = get_current_site(self.request)
+        domain = current_site.domain
+        context = {
+            'protocol': self.request.scheme,
+            'domain': domain,
+
+        }
+
+        subject = "新規登録がありました"
+        message = render_to_string('account/mails/new_user_subject.txt', context)
+        from_email = 'triangle09best@gmail.com'
+        recipient_list = ['kinoshitaryuta@gmail.com']
+        send_mail(subject, message, from_email, recipient_list)
+        return resolve_url('application_done')
+
 
 
 class RestaurantUserCreateView(generic.CreateView):
@@ -200,20 +214,20 @@ class RestaurantUserCreateView(generic.CreateView):
 
         user.save()
 
-        with open(user.stripe_img.path, 'rb') as fp:
-            res=stripe.File.create(
-                file=fp,
-                purpose='dispute_evidence',
-                stripe_account=acct_id
-            )
-            verification_id = res["id"]
-        stripe.Account.modify(
-            acct_id,
-            individual={"verification": {
-                "document": {
-                    "front": verification_id
-                }
-            }})
+        # with open(user.stripe_img.path, 'rb') as fp:
+        #     res=stripe.File.create(
+        #         file=fp,
+        #         purpose='dispute_evidence',
+        #         stripe_account=acct_id
+        #     )
+        #     verification_id = res["id"]
+        # stripe.Account.modify(
+        #     acct_id,
+        #     individual={"verification": {
+        #         "document": {
+        #             "front": verification_id
+        #         }
+        #     }})
 
 
 

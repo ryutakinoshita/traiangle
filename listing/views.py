@@ -199,7 +199,7 @@ class PaymentView(LoginRequiredMixin, View):
             currency='jpy',
             description=description,
             source=token,
-            stripe_account=order_items.model.item.listing_user.stripe_user_id,
+            stripe_account=order_item.item.listing_user.stripe_user_id,
 
         )
 
@@ -233,9 +233,9 @@ class PaymentView(LoginRequiredMixin, View):
 
         }
 
-        subject="商品発送のお願い"
+        subject="商品準備のお願い"
         message=render_to_string('listing/mails/order_subject.txt',context)
-        from_email="kinoshitaryuta@gmail.com"
+        from_email='triangle09best@gmail.com'
         recipient_list=[order_item.item.listing_user.email]
         send_mail(subject, message, from_email, recipient_list)
         return redirect('thanks')
@@ -285,9 +285,6 @@ class BuyerListView(LoginRequiredMixin,generic.ListView):
 
         })
         return context
-
-
-
 
 
 class ConfirmedBase(LoginRequiredMixin, View):

@@ -7,40 +7,29 @@ from django.db.models import Q
 from accounts.models import User
 from listing.models import Listing
 from .forms import (
-    ApplicationForm,
     RefundForm,
 )
-from django.views.generic import View
+
 
 class MyPageView(LoginRequiredMixin,generic.TemplateView):
     """マイページ"""
-    template_name = 'accountsdetail/my_page.html'
+    template_name = 'accountsDetail/my_page.html'
 
 
 class MyPageDetailView(LoginRequiredMixin,generic.DetailView):
     """ユーザー情報確認"""
     model = User
-    template_name = 'accountsdetail/my_page_detail.html'
+    template_name = 'accountsDetail/my_page_detail.html'
 
-
-class ApplicationView(FormView):
-    """出店申請"""
-    template_name = 'accountsdetail/application.html'
-    form_class = ApplicationForm
-    success_url = reverse_lazy('application_done')
-
-    def form_valid(self, form):
-        form.send_email()
-        return super().form_valid(form)
 
 
 class ApplicationDoneView(generic.TemplateView):
-    template_name = 'accountsdetail/application_done.html'
+    template_name = 'accountsDetail/application_done.html'
 
 
 class RefundView(FormView):
     """返金申請"""
-    template_name = 'accountsdetail/Refund.html'
+    template_name = 'accountsDetail/Refund.html'
     form_class = RefundForm
     success_url = reverse_lazy('refund_done')
 
@@ -49,25 +38,25 @@ class RefundView(FormView):
         return super().form_valid(form)
 
 class RefundDoneView(generic.TemplateView):
-    template_name = 'accountsdetail/Refund_done.html'
+    template_name = 'accountsDetail/Refund_done.html'
 
 
 class RestaurantMyPageView(LoginRequiredMixin,generic.TemplateView):
     """レストランマイページ"""
-    template_name = 'accountsdetail/my_page_restaurant.html'
+    template_name = 'accountsDetail/my_page_restaurant.html'
 
 
 class RestaurantDetailView(LoginRequiredMixin,generic.DetailView):
     """レストラン詳細"""
     model = User
-    template_name = 'accountsdetail/restaurant_detail.html'
+    template_name = 'accountsDetail/restaurant_detail.html'
     context_object_name = 'restaurants'
 
 
 class RestaurantListMieView(LoginRequiredMixin,generic.ListView):
     """Mie"""
     model = User
-    template_name = 'accountsdetail/restaurant_Mie.html'
+    template_name = 'accountsDetail/restaurant_Mie.html'
     context_object_name = 'restaurant'
 
     # 検索
@@ -146,7 +135,6 @@ class RestaurantListKyotoView(LoginRequiredMixin,generic.ListView):
         else:
             object_list = User.objects.filter(prefectures="3")
         return object_list.filter(prefectures="3")
-
 
 
 class RestaurantListOsakaView(LoginRequiredMixin,generic.ListView):

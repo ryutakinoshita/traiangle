@@ -1,8 +1,8 @@
-from django.forms import ModelForm
+from django import forms
 from app.models import Withdrawal, Contact
 
 
-class ContactForm(ModelForm):
+class ContactForm(forms.ModelForm):
     class Meta:
         model = Withdrawal
         fields = [
@@ -11,12 +11,14 @@ class ContactForm(ModelForm):
 
 
 
-class ContactRestForm(ModelForm):
+class ContactRestForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = [
             'contact_us','message',
         ]
+
+
 
 
 

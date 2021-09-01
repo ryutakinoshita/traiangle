@@ -143,7 +143,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     stripe_bunk_code=models.CharField(max_length=100,choices=Bank.code,blank=True, null=True)
     stripe_routing_number=models.CharField(max_length=100,blank=True, null=True)
     stripe_account_holder_name=models.CharField(max_length=100,blank=True, null=True)
-    stripe_img=models.ImageField(upload_to='stripeImg/',blank=True, null=True)
+    stripe_img = models.ImageField(upload_to='stripeImg/', blank=True, null=True)
     privacy_user = models.BooleanField('プライバシー・ポリシーの確認',default=False)
     terms_user = models.BooleanField('利用規約への同意',default=False)
     created = models.DateTimeField(default=timezone.now)

@@ -3,10 +3,6 @@ from django.core.mail import send_mail
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render, redirect
-from django.views.generic.edit import FormView
-
-import accounts.models
-from accounts.models import User
 from app.forms import ContactForm, ContactRestForm
 from app.models import Withdrawal, Contact
 from listing.models import Listing
@@ -15,8 +11,6 @@ from django.http.response import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import stripe
 from django.db.models import Q
-from django.utils import timezone
-import time
 import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -266,11 +260,6 @@ class AppView(generic.TemplateView):
     template_name = 'app/app.html'
 
 
-def index(request):
-    """サブスクリプションページ"""
-    return render(request, 'app/index.html')
-
-
 @csrf_exempt
 def stripe_config(request):
     if request.method == 'GET':
@@ -281,12 +270,12 @@ def stripe_config(request):
 def create_checkout_session(request):
     """サブスクリプション"""
     if request.method == 'GET':
-        domain_url = 'http://127.0.0.1:8000/'
+        domain_url = 'https://wewseh.com'
         stripe.api_key = settings.STRIPE_SECRET_KEY
         try:
             checkout_session = stripe.checkout.Session.create(
                 client_reference_id=request.user.id if request.user.is_authenticated else None,
-                success_url=domain_url + 'account/signup/restaurant/',
+                success_url=domain_url + '/account/signup/restaurant/',
                 cancel_url=domain_url + 'cancel/',
                 payment_method_types=['card'],
                 mode='subscription',
@@ -305,20 +294,41 @@ def cancel(request):
     """決済できなかった場合"""
     return render(request, 'app/cancel.html')
 
-
 class ContactView(LoginRequiredMixin,generic.CreateView):
     template_name = 'app/contact_form.html'
     model = Withdrawal
     form_class = ContactForm
     success_url = reverse_lazy('contact_result')
 
+
     def form_valid(self, form):
-        form.instance.user = self.request.user
         subject="退会申請"
         message="退会申請がありました"
-        from_email=self.request.user.email
-        recipient_list=["kinoshitaryuta@gmil.com"]
+        from_email='triangle09best@gmail.com'
+        recipient_list=["kinoshitaryuta@gmail.com"]
         send_mail(subject, message, from_email, recipient_list)
+        form.instance.withdrawal_user = self.request.user
+        return super().form_valid(form)
+
+
+
+class ContactResultView(LoginRequiredMixin,generic.TemplateView):
+    template_name = 'app/contact_result.html'
+
+
+class ContactRestView(LoginRequiredMixin,generic.CreateView):
+    template_name = 'app/contact_rest_form.html'
+    model = Contact
+    form_class = ContactRestForm
+    success_url = reverse_lazy('contact_result_rest')
+
+    def form_valid(self, form):
+        subject = "お問い合わせ"
+        message = "お問い合わせがありました"
+        from_email='triangle09best@gmail.com'
+        recipient_list=["kinoshitaryuta@gmail.com"]
+        send_mail(subject, message, from_email, recipient_list)
+        form.instance.contact_user = self.request.user
         return super().form_valid(form)
 
 
@@ -334,12 +344,12 @@ class ContactRestView(LoginRequiredMixin,generic.CreateView):
     success_url = reverse_lazy('contact_result_rest')
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
-        subject="お問い合わせ"
-        message="お問い合わせがありました"
+        subject="退会申請"
+        message="退会申請がありました"
         from_email=self.request.user.email
-        recipient_list=["kinoshitaryuta@gmil.com"]
+        recipient_list=["triangle09best@gmail.com"]
         send_mail(subject, message, from_email, recipient_list)
+        form.instance.contact_user = self.request.user
         return super().form_valid(form)
 
 class ContactResultRestView(LoginRequiredMixin,generic.TemplateView):

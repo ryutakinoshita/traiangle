@@ -8,6 +8,7 @@ SetPasswordForm
 
 )
 from  django.forms import ModelForm
+from django.core.mail import EmailMessage
 
 
 class UserLoginForm(AuthenticationForm):
@@ -22,6 +23,7 @@ class UserLoginForm(AuthenticationForm):
             'password': 'password',
 
         }
+
 
 class UserCreateForm(UserCreationForm):
     """ユーザー登録フォーム"""
@@ -43,6 +45,7 @@ class UserCreateForm(UserCreationForm):
             'privacy_user': forms.CheckboxInput(),
             'terms_user': forms.CheckboxInput(),
         }
+
 
 
 
