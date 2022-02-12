@@ -912,14 +912,14 @@
         flex-flow: column;
     }
     .login_link {
-        margin-left: auto;
-        margin-right: 30px;
+        /*margin-left: auto;
+        margin-right: 30px;*/
         color: #3399FF;
         font-size: 14px;
     }
     .login_link:hover {
-        margin-left: auto;
-        margin-right: 30px;
+        /*margin-left: auto;
+        margin-right: 30px;*/
         color: #151414;
         font-size: 14px;
     }

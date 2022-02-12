@@ -6,7 +6,19 @@
     <section class="login mg_t50 body_sub pd_t50_sub pd_b50_sub">
         <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
+
             <a href="{% url 'social:begin' 'google-oauth2' %}">Googleでログイン</a>
+            <div class="registration social-buttons">
+                <a class="btn btn-block btn-social btn-google w-50 mx-auto" style="background-color:DD4B39; color: aliceblue;">
+                    <span class="fa fa-google" style="color: aliceblue;"></span> Googleでサインイン
+                </a>
+            </div>
+            <div class="login_link_group mg_t50 mg_t70_sub">
+                <a class="login_link text-center" href="{% url 'signup' %}">新規登録はこちら</a>
+            </div>
+            <!--<div class="text-center mg_t50 mg_t50_sub">
+                <button type="submit" class="btn btn-dark login_btn">ログイン</button>
+            </div>-->
         </form>
 {#    {% if user.is_authenticated %}#}
 {#        <p class="display-4">Hello, {{ user.username }}</p>#}
