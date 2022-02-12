@@ -24,6 +24,7 @@ urlpatterns = [
     path('listing/', include('listing.urls')),
     path('account/detail/', include('accountsdetail.urls')),
     path('', include('app.urls')),
+    path('auth/', include('social_django.urls', namespace='social')),
     path('summernote/', include('django_summernote.urls')),
 ]
 if settings.DEBUG:

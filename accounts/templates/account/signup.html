@@ -7,48 +7,6 @@
     <section class="signup body_sub_auto">
         <form class="h-adr signup_form" method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
-            <p class="signup_text_detail">性</p>
-            <div class="registration">
-                <table class="table">{% render_field form.first_name class="sign_up_user" placeholder="大阪"%}</table>
-            </div>
-            <p class="signup_text_detail">名</p>
-            <div class="registration">
-                <table class="table">{% render_field form.last_name class="sign_up_user"　placeholder="太郎"%}</table>
-            </div>
-            <p class="signup_text_detail">メールアドレス</p>
-            <div class="registration">
-                <table class="table width_100">{% render_field form.email class="sign_up_user"　placeholder="triangle@gmail.com"%}</table>
-            </div>
-            <p class="signup_text_detail">電話番号</p>
-            <div class="registration">
-                <table class="table">{% render_field form.phone class="sign_up_user" type="number" placeholder="ハイフンなしで入力してください"%}</table>
-            </div>
-            <p class="signup_text_detail">ログインパスワード</p>
-            <div class="registration">
-                <table class="table">{% render_field form.password1 class="sign_up_user" placeholder="半角英数字8文字以上" %}</table>
-            </div>
-            <p class="signup_text_detail">ログインパスワードの再入力</p>
-            <div class="registration">
-                <table class="table">{% render_field form.password2 class="sign_up_user" placeholder="パスワードの再入力" %}</table>
-            </div>
-            <p class="listing_create_text">利用規約、プライバシー・ポリシーへの同意</p>
-            <div class="mg_t20 mg_l20 mg_t30_sub mg_l30_sub">
-                <a href="{% url 'privacy_policy' %}" class="link_privacy_terms">プライバシー・ポリシー</a>
-            </div>
-            <div class="registration_privacy_terms pd_l30 mg_t10 pd_l50_sub mg_t10_sub">
-                {% render_field form.privacy_user class="privacy_terms_form" required="required"%}
-                <p class="privacy_terms mg_l10 mg_l10_sub">プライバシー・ポリシーについて同意します</p>
-            </div>
-            <div class="mg_t50 mg_l20 mg_t50_sub mg_l30_sub">
-                <a href="{% url 'terms_user' %}" class="link_privacy_terms">利用規約</a>
-            </div>
-            <div class="registration_privacy_terms pd_l30 mg_t10 pd_l50_sub mg_t10_sub">
-                {% render_field form.terms_user class="privacy_terms_form" required="required"%}
-                <p class="privacy_terms mg_l10 mg_l10_sub">利用規約について同意します</p>
-            </div>
-            <div class="text-center mg_t70 pd_b100 mg_t70_sub pd_b100_sub">
-                <button type="submit" class="btn btn-success signup_btn">登録</button>
-            </div>
         </form>
     </section>
 {% endblock body %}
