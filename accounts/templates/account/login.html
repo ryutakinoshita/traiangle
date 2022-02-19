@@ -6,7 +6,7 @@
     <section class="">
         <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
-
+             <img class="log_img" src="{% static 'img/FPS.jpg' %}" alt="FPSドット絵">
             <div class="registration social-buttons mg-t200">
                 <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-block btn-social btn-google w-50 mx-auto" style="background-color:DD4B39; color: aliceblue;">
                     <span class="fa fa-google" style="color: aliceblue;"></span> Googleでサインイン
