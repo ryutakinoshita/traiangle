@@ -23,62 +23,17 @@
     </head>
     <body class="m-0 p-0">
         <header>
-            <div class="dp_flex">
-            <div class="dp_flex_sub">
-                <a class=""  href="{% url 'home' %}">
-                <h5 class="app_name mg_t10 mg_l10 mg_t10_sub mg_l10_sub"><span class="blue">t</span>ri<span class="red">an</span>gl<span class="yellow">e</span></h5>
-                </a>
-                {% if user.is_authenticated %}
-                <div class="sub_css user_page_link mg_t10_sub">
-                    <a class="link_blue" href="{% url 'my_page' %}">{{ user.first_name|default_if_none:''  }} {{ user.last_name }}</a>
-                    <p class="">さんのアカウント</p>
-                </div>
-                {% else %}
-                {% endif %}
+            <div class="pt-3"style="display:flex;justify-content: center;align-items:center;">
+                <img class="log_img pr-2" src="{% static 'img/green.png' %}" alt="greenレンジャー">
+                <h5 class="app_name pd_t10 mg_l10 pd_t10_sub mg_l10_sub"><span class="blue">t</span>ri<span class="red">an</span>gl<span class="yellow">e</span></h5>
+                <img class="log_img pl-2" src="{% static 'img/red.png' %}" alt="redレンジャー">
             </div>
-                {% if user.is_authenticated %}
-                        <div class="wrap">
-                             <a class="nav-link carts" href="{% url 'order' %}">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    <div class="item_count">{{ request.user|itemCount }} </div>
-                             </a>
-                        </div>
-                    {% else %}
-                    <button type="button" class="btn btn-success new_user_btn p-0 mg_t10">
-                        <i class="fas fa-user-plus pd_l10"></i>
-                        <a class="link_white pd_r10" href="{% url 'app' %}">新規登録</a>
-                    </button>
-            </div>
-                <div class="mg_r10 text-right pd_b10">
-                    <i class="fas fa-sign-in-alt pd_l10"></i>
-                    <a class="link_black pd_r10 pd_b30_sub pd_r20_sub"  href="{% url 'login' %}">ログイン</a>
-                </div>
-                {% endif %}
         </header>
         {% block body %}
         {% endblock body %}
-        <div class="fixed-bottom">
             <footer>
-                <div class="main_css">
-                    <nav class="footerNav sticky-bottom" >
-                          <div class="nav nav-tabs" >
-                              <a class="nav-link p-0"  href="{% url 'home' %}">
-                                 <i class="fas fa-home"></i>
-                                 <p class="footer_nav_base">ホーム</p>
-                             </a>
-                             <a class="nav-link p-0"  href="{% url 'my_page' %}">
-                                 <i class="fas fa-user"></i>
-                                 <p class="footer_nav_base">マイページ</p>
-                             </a>
-                             <a class="nav-link p-0" href="{% url 'link' %}">
-                                 <i class="fas fa-search-plus"></i>
-                                 <p class="footer_nav_base">店舗検索</p>
-                             </a>
-                          </div>
-                    </nav>
-                </div>
+
             </footer>
-        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
