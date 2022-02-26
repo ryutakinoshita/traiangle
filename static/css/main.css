@@ -187,6 +187,7 @@
     padding: 0;
 }
 
+
 /* アクティブなタブ */
     .tab-switch:checked + .switch_black {
         border-bottom: 2px solid #454141;
@@ -484,4 +485,5 @@
 .m-form-textarea:focus {
     outline: 0;
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
 }
