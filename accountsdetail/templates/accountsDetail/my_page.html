@@ -1,27 +1,67 @@
-{% extends 'app/base.html' %}
+{% extends 'account/base.html' %}
 {% load static %}
 
 {% block body %}
-    <section class="my_page mg_t50 mg_l10 body_sub pd_t50_sub pd_l20_sub">
-        <div class="my_page_div mg_t30 mg_t50_sub">
-            <i class="fas fa-user-alt"></i>
-            <a class="my_page_link pd_l20 pd_l30_sub" href="{% url 'my_page_detail' user.id %}">ユーザー情報</a>
+<section>
+    <h2 class="text-center mt-5 mypage_title">マイページ設定</h2>
+    <div class="mypage_icon">
+      <img src="{% static 'img/green.png' %}" class="mypage_img">
+    </div>
+
+    <div class="filebody">
+        <div class="container mt-5 w-50">
+            <form action="index.html" method="POST" entype="multpart/form-data">
+                <label for="file" class="filelabel">画像変更</label>
+                <input type="file" name="fileinput" id="file" class="fileinput">
+            </form>
         </div>
-        <div class="my_page_div mg_t30 mg_t50_sub">
-            <i class="fas fa-history"></i>
-            <a class="my_page_link pd_l20 pd_l30_sub" href="{% url 'order_listing' %}">注文履歴</a>
+    </div>
+
+    <div class="container mt-5 w-50">
+        <div class="cp_iptxt">
+            <input class="ef" type="text" placeholder="">
+            <label>アカウント名</label>
+            <span class="focus_line"></span>
         </div>
-        <div class="my_page_div mg_t30 mg_t50_sub">
-            <i class="fas fa-reply-all"></i>
-            <a class="my_page_link pd_l20 pd_l30_sub" href="{% url 'email_change' %}">メールアドレスの変更</a>
+
+        <div class="cp_ipselect">
+            <select class="cp_sl06" required>
+                <option value="" hidden disabled selected></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <span class="cp_sl06_highlight"></span>
+            <span class="cp_sl06_selectbar"></span>
+            <label class="cp_sl06_selectlabel">ゲームジャンル</label>
         </div>
-        <div class="my_page_div mg_t30 mg_t50_sub">
-            <i class="fas fa-file-contract"></i>
-            <a class="my_page_link pd_l20 pd_l30_sub" href="{% url 'help' %}">ヘルプ</a>
+
+
+        <label class="font-weight-bold">評価</label>
+        <div class="d-flex justify-content-center">
+
+          <div class="content text-center">
+              <div class="ratings"> <span class="product-rating">4.6</span><span>/5</span>
+                  <div class="stars"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                  <div class="rating-text"> <span>46 ratings & 15 reviews</span> </div>
+              </div>
+          </div>
+      </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold">紹介文</label>
+          <!--<textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>-->
+            <textarea name="name" class="m-form-textarea" rows="10"></textarea>
         </div>
-        <div class="my_page_div mg_t30 mg_t50_sub">
-            <i class="fas fa-book-open"></i>
-            <a class="my_page_link pd_l20 pd_l30_sub" href="{% url 'terms_user' %}">利用規約</a>
-        </div>
-    </section>
+    <div class="text-center mt-5">
+        <button class="btn btn-success">登録する</button>
+    </div>
+    <!--
+    <div class="text-center mt-5">
+        <button class="btn btn-danger">HOMEへ戻る</button>
+        <button class="btn btn-success">変更を保存</button>
+    </div>
+-->
+</section>
 {% endblock body %}
