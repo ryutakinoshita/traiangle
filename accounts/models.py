@@ -40,19 +40,7 @@ class UserManager(BaseUserManager):
 def user_portfolio_directory_path(instance, filename):
     return 'image-{0}/{1}'.format(instance.id, filename)
 
-
-class Prefectures(models.Model):
-    Types=(
-        ("1", "三重県"),
-        ("2", "滋賀県"),
-        ("3", "京都府"),
-        ("4", "大阪府"),
-        ("5", "兵庫県"),
-        ("6", "奈良県"),
-        ("7", "和歌山県"),
-    )
-
-class TypeSub(models.Model):
+class GameType(models.Model):
     Types=(
         ("1", "食堂，レストラン"),
         ("2", "日本料理店"),
@@ -70,80 +58,16 @@ class TypeSub(models.Model):
 
     )
 
-class Hour(models.Model):
-    Types=(
-        ("1", "営業時間内の受け取り"),
-        ("2", "営業時間後30分以内であれば可"),
-        ("3", "営業時間後60分以内であれば可"),
-        ("4", "TELでのお問い合わせ確認"),
-    )
-
-class Bank(models.Model):
-    code=(
-        ("0001", "みずほ銀行"),
-        ("0005", "三菱UFJ銀行"),
-        ("0009", "三井住友銀行"),
-        ("0010", "りそな銀行"),
-        ("0033", "PayPay銀行"),
-        ("0034", "セブン銀行"),
-        ("0035", "ソニー銀行"),
-        ("0036", "楽天銀行"),
-        ("0038", "住信SBIネット銀行"),
-        ("0039", "auじぶん銀行"),
-        ("0040", "イオン銀行"),
-        ("0042", "ローソン銀行"),
-        ("0157", "滋賀銀行"),
-        ("0158", "京都銀行"),
-        ("0159", "関西みらい銀行"),
-
-    )
 
 
 
 class User(AbstractBaseUser, PermissionsMixin):
     """"カスタムユーザーモデル"""
-    first_name=models.CharField(max_length=30,blank=False,null=False)
-    last_name=models.CharField(max_length=30,blank=False,null=False)
+    user_name=models.CharField(max_length=30,blank=False,null=False)
     email = models.EmailField(max_length=100, unique=True)
-    phone = models.CharField(max_length=11, blank=False,null=False)
-    zip_code = models.CharField(max_length=8,blank=True, null=True)
-    prefectures = models.CharField(max_length=40,choices=Prefectures.Types,blank=True, null=True)
-    city = models.CharField(max_length=40,blank=True, null=True)
-    address1 = models.CharField(max_length=40,blank=True, null=True)
-    address2 = models.CharField(max_length=40,blank=True, null=True)
-    restaurant_img1 = models.ImageField(upload_to='restaurantImg/',blank=True, null=True)
-    restaurant_img2 = models.ImageField(upload_to='restaurantImg/',blank=True, null=True)
-    restaurant_img3= models.ImageField(upload_to='restaurantImg/',blank=True, null=True)
-    rest_name= models.CharField(max_length=100,blank=True, null=True)
-    restaurant_type = models.CharField(max_length=100, choices=TypeSub.Types,blank=True, null=True)
+    user_img = models.ImageField(upload_to='UserImg/',blank=True, null=True)
     certification = models.TextField(max_length=500, blank=True, null=True)
-    nearest_station = models.CharField(max_length=40, blank=True, null=True)
-    business_hours_start = models.CharField(max_length=40, blank=True, null=True)
-    business_hours_end = models.CharField(max_length=40, blank=True, null=True)
-    business_hours_option = models.CharField(max_length=40, choices=Hour.Types,blank=True, null=True)
-    stripe_user_id = models.CharField(max_length=50)
-    stripe_first_name_kana = models.CharField(max_length=30,blank=True, null=True)
-    stripe_last_name_kana = models.CharField(max_length=30,blank=True, null=True)
-    stripe_gender=models.CharField(max_length=100,blank=True, null=True)
-    stripe_state = models.CharField(max_length=30,blank=True, null=True)
-    stripe_city = models.CharField(max_length=100,blank=True, null=True)
-    stripe_town = models.CharField(max_length=100,blank=True, null=True)
-    stripe_line1 = models.CharField(max_length=100,blank=True, null=True)
-    stripe_line2 = models.CharField(max_length=100,blank=True, null=True)
-    stripe_postal_code = models.CharField(max_length=8,blank=True, null=True)
-    stripe_state_kana = models.CharField(max_length=100,blank=True, null=True)
-    stripe_city_kana = models.CharField(max_length=100,blank=True, null=True)
-    stripe_town_kana = models.CharField(max_length=100,blank=True, null=True)
-    stripe_line1_kana = models.CharField(max_length=100,blank=True, null=True)
-    stripe_line2_kana = models.CharField(max_length=100,blank=True, null=True)
-    stripe_day = models.CharField(max_length=2,blank=True, null=True)
-    stripe_month = models.CharField(max_length=2,blank=True, null=True)
-    stripe_year = models.CharField(max_length=4,blank=True, null=True)
-    stripe_account_number=models.CharField(max_length=100,blank=True, null=True)
-    stripe_bunk_code=models.CharField(max_length=100,choices=Bank.code,blank=True, null=True)
-    stripe_routing_number=models.CharField(max_length=100,blank=True, null=True)
-    stripe_account_holder_name=models.CharField(max_length=100,blank=True, null=True)
-    stripe_img = models.ImageField(upload_to='stripeImg/', blank=True, null=True)
+    game_type = models.CharField(max_length=100, choices=GameType.Types, blank=True, null=True)
     privacy_user = models.BooleanField('プライバシー・ポリシーの確認',default=False)
     terms_user = models.BooleanField('利用規約への同意',default=False)
     created = models.DateTimeField(default=timezone.now)
