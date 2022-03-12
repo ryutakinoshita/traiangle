@@ -25,4 +25,5 @@ urlpatterns=[
     path('terms/store/', views.TermsStoreView.as_view(), name='terms_store'),
     path('help/', views.HelpView.as_view(), name='help'),
     path('help/store/', views.HelpStoreView.as_view(), name='help_store'),
+    path('game/list/', views.GameListView.as_view(), name='game_list'),
 ]

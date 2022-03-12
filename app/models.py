@@ -50,5 +50,32 @@ class Contact(models.Model):
     def __str__(self):
         return self.message
 
+class Games(models.Model):
+    CHOICES =(
+        ("10","Apex"),
+        ("20","fortnite"),
+        ("30","valorant"),
+        ("40","COD"),
+        ("50","League of Legends"),
+        ("60","Overwatch"),
+        ("70","Minecraft"),
+        ("80","原神"),
+        ("90","遊戯王マスターデュエル"),
+        ("100","The Sandbox"),
+        ("110","Axie Infinity"),
+        ("120","Crypto Spells"),
+        ("130","Sorare"),
+        ("140","My Crypto Heroes"),
+        ("150","PolkaFantasy"),
+        ("160","CryptoKitties"),
+    )
+
+
+class GameForm(models.Model):
+    post_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    games=models.CharField(max_length=20,choices=Games.CHOICES,blank=False,null=False)
+
+    def __str__(self):
+        return self.games
 
 
