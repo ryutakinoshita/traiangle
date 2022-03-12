@@ -379,7 +379,7 @@ class HelpStoreView(generic.TemplateView):
 class GameListView(LoginRequiredMixin,generic.ListView):
     """game一覧"""
     model = GameForm
-    template_name = 'app/game.html'
+    template_name = 'app/gameList.html'
     context_object_name = 'item_data'
     queryset = GameForm.objects.filter(status=1)
 
