@@ -41,24 +41,24 @@ def user_portfolio_directory_path(instance, filename):
     return 'image-{0}/{1}'.format(instance.id, filename)
 
 class GameType(models.Model):
-    Types=(
-        ("1", "食堂，レストラン"),
-        ("2", "日本料理店"),
-        ("3", "料亭"),
-        ("4", "中華料理店"),
-        ("5", "ラーメン店"),
-        ("6", "焼肉店"),
-        ("7", "そば・うどん店"),
-        ("8", "酒場、ビヤホール"),
-        ("9", "喫茶店"),
-        ("10", "その他の飲食店"),
-        ("11", "ハンバーガー店"),
-        ("12", "イタリア料理店"),
-        ("13", "アジア料理店"),
-
+    CHOICES = (
+        ("10", "Apex"),
+        ("20", "fortnite"),
+        ("30", "valorant"),
+        ("40", "COD"),
+        ("50", "League of Legends"),
+        ("60", "Overwatch"),
+        ("70", "Minecraft"),
+        ("80", "原神"),
+        ("90", "遊戯王マスターデュエル"),
+        ("100", "The Sandbox"),
+        ("110", "Axie Infinity"),
+        ("120", "Crypto Spells"),
+        ("130", "Sorare"),
+        ("140", "My Crypto Heroes"),
+        ("150", "PolkaFantasy"),
+        ("160", "CryptoKitties"),
     )
-
-
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -67,7 +67,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=100, unique=True)
     user_img = models.ImageField(upload_to='UserImg/',blank=True, null=True)
     certification = models.TextField(max_length=500, blank=True, null=True)
-    game_type = models.CharField(max_length=100, choices=GameType.Types, blank=True, null=True)
+    game_type = models.CharField(max_length=100, choices=GameType.CHOICES, blank=True, null=True)
     privacy_user = models.BooleanField('プライバシー・ポリシーの確認',default=False)
     terms_user = models.BooleanField('利用規約への同意',default=False)
     created = models.DateTimeField(default=timezone.now)
