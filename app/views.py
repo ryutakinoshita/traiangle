@@ -381,27 +381,27 @@ class GameListView(LoginRequiredMixin,generic.ListView):
     model = GameForm
     template_name = 'app/gameList.html'
     context_object_name = 'item_data'
-    queryset = GameForm.objects.filter(status=1)
-
-
-
-    # 検索
-    def get_queryset(self):
-        q_word = self.request.GET.get('query')
-        q_data = self.request.GET.get('data')
-
-        if q_word:
-            object_list = GameForm.objects.filter(
-                Q(listing_name__icontains=q_word) |
-                Q(listing_text__icontains=q_word) |
-                Q(listing_user__city__icontains=q_word) |
-                Q(listing_user__address1__icontains=q_word)|
-                Q(listing_user__rest_name__icontains=q_word)
-            )
-        elif q_data:
-            object_list = GameForm.objects.filter(
-                Q(listing_price__lte=q_data)
-            )
-        else:
-            object_list = GameForm.objects.filter(status=1).order_by('?')
-        return object_list
+    # queryset = GameForm.objects.filter(status=1)
+    #
+    #
+    #
+    # # 検索
+    # def get_queryset(self):
+    #     q_word = self.request.GET.get('query')
+    #     q_data = self.request.GET.get('data')
+    #
+    #     if q_word:
+    #         object_list = GameForm.objects.filter(
+    #             Q(listing_name__icontains=q_word) |
+    #             Q(listing_text__icontains=q_word) |
+    #             Q(listing_user__city__icontains=q_word) |
+    #             Q(listing_user__address1__icontains=q_word)|
+    #             Q(listing_user__rest_name__icontains=q_word)
+    #         )
+    #     elif q_data:
+    #         object_list = GameForm.objects.filter(
+    #             Q(listing_price__lte=q_data)
+    #         )
+    #     else:
+    #         object_list = GameForm.objects.filter(status=1).order_by('?')
+    #     return object_list
