@@ -371,9 +371,6 @@ class HelpView(generic.TemplateView):
 class HelpStoreView(generic.TemplateView):
     template_name ='app/help_store.html'
 
-class GamePostView(generic.CreateView):
-    template_name='app/game_post.html'
-
 
 class GameListView(LoginRequiredMixin,generic.ListView):
     """game一覧"""
@@ -399,3 +396,10 @@ class GameListView(LoginRequiredMixin,generic.ListView):
         # else:
         #     object_list = GameForm.objects.filter(status=1).order_by('?')
         # return object_list
+
+class GamePostView(generic.TemplateView):
+    template_name = 'app/gamePost.html'
+
+    # def form_valid(self, form):
+    #     form.instance.listing_user =self.request.user
+    #     return super().form_valid(form)
