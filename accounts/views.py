@@ -32,35 +32,10 @@ class LoginView(LoginView):
         return resolve_url('home')
 
 
-# class SignupView(generic.CreateView):
-#     """登録機能"""
-#     template_name = 'account/signup.html'
-#     form_class = UserCreateForm
-#     success_url = reverse_lazy('home')
-#
-#     def form_valid(self, form):
-#         """仮登録と本登録用メールの発行"""
-#         user = form.save(commit=False)
-#         user.is_active = False
-#         user.save()
-#
-#
-#
-#         current_site = get_current_site(self.request)
-#         domain = current_site.domain
-#         context = {
-#             'protocol': self.request.scheme,
-#             'domain': domain,
-#             'token': dumps(user.pk),
-#             'user': user,
-#         }
-#
-#         subject = render_to_string('account/mails/user_create_subject.txt', context)
-#         message = render_to_string('account/mails/user_create_message.txt', context)
-#
-#         user.email_user(subject, message)
-#         return redirect('user_create_done')
-
+class SignupView(generic.CreateView):
+    """登録機能"""
+    template_name = 'account/signup.html'
+    success_url = reverse_lazy('home')
 
 
 class SignupDoneView(generic.TemplateView):

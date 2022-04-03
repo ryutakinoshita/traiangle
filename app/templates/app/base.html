@@ -37,6 +37,13 @@
                 </div>
                      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" >
                          <ul class="navbar-nav">
+                             {% if user.is_authenticated %}
+                                 <p class="nav-link text-left" href="">ようこそ</p>
+                             {% else %}
+                                 <li class="nav-item">
+                                <a class="nav-link text-left" href="{% url 'login'%}">ログイン</a>
+                            </li>
+                             {% endif %}
                              <li class="nav-item">
                                 <a class="nav-link text-left" href="">ホーム</a>
                             </li>
@@ -47,28 +54,9 @@
                                 <a class="nav-link text-left" href="#">Likeした投稿</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-left" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ゲーム一覧
+                                <a class="nav-link text-left" href="{% url 'game_list'%}"aria-haspopup="true" aria-expanded="false">
+                                ゲームを探す
                                 </a>
-
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">Apex</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">fortnite</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">valorant</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">COD</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">League of Legends</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">Overwatch</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">Minecraft</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">原神</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">遊戯王マスターデュエル</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">The Sandbox</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">Axie Infinity</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">Crypto Spells</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">Sorare</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">My Crypto Heroes</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">PolkaFantasy</a>
-                                    <a class="dropdown-item" href="{% url 'game_list'%}">CryptoKitties</a>
-                                </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-left" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
