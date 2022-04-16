@@ -395,6 +395,6 @@ class GameListView(LoginRequiredMixin,generic.ListView):
 class GamePostView(generic.TemplateView):
     template_name = 'app/gamePost.html'
 
-    # def form_valid(self, form):
-    #     #     form.instance.listing_user =self.request.user
-    #     #     return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.post_user = self.request.user
+        return super().form_valid(form)
