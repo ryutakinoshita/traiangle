@@ -377,29 +377,24 @@ class GameListView(LoginRequiredMixin,generic.ListView):
     model = GameForm
     template_name = 'app/gameList.html'
     context_object_name = 'item_data'
-    # queryset = GameForm.objects.filter(status=1)
-
+    queryset = GameForm.objects.filter(games=1)
 
 
     # 検索
-    # def get_queryset(self):
-    #     q_word = self.request.GET.get('query')
-    #
-    #     if q_word:
-    #         object_list = GameForm.objects.filter(
-    #             Q(games__icontains=q_word)
-    #         )
-        # elif q_data:
-        #     object_list = GameForm.objects.filter(
-        #         Q(listing_price__lte=q_data)
-        #     )
-        # else:
-        #     object_list = GameForm.objects.filter(status=1).order_by('?')
-        # return object_list
+    def get_queryset(self):
+        q_word = self.request.GET.get('query')
+
+        if q_word:
+            object_list = GameForm.objects.filter(
+                Q(games__icontains=q_word)
+            )
+        else:
+            object_list = GameForm.objects.filter(games=1).order_by('?')
+        return object_list
 
 class GamePostView(generic.TemplateView):
     template_name = 'app/gamePost.html'
 
     # def form_valid(self, form):
-    #     form.instance.listing_user =self.request.user
-    #     return super().form_valid(form)
+    #     #     form.instance.listing_user =self.request.user
+    #     #     return super().form_valid(form)
