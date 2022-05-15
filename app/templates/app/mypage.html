@@ -1,0 +1,51 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block body %}
+<section>
+    <h2 class="text-center mt-5">マイページ設定</h2>
+    <div class="container-fluid mt-5 p-lg-5 bg-light w-50">
+        <div class="row justify-content-center">
+            <div>
+                <img src="../../../r0412.jpg">
+                <img src="../../r0412.jpg">
+            </div>
+            <div class="col-md-8 text-center">
+                <button type="button" class="btn btn-success mt-5">画像変更</button>
+            </div>
+            <div class="text-center mt-5">
+                <div class="mt-4 form-inline">
+                    <label class="font-weight-bold">アカウント名:</label>
+                    <div>くぼまさ</div>
+                </div>
+                <div class="mt-4 form-inline">
+                    <label class="font-weight-bold">ゲームジャンル:</label>
+                    <div>FPS</div>
+                </div>
+                <div class="mt-4 form-inline">
+                    <div class="font-weight-bold">評価</div>
+                    <div class="ratings"> <span class="product-rating">4.6</span><span>/5</span>
+                        <div class="stars"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                        <div class="rating-text"> <span>46 ratings & 15 reviews</span> </div>
+                    </div>
+                </div>
+                <div class="mt-4 form-inline">
+                    <label class="font-weight-bold">紹介文</label>
+                    <div></div>
+                </div>
+            </div>
+            <div class="col-md-8 mt-5 text-center">
+                <button class="btn btn-success">登録する</button>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="text-center mt-5">
+        <button class="btn btn-danger">HOMEへ戻る</button>
+        <button class="btn btn-success">変更を保存</button>
+    </div>
+-->
+</section>
+{% endblock body %}
