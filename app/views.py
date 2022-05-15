@@ -3,6 +3,8 @@ from django.core.mail import send_mail
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render, redirect
+
+from accounts.models import User
 from app.forms import ContactForm, ContactRestForm
 from app.models import Withdrawal, Contact,GameForm
 from listing.models import Listing
@@ -398,3 +400,9 @@ class GamePostView(generic.TemplateView):
     def form_valid(self, form):
         form.instance.post_user = self.request.user
         return super().form_valid(form)
+
+
+class MyPageDetailView(LoginRequiredMixin, generic.ListView):
+    """ユーザー情報確認"""
+    model = User
+    template_name = 'app/mypage.html'
