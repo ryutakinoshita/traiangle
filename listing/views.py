@@ -1,6 +1,5 @@
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import send_mail
-from django.core.signing import BadSignature, SignatureExpired, dumps, loads
 from django.shortcuts import redirect,render,get_object_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy

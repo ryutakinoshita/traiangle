@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     'django_cleanup.apps.CleanupConfig',
     'listing.apps.ListingConfig',
-    'accountsdetail.apps.AccountsdetailConfig',
     'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
