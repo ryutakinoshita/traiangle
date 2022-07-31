@@ -1,9 +1,8 @@
 from django.contrib import admin
-from app.models import StripeCustomer,Withdrawal
 
+from app.models import GameForm
 
+admin.site.register(GameForm)
 
-admin.site.register(StripeCustomer)
-admin.site.register(Withdrawal)
 
 

@@ -1,4 +1,6 @@
 from django import forms
+from django.forms import ModelForm
+
 from app.models import Withdrawal, Contact,GameForm
 
 
@@ -18,12 +20,12 @@ class ContactRestForm(forms.ModelForm):
             'contact_us','message',
         ]
 
-class PostGameForm(forms.ModelForm):
+class PostGameForm(ModelForm):
     class Meta:
         model = GameForm
-        fields = [
+        fields = (
             'games',
-        ]
+        )
 
 
 

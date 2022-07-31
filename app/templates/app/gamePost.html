@@ -1,13 +1,17 @@
 {% extends 'app/base.html' %}
+{% load widget_tweaks %}
 {% load static %}
-{% load humanize %}
+
 
 
 {% block body %}
-<seciton class="index mg_t50 mg_t70_sub">
-    <div>
-
-    </div>
-</seciton>
-
+    <section class="listing_create body_sub_auto">
+        <form class="listing_form" method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <div class="registration">
+                <table class="table m-0">{% render_field form.games class="listing_name_form" placeholder=""%}</table>
+            </div>
+           <button type="submit"　 class="btn btn-outline-success" id="post_button">投稿</button>
+        </form>
+    </section>
 {% endblock body %}
