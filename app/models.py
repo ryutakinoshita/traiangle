@@ -73,7 +73,9 @@ class Games(models.Model):
 
 class GameForm(models.Model):
     post_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title=models.CharField(max_length=30,blank=True,null=True)
     games=models.CharField(max_length=20,choices=Games.CHOICES,blank=False,null=False)
+    content=models.CharField(max_length=300,blank=True,null=True)
 
     def __str__(self):
         return self.games
