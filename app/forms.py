@@ -25,6 +25,8 @@ class PostGameForm(ModelForm):
         model = GameForm
         fields = (
             'games',
+            'title',
+            'content'
         )
 
 
