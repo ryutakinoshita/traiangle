@@ -10,7 +10,7 @@
         <label>投稿</label>
     </div>
 
-    <form class="create_post" id="post_create" method="post" action="{% url 'home' %}">
+    <form class="create_post" id="post_create" method="post" action="">
         {% csrf_token %}
 
     <div>
@@ -51,7 +51,7 @@
 
     </div>
 
-    <button type="button" class="btn btn-secondary btn-mg mx-auto d-block"  disabled>送信</button>
+    <button type="submit" class="btn btn-secondary btn-mg mx-auto d-block" >送信</button>
 
             <!--<label class="font-weight-bold">評価</label>
             <div class="d-flex justify-content-center">

@@ -25,7 +25,7 @@ urlpatterns=[
     path('help/', views.HelpView.as_view(), name='help'),
     path('help/store/', views.HelpStoreView.as_view(), name='help_store'),
     path('game/list/', views.GameListView.as_view(), name='game_list'),
-    path('game/post/', views.GamePostView.as_view(), name='game_post'),
+    path('game/post/<int:pk>/', views.GamePostView.as_view(), name='game_post'),
     path('my_page/', views.MyPageDetailView.as_view(), name='my_page'),
 
 ]

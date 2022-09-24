@@ -7,7 +7,6 @@ from django.shortcuts import render, redirect
 from accounts.models import User
 from app.forms import ContactForm, ContactRestForm, PostGameForm
 from app.models import Withdrawal, Contact,GameForm
-from listing.forms import ListingForm
 from listing.models import Listing
 from django.conf import settings
 from django.http.response import JsonResponse, HttpResponse
@@ -398,6 +397,7 @@ class GameListView(LoginRequiredMixin,generic.ListView):
 class GamePostView(LoginRequiredMixin,generic.CreateView):
     template_name = 'app/gamePost.html'
     form_class = PostGameForm
+    model = GameForm
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
